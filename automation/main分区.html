@@ -1,0 +1,448 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+	<style type="text/css">
+    table {
+		background-color: #FFF;
+		border: none;
+		color: #565;
+		font: 12px arial;
+		margin:0 auto; 
+        border-collapse:collapse;
+	}
+
+	table caption {
+		font-size: 24px;
+		border-bottom: 2px solid #B3DE94;
+		border-top: 2px solid #B3DE94;
+	}
+
+	table, td, th {
+		margin: 0;
+		padding: 0;
+		vertical-align: middle;
+		text-align:left;
+		
+	}
+	
+
+	table tr {
+		line-height: 25px;
+		border:1px solid #ccc;
+	}
+
+	table td {
+		border:0px solid #ccc;
+		text-align:center;
+	}
+	.MHover{
+		border:0px solid #ccc;
+		white-space:nowrap;
+		text-overflow:ellipsis;
+		overflow:hidden;
+		
+	}
+	
+	tbody td, tbody th {
+		background-color: #DFC;
+		border-bottom: 2px solid #B3DE94;
+		border-top: 3px solid #FFFFFF;
+		padding: 9px;
+	}
+
+
+	tfoot td, tfoot th {
+		font-weight: bold;
+		padding: 4px 8px 6px 9px;
+		text-align:center;
+	}
+
+	thead th {
+		font-size: 14px;
+		font-weight: bold;
+		line-height: 19px;
+		padding: 0 8px 2px;
+		text-align:center;
+	}
+
+	tbody tr.odd th,tbody tr.odd td { /*odd就是偶数行*/
+		background-color: #CEA;
+		border-bottom: 2px solid #67BD2A;
+	}
+
+	td+td+td, /*第三个td以及之后的td元素*/
+	col.price{ /*类样式*/
+		text-align:right;
+	}
+
+	tbody tr:hover td, tbody tr:hover th { /*tr也有hover样式*/
+		background-color: #8b7;
+		color:#fff;
+	}
+	
+	<!-- thead { -->
+        <!-- background:#CCCCCC; -->
+        <!-- display:block; -->
+    <!-- } -->
+	<!-- tbody { -->
+        <!-- height:650px;/*控制表哥显示列行数*/ -->
+        <!-- overflow-y:scroll; -->
+        <!-- display:block; -->
+    <!-- } -->
+	.table-wrapper {width:1560px;max-height:720px;}/*max-height控制表格外层显示列行数，滚动条显示*/
+	.table-wrapper table {
+	   table-layout: fixed;width: 100%;text-align: left;font-size: 10px;border: 1px solid pink;
+	}           
+	.table-wrapper table tbody{
+	   display: inline-block;width: 100%;overflow: auto;max-height:720px;/*max-height控制表格显示列行数，滚动条显示*/
+	}
+	.table-wrapper table tr{
+		display: inline-block;width: 100%;border-bottom: 1px solid #ddd;/*ddd;height控制表高度 height: 50px;line-height: 25px;*/
+	}
+	.table-wrapper table td, .table-wrapper table th {
+		display: inline-block;width: 150px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+	}
+	<!-- .table-wrapper table td:nth-child(1), .table-wrapper table th:nth-child(1) { -->
+		<!-- width: 30px; -->
+	<!-- }   -->
+	.colorGreen{
+		color: green;
+	}
+	.colorRed{
+		color: red;
+	}
+	.colorOrange{
+		color: orange;
+	}
+	.colorBlue{
+		color: blue;
+	}
+	.colorIndigo{
+		color: indigo;
+	}
+	
+	</style>
+    <script type="text/javascript" src="js/pagination.js"></script>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$(".MALL").hide();
+			$(".MHover").mouseover(function (e) {
+				$(this).next(".MALL").css({"position":"absolute","top":e.pageY-25,"left":e.pageX-25}).show();
+			});
+			$(".MHover").mousemove(function (e) {
+				$(this).next(".MALL").css({ "color": "faf", "position": "absolute", "opacity": "1", "background-color": "aa6", "top": e.pageY - 25, "left": e.pageX - 25 });
+			});
+			$(".MHover").mouseout(function () {
+				$(this).next(".MALL").hide();
+			});
+		});
+	</script>
+    <script type="text/javascript">
+        //全局变量
+        var numCount;       //数据总数量
+        var columnsCounts;  //数据列数量
+        var pageCount;      //每页显示的数量
+        var pageNum;        //总页数
+        var currPageNum ;   //当前页数
+
+        //页面标签变量
+        var blockTable;
+        var preSpan;
+        var firstSpan;
+        var nextSpan;
+        var lastSpan;
+        var pageNumSpan;
+		var totalcase;
+        var currPageSpan;
+		
+		
+
+        window.onload=function(){
+            //页面标签变量
+            blockTable = document.getElementById("blocks");
+            preSpan = document.getElementById("spanPre");
+            firstSpan = document.getElementById("spanFirst");
+            nextSpan = document.getElementById("spanNext");
+            lastSpan = document.getElementById("spanLast");
+            pageNumSpan = document.getElementById("spanTotalPage");
+			totalcase = document.getElementById("spanTotalcase");
+            currPageSpan = document.getElementById("spanPageNum");
+			
+			
+
+            <!-- numCount = document.getElementById("blocks").rows.length - 1;       //取table的行数作为数据总数量（减去标题行1） -->
+            <!-- var mainlist=localStorage.getItem('mainlist'); -->
+			var mainlist=JSON.parse(localStorage.getItem('mainlist'));
+			console.log(mainlist);
+			numCount = mainlist.length;       //取table的行数作为数据总数量（减去标题行1）
+			console.log(numCount);
+			
+			var stre = document.cookie;
+			var pageCountobj=stre.match(/pageCount=\d+/);
+			if(typeof pageCountobj == "undefined" || pageCountobj == null || pageCountobj == ""){
+				pageCount = 14;
+			}else{
+				var pagestr=JSON.stringify(pageCountobj);
+			
+				pageCount = pagestr.match(/\d+/);
+			}
+			
+            columnsCounts = blockTable.rows[0].cells.length;
+            
+            pageNum = parseInt(numCount/pageCount);
+            if(0 != numCount%pageCount){
+                pageNum += 1;
+            }
+
+            firstPage();
+        };
+		
+		function paging(){
+			event.stopPropagation();
+			document.cookie="pageCount=14"; 
+			
+			location.reload();
+		}
+		
+		function showall(){
+			event.stopPropagation();
+			var numb=document.getElementById("blocks").rows.length - 1;
+			document.cookie="pageCount="+numb; 
+			
+			location.reload();
+		}
+		function chk(){
+            var all = document.getElementById("all");
+            var mychk = document.getElementsByName("mychk");
+            <!-- alert("mychk长度=="+mychk.length); -->
+            if(all.checked==true){
+                <!-- alert("all.checked==true全选"); -->
+                if(mychk.length){
+                    for(var i=0;i<mychk.length;i++){
+                        mychk[i].checked = true;
+                    }
+                
+                }
+                mychk.chcked=true;
+            }else{
+                <!-- alert("all.checked==false全不选"); -->
+                if(mychk.length){
+                    for(var i=0;i<mychk.length;i++){
+                        mychk[i].checked = false;
+                    }
+                
+                }
+            }
+            
+        }   
+    </script>
+</head>
+<body >
+<div class="table-wrapper">
+    <table id="blocks" class="table table-bordered table-striped" style="margin-top:25px">
+        <thead >
+				
+				<th  style="text-align:center;" ><input type="checkbox" id="all" name="all" align="center" onclick="chk()" >用例编号</th>
+				<th  style="text-align:center;">用例名称</th>
+				<th  style="text-align:center;">开始测试时间</th>
+				
+				<th  style="text-align:center;">结束测试时间</th>
+				<th  style="text-align:center;">测试结果</th>
+				<th  style="text-align:center;">测试日志</th>
+				<!-- <th align="center">报告详情</th> -->
+				<th  style="text-align:center;" >操作</th>
+				<th  style="text-align:center;">测试工具</th>
+				<th  style="text-align:center;">备注</th>
+			
+        </thead>
+		<tbody id="tbody" >
+			<input type="hidden" name="prefix" id="prefix" value={{prefix}} />
+			<!-- 这个 each注释不能删，不知道为什么 -->
+			<!-- <div>{{mainlist}}</div> -->
+			
+			
+		</tbody>
+    </table>
+
+    <div id="pagiDiv" align="right" style="width:1200px">
+        <span id="spanFirst">首页</span>&nbsp;&nbsp;
+        <span id="spanPre">上一页</span>&nbsp;&nbsp;
+        <span id="spanNext">下一页</span>&nbsp;&nbsp;
+        <span id="spanLast">尾页</span>&nbsp;&nbsp;第&nbsp;
+		<span id="spanPageNum"></span>&nbsp;页/共&nbsp;
+		<span id="spanTotalPage"></span>&nbsp;页/共&nbsp;
+		<span id="spanTotalcase"></span>&nbsp;用例&nbsp;
+		<span id="paging" onclick="paging()"  style="color:#F00">分页显示</span>&nbsp;&nbsp;
+		<span id="showall" onclick="showall()"  style="color:#F00">全部显示</span>&nbsp;
+    </div>
+
+</div>
+<!-- 引入template文件-用于模版渲染 -->
+<script type="text/javascript" src="js/template.js"></script>
+
+<script>
+function updatenodes(id){
+
+	var text = document.getElementById('text'+id).innerHTML;
+	
+	var json=JSON.stringify({"id" : id,"notes" : text});
+	
+	
+	var xhr1 = new XMLHttpRequest;
+	xhr1.open('post', 'updatenote.php');
+	xhr1.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+	xhr1.send(json);
+
+	xhr1.onreadystatechange = function() {
+		if(xhr1.readyState == 4 && (xhr1.status == 200 || xhr1.status ==304)) { //响应完成并且响应码为200或304
+			var projectid=localStorage.getItem('projectid');
+			
+			<!-- parent.initialization(projectid); -->
+			parent.getcaselist(projectid);
+			
+		}
+	};
+	
+}
+
+function updaterecords(id){
+	//定位id 
+	
+	var environment = window.parent.document.getElementById("top").contentWindow.document.getElementById("environment").value;
+	
+	
+    if (environment == "" || environment == null || environment == undefined) { // 只能用 === 运算来测试某个值是否是未定义的
+        alert("初始化前请选择执行环境");
+        return 0
+    }
+	var objss = JSON.parse(localStorage.getItem('obj'));
+	var obj1=objss.environmentalall;
+	var obj=obj1[0];
+	var table=obj[environment];
+	
+	var json=JSON.stringify({"id" : id,"table" : table});
+	
+	var xhr1 = new XMLHttpRequest;
+	xhr1.open('post', 'updaterecords.php');
+	xhr1.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+	xhr1.send(json);
+
+	xhr1.onreadystatechange = function() {
+		if(xhr1.readyState == 4 && (xhr1.status == 200 || xhr1.status ==304)) { //响应完成并且响应码为200或304
+			var projectid=localStorage.getItem('projectid');
+			parent.getcaselist(projectid);
+			<!-- parent.initialization(projectid); -->
+			
+		}
+	};
+	elem.style.display = '';
+}
+
+	
+</script>
+<!-- 引入json文件-数据源(就是从数据库查询出来的数据) -->
+<script>
+	
+	var stringData=localStorage.getItem('caseobj');
+	if(stringData.search('{"state":"empty"}') != -1) {
+		stringData='{"state":"empty"}';
+		<!-- var maindate = JSON.parse(stringData); -->
+	}
+	var flag=false;
+	var mainstr='';
+	
+	try {
+		
+		var maindate = JSON.parse(stringData);
+		
+
+	} catch(e) {
+		
+		
+		var regex3 = /\{(.+?\[.+?\])\}/g;
+		var ss=stringData.match(regex3);
+		<!-- console.log(ss[0]); -->
+		var maindate = JSON.parse(ss[0]);
+		
+	} finally{
+		// 指定template渲染范围
+		if(maindate['mainlist'] != undefined) {
+			
+			var i=0;
+			for (var item of maindate['mainlist']) {
+				i++;
+				var data='';
+				var reslut='';
+				data='<tr id="casetr">\
+				\r\n<th style="text-align:center;" width="6%">'+i+'&nbsp;&nbsp;<img src="images/reexecution.jpg" style="CURSOR: hand" align="center" width="10%" onclick=\'updaterecords('+item['Case_numbe']+');\'><input type="checkbox" id="mychk" name="mychk" align="center"  value='+item['Case_numbe']+' >'+item['Case_numbe']+'</th>\
+				\r\n<th  style="text-align:left;" width="25%" >\
+				    \r\n<div class="MHover">'+item['Case_name']+'</div>\
+					\r\n<div class="MALL">'+item['Case_name']+'</div>\
+				\r\n</th>\
+				\r\n<th  style="text-align:center;" width="10%" height="25px">\
+					\r\n'+item['startime']+'\
+				\r\n</th>\
+				\r\n<th  style="text-align:center;" width="10%" height="25px">\
+					\r\n'+item['endtime']+'\
+				\r\n</th>\
+				\r\n<th style="text-align:center;" width="5%">';
+				if(item['Test_result']=="p") {
+					data+='\r\n<span class="colorGreen">pass</span>';
+					reslut='\r\n<img id='+item['Case_numbe']+' src="images/pass.gif" align="center" width="10%" >\
+					\r\n<span id=\'span'+item['Case_numbe']+'\' class="colorBlue">已执行</span>';
+				} else if (item['Test_result']=="P") {
+					data+='\r\n<span class="colorGreen">pass</span>';
+					reslut='\r\n<img id='+item['Case_numbe']+' src="images/pass.gif" align="center" width="10%" >\
+					\r\n<span id=\'span'+item['Case_numbe']+'\' class="colorBlue">已执行</span>';
+				} else if (item['Test_result']=="f") {
+					data+='\r\n<span class="colorRed">fail</span>';
+					reslut='\r\n<img id='+item['Case_numbe']+' src="images/faill.gif" align="center" width="10%" >\
+					\r\n<span id=\'span'+item['Case_numbe']+'\' class="colorBlue">已执行</span>';
+				} else if (item['Test_result']=="F") { 
+					data+='\r\n<span class="colorRed">fail</span>';
+					reslut='\r\n<img id='+item['Case_numbe']+' src="images/faill.gif" align="center" width="10%" >\
+					\r\n<span id=\'span'+item['Case_numbe']+'\' class="colorBlue">已执行</span>';
+				} else {
+					data+='\r\n<span class="colorOrange">not run</span>';
+					reslut='\r\n<img id='+item['Case_numbe']+' src="images/notrun.gif" align="center" width="10%" >\
+					\r\n<span id=\'span'+item['Case_numbe']+'\' class="colorBlue">未执行</span>';
+				}
+					
+				data+='\r\n</th>\
+				\r\n<th style="text-align:center;" width="5%">\
+					\r\n<a href="'+item['log']+'&title='+item['Case_name']+'" target="_blank">详情</a>\
+				\r\n</th>\
+				\r\n<th style="text-align:center;" width="6%" >';
+				data+=reslut+'\
+				\r\n</th>\
+				\r\n<th  style="text-align:center;" width="5%">\
+					\r\n'+item['tooltype']+'\
+				\r\n</th>\
+				\r\n<th style="text-align:center;" width="10%" height="25px">\
+					\r\n<div contenteditable="true" id=\'text'+item['id']+'\' width="30%" class="placeholder">'+item['notes']+'</div>\
+					\r\n<input type="button" value="修改" width="30%" onclick=\'updatenodes('+item['id']+');\' />\
+				\r\n</th>\
+				\r\n</tr>\r\n';
+				mainstr+=data;
+				if(i==14) {
+					break;
+				}
+			}
+			<!-- maindate['mainlist']=mainstr; -->
+			localStorage.setItem('mainlist', JSON.stringify(maindate['mainlist']));
+			document.getElementById('tbody').innerHTML = mainstr;
+			
+		}
+		
+		var html = template('blocks', maindate);
+		
+		document.getElementById('blocks').innerHTML = html;
+		
+	}
+</script>
+<script type="text/javascript" src="js/sort.js"></script>
+</body>
+</html>

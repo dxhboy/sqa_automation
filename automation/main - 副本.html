@@ -1,0 +1,355 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+	<style type="text/css">
+    body{
+    }
+    table .table-striped{
+    }
+    table th{
+        text-align: left;
+        height: 30px;
+        background: #deeeee;
+        padding: 5px;
+        margin: 0;
+        border: 0px;
+    }
+    table td{
+        text-align: left;
+        height:30px;
+        margin: 0;
+        padding: 5px;
+        border:0px
+    }
+    table tr:hover{
+        background: #eeeeee;
+    }
+    .span6{
+        /*width:500px;*/
+        float:inherit;
+        margin:10px;
+    }
+    #pagiDiv span{
+        background:#1e90ff;
+        border-radius: .2em;
+        padding:5px;
+    }
+	.colorGreen{
+		color: green;
+	}
+	.colorRed{
+		color: red;
+	}
+	.colorOrange{
+		color: orange;
+	}
+	.colorBlue{
+		color: blue;
+	}
+	.colorIndigo{
+		color: indigo;
+	}
+</style>
+    <script type="text/javascript" src="js/pagination.js"></script>
+   
+    <script type="text/javascript">
+        //全局变量
+        var numCount;       //数据总数量
+        var columnsCounts;  //数据列数量
+        var pageCount;      //每页显示的数量
+        var pageNum;        //总页数
+        var currPageNum ;   //当前页数
+
+        //页面标签变量
+        var blockTable;
+        var preSpan;
+        var firstSpan;
+        var nextSpan;
+        var lastSpan;
+        var pageNumSpan;
+		var totalcase;
+        var currPageSpan;
+		
+		
+		
+
+        window.onload=function(){
+            //页面标签变量
+            blockTable = document.getElementById("blocks");
+            preSpan = document.getElementById("spanPre");
+            firstSpan = document.getElementById("spanFirst");
+            nextSpan = document.getElementById("spanNext");
+            lastSpan = document.getElementById("spanLast");
+            pageNumSpan = document.getElementById("spanTotalPage");
+			totalcase = document.getElementById("spanTotalcase");
+            currPageSpan = document.getElementById("spanPageNum");
+			
+			
+
+            numCount = document.getElementById("blocks").rows.length - 1;       //取table的行数作为数据总数量（减去标题行1）
+            
+			
+			
+			var stre = document.cookie;
+			var pageCountobj=stre.match(/pageCount=\d+/);
+			if(typeof pageCountobj == "undefined" || pageCountobj == null || pageCountobj == ""){
+				pageCount = 15;
+			}else{
+				var pagestr=JSON.stringify(pageCountobj);
+			
+				pageCount = pagestr.match(/\d+/);
+			}
+			
+            columnsCounts = blockTable.rows[0].cells.length;
+            
+            pageNum = parseInt(numCount/pageCount);
+            if(0 != numCount%pageCount){
+                pageNum += 1;
+            }
+
+            firstPage();
+        };
+		
+		function paging(){
+			event.stopPropagation();
+			document.cookie="pageCount=15"; 
+			
+			location.reload();
+		}
+		
+		function showall(){
+			event.stopPropagation();
+			var numb=document.getElementById("blocks").rows.length - 1;
+			document.cookie="pageCount="+numb; 
+			
+			location.reload();
+		}
+		function chk(){
+            var all = document.getElementById("all");
+            var mychk = document.getElementsByName("mychk");
+            <!-- alert("mychk长度=="+mychk.length); -->
+            if(all.checked==true){
+                <!-- alert("all.checked==true全选"); -->
+                if(mychk.length){
+                    for(var i=0;i<mychk.length;i++){
+                        mychk[i].checked = true;
+                    }
+                
+                }
+                mychk.chcked=true;
+            }else{
+                <!-- alert("all.checked==false全不选"); -->
+                if(mychk.length){
+                    for(var i=0;i<mychk.length;i++){
+                        mychk[i].checked = false;
+                    }
+                
+                }
+            }
+            
+        }   
+    </script>
+</head>
+<body >
+<div class="container" >
+    <table id="blocks" class="table table-striped" style="margin-top:25px">
+        <tr>
+			<th style="text-align:center;" ><input type="checkbox" id="all" name="all" align="center" onclick="chk()" >用例编号</th>
+			<th style="text-align:center;">用例名称</th>
+            <th style="text-align:center;">开始测试时间</th>
+			
+			<th style="text-align:center;">结束测试时间</th>
+			<th style="text-align:center;">测试结果</th>
+            <th style="text-align:center;">测试日志</th>
+			<!-- <th align="center">报告详情</th> -->
+			<th style="text-align:center;" >操作</th>
+			<th style="text-align:center;">测试工具</th>
+			<th style="text-align:center;">备注</th>
+			
+        </tr>
+		<input type="hidden" name="prefix" id="prefix" value={{prefix}} />
+		<!-- 这个 each注释不能删，不知道为什么 -->
+		<!-- {{each mainlist as item}} -->
+		<tr id="casetr">
+			
+			<th style="text-align:center;" width="6%"><img src="images/reexecution.jpg" style="CURSOR: hand" align="center" width="20%" onclick='updaterecords({{item.Case_numbe}});'><input type="checkbox" id="mychk" name="mychk" align="center"  value={{item.Case_numbe}} >{{item.Case_numbe}}</th>				
+			
+			<th  style="text-align:left;" width="25%">
+				{{item.Case_name}}
+			</th>
+			<th  style="text-align:center;" width="10%">
+				{{item.startime}}
+			</th>
+			<th  style="text-align:center;" width="10%">
+				{{item.endtime}}
+			</th>
+			<th style="text-align:center;" width="5%">
+				{{if item.Test_result=="P"}}  
+					<span class="colorGreen">pass</span>
+				{{else if item.Test_result=="p"}}  
+					<span class="colorGreen">pass</span>
+				{{else if item.Test_result=="f"}}  
+					<span class="colorRed">fail</span>
+				{{else if item.Test_result=="F"}}  
+					<span class="colorRed">fail</span>
+				{{else}}  
+					<span class="colorOrange">not run</span> 
+				{{/if}}
+			</th>
+			
+			<th style="text-align:center;" width="5%">
+				<a href="{{item.log}}&title={{item.Case_name}}" target="_blank">详情</a>
+			</th>
+			
+			<!-- <th align="center" width="5%"> -->
+				<!-- <a href="{{item.Detail}}">报告</a> -->
+			<!-- </th> -->
+			<!-- <th align="center" width="5%"> -->
+				<!-- <a href="./log.php?data=20190604&file=SAEGW_201010_01.txt"  target="_blank">报告</a> -->
+			<!-- </th> -->
+			
+			<th style="text-align:center;" width="6%" >
+				{{if item.Test_result=="P"}}  
+					<img id={{item.Case_numbe}} src="images/pass.gif" align="center" width="22%" >
+					<span id='span{{item.Case_numbe}}' class="colorBlue">已执行</span> 
+				{{else if item.Test_result=="p"}}  
+					<img id={{item.Case_numbe}} src="images/pass.gif" align="center" width="22%" >
+					<span id='span{{item.Case_numbe}}' class="colorBlue">已执行</span> 
+				{{else if item.Test_result=="f"}}  
+					<img id={{item.Case_numbe}} src="images/faill.gif" align="center" width="22%" >
+					<span id='span{{item.Case_numbe}}' class="colorBlue">已执行</span>
+				{{else if item.Test_result=="F"}}  
+					<img id={{item.Case_numbe}} src="images/faill.gif" align="center" width="22%" >
+					<span id='span{{item.Case_numbe}}' class="colorBlue">已执行</span>
+				{{else}}  
+					<img id={{item.Case_numbe}} src="images/notrun.gif" align="center" width="22%" >
+					<span id='span{{item.Case_numbe}}' class="colorOrange">未执行</span>
+				{{/if}}
+			</th> 
+				
+				
+			<th  style="text-align:center;" width="5%">
+				{{item.tooltype}}
+			</th>
+			<th style="text-align:center;" width="15%">
+				<div contenteditable="true" id='text{{item.id}}' class="placeholder">{{item.notes}}</div>
+				<input type="button" value="修改" onclick='updatenodes({{item.id}});' />
+			</th>
+			
+			
+		</tr>
+		<!-- {{/each}} -->
+
+    </table>
+
+    <div id="pagiDiv" align="right" style="width:1200px">
+        <span id="spanFirst">第一页</span>&nbsp;&nbsp;
+        <span id="spanPre">上一页</span>&nbsp;&nbsp;
+        <span id="spanNext">下一页</span>&nbsp;&nbsp;
+        <span id="spanLast">最后一页</span>&nbsp;&nbsp;第&nbsp;
+		<span id="spanPageNum"></span>&nbsp;页/共&nbsp;
+		<span id="spanTotalPage"></span>&nbsp;页/共&nbsp;
+		<span id="spanTotalcase"></span>&nbsp;用例&nbsp;
+		<span id="paging" onclick="paging()"  style="color:#F00">分页显示</span>&nbsp;&nbsp;
+		<span id="showall" onclick="showall()"  style="color:#F00">全部显示</span>&nbsp;
+    </div>
+
+</div>
+<!-- 引入template文件-用于模版渲染 -->
+<script type="text/javascript" src="js/template.js"></script>
+
+<script>
+function updatenodes(id){
+
+	var text = document.getElementById('text'+id).innerHTML;
+	
+	var json=JSON.stringify({"id" : id,"notes" : text});
+	
+	
+	var xhr1 = new XMLHttpRequest;
+	xhr1.open('post', 'updatenote.php');
+	xhr1.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+	xhr1.send(json);
+
+	xhr1.onreadystatechange = function() {
+		if(xhr1.readyState == 4 && (xhr1.status == 200 || xhr1.status ==304)) { //响应完成并且响应码为200或304
+			var projectid=localStorage.getItem('projectid');
+			
+			<!-- parent.initialization(projectid); -->
+			parent.getcaselist(projectid);
+			
+		}
+	};
+	
+}
+
+function updaterecords(id){
+	//定位id 
+	
+	var environment = window.parent.document.getElementById("top").contentWindow.document.getElementById("environment").value;
+	
+	
+    if (environment == "" || environment == null || environment == undefined) { // 只能用 === 运算来测试某个值是否是未定义的
+        alert("初始化前请选择执行环境");
+        return 0
+    }
+	var objss = JSON.parse(localStorage.getItem('obj'));
+	var obj1=objss.environmentalall;
+	var obj=obj1[0];
+	var table=obj[environment];
+	
+	var json=JSON.stringify({"id" : id,"table" : table});
+	
+	var xhr1 = new XMLHttpRequest;
+	xhr1.open('post', 'updaterecords.php');
+	xhr1.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+	xhr1.send(json);
+
+	xhr1.onreadystatechange = function() {
+		if(xhr1.readyState == 4 && (xhr1.status == 200 || xhr1.status ==304)) { //响应完成并且响应码为200或304
+			var projectid=localStorage.getItem('projectid');
+			parent.getcaselist(projectid);
+			<!-- parent.initialization(projectid); -->
+			
+		}
+	};
+	
+}
+
+	
+</script>
+<!-- 引入json文件-数据源(就是从数据库查询出来的数据) -->
+<script>
+	
+	var stringData=localStorage.getItem('caseobj');
+	if(stringData.search('{"state":"empty"}') != -1) {
+		stringData='{"state":"empty"}';
+		<!-- var maindate = JSON.parse(stringData); -->
+	}
+	var flag=false;
+	
+	
+	try {
+		
+		var maindate = JSON.parse(stringData);
+		
+
+	} catch(e) {
+		
+		
+		var regex3 = /\{(.+?\[.+?\])\}/g;
+		var ss=stringData.match(regex3);
+		<!-- console.log(ss[0]); -->
+		var maindate = JSON.parse(ss[0]);
+		
+	} finally{
+		// 指定template渲染范围
+		var html = template('blocks', maindate);
+		document.getElementById('blocks').innerHTML = html;
+		
+	}
+</script>
+</body>
+</html>

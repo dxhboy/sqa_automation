@@ -1,0 +1,1239 @@
+##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### 
+# AutoApp    v15.1009
+# Harness:   root@tclserver8
+# Date:      02/20/2020 11:44:28 PM
+# Script:    /public/casa-493/test/mmenew.test
+# Eth0 IP:   0.0.0.0
+# Loopback:  
+# Image:     
+# Descript:  
+# Config:    /public/casa-493/test/Config/ldq_ixia_mme_245_ixiahss_testlink.tcf
+# Log File:  /public/casa-493/test/Log/mmenew_26728-00.txt
+##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### 
+
+Info(Include): Installed package casaSAEGW v1.0
+numc=1 NUM_MME=2
+numc=2 NUM_MME=2
+Info(Include): Installed package casaMME v1.0
+TRACE(MME::Main) : Calledby RunTest
+Info(Include): Installed package casaExcel v1.0
+Info(Include): Installed package casaLandslide v1.0
+
+STEP(23:44:28): START Step 1: 1.Get the Excel list;
+STEP(23:44:28): RESULT=PASS  Step 1: 1.Get the Excel list;
+
+STEP(23:44:28): START Step 2: 2.Get a list of use cases;
+STEP(23:44:28): RESULT=PASS  Step 2: 2.Get a list of use cases;
+Info(Include): Installed package casaCmd v9.0
+Info(Include): Installed package casaSeGW v1.0
+Info(Include): Installed package casaHenbGW v1.0
+Info(Include): Installed package casaIxia v1.0
+numc=1 NUM_MME=2
+numc=2 NUM_MME=2
+Info(Include): Installed package casaMME v1.0
+Info(Include): Installed package casaPlatform v1.0
+     TRACE(StartMmeTest)	 Calledby ::MME::Main 
+
+
+=================================== 23:44:29 ===================================
+=== ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no 172.0.14.245
+=== root@172.0.14.245's password: 
+=== Welcome to Ubuntu 14.04.6 LTS (GNU/Linux 3.19.0-25-generic x86_64)
+=== 
+===  * Documentation:  https://help.ubuntu.com/
+=== 
+===   System information as of Thu Feb 20 15:43:33 UTC 2020
+=== 
+===   System load:  3.21               Users logged in:        1
+===   Usage of /:   38.6% of 23.38GB   IP address for eth0:    172.0.14.245
+===   Memory usage: 52%                IP address for docker0: 172.17.42.1
+===   Swap usage:   0%                 IP address for dp_0_1:  172.1.14.245
+===   Processes:    256
+=== 
+===   Graph this data and manage this system at:
+===     https://landscape.canonical.com/
+=== 
+===   Get cloud support with Ubuntu Advantage Cloud Guest:
+===     http://www.ubuntu.com/business/services/cloud
+=== 
+=== 9 updates can be installed immediately.
+=== 1 of these updates is a security update.
+=== 
+=== New release '16.04.6 LTS' available.
+=== Run 'do-release-upgrade' to upgrade to it.
+=== 
+=== 
+=== WARNING: Security updates for your current Hardware Enablement Stack
+=== ended on 2016-08-04:
+===  * http://wiki.ubuntu.com/1404_HWE_EOL
+=== 
+=== The following packages are no longer supported:
+===  linux-image-extra-3.19.0-25-generic linux-image-3.19.0-25-generic
+=== 
+=== Please upgrade them to a supported HWE stack or remove them if you
+=== no longer need them.
+=== 
+=== 
+=== Last login: Thu Feb 20 15:43:35 2020 from 172.0.11.88
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# su casa
+=== 
+=== ===================================
+=== Welcome to CASA MEC x86 Platform
+=== ===================================
+=== CLI services started!
+=== WARNING: CPU Config - Available cores only 0 out of 2 for task mepmgr
+=== CASA-MOBILE>
+=== CASA-MOBILE>en
+=== Password: 
+=== CASA-MOBILE#
+=== CASA-MOBILE#show task crash
+=== Number  Task             Crash-Time                Exit-Code     Exit-Reason     Core-file
+=== ==========================================================================================
+=== Total 0 crash records
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+STEP(23:44:33): START Step 3: SSH to MME linux
+TRACE(Ssh_Retry) Calledby ::DEALEXCEL::Ssh_Server_Linux
+
+=================================== 23:44:33 ===================================
+=== ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no 172.0.14.245
+=== root@172.0.14.245's password: 
+=== Welcome to Ubuntu 14.04.6 LTS (GNU/Linux 3.19.0-25-generic x86_64)
+=== 
+===  * Documentation:  https://help.ubuntu.com/
+=== 
+===   System information as of Thu Feb 20 15:44:29 UTC 2020
+=== 
+===   System load:  3.16               Users logged in:        1
+===   Usage of /:   38.6% of 23.38GB   IP address for eth0:    172.0.14.245
+===   Memory usage: 51%                IP address for docker0: 172.17.42.1
+===   Swap usage:   0%                 IP address for dp_0_1:  172.1.14.245
+===   Processes:    252
+=== 
+===   Graph this data and manage this system at:
+===     https://landscape.canonical.com/
+=== 
+===   Get cloud support with Ubuntu Advantage Cloud Guest:
+===     http://www.ubuntu.com/business/services/cloud
+=== 
+=== 9 updates can be installed immediately.
+=== 1 of these updates is a security update.
+=== 
+=== New release '16.04.6 LTS' available.
+=== Run 'do-release-upgrade' to upgrade to it.
+=== 
+=== 
+=== WARNING: Security updates for your current Hardware Enablement Stack
+=== ended on 2016-08-04:
+===  * http://wiki.ubuntu.com/1404_HWE_EOL
+=== 
+=== The following packages are no longer supported:
+===  linux-image-extra-3.19.0-25-generic linux-image-3.19.0-25-generic
+=== 
+=== Please upgrade them to a supported HWE stack or remove them if you
+=== no longer need them.
+=== 
+=== 
+=== Last login: Thu Feb 20 15:44:30 2020 from 172.0.11.88
+=== root@CASA-MOBILE:~# page-off
+=== page-off: command not found
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+================================================================================
+
+!!Success(DEALEXCEL::Ssh_Server_Linux): Ssh 172.0.14.245 Success fd: ::DEALEXCEL::Linux_Spawn_Id(SPAWN_ID_MME_Linux_1)=exp7
+TRACE(Ssh_Retry) Calledby ::DEALEXCEL::Ssh_Server_Linux
+
+=================================== 23:44:37 ===================================
+=== ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no 172.0.14.49
+=== root@172.0.14.49's password: 
+=== Welcome to Ubuntu 14.04.6 LTS (GNU/Linux 3.19.0-25-generic x86_64)
+=== 
+===  * Documentation:  https://help.ubuntu.com/
+=== 
+===   System information as of Thu Feb 20 23:36:05 CST 2020
+=== 
+===   System load:  3.16               Users logged in:        1
+===   Usage of /:   32.1% of 23.38GB   IP address for eth0:    172.0.14.49
+===   Memory usage: 52%                IP address for docker0: 172.17.42.1
+===   Swap usage:   0%                 IP address for dp_0_1:  172.1.14.49
+===   Processes:    249                IP address for lo10:    10.10.10.49
+=== 
+===   Graph this data and manage this system at:
+===     https://landscape.canonical.com/
+=== 
+===   Get cloud support with Ubuntu Advantage Cloud Guest:
+===     http://www.ubuntu.com/business/services/cloud
+=== 
+=== 10 updates can be installed immediately.
+=== 1 of these updates is a security update.
+=== 
+=== New release '16.04.6 LTS' available.
+=== Run 'do-release-upgrade' to upgrade to it.
+=== 
+=== 
+=== WARNING: Security updates for your current Hardware Enablement Stack
+=== ended on 2016-08-04:
+===  * http://wiki.ubuntu.com/1404_HWE_EOL
+=== 
+=== The following packages are no longer supported:
+===  linux-image-3.19.0-25-generic linux-image-extra-3.19.0-25-generic
+=== 
+=== Please upgrade them to a supported HWE stack or remove them if you
+=== no longer need them.
+=== 
+=== 
+=== Last login: Thu Feb 20 23:36:05 2020 from 172.0.11.88
+=== root@CASA-MOBILE:~# page-off
+=== page-off: command not found
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+================================================================================
+
+!!Success(DEALEXCEL::Ssh_Server_Linux): Ssh 172.0.14.49 Success fd: ::DEALEXCEL::Linux_Spawn_Id(SPAWN_ID_MME_Linux_2)=exp8
+STEP(23:44:40): RESULT=PASS  Step 3: SSH to MME linux
+
+STEP(23:44:40): START Step 4: 3.SSH to MME as casa and log into enable mode;
+
+=================================== 23:44:40 ===================================
+=== ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no  172.0.14.245
+=== root@172.0.14.245's password: 
+=== Welcome to Ubuntu 14.04.6 LTS (GNU/Linux 3.19.0-25-generic x86_64)
+=== 
+===  * Documentation:  https://help.ubuntu.com/
+=== 
+===   System information as of Thu Feb 20 15:44:33 UTC 2020
+=== 
+===   System load:  3.15               Users logged in:        1
+===   Usage of /:   38.6% of 23.38GB   IP address for eth0:    172.0.14.245
+===   Memory usage: 51%                IP address for docker0: 172.17.42.1
+===   Swap usage:   0%                 IP address for dp_0_1:  172.1.14.245
+===   Processes:    252
+=== 
+===   Graph this data and manage this system at:
+===     https://landscape.canonical.com/
+=== 
+===   Get cloud support with Ubuntu Advantage Cloud Guest:
+===     http://www.ubuntu.com/business/services/cloud
+=== 
+=== 9 updates can be installed immediately.
+=== 1 of these updates is a security update.
+=== 
+=== New release '16.04.6 LTS' available.
+=== Run 'do-release-upgrade' to upgrade to it.
+=== 
+=== 
+=== WARNING: Security updates for your current Hardware Enablement Stack
+=== ended on 2016-08-04:
+===  * http://wiki.ubuntu.com/1404_HWE_EOL
+=== 
+=== The following packages are no longer supported:
+===  linux-image-extra-3.19.0-25-generic linux-image-3.19.0-25-generic
+=== 
+=== Please upgrade them to a supported HWE stack or remove them if you
+=== no longer need them.
+=== 
+=== 
+=== Last login: Thu Feb 20 15:44:35 2020 from 172.0.11.88
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+================================================================================
+
+!!Success(MME::LOGIN_MME_SERVER): Ssh  172.0.14.245 Success fd=exp9
+
+=================================== 23:44:45 ===================================
+=== su casa
+=== 
+=== ===================================
+=== Welcome to CASA MEC x86 Platform
+=== ===================================
+=== CLI services started!
+=== WARNING: CPU Config - Available cores only 0 out of 2 for task mepmgr
+=== CASA-MOBILE>
+=== CASA-MOBILE>en
+=== Password: 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+!!Success(MME::LOGIN_MME_SERVER): enter CASA-MOBILE Success!!!
+
+=================================== 23:44:45 ===================================
+=== ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no 172.0.14.49
+=== root@172.0.14.49's password: 
+=== Welcome to Ubuntu 14.04.6 LTS (GNU/Linux 3.19.0-25-generic x86_64)
+=== 
+===  * Documentation:  https://help.ubuntu.com/
+=== 
+===   System information as of Thu Feb 20 23:44:37 CST 2020
+=== 
+===   System load:  3.18               Users logged in:        1
+===   Usage of /:   32.1% of 23.38GB   IP address for eth0:    172.0.14.49
+===   Memory usage: 52%                IP address for docker0: 172.17.42.1
+===   Swap usage:   0%                 IP address for dp_0_1:  172.1.14.49
+===   Processes:    247                IP address for lo10:    10.10.10.49
+=== 
+===   Graph this data and manage this system at:
+===     https://landscape.canonical.com/
+=== 
+===   Get cloud support with Ubuntu Advantage Cloud Guest:
+===     http://www.ubuntu.com/business/services/cloud
+=== 
+=== 10 updates can be installed immediately.
+=== 1 of these updates is a security update.
+=== 
+=== New release '16.04.6 LTS' available.
+=== Run 'do-release-upgrade' to upgrade to it.
+=== 
+=== 
+=== WARNING: Security updates for your current Hardware Enablement Stack
+=== ended on 2016-08-04:
+===  * http://wiki.ubuntu.com/1404_HWE_EOL
+=== 
+=== The following packages are no longer supported:
+===  linux-image-3.19.0-25-generic linux-image-extra-3.19.0-25-generic
+=== 
+=== Please upgrade them to a supported HWE stack or remove them if you
+=== no longer need them.
+=== 
+=== 
+=== Last login: Thu Feb 20 23:44:38 2020 from 172.0.11.88
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+================================================================================
+
+!!Success(MME::LOGIN_MME_SERVER): Ssh 172.0.14.49 Success fd=exp10
+
+=================================== 23:44:49 ===================================
+=== su casa
+=== 
+=== ===================================
+=== Welcome to CASA MEC x86 Platform
+=== ===================================
+=== CLI services started!
+=== CASA-MOBILE>
+=== CASA-MOBILE>en
+=== Password: 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+!!Success(MME::LOGIN_MME_SERVER): enter CASA-MOBILE Success!!!
+STEP(23:44:49): RESULT=PASS  Step 4: 3.SSH to MME as casa and log into enable mode;
+
+STEP(23:44:49): START Step 5: Clear old crash and status in MME, respectively
+
+=================================== 23:44:49 ===================================
+=== clear mme statistics all
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 23:44:49 ===================================
+=== clear mme statistics all
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+STEP(23:44:49): RESULT=PASS  Step 5: Clear old crash and status in MME, respectively
+
+STEP(23:44:49): START Step 6: 4.get excel case info
+1
+################start read test link database info################
+python3 ./Lib/casaPython/Read_Test_Plan_DB.py 31485 '31484' /public/ldq_ixia_mme_245/tcpdump
+################finish read test link database info################
+STEP(23:44:56): RESULT=PASS  Step 6: 4.get excel case info
+
+STEP(23:44:56): START Step 7: 5.get excel case info
+Execute Step:10050 
+this context no need to transform, input information has not changed, and store in variable "output"
+step_10050
+
+=================================== 23:44:57 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(CasaGetPrompt): Current CLI mode for exp9 is enable
+
+=================================== 23:44:57 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 23:44:59 ===================================
+=== 
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 23:45:00 ===================================
+=== config
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+
+=================================== 23:45:02 ===================================
+=== 
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+SendAndExpect  lte-service mme  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 23:45:02 ===================================
+=== lte-service mme
+=== CASA-MOBILE(config-mme)#
+=== CASA-MOBILE(config-mme)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  mme-service mme1  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 23:45:03 ===================================
+=== mme-service mme1
+=== CASA-MOBILE(config-mme-svc mme1)#
+=== CASA-MOBILE(config-mme-svc mme1)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  no associate call-profile  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 23:45:04 ===================================
+=== no associate call-profile
+=== CASA-MOBILE(config-mme-svc mme1)#
+=== CASA-MOBILE(config-mme-svc mme1)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  exit  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 23:45:05 ===================================
+=== exit
+=== CASA-MOBILE(config-mme)#
+=== CASA-MOBILE(config-mme)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  call-profile cp1  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 23:45:06 ===================================
+=== call-profile cp1
+=== CASA-MOBILE(config-mme-call-prof)#
+=== CASA-MOBILE(config-mme-call-prof)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  service-request authentication mandatory  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 23:45:07 ===================================
+=== service-request authentication mandatory
+=== CASA-MOBILE(config-mme-call-prof)#
+=== CASA-MOBILE(config-mme-call-prof)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  exit  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 23:45:08 ===================================
+=== exit
+=== CASA-MOBILE(config-mme)#
+=== CASA-MOBILE(config-mme)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  mme-service mme1  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 23:45:09 ===================================
+=== mme-service mme1
+=== CASA-MOBILE(config-mme-svc mme1)#
+=== CASA-MOBILE(config-mme-svc mme1)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  associate call-profile cp1  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 23:45:10 ===================================
+=== associate call-profile cp1
+=== CASA-MOBILE(config-mme-svc mme1)#
+=== CASA-MOBILE(config-mme-svc mme1)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  exit  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 23:45:11 ===================================
+=== exit
+=== CASA-MOBILE(config-mme)#
+=== CASA-MOBILE(config-mme)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect    -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 23:45:12 ===================================
+=== 
+=== CASA-MOBILE(config-mme)#
+=== CASA-MOBILE(config-mme)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+step_10058
+
+=================================== 23:45:14 ===================================
+=== 
+=== CASA-MOBILE(config-mme)#
+=== CASA-MOBILE(config-mme)#
+================================================================================
+
+Info(CasaGetPrompt): Current CLI mode for exp9 is config-mme)#
+CASA-MOBILE(config-mme
+
+=================================== 23:45:14 ===================================
+=== end
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+
+=================================== 23:45:14 ===================================
+=== 
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+Info(CasaGetPrompt): Current CLI mode for exp9 is config)#
+CASA-MOBILE(config
+
+=================================== 23:45:14 ===================================
+=== 
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+
+=================================== 23:45:16 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 23:45:17 ===================================
+=== config
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+
+=================================== 23:45:19 ===================================
+=== 
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+
+=================================== 23:45:19 ===================================
+=== exit
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Success Step:10050
+Execute Step:10051 
+Info(Include): Installed package casaIxia v1.0
+this context no need to transform, input information has not changed, and store in variable "output"
+
+=================================== 23:45:20 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+TRACE(LteCliSend) : Calledby Mirror
+{
+			mirror mme protocol sctp
+			mirror mme protocol gtpc
+			mirror mme protocol tcp
+		
+			mirror start timeout never
+			mirror destination file 31484
+		} -- -fd exp9
+
+=================================== 23:45:20 ===================================
+=== mirror mme protocol sctp
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 23:45:20 ===================================
+=== mirror mme protocol gtpc
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 23:45:20 ===================================
+=== mirror mme protocol tcp
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 23:45:20 ===================================
+=== mirror start timeout never
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 23:45:20 ===================================
+=== mirror destination file 31484
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+runixiatest -test hsstest -rxf C:/ixiaAuto_ldq/test/MME/2.4.35_HSS.rxf
+Info(ixiaTestCreate): Sleeping 10 second(s)...
+Info(ixiaTestCreate): Sleeping 10 second(s)...
+Info(ixiaTestCreate): Sleeping 10 second(s)...
+Info(ixiaTestCreate): Sleeping 10 second(s)...
+Info(ixiaTestCreate): Sleeping 10 second(s)...
+Info(ixiaTestCreate): Sleeping 10 second(s)...
+rxf log is C:/Program Files (x86)/Ixia/IxLoad/8.50-EA-Update1/TclScripts/remoteScriptingService/HSS.rxf-log-5-00.log
+Error(runixiatest): CheckThreadRunning -test hsstest failed!!
+=== === === === === Tips === === === === === === ===
+=== Error(DEALEXCEL::ExecuteStep): runixiatest failed!!
+=== 启动IXIA失败，请检查ixia服务是否开启连接成功，脚本是否存放目录在C:ixiaAuto	estXXX对应目录
+=== Failed to start IXIA, please check
+=== === === === === === === === === === === === ===
+runixiatest -test hsstest -rxf C:/ixiaAuto_ldq/test/MME/2.4.35_HSS.rxf
+Info(ixiaTestCreate): Sleeping 10 second(s)...
+Info(ixiaTestCreate): Sleeping 10 second(s)...
+Info(ixiaTestCreate): Sleeping 10 second(s)...
+Info(ixiaTestCreate): Sleeping 10 second(s)...
+Info(ixiaTestCreate): Sleeping 10 second(s)...
+Info(ixiaTestCreate): Sleeping 10 second(s)...
+rxf log is C:/Program Files (x86)/Ixia/IxLoad/8.50-EA-Update1/TclScripts/remoteScriptingService/HSS.rxf-log-8-00.log
+Error(runixiatest): CheckThreadRunning -test hsstest failed!!
+=== === === === === Tips === === === === === === ===
+=== Error(DEALEXCEL::ExecuteStep): runixiatest failed!!
+=== 启动IXIA失败，请检查ixia服务是否开启连接成功，脚本是否存放目录在C:ixiaAuto	estXXX对应目录
+=== Failed to start IXIA, please check
+=== === === === === === === === === === === === ===
+runixiatest -test hsstest -rxf C:/ixiaAuto_ldq/test/MME/2.4.35_HSS.rxf
+Info(ixiaTestCreate): Sleeping 10 second(s)...
+Info(ixiaTestCreate): Sleeping 10 second(s)...
+Info(ixiaTestCreate): Sleeping 10 second(s)...
+Info(ixiaTestCreate): Sleeping 10 second(s)...
+Info(ixiaTestCreate): Sleeping 10 second(s)...
+Info(ixiaTestCreate): Sleeping 10 second(s)...
+Info(ixiaTestCreate): Sleeping 10 second(s)...
+rxf log is C:/Program Files (x86)/Ixia/IxLoad/8.50-EA-Update1/TclScripts/remoteScriptingService/HSS.rxf-log-9-00.log
+Error(runixiatest): CheckThreadRunning -test hsstest failed!!
+=== === === === === Tips === === === === === === ===
+=== Error(DEALEXCEL::ExecuteStep): runixiatest failed!!
+=== 启动IXIA失败，请检查ixia服务是否开启连接成功，脚本是否存放目录在C:ixiaAuto	estXXX对应目录
+=== Failed to start IXIA, please check
+=== === === === === === === === === === === === ===
+Error(DEALEXCEL::ExecuteStep): runixiatest -test hsstest -rxf C:/ixiaAuto_ldq/test/MME/2.4.35_HSS.rxf failed!!
+Error(MME::Main): ::DEALEXCEL::ExecuteStep -casenum 31484  failed!!
+STEP(23:50:10): RESULT=FAIL  Step 7: 5.get excel case info
+Failed script name: /public/casa-493/test/mmenew.test
+Recovery conf!!
+recovery_conf!!
+this context no need to transform, input information has not changed, and store in variable "output"
+step_10058
+
+=================================== 23:50:11 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(CasaGetPrompt): Current CLI mode for exp9 is enable
+
+=================================== 23:50:11 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 23:50:13 ===================================
+=== 
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 23:50:14 ===================================
+=== config
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+
+=================================== 23:50:17 ===================================
+=== 
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+SendAndExpect  lte-service mme  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 23:50:17 ===================================
+=== lte-service mme
+=== CASA-MOBILE(config-mme)#
+=== CASA-MOBILE(config-mme)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  mme-service mme1  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 23:50:18 ===================================
+=== mme-service mme1
+=== CASA-MOBILE(config-mme-svc mme1)#
+=== CASA-MOBILE(config-mme-svc mme1)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  no associate call-profile  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 23:50:19 ===================================
+=== no associate call-profile
+=== CASA-MOBILE(config-mme-svc mme1)#
+=== CASA-MOBILE(config-mme-svc mme1)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  exit  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 23:50:20 ===================================
+=== exit
+=== CASA-MOBILE(config-mme)#
+=== CASA-MOBILE(config-mme)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  call-profile cp1  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 23:50:21 ===================================
+=== call-profile cp1
+=== CASA-MOBILE(config-mme-call-prof)#
+=== CASA-MOBILE(config-mme-call-prof)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  no service-request authentication mandatory  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 23:50:22 ===================================
+=== no service-request authentication mandatory
+=== CASA-MOBILE(config-mme-call-prof)#
+=== CASA-MOBILE(config-mme-call-prof)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  exit  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 23:50:23 ===================================
+=== exit
+=== CASA-MOBILE(config-mme)#
+=== CASA-MOBILE(config-mme)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  mme-service mme1  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 23:50:24 ===================================
+=== mme-service mme1
+=== CASA-MOBILE(config-mme-svc mme1)#
+=== CASA-MOBILE(config-mme-svc mme1)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  associate call-profile cp1  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 23:50:25 ===================================
+=== associate call-profile cp1
+=== CASA-MOBILE(config-mme-svc mme1)#
+=== CASA-MOBILE(config-mme-svc mme1)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  exit  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 23:50:26 ===================================
+=== exit
+=== CASA-MOBILE(config-mme)#
+=== CASA-MOBILE(config-mme)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect    -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 23:50:27 ===================================
+=== 
+=== CASA-MOBILE(config-mme)#
+=== CASA-MOBILE(config-mme)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect    -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 23:50:28 ===================================
+=== 
+=== CASA-MOBILE(config-mme)#
+=== CASA-MOBILE(config-mme)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+
+=================================== 23:50:30 ===================================
+=== 
+=== CASA-MOBILE(config-mme)#
+=== CASA-MOBILE(config-mme)#
+================================================================================
+
+Info(CasaGetPrompt): Current CLI mode for exp9 is config-mme)#
+CASA-MOBILE(config-mme
+
+=================================== 23:50:30 ===================================
+=== end
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+
+=================================== 23:50:30 ===================================
+=== 
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+Info(CasaGetPrompt): Current CLI mode for exp9 is config)#
+CASA-MOBILE(config
+
+=================================== 23:50:30 ===================================
+=== 
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+
+=================================== 23:50:32 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 23:50:33 ===================================
+=== config
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+
+=================================== 23:50:35 ===================================
+=== 
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+
+=================================== 23:50:35 ===================================
+=== exit
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Stop tools!!
+Info(DEALEXCEL::Mirror_Clear): There are the following spawn_id of NFV that should clear mirror config (SPAWN_ID_SAEGW_C)
+Info(DEALEXCEL::Mirror_Clear): There are the following spawn_id of NFV that should clear mirror config (SPAWN_ID_SAEGW_U)
+Complete all steps!!
+Info(EndofMmeTest): test==/public/casa-493/test/mmenew.test
+
+TRACE(ShowHistory) : Calledby EndofMmeTest
+
+
+                                                               
+------------------------------------------------------------------------------------------------------------------------------
+            Time             spawn_id         Descr                       Command                                            
+------------------------------------------------------------------------------------------------------------------------------
+ 1          23:44:29         exp7             172.0.14.245:22:23          casa                                               
+ 2          23:44:32         exp7             172.0.14.245:22:23          su casa                                            
+ 3          23:44:33         exp7             172.0.14.245:22:23          en\ncasa                                           
+ 4          23:44:33         exp7             172.0.14.245:22:23          show task crash                                    
+ 5          23:44:33         exp7             172.0.14.245:22:23          casa                                               
+ 6          23:44:35         exp7             172.0.14.245:22:23          page-off                                           
+ 7          23:44:37         exp8             172.0.14.49:22:23           casa                                               
+ 8          23:44:39         exp8             172.0.14.49:22:23           page-off                                           
+ 9          23:44:40         exp9              172.0.14.245:22:23         casa                                               
+ 10         23:44:44         exp9              172.0.14.245:22:23         su casa                                            
+ 11         23:44:45         exp9              172.0.14.245:22:23         en\ncasa                                           
+ 12         23:44:45         exp10            172.0.14.49:22:23           casa                                               
+ 13         23:44:49         exp10            172.0.14.49:22:23           su casa                                            
+ 14         23:44:49         exp10            172.0.14.49:22:23           en\ncasa                                           
+ 15         23:44:49         exp9              172.0.14.245:22:23         clear mme statistics all                           
+ 16         23:44:49         exp10            172.0.14.49:22:23           clear mme statistics all                           
+ 17         23:44:57         exp9              172.0.14.245:22:23         CTRL-Z                                             
+ 18         23:45:00         exp9              172.0.14.245:22:23         config                                             
+ 19         23:45:02         exp9              172.0.14.245:22:23         lte-service mme                                    
+ 20         23:45:03         exp9              172.0.14.245:22:23         mme-service mme1                                   
+ 21         23:45:04         exp9              172.0.14.245:22:23         no associate call-profile                          
+ 22         23:45:05         exp9              172.0.14.245:22:23         exit                                               
+ 23         23:45:06         exp9              172.0.14.245:22:23         call-profile cp1                                   
+ 24         23:45:07         exp9              172.0.14.245:22:23         service-request authentication mandatory           
+ 25         23:45:08         exp9              172.0.14.245:22:23         exit                                               
+ 26         23:45:09         exp9              172.0.14.245:22:23         mme-service mme1                                   
+ 27         23:45:10         exp9              172.0.14.245:22:23         associate call-profile cp1                         
+ 28         23:45:11         exp9              172.0.14.245:22:23         exit                                               
+ 29         23:45:14         exp9              172.0.14.245:22:23         end                                                
+ 30         23:45:14         exp9              172.0.14.245:22:23         CTRL-Z                                             
+ 31         23:45:17         exp9              172.0.14.245:22:23         config                                             
+ 32         23:45:19         exp9              172.0.14.245:22:23         exit                                               
+ 33         23:45:20         exp9              172.0.14.245:22:23         mirror mme protocol sctp                           
+ 34         23:45:20         exp9              172.0.14.245:22:23         mirror mme protocol gtpc                           
+ 35         23:45:20         exp9              172.0.14.245:22:23         mirror mme protocol tcp                            
+ 36         23:45:20         exp9              172.0.14.245:22:23         mirror start timeout never                         
+ 37         23:45:20         exp9              172.0.14.245:22:23         mirror destination file 31484                      
+ 38         23:50:11         exp9              172.0.14.245:22:23         CTRL-Z                                             
+ 39         23:50:14         exp9              172.0.14.245:22:23         config                                             
+ 40         23:50:17         exp9              172.0.14.245:22:23         lte-service mme                                    
+ 41         23:50:18         exp9              172.0.14.245:22:23         mme-service mme1                                   
+ 42         23:50:19         exp9              172.0.14.245:22:23         no associate call-profile                          
+ 43         23:50:20         exp9              172.0.14.245:22:23         exit                                               
+ 44         23:50:21         exp9              172.0.14.245:22:23         call-profile cp1                                   
+ 45         23:50:22         exp9              172.0.14.245:22:23         no service-request authentication mandatory        
+ 46         23:50:23         exp9              172.0.14.245:22:23         exit                                               
+ 47         23:50:24         exp9              172.0.14.245:22:23         mme-service mme1                                   
+ 48         23:50:25         exp9              172.0.14.245:22:23         associate call-profile cp1                         
+ 49         23:50:26         exp9              172.0.14.245:22:23         exit                                               
+ 50         23:50:30         exp9              172.0.14.245:22:23         end                                                
+ 51         23:50:30         exp9              172.0.14.245:22:23         CTRL-Z                                             
+ 52         23:50:33         exp9              172.0.14.245:22:23         config                                             
+ 53         23:50:35         exp9              172.0.14.245:22:23         exit                                               
+------------------------------------------------------------------------------------------------------------------------------
+            Time             spawn_id         Descr                       Command                                            
+------------------------------------------------------------------------------------------------------------------------------
+
+
+
+=================================== 23:50:35 ===================================
+=== ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no 172.0.14.245
+=== root@172.0.14.245's password: 
+=== Welcome to Ubuntu 14.04.6 LTS (GNU/Linux 3.19.0-25-generic x86_64)
+=== 
+===  * Documentation:  https://help.ubuntu.com/
+=== 
+===   System information as of Thu Feb 20 15:44:40 UTC 2020
+=== 
+===   System load:  3.14               Users logged in:        2
+===   Usage of /:   38.6% of 23.38GB   IP address for eth0:    172.0.14.245
+===   Memory usage: 52%                IP address for docker0: 172.17.42.1
+===   Swap usage:   0%                 IP address for dp_0_1:  172.1.14.245
+===   Processes:    254
+=== 
+===   Graph this data and manage this system at:
+===     https://landscape.canonical.com/
+=== 
+===   Get cloud support with Ubuntu Advantage Cloud Guest:
+===     http://www.ubuntu.com/business/services/cloud
+=== 
+=== 9 updates can be installed immediately.
+=== 1 of these updates is a security update.
+=== 
+=== New release '16.04.6 LTS' available.
+=== Run 'do-release-upgrade' to upgrade to it.
+=== 
+=== 
+=== WARNING: Security updates for your current Hardware Enablement Stack
+=== ended on 2016-08-04:
+===  * http://wiki.ubuntu.com/1404_HWE_EOL
+=== 
+=== The following packages are no longer supported:
+===  linux-image-extra-3.19.0-25-generic linux-image-3.19.0-25-generic
+=== 
+=== Please upgrade them to a supported HWE stack or remove them if you
+=== no longer need them.
+=== 
+=== 
+=== Last login: Thu Feb 20 15:44:41 2020 from 172.0.11.88
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# su casa
+=== 
+=== ===================================
+=== Welcome to CASA MEC x86 Platform
+=== ===================================
+=== CLI services started!
+=== WARNING: CPU Config - Available cores only 0 out of 2 for task mepmgr
+=== CASA-MOBILE>
+=== CASA-MOBILE>en
+=== Password: 
+=== CASA-MOBILE#
+=== CASA-MOBILE#show task crash
+=== Number  Task             Crash-Time                Exit-Code     Exit-Reason     Core-file
+=== ==========================================================================================
+=== Total 0 crash records
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+#####  Result:    FAILED
+#####  Script:    mmenew.test/31484
+#####  Last Step: 7: 5.get excel case info
+#####  Date:      02/20/2020 11:44:28 PM
+#####  Log:       /public/casa-493/test/Log/mmenew_26728-00.txt
+#####  Warnings:  0
+#####  Errors:    0
+#####  SubTest Duration: 06:12
+
+##########################################
+All test cases have been executed
+##########################################
+
+                                               mmenew
+----------------------------------------------------------------------------------------------------
+       Test      Duration     Verdict     Errs     Warns     Type                Bugs     Fixed    
+----------------------------------------------------------------------------------------------------
+ 1     31484     06:12        Fail                           Expect No Error                       
+----------------------------------------------------------------------------------------------------
+
+############################################
+#####  Passed:    0
+#####  Aborted:   0
+#####  Canceled:  0
+#####  Failed:    1
+#####  ----------------
+#####  Total:     1
+#####  Duration:  06:12
+#####
+#####  Script:    /public/casa-493/test/mmenew.test
+#####  Date:      02/20/2020 11:50:40 PM
+#####  Log:       /public/casa-493/test/Log/mmenew_26728-00.txt
+#####  Verdict:   FAILED
+############################################
+
+Info(RunTest): Closing all Telnet and Ssh sessions (1)
+
+=================================== 23:50:40 ===================================
+=== ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no 172.0.11.5
+=== root@172.0.11.5's password: 
+=== Welcome to Ubuntu 14.04.3 LTS (GNU/Linux 3.19.0-25-generic x86_64)
+=== 
+===  * Documentation:  https://help.ubuntu.com/
+=== 
+=== 601 packages can be updated.
+=== 431 updates are security updates.
+=== 
+=== New release '16.04.6 LTS' available.
+=== Run 'do-release-upgrade' to upgrade to it.
+=== 
+=== Last login: Thu Feb 20 23:43:52 2020 from 172-0-11-88.lightspeed.rcsntx.sbcglobal.net
+=== root@LTEPC52:~# page-off
+=== page-off: command not found
+=== root@LTEPC52:~# 
+=== root@LTEPC52:~# 
+=== root@LTEPC52:~# 
+=== root@LTEPC52:~# 
+=== root@LTEPC52:~# 
+=== root@LTEPC52:~# 
+=== root@LTEPC52:~# 
+=== root@LTEPC52:~# ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no 172.0.14.245
+=== root@172.0.14.245's password: 
+=== Welcome to Ubuntu 14.04.6 LTS (GNU/Linux 3.19.0-25-generic x86_64)
+=== 
+===  * Documentation:  https://help.ubuntu.com/
+=== 
+===   System information as of Thu Feb 20 15:50:36 UTC 2020
+=== 
+===   System load:  3.04               Users logged in:        2
+===   Usage of /:   38.6% of 23.38GB   IP address for eth0:    172.0.14.245
+===   Memory usage: 52%                IP address for docker0: 172.17.42.1
+===   Swap usage:   0%                 IP address for dp_0_1:  172.1.14.245
+===   Processes:    257
+=== 
+===   Graph this data and manage this system at:
+===     https://landscape.canonical.com/
+=== 
+===   Get cloud support with Ubuntu Advantage Cloud Guest:
+===     http://www.ubuntu.com/business/services/cloud
+=== 
+=== 9 updates can be installed immediately.
+=== 1 of these updates is a security update.
+=== 
+=== New release '16.04.6 LTS' available.
+=== Run 'do-release-upgrade' to upgrade to it.
+=== 
+=== 
+=== WARNING: Security updates for your current Hardware Enablement Stack
+=== ended on 2016-08-04:
+===  * http://wiki.ubuntu.com/1404_HWE_EOL
+=== 
+=== The following packages are no longer supported:
+===  linux-image-extra-3.19.0-25-generic linux-image-3.19.0-25-generic
+=== 
+=== Please upgrade them to a supported HWE stack or remove them if you
+=== no longer need them.
+=== 
+=== 
+=== Last login: Thu Feb 20 15:50:37 2020 from 172.0.11.88
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# su casa
+=== 
+=== ===================================
+=== Welcome to CASA MEC x86 Platform
+=== ===================================
+=== CLI services started!
+=== WARNING: CPU Config - Available cores only 0 out of 2 for task mepmgr
+=== CASA-MOBILE>
+=== CASA-MOBILE>en
+=== Password: 
+=== CASA-MOBILE#
+=== CASA-MOBILE#show version
+=== QA Release: 4.9.3-341
+=== Build Time: Sat Feb  8 03:45:41 EST 2020
+=== 
+================================================================================
+
+
+=================================== 23:50:48 ===================================
+=== cd /email
+=== root@LTEPC52:/email# 
+=== root@LTEPC52:/email# 
+================================================================================
+
+
+=================================== 23:50:48 ===================================
+=== scp root@[172.0.11.88]:/public/casa-493/test/Log/mmenew_<ot@[172.0.11.88]:/public/casa-493/test/Log/mmenew_2                         
+=== 6728-00.txt /email/mmenew<asa-493/test/Log/mmenew_26728-00.txt /email/mmenew_                         
+=== 26728-00.txt
+=== root@172.0.11.88's password: 
+================================================================================
+
+
+=================================== 23:50:48 ===================================
+=== 
+=== mmenew_26728-00.txt                             0%    0     0.0KB/s   --:-- ETAmmenew_26728-00.txt                           100%   36KB  35.7KB/s   00:00    
+=== root@LTEPC52:/email# 
+================================================================================
+
+Info(Mail): Sleeping 2 second(s)...
+
+=================================== 23:50:50 ===================================
+=== tar Jcvf mmenew_26728-00.tar.bz2 mmenew_26728-00.txt
+=== mmenew_26728-00.txt
+=== root@LTEPC52:/email# 
+=== root@LTEPC52:/email# 
+================================================================================
+
+
+=================================== 23:50:50 ===================================
+=== rm casa.txt
+=== root@LTEPC52:/email# 
+=== root@LTEPC52:/email# 
+================================================================================
+
+
+=================================== 23:50:50 ===================================
+=== sed  -i 's/Impossible characters, let the whole content <i 's/Impossible characters, let the whole content a                         
+=== s a domain/ /'  /email/mm<, let the whole content as a domain/ /'  /email/mme                         
+=== new_26728-00.txt
+=== root@LTEPC52:/email# 
+=== root@LTEPC52:/email# 
+================================================================================
+
+
+=================================== 23:50:50 ===================================
+=== awk 'BEGIN {RS = "Impossible characters, let the whole c<EGIN {RS = "Impossible characters, let the whole co                         
+=== ntent as a domain"; FS = <racters, let the whole content as a domain"; FS = "                         
+=== mmenew\n"}/./{print $NF}'<tent as a domain"; FS = "mmenew\n"}/./{print $NF}'                          
+=== /email/mmenew_26728-00.tx<menew\n"}/./{print $NF}' /email/mmenew_26728-00.txt                         
+===   > 
+================================================================================
+
+
+=================================== 23:50:50 ===================================
+=== casa.txt
+=== root@LTEPC52:/email# 
+=== root@LTEPC52:/email# mail -v -s "Version:4.9.3-341 Failed: mmenew.test  MEC:1<v -s "Version:4.9.3-341 Failed: mmenew.test  MEC:17                         
+=== 2.0.14.245" -a mmenew_267<iled: mmenew.test  MEC:172.0.14.245" -a mmenew_2672                         
+=== 8-00.tar.bz2 gzltesqa@cas<.0.14.245" -a mmenew_26728-00.tar.bz2 gzltesqa@casa                         
+=== china.com.cn < casa.txt
+=== Resolving host smtp.qiye.163.com . . . done.
+=== Connecting to 220.194.24.10:smtp . . . connected.
+=== 220 proxy-sm-thq-1.hmbj.internal ESMTP ready
+=== >>> EHLO LTEPC52
+=== 
+================================================================================
+
+
+=================================== 23:50:51 ===================================
+=== 
+=== 
+=== 250-proxy-sm-thq-1.hmbj.internal
+=== 250-PIPELINING
+=== 250-8BITMIME
+=== 250-AUTH=LOGIN PLAIN
+=== 250-AUTH PLAIN LOGIN
+=== 250 STARTTLS
+=== >>> AUTH LOGIN
+=== 334 VXNlcm5hbWU6
+=== >>> bHVkYXFpbkBjYXNhY2hpbmEuY29tLmNu
+=== 334 UGFzc3dvcmQ6
+=== >>> ZGFxaW43MTQ1MTc=
+=== 235 2.0.0 OK
+=== >>> MAIL FROM:<ludaqin@casachina.com.cn>
+=== 250 Mail OK
+=== >>> RCPT TO:<gzltesqa@casachina.com.cn>
+=== 250 Mail OK
+=== >>> DATA
+=== 354 End data with <CR><LF>.<CR><LF>
+=== >>> .
+=== 250 Mail OK queued as smtp2,iOCowACXt+Taqk5eU9U2AA--.4820S2 1582213850
+=== >>> QUIT
+=== 221 Bye
+=== root@LTEPC52:/email# 
+=== root@LTEPC52:/email# 
+=== root@LTEPC52:/email# 
+=== root@LTEPC52:/email# 
+================================================================================
+

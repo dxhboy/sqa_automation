@@ -1,0 +1,960 @@
+##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### 
+# AutoApp    v15.1009
+# Harness:   root@tclserver8
+# Date:      02/22/2020 08:27:58 AM
+# Script:    /public/casa-493/test/mmenew.test
+# Eth0 IP:   0.0.0.0
+# Loopback:  
+# Image:     
+# Descript:  
+# Config:    /public/casa-493/test/Config/hfj_ixia_mme_122_ixiahss_testlink.tcf
+# Log File:  /public/casa-493/test/Log/mmenew_482-00.txt
+##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### 
+
+Info(Include): Installed package casaSAEGW v1.0
+numc=1 NUM_MME=2
+numc=2 NUM_MME=2
+Info(Include): Installed package casaMME v1.0
+TRACE(MME::Main) : Calledby RunTest
+Info(Include): Installed package casaExcel v1.0
+Info(Include): Installed package casaLandslide v1.0
+
+STEP(08:27:58): START Step 1: 1.Get the Excel list;
+STEP(08:27:58): RESULT=PASS  Step 1: 1.Get the Excel list;
+
+STEP(08:27:58): START Step 2: 2.Get a list of use cases;
+STEP(08:27:58): RESULT=PASS  Step 2: 2.Get a list of use cases;
+Info(Include): Installed package casaCmd v9.0
+Info(Include): Installed package casaSeGW v1.0
+Info(Include): Installed package casaHenbGW v1.0
+Info(Include): Installed package casaIxia v1.0
+numc=1 NUM_MME=2
+numc=2 NUM_MME=2
+Info(Include): Installed package casaMME v1.0
+Info(Include): Installed package casaPlatform v1.0
+     TRACE(StartMmeTest)	 Calledby ::MME::Main 
+
+
+=================================== 08:27:59 ===================================
+=== ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no 172.0.14.122
+=== root@172.0.14.122's password: 
+=== Welcome to Ubuntu 14.04.6 LTS (GNU/Linux 3.19.0-25-generic x86_64)
+=== 
+===  * Documentation:  https://help.ubuntu.com/
+=== 
+===   System information as of Sat Feb 22 00:26:49 UTC 2020
+=== 
+===   System load:  3.01               Users logged in:        1
+===   Usage of /:   24.4% of 23.38GB   IP address for eth0:    172.0.14.122
+===   Memory usage: 51%                IP address for docker0: 172.17.42.1
+===   Swap usage:   0%                 IP address for dp_0_0:  172.1.14.122
+===   Processes:    250
+=== 
+===   Graph this data and manage this system at:
+===     https://landscape.canonical.com/
+=== 
+===   Get cloud support with Ubuntu Advantage Cloud Guest:
+===     http://www.ubuntu.com/business/services/cloud
+=== 
+=== 10 updates can be installed immediately.
+=== 1 of these updates is a security update.
+=== 
+=== New release '16.04.6 LTS' available.
+=== Run 'do-release-upgrade' to upgrade to it.
+=== 
+=== 
+=== WARNING: Security updates for your current Hardware Enablement Stack
+=== ended on 2016-08-04:
+===  * http://wiki.ubuntu.com/1404_HWE_EOL
+=== 
+=== The following packages are no longer supported:
+===  linux-image-extra-3.19.0-25-generic linux-image-3.19.0-25-generic
+=== 
+=== Please upgrade them to a supported HWE stack or remove them if you
+=== no longer need them.
+=== 
+=== 
+=== Last login: Sat Feb 22 00:26:51 2020 from 172-0-11-88.lightspeed.rcsntx.sbcglobal.net
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# su casa
+=== 
+=== ===================================
+=== Welcome to CASA MEC x86 Platform
+=== ===================================
+=== CLI services started!
+=== WARNING: CPU Config - Available cores only 0 out of 2 for task mepmgr
+=== CASA-MOBILE>
+=== CASA-MOBILE>en
+=== Password: 
+=== CASA-MOBILE#
+=== CASA-MOBILE#show task crash
+=== Number  Task             Crash-Time                Exit-Code     Exit-Reason     Core-file
+=== ==========================================================================================
+=== Total 0 crash records
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+STEP(08:28:02): START Step 3: SSH to MME linux
+TRACE(Ssh_Retry) Calledby ::DEALEXCEL::Ssh_Server_Linux
+
+=================================== 08:28:03 ===================================
+=== ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no 172.0.14.122
+=== root@172.0.14.122's password: 
+=== Welcome to Ubuntu 14.04.6 LTS (GNU/Linux 3.19.0-25-generic x86_64)
+=== 
+===  * Documentation:  https://help.ubuntu.com/
+=== 
+===   System information as of Sat Feb 22 00:27:59 UTC 2020
+=== 
+===   System load:  3.05               Users logged in:        0
+===   Usage of /:   24.4% of 23.38GB   IP address for eth0:    172.0.14.122
+===   Memory usage: 51%                IP address for docker0: 172.17.42.1
+===   Swap usage:   0%                 IP address for dp_0_0:  172.1.14.122
+===   Processes:    245
+=== 
+===   Graph this data and manage this system at:
+===     https://landscape.canonical.com/
+=== 
+===   Get cloud support with Ubuntu Advantage Cloud Guest:
+===     http://www.ubuntu.com/business/services/cloud
+=== 
+=== 10 updates can be installed immediately.
+=== 1 of these updates is a security update.
+=== 
+=== New release '16.04.6 LTS' available.
+=== Run 'do-release-upgrade' to upgrade to it.
+=== 
+=== 
+=== WARNING: Security updates for your current Hardware Enablement Stack
+=== ended on 2016-08-04:
+===  * http://wiki.ubuntu.com/1404_HWE_EOL
+=== 
+=== The following packages are no longer supported:
+===  linux-image-extra-3.19.0-25-generic linux-image-3.19.0-25-generic
+=== 
+=== Please upgrade them to a supported HWE stack or remove them if you
+=== no longer need them.
+=== 
+=== 
+=== Last login: Sat Feb 22 00:28:00 2020 from 172-0-11-88.lightspeed.rcsntx.sbcglobal.net
+=== root@CASA-MOBILE:~# page-off
+=== page-off: command not found
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+================================================================================
+
+!!Success(DEALEXCEL::Ssh_Server_Linux): Ssh 172.0.14.122 Success fd: ::DEALEXCEL::Linux_Spawn_Id(SPAWN_ID_MME_Linux_1)=exp7
+TRACE(Ssh_Retry) Calledby ::DEALEXCEL::Ssh_Server_Linux
+
+=================================== 08:28:06 ===================================
+=== ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no 172.0.14.123
+=== root@172.0.14.123's password: 
+=== Welcome to Ubuntu 14.04.5 LTS (GNU/Linux 3.19.0-25-generic x86_64)
+=== 
+===  * Documentation:  https://help.ubuntu.com/
+=== 
+===   System information as of Sat Feb 22 00:12:41 UTC 2020
+=== 
+===   System load:  3.14               Users logged in:       2
+===   Usage of /:   18.8% of 23.38GB   IP address for eth0:   172.0.14.123
+===   Memory usage: 50%                IP address for dp_0_0: 172.1.14.123
+===   Swap usage:   0%                 IP address for dp_0_1: 172.2.14.123
+===   Processes:    237
+=== 
+===   Graph this data and manage this system at:
+===     https://landscape.canonical.com/
+=== 
+===   Get cloud support with Ubuntu Advantage Cloud Guest:
+===     http://www.ubuntu.com/business/services/cloud
+=== 
+=== 65 packages can be updated.
+=== 49 updates are security updates.
+=== 
+=== New release '16.04.6 LTS' available.
+=== Run 'do-release-upgrade' to upgrade to it.
+=== 
+=== 
+=== WARNING: Security updates for your current Hardware Enablement Stack
+=== ended on 2016-08-04:
+===  * http://wiki.ubuntu.com/1404_HWE_EOL
+=== 
+=== The following packages are no longer supported:
+===  linux-image-extra-3.19.0-25-generic linux-image-3.19.0-25-generic
+=== 
+=== Please upgrade them to a supported HWE stack or remove them if you
+=== no longer need them.
+=== 
+=== 
+=== Last login: Sat Feb 22 00:12:42 2020 from 172-0-11-88.lightspeed.rcsntx.sbcglobal.net
+=== root@CASA-MOBILE:~# page-off
+=== page-off: command not found
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+================================================================================
+
+!!Success(DEALEXCEL::Ssh_Server_Linux): Ssh 172.0.14.123 Success fd: ::DEALEXCEL::Linux_Spawn_Id(SPAWN_ID_MME_Linux_2)=exp8
+STEP(08:28:10): RESULT=PASS  Step 3: SSH to MME linux
+
+STEP(08:28:10): START Step 4: 3.SSH to MME as casa and log into enable mode;
+
+=================================== 08:28:10 ===================================
+=== ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no  172.0.14.122
+=== root@172.0.14.122's password: 
+=== Welcome to Ubuntu 14.04.6 LTS (GNU/Linux 3.19.0-25-generic x86_64)
+=== 
+===  * Documentation:  https://help.ubuntu.com/
+=== 
+===   System information as of Sat Feb 22 00:28:03 UTC 2020
+=== 
+===   System load:  3.05               Users logged in:        0
+===   Usage of /:   24.4% of 23.38GB   IP address for eth0:    172.0.14.122
+===   Memory usage: 51%                IP address for docker0: 172.17.42.1
+===   Swap usage:   0%                 IP address for dp_0_0:  172.1.14.122
+===   Processes:    246
+=== 
+===   Graph this data and manage this system at:
+===     https://landscape.canonical.com/
+=== 
+===   Get cloud support with Ubuntu Advantage Cloud Guest:
+===     http://www.ubuntu.com/business/services/cloud
+=== 
+=== 10 updates can be installed immediately.
+=== 1 of these updates is a security update.
+=== 
+=== New release '16.04.6 LTS' available.
+=== Run 'do-release-upgrade' to upgrade to it.
+=== 
+=== 
+=== WARNING: Security updates for your current Hardware Enablement Stack
+=== ended on 2016-08-04:
+===  * http://wiki.ubuntu.com/1404_HWE_EOL
+=== 
+=== The following packages are no longer supported:
+===  linux-image-extra-3.19.0-25-generic linux-image-3.19.0-25-generic
+=== 
+=== Please upgrade them to a supported HWE stack or remove them if you
+=== no longer need them.
+=== 
+=== 
+=== Last login: Sat Feb 22 00:28:04 2020 from 172-0-11-88.lightspeed.rcsntx.sbcglobal.net
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+================================================================================
+
+!!Success(MME::LOGIN_MME_SERVER): Ssh  172.0.14.122 Success fd=exp9
+
+=================================== 08:28:14 ===================================
+=== su casa
+=== 
+=== ===================================
+=== Welcome to CASA MEC x86 Platform
+=== ===================================
+=== CLI services started!
+=== WARNING: CPU Config - Available cores only 0 out of 2 for task mepmgr
+=== CASA-MOBILE>
+=== CASA-MOBILE>en
+=== Password: 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+!!Success(MME::LOGIN_MME_SERVER): enter CASA-MOBILE Success!!!
+
+=================================== 08:28:14 ===================================
+=== ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no 172.0.14.123
+=== root@172.0.14.123's password: 
+=== Welcome to Ubuntu 14.04.5 LTS (GNU/Linux 3.19.0-25-generic x86_64)
+=== 
+===  * Documentation:  https://help.ubuntu.com/
+=== 
+===   System information as of Sat Feb 22 00:28:07 UTC 2020
+=== 
+===   System load:  3.24               Users logged in:       2
+===   Usage of /:   18.8% of 23.38GB   IP address for eth0:   172.0.14.123
+===   Memory usage: 50%                IP address for dp_0_0: 172.1.14.123
+===   Swap usage:   0%                 IP address for dp_0_1: 172.2.14.123
+===   Processes:    235
+=== 
+===   Graph this data and manage this system at:
+===     https://landscape.canonical.com/
+=== 
+===   Get cloud support with Ubuntu Advantage Cloud Guest:
+===     http://www.ubuntu.com/business/services/cloud
+=== 
+=== 65 packages can be updated.
+=== 49 updates are security updates.
+=== 
+=== New release '16.04.6 LTS' available.
+=== Run 'do-release-upgrade' to upgrade to it.
+=== 
+=== 
+=== WARNING: Security updates for your current Hardware Enablement Stack
+=== ended on 2016-08-04:
+===  * http://wiki.ubuntu.com/1404_HWE_EOL
+=== 
+=== The following packages are no longer supported:
+===  linux-image-extra-3.19.0-25-generic linux-image-3.19.0-25-generic
+=== 
+=== Please upgrade them to a supported HWE stack or remove them if you
+=== no longer need them.
+=== 
+=== 
+=== Last login: Sat Feb 22 00:28:08 2020 from 172-0-11-88.lightspeed.rcsntx.sbcglobal.net
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+================================================================================
+
+!!Success(MME::LOGIN_MME_SERVER): Ssh 172.0.14.123 Success fd=exp10
+
+=================================== 08:28:18 ===================================
+=== su casa
+=== 
+=== ===================================
+=== Welcome to CASA MEC x86 Platform
+=== ===================================
+=== CLI services started!
+=== WARNING: CPU Config - Available cores only 0 out of 2 for task mepmgr
+=== CASA-MOBILE>
+=== CASA-MOBILE>en
+=== Password: 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+!!Success(MME::LOGIN_MME_SERVER): enter CASA-MOBILE Success!!!
+STEP(08:28:18): RESULT=PASS  Step 4: 3.SSH to MME as casa and log into enable mode;
+
+STEP(08:28:18): START Step 5: Clear old crash and status in MME, respectively
+
+=================================== 08:28:18 ===================================
+=== clear mme statistics all
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 08:28:19 ===================================
+=== clear mme statistics all
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+STEP(08:28:19): RESULT=PASS  Step 5: Clear old crash and status in MME, respectively
+
+STEP(08:28:19): START Step 6: 4.get excel case info
+1
+################start read test link database info################
+python3 ./Lib/casaPython/Read_Test_Plan_DB.py 1414 '1413' /public/hfj/tcpdump
+################finish read test link database info################
+STEP(08:28:23): RESULT=PASS  Step 6: 4.get excel case info
+
+STEP(08:28:23): START Step 7: 5.get excel case info
+Execute Step:465 
+Info(Include): Installed package casaIxia v1.0
+this context no need to transform, input information has not changed, and store in variable "output"
+
+=================================== 08:28:24 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+TRACE(LteCliSend) : Calledby Mirror
+{
+			mirror mme protocol sctp
+			mirror mme protocol gtpc
+			mirror mme protocol tcp
+		
+			mirror start timeout never
+			mirror destination file 1413
+		} -- -fd exp9
+
+=================================== 08:28:24 ===================================
+=== mirror mme protocol sctp
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 08:28:25 ===================================
+=== mirror mme protocol gtpc
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 08:28:25 ===================================
+=== mirror mme protocol tcp
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 08:28:25 ===================================
+=== mirror start timeout never
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 08:28:25 ===================================
+=== mirror destination file 1413
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+runixiatest -test hsstest -rxf C:/ixiaAuto/test/MME1/2.2.49_HSS.rxf
+Info(ixiaTestCreate): Sleeping 10 second(s)...
+Info(ixiaTestCreate): Sleeping 10 second(s)...
+Info(ixiaTestCreate): Sleeping 10 second(s)...
+Info(ixiaTestCreate): Sleeping 10 second(s)...
+Info(ixiaTestCreate): Sleeping 10 second(s)...
+rxf log is C:/Program Files (x86)/Ixia/IxLoad/8.50-EA-Update1/TclScripts/remoteScriptingService/HSS.rxf-log-3-00.log
+Info(ixiaTestCheckRun): Sleeping 10 second(s)...
+Info(ixiaTestCheckRun): Sleeping 10 second(s)...
+Info(ixiaTestCheckRun): Sleeping 10 second(s)...
+Info(ixiaTestCheckRun): Sleeping 10 second(s)...
+Info(ixiaTestCheckRun): Sleeping 10 second(s)...
+Info(ixiaTestCheckRun): Sleeping 10 second(s)...
+*Info 02/22 08:30:26.461 Test Controller: Test is Running.
+!!!Success(DEALEXCEL::ExecuteStep):start ixia Success!!
+Success Step:465
+Execute Step:466 
+mzftxt_before:show%k_diameter-endpoint
+mzftxt: have not '!vertical_bar!'
+
+<> Warning(casaCmd::showDiameterEndpoint): variable spawn_id isn't exits.
+TRACE(DEALEXCEL::Get_Checkpoint_Check) : Calledby ::DEALEXCEL::Loop_Execute_Check_CLI
+##############enter nodes foreach############
+!! execute ::casaCmd::Analyze -cmd show diameter-endpoint -- -toRunCmd -tofd exp9  -dia_endpoint.name mmes6a -route.id 0 -route.state I_OPEN!!!
+Information(casaCmd::Analyze): command 'show diameter-endpoint' map to api 'showDiameterEndpoint' in file 'casaCmdToApi'
+Info(::casaCmd::Run): ... run command % show diameter-endpoint % on  172.0.14.122:22 ...
+
+=================================== 08:30:30 ===================================
+=== 
+=== CASA-MOBILE#show diameter-endpoint
+=== 
+=== ---- Diameter-Endpoint# 1 [name: mmes6a] ----------
+===     Diameter_Protocol_Profile:  none
+===     Count:  [in_txn_count: 0] [out_txn_count: 0] [mme_subs_count: 40]
+===     Timer:  [watch dog timer: 30s] [peer reconnect timer: 10s]
+===     Origin: [host_name: HSSdiam] [realm_name: HSSdiam][ip_addr: 172.1.14.122]
+=== 
+===     ***** Number Peers in the Endpoint: 1 *****
+===        Peer Host                    Realm                             IP-address                      Prefix  Port    Protocol
+===        1    HSSServer.casa.com      epc.mnc260.mcc310.3gppnetwork.org 172.1.101.9                     32      3868    SCTP      
+=== 
+===     ***** Number Routes in the Endpoint: 1 *****
+=== 
+===     ++++ Route# 1 [is_default: false] ++++
+===        [app_realm: epc.mnc260.mcc310.3gppnetwork.org] [app_type: 16777251]  [next_peer: HSSServer.casa.com]
+===        Primary Peers [route_state: up]
+===            Primary-peer Host                     Source-port     State
+===            0            HSSServer.casa.com       10000           I_OPEN    
+===  
+===        no secondary peers
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(casaCmd::Analyze): xmlfile is [/public/hfj/tcpdump/casa_show_diameter_endpoint.xml]
+
+                              casaCmd_Analyze <show diameter-endpoint> on  172.0.14.122:22
+------------------------------------------------------------------------------------------------------------------------
+             command.id           dia_endpoint.name           route.id           route.state           RESULT          
+------------------------------------------------------------------------------------------------------------------------
+ 1           1                    mmes6a                      0                  I_OPEN                P               
+------------------------------------------------------------------------------------------------------------------------
+############   CLI:show diameter-endpoint Forward Verification Completed       ######
+##############enter no_nodes foreach############
+##############end no_nodes foreach############
+Success(DEALEXCEL::Get_Checkpoint_Check): The Expect cli id=0 Number of checkpoints is 1 ,actual Number of checkpoints is 1!!!
+Info(::DEALEXCEL::Loop_Execute_Check_CLI): Sleeping 2 second(s)...
+Success Step:466
+Execute Step:467 
+runixiatest -test uetest -rxf C:/ixiaAuto/test/MME1/2.2.49_UE.rxf
+Info(ixiaTestCreate): Sleeping 10 second(s)...
+Info(ixiaTestCreate): Sleeping 10 second(s)...
+Info(ixiaTestCreate): Sleeping 10 second(s)...
+Info(ixiaTestCreate): Sleeping 10 second(s)...
+rxf log is C:/Program Files (x86)/Ixia/IxLoad/8.50-EA-Update1/TclScripts/remoteScriptingService/UE.rxf-log-4-00.log
+Info(ixiaTestCheckRun): Sleeping 10 second(s)...
+Info(ixiaTestCheckRun): Sleeping 10 second(s)...
+Info(ixiaTestCheckRun): Sleeping 10 second(s)...
+Info(ixiaTestCheckRun): Sleeping 10 second(s)...
+Info(ixiaTestCheckRun): Sleeping 10 second(s)...
+Info(ixiaTestCheckRun): Sleeping 10 second(s)...
+Info(ixiaTestCheckRun): Sleeping 10 second(s)...
+Info(ixiaTestCheckRun): Sleeping 10 second(s)...
+*Info 02/22 08:32:31.907 Test Controller: Test is Running.
+!!!Success(DEALEXCEL::ExecuteStep):start ixia Success!!
+Success Step:467
+Execute Step:468 
+::DEALEXCEL::check_packet_filter  -step  step_468!!
+this context no need to transform, input information has not changed, and store in variable "output"
+this is step_468
+fd#SPAWN_ID_MME1
+##Check MME reject emergency attach when MME doesn't support emergency seevice.
+filter 1 (attach reject): nas_eps.emm.cause == 7; num>=10
+
+ just for test 
+This is step_468, just for test===
+This is fd#SPAWN_ID_MME1, just for test===
+Ssh -ip  172.0.14.122 -callback spawn_tshark
+
+=================================== 08:32:44 ===================================
+=== ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no  172.0.14.122
+=== root@172.0.14.122's password: 
+=== Welcome to Ubuntu 14.04.6 LTS (GNU/Linux 3.19.0-25-generic x86_64)
+=== 
+===  * Documentation:  https://help.ubuntu.com/
+=== 
+===   System information as of Sat Feb 22 00:28:11 UTC 2020
+=== 
+===   System load:  3.04               Users logged in:        1
+===   Usage of /:   24.4% of 23.38GB   IP address for eth0:    172.0.14.122
+===   Memory usage: 51%                IP address for docker0: 172.17.42.1
+===   Swap usage:   0%                 IP address for dp_0_0:  172.1.14.122
+===   Processes:    248
+=== 
+===   Graph this data and manage this system at:
+===     https://landscape.canonical.com/
+=== 
+===   Get cloud support with Ubuntu Advantage Cloud Guest:
+===     http://www.ubuntu.com/business/services/cloud
+=== 
+=== 10 updates can be installed immediately.
+=== 1 of these updates is a security update.
+=== 
+=== New release '16.04.6 LTS' available.
+=== Run 'do-release-upgrade' to upgrade to it.
+=== 
+=== 
+=== WARNING: Security updates for your current Hardware Enablement Stack
+=== ended on 2016-08-04:
+===  * http://wiki.ubuntu.com/1404_HWE_EOL
+=== 
+=== The following packages are no longer supported:
+===  linux-image-extra-3.19.0-25-generic linux-image-3.19.0-25-generic
+=== 
+=== Please upgrade them to a supported HWE stack or remove them if you
+=== no longer need them.
+=== 
+=== 
+=== Last login: Sat Feb 22 00:28:11 2020 from 172-0-11-88.lightspeed.rcsntx.sbcglobal.net
+=== root@CASA-MOBILE:~# page-off
+=== page-off: command not found
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+================================================================================
+
+Ssh -ip  172.0.14.122 successful, spawn_tshark = exp18
+This is ##Check MME reject emergency attach when MME doesn't support emergency seevice., just for test===
+This is filter 1 (attach reject): nas_eps.emm.cause == 7; num>=10, just for test===
+this is filter 1 (attach reject): nas_eps.emm.cause == 7; num>=10 just for test
+LtePktFilter -fd exp18 -dir /fdsk/mirror -pkt 1413.pcap -filter  nas_eps.emm.cause == 7
+
+=================================== 08:32:47 ===================================
+=== invaild_command_44303 in order to clear buffer
+=== invaild_command_44303: command not found
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+================================================================================
+
+Info(LtePktFilter): Sleeping 2 second(s)...
+LogMsg Filter is       :  nas_eps.emm.cause == 7
+1SendAndExpect tshark -2 -R " nas_eps.emm.cause == 7" -r /fdsk/mirror/1413.pcap -V | egrep "^Frame" -- -fd exp18  -timeout 30 -prompt casa -callback buffer -ignoreErr Minor
+
+=================================== 08:32:51 ===================================
+=== tshark -2 -R " nas_eps.emm.cause == 7" -r /fdsk/mirror/14<-2 -R " nas_eps.emm.cause == 7" -r /fdsk/mirror/141                         
+=== 3.pcap -V | egrep "^Frame<== 7" -r /fdsk/mirror/1413.pcap -V | egrep "^Frame"                         
+=== 
+=== Running as user "root" and group "root". This could be dangerous.
+=== Frame 1: 96 bytes on wire (768 bits), 96 bytes captured (768 bits)
+=== Frame 2: 96 bytes on wire (768 bits), 96 bytes captured (768 bits)
+=== Frame 3: 100 bytes on wire (800 bits), 100 bytes captured (800 bits)
+=== Frame 4: 100 bytes on wire (800 bits), 100 bytes captured (800 bits)
+=== Frame 5: 96 bytes on wire (768 bits), 96 bytes captured (768 bits)
+=== Frame 6: 96 bytes on wire (768 bits), 96 bytes captured (768 bits)
+=== Frame 7: 96 bytes on wire (768 bits), 96 bytes captured (768 bits)
+=== Frame 8: 100 bytes on wire (800 bits), 100 bytes captured (800 bits)
+=== Frame 9: 100 bytes on wire (800 bits), 100 bytes captured (800 bits)
+=== Frame 10: 100 bytes on wire (800 bits), 100 bytes captured (800 bits)
+=== Frame 11: 96 bytes on wire (768 bits), 96 bytes captured (768 bits)
+=== Frame 12: 96 bytes on wire (768 bits), 96 bytes captured (768 bits)
+=== Frame 13: 100 bytes on wire (800 bits), 100 bytes captured (800 bits)
+=== Frame 14: 100 bytes on wire (800 bits), 100 bytes captured (800 bits)
+=== Frame 15: 96 bytes on wire (768 bits), 96 bytes captured (768 bits)
+=== Frame 16: 96 bytes on wire (768 bits), 96 bytes captured (768 bits)
+=== Frame 17: 100 bytes on wire (800 bits), 100 bytes captured (800 bits)
+=== Frame 18: 100 bytes on wire (800 bits), 100 bytes captured (800 bits)
+=== Frame 19: 96 bytes on wire (768 bits), 96 bytes captured (768 bits)
+=== Frame 20: 116 bytes on wire (928 bits), 116 bytes captured (928 bits)
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+================================================================================
+
+Info(LtePktFilter):The number of match message  nas_eps.emm.cause == 7 is 20
+(LtePktFilter)get pkg_number: 20
+Success(DEALEXCEL::check_packet_filter):check filter pkg_num=20 >= exp_num=10 Success!!!
+This is , just for test===
+This is , just for test===
+Success Step:468
+Success(DEALEXCEL::ExecuteStep): !!! the Expect is 4 and Actual is 4!!
+STEP(08:32:51): RESULT=PASS  Step 7: 5.get excel case info
+Recovery conf!!
+recovery_conf!!
+Stop tools!!
+Info(ixiaTestStop): Sleeping 20 second(s)...
+Info(ixiaTestStop): Sleeping 20 second(s)...
+Info(ixiaTestStop): Sleeping 20 second(s)...
+ixiaReleaseConnect!!
+Info(ixiaTestStop): Sleeping 20 second(s)...
+Info(ixiaTestStop): Sleeping 20 second(s)...
+ixiaReleaseConnect!!
+Info(DEALEXCEL::Mirror_Clear): There are the following spawn_id of NFV that should clear mirror config (SPAWN_ID_SAEGW_C)
+Info(DEALEXCEL::Mirror_Clear): There are the following spawn_id of NFV that should clear mirror config (SPAWN_ID_SAEGW_U)
+
+STEP(08:34:34): START Step 8: Judge whether:: saegw:: main is executed successfully
+STEP(08:34:34): RESULT=PASS  Step 8: Judge whether:: saegw:: main is executed successfully
+Complete all steps!!
+Info(EndofMmeTest): test==/public/casa-493/test/mmenew.test
+
+TRACE(ShowHistory) : Calledby EndofMmeTest
+
+
+                                                               
+-------------------------------------------------------------------------------------------------------------------------------
+    Time     spawn_id Descr               Command                                                                             
+-------------------------------------------------------------------------------------------------------------------------------
+ 1  08:27:59 exp7     172.0.14.122:22:23  casa                                                                                
+ 2  08:28:02 exp7     172.0.14.122:22:23  su casa                                                                             
+ 3  08:28:02 exp7     172.0.14.122:22:23  en\ncasa                                                                            
+ 4  08:28:02 exp7     172.0.14.122:22:23  show task crash                                                                     
+ 5  08:28:03 exp7     172.0.14.122:22:23  casa                                                                                
+ 6  08:28:05 exp7     172.0.14.122:22:23  page-off                                                                            
+ 7  08:28:06 exp8     172.0.14.123:22:23  casa                                                                                
+ 8  08:28:09 exp8     172.0.14.123:22:23  page-off                                                                            
+ 9  08:28:10 exp9      172.0.14.122:22:23 casa                                                                                
+ 10 08:28:13 exp9      172.0.14.122:22:23 su casa                                                                             
+ 11 08:28:14 exp9      172.0.14.122:22:23 en\ncasa                                                                            
+ 12 08:28:14 exp10    172.0.14.123:22:23  casa                                                                                
+ 13 08:28:18 exp10    172.0.14.123:22:23  su casa                                                                             
+ 14 08:28:18 exp10    172.0.14.123:22:23  en\ncasa                                                                            
+ 15 08:28:18 exp9      172.0.14.122:22:23 clear mme statistics all                                                            
+ 16 08:28:18 exp10    172.0.14.123:22:23  clear mme statistics all                                                            
+ 17 08:28:24 exp9      172.0.14.122:22:23 mirror mme protocol sctp                                                            
+ 18 08:28:24 exp9      172.0.14.122:22:23 mirror mme protocol gtpc                                                            
+ 19 08:28:25 exp9      172.0.14.122:22:23 mirror mme protocol tcp                                                             
+ 20 08:28:25 exp9      172.0.14.122:22:23 mirror start timeout never                                                          
+ 21 08:28:25 exp9      172.0.14.122:22:23 mirror destination file 1413                                                        
+ 22 08:30:29 exp9      172.0.14.122:22:23 \nshow diameter-endpoint                                                            
+ 23 08:32:44 exp18     172.0.14.122:22:23 casa                                                                                
+ 24 08:32:46 exp18     172.0.14.122:22:23 page-off                                                                            
+ 25 08:32:47 exp18     172.0.14.122:22:23 invaild_command_44303 in order to clear buffer                                      
+ 26 08:32:49 exp18     172.0.14.122:22:23 tshark -2 -R " nas_eps.emm.cause == 7" -r /fdsk/mirror/1413.pcap -V | egrep "^Frame"
+-------------------------------------------------------------------------------------------------------------------------------
+
+
+
+=================================== 08:34:34 ===================================
+=== ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no 172.0.14.122
+=== root@172.0.14.122's password: 
+=== Welcome to Ubuntu 14.04.6 LTS (GNU/Linux 3.19.0-25-generic x86_64)
+=== 
+===  * Documentation:  https://help.ubuntu.com/
+=== 
+===   System information as of Sat Feb 22 00:32:44 UTC 2020
+=== 
+===   System load:  3.09               Users logged in:        2
+===   Usage of /:   24.4% of 23.38GB   IP address for eth0:    172.0.14.122
+===   Memory usage: 51%                IP address for docker0: 172.17.42.1
+===   Swap usage:   0%                 IP address for dp_0_0:  172.1.14.122
+===   Processes:    253
+=== 
+===   Graph this data and manage this system at:
+===     https://landscape.canonical.com/
+=== 
+===   Get cloud support with Ubuntu Advantage Cloud Guest:
+===     http://www.ubuntu.com/business/services/cloud
+=== 
+=== 10 updates can be installed immediately.
+=== 1 of these updates is a security update.
+=== 
+=== New release '16.04.6 LTS' available.
+=== Run 'do-release-upgrade' to upgrade to it.
+=== 
+=== 
+=== WARNING: Security updates for your current Hardware Enablement Stack
+=== ended on 2016-08-04:
+===  * http://wiki.ubuntu.com/1404_HWE_EOL
+=== 
+=== The following packages are no longer supported:
+===  linux-image-extra-3.19.0-25-generic linux-image-3.19.0-25-generic
+=== 
+=== Please upgrade them to a supported HWE stack or remove them if you
+=== no longer need them.
+=== 
+=== 
+=== Last login: Sat Feb 22 00:32:46 2020 from 172-0-11-88.lightspeed.rcsntx.sbcglobal.net
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# su casa
+=== 
+=== ===================================
+=== Welcome to CASA MEC x86 Platform
+=== ===================================
+=== CLI services started!
+=== WARNING: CPU Config - Available cores only 0 out of 2 for task mepmgr
+=== CASA-MOBILE>
+=== CASA-MOBILE>en
+=== Password: 
+=== CASA-MOBILE#
+=== CASA-MOBILE#show task crash
+=== Number  Task             Crash-Time                Exit-Code     Exit-Reason     Core-file
+=== ==========================================================================================
+=== Total 0 crash records
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+#####  Result:    PASSED
+#####  Script:    mmenew.test/1413
+#####  Last Step: 8: Judge whether:: saegw:: main is executed successfully
+#####  Date:      02/22/2020 08:27:58 AM
+#####  Log:       /public/casa-493/test/Log/mmenew_482-00.txt
+#####  Warnings:  1
+#####  Errors:    0
+#####  SubTest Duration: 06:38
+
+##########################################
+All test cases have been executed
+##########################################
+
+                                              mmenew
+---------------------------------------------------------------------------------------------------
+       Test     Duration     Verdict     Errs     Warns     Type                Bugs     Fixed    
+---------------------------------------------------------------------------------------------------
+ 1     1413     06:38        P                    1         Expect No Error                       
+---------------------------------------------------------------------------------------------------
+
+############################################
+#####  Passed:    1
+#####  Aborted:   0
+#####  Canceled:  0
+#####  Failed:    0
+#####  ----------------
+#####  Total:     1
+#####  Duration:  06:38
+#####
+#####  Script:    /public/casa-493/test/mmenew.test
+#####  Date:      02/22/2020 08:34:36 AM
+#####  Log:       /public/casa-493/test/Log/mmenew_482-00.txt
+#####  Verdict:   PASSED
+############################################
+
+Info(RunTest): Closing all Telnet and Ssh sessions (1)
+
+=================================== 08:35:06 ===================================
+=== ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no 172.0.14.27
+=== 
+================================================================================
+
+!! Error(Ssh): SSH failed: ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no 172.0.14.27
+
+
+!! Error(Ssh): sleep 8 seconds and ssh again
+
+=================================== 08:35:44 ===================================
+=== ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no 172.0.14.27
+=== 
+================================================================================
+
+!! Error(Ssh): SSH failed: ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no 172.0.14.27
+
+
+!! Error(Ssh): sleep 8 seconds and ssh again
+
+=================================== 08:36:23 ===================================
+=== ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no 172.0.14.27
+=== 
+================================================================================
+
+!! Error(Ssh): SSH failed: ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no 172.0.14.27
+
+
+!! Error(Ssh): sleep 8 seconds and ssh again
+
+=================================== 08:37:01 ===================================
+=== ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no 172.0.14.27
+=== 
+================================================================================
+
+!! Error(Ssh): SSH failed: ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no 172.0.14.27
+
+
+!! Error(Ssh): sleep 8 seconds and ssh again
+
+=================================== 08:37:39 ===================================
+=== ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no 172.0.14.27
+=== 
+================================================================================
+
+!! Error(Ssh): SSH failed: ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no 172.0.14.27
+
+
+!! Error(Ssh): sleep 8 seconds and ssh again
+
+=================================== 08:38:17 ===================================
+=== ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no 172.0.14.27
+=== 
+================================================================================
+
+!! Error(Ssh): SSH failed: ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no 172.0.14.27
+
+
+!! Error(Ssh): sleep 8 seconds and ssh again
+
+=================================== 08:38:55 ===================================
+=== ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no 172.0.14.27
+=== 
+================================================================================
+
+!! Error(Ssh): SSH failed: ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no 172.0.14.27
+
+
+!! Error(Ssh): sleep 8 seconds and ssh again
+
+=================================== 08:39:34 ===================================
+=== ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no 172.0.14.27
+=== 
+================================================================================
+
+!! Error(Ssh): SSH failed: ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no 172.0.14.27
+
+
+!! Error(Ssh): sleep 8 seconds and ssh again
+
+=================================== 08:40:12 ===================================
+=== ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no 172.0.14.27
+=== 
+================================================================================
+
+!! Error(Ssh): SSH failed: ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no 172.0.14.27
+
+
+!! Error(Ssh): sleep 8 seconds and ssh again
+
+=================================== 08:40:50 ===================================
+=== ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no 172.0.14.27
+=== 
+================================================================================
+
+!! Error(Ssh): SSH failed: ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no 172.0.14.27
+
+
+!! Error(Ssh): sleep 8 seconds and ssh again
+
+=================================== 08:41:28 ===================================
+=== ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no 172.0.14.27
+=== 
+================================================================================
+
+!! Error(Ssh): SSH failed: ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no 172.0.14.27
+
+
+=================================== 08:41:29 ===================================
+=== ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no 172.0.14.122
+=== root@172.0.14.122's password: 
+=== Welcome to Ubuntu 14.04.6 LTS (GNU/Linux 3.19.0-25-generic x86_64)
+=== 
+===  * Documentation:  https://help.ubuntu.com/
+=== 
+===   System information as of Sat Feb 22 00:34:34 UTC 2020
+=== 
+===   System load:  3.08               Users logged in:        2
+===   Usage of /:   24.4% of 23.38GB   IP address for eth0:    172.0.14.122
+===   Memory usage: 51%                IP address for docker0: 172.17.42.1
+===   Swap usage:   0%                 IP address for dp_0_0:  172.1.14.122
+===   Processes:    252
+=== 
+===   Graph this data and manage this system at:
+===     https://landscape.canonical.com/
+=== 
+===   Get cloud support with Ubuntu Advantage Cloud Guest:
+===     http://www.ubuntu.com/business/services/cloud
+=== 
+=== 10 updates can be installed immediately.
+=== 1 of these updates is a security update.
+=== 
+=== New release '16.04.6 LTS' available.
+=== Run 'do-release-upgrade' to upgrade to it.
+=== 
+=== 
+=== WARNING: Security updates for your current Hardware Enablement Stack
+=== ended on 2016-08-04:
+===  * http://wiki.ubuntu.com/1404_HWE_EOL
+=== 
+=== The following packages are no longer supported:
+===  linux-image-extra-3.19.0-25-generic linux-image-3.19.0-25-generic
+=== 
+=== Please upgrade them to a supported HWE stack or remove them if you
+=== no longer need them.
+=== 
+=== 
+=== Last login: Sat Feb 22 00:34:34 2020 from 172-0-11-88.lightspeed.rcsntx.sbcglobal.net
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# su casa
+=== 
+=== ===================================
+=== Welcome to CASA MEC x86 Platform
+=== ===================================
+=== CLI services started!
+=== WARNING: CPU Config - Available cores only 0 out of 2 for task mepmgr
+=== CASA-MOBILE>
+=== CASA-MOBILE>en
+=== Password: 
+=== CASA-MOBILE#
+=== CASA-MOBILE#show version
+=== QA Release: 4.9.3-341
+=== Build Time: Sat Feb  8 03:45:41 EST 2020
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+!! Error(SendAndExpect): upvar failed to find local variable $fdVar ()

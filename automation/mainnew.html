@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+	<meta charset="UTF-8">
+	
+	<title>表头固定内容滚动</title>
+	<script type="text/javascript" src="js/script.js"></script>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<link rel="stylesheet" href="css/test.css">
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$(".MALL").hide();
+			$(".MHover").mouseover(function (e) {
+				$(this).next(".MALL").css({"position":"absolute","top":e.pageY-25,"left":e.pageX-25}).show();
+			});
+			$(".MHover").mousemove(function (e) {
+				$(this).next(".MALL").css({ "color": "faf", "position": "absolute", "opacity": "1", "background-color": "aa6", "top": e.pageY - 25, "left": e.pageX - 25 });
+			});
+			$(".MHover").mouseout(function () {
+				$(this).next(".MALL").hide();
+			});
+		});
+	</script>
+</head>
+<body>
+<div class="tableWrap" style="margin:20px;">
+	
+	<table  class="table-thead">
+		<colgroup>
+			<col width="150">
+			<col width="300">
+			<col width="200">
+			<col width="200">
+			<col width="200">
+			<col width="150">
+			<col width="100">
+			<col width="100">
+			<col width="100">
+			
+			<col width="17">
+		</colgroup>
+		<thead>
+		<tr>
+			<!-- <th>序号</th> -->
+			<!-- <th>账户名称</th> -->
+			<!-- <th>账户编号</th> -->
+			<th  style="text-align:center;" ><input type="checkbox" id="all" name="all" align="center" onclick="chk()" >序号</th>
+			<th  style="text-align:center;">用例名称</th>
+			<th  style="text-align:center;">开始测试时间</th>
+			<th  style="text-align:center;">结束测试时间</th>
+			<th  style="text-align:center;">测试结果<label><input type="checkbox" id="result" name="result" align="center"  onclick="chk()" >pass</label><label><input type="checkbox" id="result" name="result" align="center"  onclick="chk()" >faill</label></th>
+			<th  style="text-align:center;">测试日志</th>
+			<!-- <th align="center">报告详情</th> -->
+			<th  style="text-align:center;" >操作</th>
+			<th  style="text-align:center;">测试工具</th>
+			<th  style="text-align:center;">备注</th>
+			<th></th>
+		</tr>
+		</thead>
+	</table>
+	<div class="comTbody">
+		<table   class="table-tbody" style="border-top: 0;" id="blocks">
+			<colgroup>
+			<!-- 修改表的宽度 -->
+				<col width="150">
+				<col width="300">
+				<col width="200">
+				<col width="200">
+				<col width="200">
+				<col width="150">
+				<col width="100">
+				<col width="100">
+				<col width="100">
+			</colgroup>
+			<tbody>
+			<!-- {{each mainlist as item i}} -->
+			<tr id="casetr">
+				
+				<th style="text-align:center;" width="6%">{{i+1}}&nbsp;&nbsp;<img src="images/reexecution.jpg" style="CURSOR: hand" align="center" width="10%" onclick='updaterecords({{item.Case_numbe}});'><input type="checkbox" id="mychk" name="mychk" align="center"  value={{item.Case_numbe}} >{{item.Case_numbe}}</th>				
+				<th  style="text-align:left;" width="25%" >
+					<div class="MHover">{{item.Case_name}}</div>
+					<div class="MALL">{{item.Case_name}}</div>
+				</th>
+				<!-- <th  style="text-align:left;" width="25%" > -->
+					<!-- {{item.Case_name}} -->
+				<!-- </th> -->
+				<th  style="text-align:center;" width="10%" height="25px">
+					{{item.startime}}
+				</th>
+				<th  style="text-align:center;" width="10%" height="25px">
+					{{item.endtime}}
+				</th>
+				<th style="text-align:center;" width="5%">
+					{{if item.Test_result=="P"}}  
+						<span class="colorGreen">pass</span>
+					{{else if item.Test_result=="p"}}  
+						<span class="colorGreen">pass</span>
+					{{else if item.Test_result=="f"}}  
+						<span class="colorRed">fail</span>
+					{{else if item.Test_result=="F"}}  
+						<span class="colorRed">fail</span>
+					{{else}}  
+						<span class="colorOrange">not run</span> 
+					{{/if}}
+				</th>
+				
+				<th style="text-align:center;" width="5%">
+					<a href="{{item.log}}&title={{item.Case_name}}" target="_blank">详情</a>
+				</th>
+				
+				<!-- <th align="center" width="5%"> -->
+					<!-- <a href="{{item.Detail}}">报告</a> -->
+				<!-- </th> -->
+				<!-- <th align="center" width="5%"> -->
+					<!-- <a href="./log.php?data=20190604&file=SAEGW_201010_01.txt"  target="_blank">报告</a> -->
+				<!-- </th> -->
+				
+				<th style="text-align:center;" width="6%" >
+					{{if item.Test_result=="P"}}  
+						<img id={{item.Case_numbe}} src="images/pass.gif" align="center" width="10%" >
+						<span id='span{{item.Case_numbe}}' class="colorBlue">已执行</span> 
+					{{else if item.Test_result=="p"}}  
+						<img id={{item.Case_numbe}} src="images/pass.gif" align="center" width="10%" >
+						<span id='span{{item.Case_numbe}}' class="colorBlue">已执行</span> 
+					{{else if item.Test_result=="f"}}  
+						<img id={{item.Case_numbe}} src="images/faill.gif" align="center" width="10%" >
+						<span id='span{{item.Case_numbe}}' class="colorBlue">已执行</span>
+					{{else if item.Test_result=="F"}}  
+						<img id={{item.Case_numbe}} src="images/faill.gif" align="center" width="10%" >
+						<span id='span{{item.Case_numbe}}' class="colorBlue">已执行</span>
+					{{else}}  
+						<img id={{item.Case_numbe}} src="images/notrun.gif" align="center" width="10%" >
+						<span id='span{{item.Case_numbe}}' class="colorOrange">未执行</span>
+					{{/if}}
+				</th> 
+					
+					
+				<th  style="text-align:center;" width="5%">
+					{{item.tooltype}}
+				</th>
+				<th style="text-align:center;" width="10%" height="25px">
+					<div contenteditable="true" id='text{{item.id}}' width="30%" class="placeholder">{{item.notes}}</div>
+					<input type="button" value="修改" width="30%" onclick='updatenodes({{item.id}});' />
+				</th>
+				
+				
+			</tr>
+			<!-- {{/each}} -->
+			</tbody>
+		</table>
+	</div>
+	
+</div>
+ <table  width="60%" align="right">
+	<div align="center" id="barcon" name="barcon"></div>
+</table>
+<!-- 引入template文件-用于模版渲染 -->
+<script type="text/javascript" src="js/template.js"></script>
+
+<script>
+function updatenodes(id){
+
+	var text = document.getElementById('text'+id).innerHTML;
+	
+	var json=JSON.stringify({"id" : id,"notes" : text});
+	
+	
+	var xhr1 = new XMLHttpRequest;
+	xhr1.open('post', 'updatenote.php');
+	xhr1.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+	xhr1.send(json);
+
+	xhr1.onreadystatechange = function() {
+		if(xhr1.readyState == 4 && (xhr1.status == 200 || xhr1.status ==304)) { //响应完成并且响应码为200或304
+			var projectid=localStorage.getItem('projectid');
+			
+			<!-- parent.initialization(projectid); -->
+			parent.getcaselist(projectid);
+			
+		}
+	};
+	
+}
+
+function updaterecords(id){
+	//定位id 
+	
+	var environment = window.parent.document.getElementById("top").contentWindow.document.getElementById("environment").value;
+	
+	
+    if (environment == "" || environment == null || environment == undefined) { // 只能用 === 运算来测试某个值是否是未定义的
+        alert("初始化前请选择执行环境");
+        return 0
+    }
+	var objss = JSON.parse(localStorage.getItem('obj'));
+	var obj1=objss.environmentalall;
+	var obj=obj1[0];
+	var table=obj[environment];
+	
+	var json=JSON.stringify({"id" : id,"table" : table});
+	
+	var xhr1 = new XMLHttpRequest;
+	xhr1.open('post', 'updaterecords.php');
+	xhr1.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+	xhr1.send(json);
+
+	xhr1.onreadystatechange = function() {
+		if(xhr1.readyState == 4 && (xhr1.status == 200 || xhr1.status ==304)) { //响应完成并且响应码为200或304
+			var projectid=localStorage.getItem('projectid');
+			parent.getcaselist(projectid);
+			<!-- parent.initialization(projectid); -->
+			
+		}
+	};
+	elem.style.display = '';
+}
+
+	
+</script>
+<!-- 引入json文件-数据源(就是从数据库查询出来的数据) -->
+<script>
+	
+	var stringData=localStorage.getItem('caseobj');
+	if(stringData.search('{"state":"empty"}') != -1) {
+		stringData='{"state":"empty"}';
+		<!-- var maindate = JSON.parse(stringData); -->
+	}
+	var flag=false;
+	
+	
+	try {
+		
+		var maindate = JSON.parse(stringData);
+		
+
+	} catch(e) {
+		
+		
+		var regex3 = /\{(.+?\[.+?\])\}/g;
+		var ss=stringData.match(regex3);
+		<!-- console.log(ss[0]); -->
+		var maindate = JSON.parse(ss[0]);
+		
+	} finally{
+		// 指定template渲染范围
+		var html = template('blocks', maindate);
+		document.getElementById('blocks').innerHTML = html;
+		
+	}
+</script>
+<!-- <script type="text/javascript" src="js/sort.js"></script> -->
+</body>
+</html>
+<script type="text/javascript" language="javascript"> 
+	window.onload = function(){ 
+		goPage(1,20);
+	}; 
+</script>

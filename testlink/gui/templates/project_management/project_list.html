@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>项目列表</title>
+
+
+
+<link rel="stylesheet" type="text/css" href="./base.css" />
+<script src="JS_lib.js"></script>
+<script type="text/javascript" src="js/jquery-1.8.0.min.js" ></script>
+<script type="text/javascript" src="js/jquery.superslide.2.1.1.js" ></script>
+
+
+<script>
+
+// get all project id and name
+get_all_project();
+function get_all_project(){
+	Run_Php_File(http_type="post", post_info="", php_file="read_all_project.php", locStorVal="projectobj");
+}
+
+function loadProject(){
+	var oS1=document.getElementById('project_list');
+	//console.log(oS1);
+	var project_arrays = JSON.parse(localStorage.getItem('projectobj'));
+	//console.log(project_arrays);
+	var num=0;
+	for(var index=0; index < project_arrays.length;index++){
+		var proj_id = project_arrays[index].id;
+		if(index%3==0) {
+			num=0;
+		}
+		var proj_name = project_arrays[index].name;
+		<!-- add_html = '<li ><a onclick="gettaskinfo(\''+proj_id+'\')"><i class="ico'+num+'"></i><p>' + proj_name + '</p></a></li>'; -->
+		var add_html = '<li selected="" id="'+proj_id+'" class="project">'+ proj_name + '</p></li>';
+		add_html += '<ul proj_id="'+proj_id+'" style="display:none">'
+		add_html += '<li>项目任务详情</li>'
+		add_html += '<li>项目相关人员</li>'
+		add_html += '</ul>'
+		//console.log(add_html);
+		oS1.innerHTML += add_html;
+		num=num+1;
+	}
+}
+
+function add_project() {
+
+	url = "add_project.html";
+	window.parent.window.location.href=url;
+}
+
+function reset_li_selected() {
+	var aObj=document.getElementsByTagName('li');
+	for(var i=0;i<aObj.length;i++)
+	{
+		aObj[i].setAttribute('selected','');
+		aObj[i].style.backgroundColor = 'white';
+		aObj[i].style.color = 'black';
+	}
+}
+
+function reset_proj_ul() {
+	var obj = document.getElementById('project_list');
+	var ul_list = casa_getElementsByTag(obj, 'UL');
+	//console.log(ul_list)
+	for(var i=0;i<ul_list.length;i++) {
+		ul_list[i].style.display = "none";
+		
+	}
+	
+}
+
+function reset_choose(li_list){
+	for(var i=0;i<li_list.length;i++)
+	{	
+		li_list[i].style.fontWeight = 'normal';
+		li_list[i].style.color = 'black';
+	}
+}
+
+
+function detect_click_project(){
+	var obj=document.getElementById('project_list');
+	var project_obj_arrays = casa_getElementsByAttri(obj,"class","project");
+	//console.log(project_obj_arrays);
+	for(var i=0;i<project_obj_arrays.length;i++)
+	{	
+		project_obj_arrays[i].onclick=function()
+		{
+			if(this.getAttribute('id'))
+			{
+				selected_id = this.getAttribute('id');
+				selected_name = this.innerText;
+
+				reset_li_selected();
+				this.setAttribute('selected','1');
+				this.style.color = 'white';
+				this.style.backgroundColor = 'gray';
+				localStorage.setItem('project_id_selected',selected_id);
+				localStorage.setItem('project_name_selected', selected_name);
+				
+				ul_obj = this.nextSibling;
+				//console.log(ul_obj);
+				
+				if (ul_obj.style.display == "none") {
+					reset_proj_ul();
+					//console.log(111111111);
+					ul_obj.style.display="";
+					detect_click_choose(ul_obj);
+				} else {
+					//console.log(2222222222);
+					ul_obj.style.display="none";
+				}
+				
+			}
+			return false;
+		}
+		project_obj_arrays[i].onmouseover = function(){
+			if(this.style.backgroundColor != 'gray'){
+				this.style.backgroundColor = 'yellow';
+			}
+		}
+		project_obj_arrays[i].onmouseout = function(){
+			if(this.style.backgroundColor != 'gray'){
+				this.style.backgroundColor = 'white';
+			}
+		}
+	}
+}
+
+function detect_click_choose(obj){
+
+	li_list = casa_getElementsByTag(obj,'LI');
+	//console.log(li_list);
+	for(var i=0;i<li_list.length;i++)
+	{	
+		//console.log(li_list[i]);
+
+		li_list[i].onclick = function(){
+			reset_choose(li_list);
+			proj_id = localStorage.getItem('project_id_selected');
+			//get "<frame  id="main">" in index.html
+			var main_obj=window.parent.document.getElementById("main");
+
+			this.style.fontWeight = 'bold'
+			this.style.color = 'blue';
+			
+			if (this.innerHTML=="项目任务详情") {
+				//console.log(main_obj);
+				main_obj.setAttribute('src','project_management/smarty_main.php?proj_id_selected='+proj_id);
+			} else if(this.innerHTML=="项目相关人员") {
+				main_obj.setAttribute('src','project_management/smarty_below_person.php?proj_id_selected='+proj_id);
+			}
+		}
+
+		li_list[i].onmouseover = function(){
+			if(this.style.backgroundColor != 'gray'){
+				this.style.backgroundColor = 'yellow';
+			}
+		}
+		li_list[i].onmouseout = function(){
+			if(this.style.backgroundColor != 'gray'){
+				this.style.backgroundColor = 'white';
+			}
+		}
+	}
+}
+
+window.onload=function()
+{
+
+	
+	//console.log(1111111);
+	detect_click_project();
+	
+} 
+
+function add_project() {
+
+	url = "smarty_modify_project.php";
+	window.parent.window.location.href=url;
+}
+
+</script>
+
+</head>
+<body>
+		
+		<div>
+			<h1>项目列表</h1>
+			{if $permit !== "guest"}
+			<ul>
+				<input type="submit" value="添加项目" onclick="add_project()"/>
+			</ul>
+			{/if}
+			<ul id="project_list">
+				
+				
+			</ul>
+			<script>
+				loadProject()
+			</script>
+		</div>
+		
+
+</body>
+</html>

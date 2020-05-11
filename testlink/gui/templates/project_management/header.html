@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="./base.css" />
+	<style type="text/css">
+		.box {
+			flex-direction: row;
+			flex-wrap: nowrap;
+			justify-content: space-around;;
+		}
+	</style>
+</head>
+
+<body>
+
+<div id="header" class="box">
+	<span id="branding">
+		<h1 id="site-name" onclick=window.parent.window.location.href="../index.php?caller=login&viewer=&type=project_manage_platform">项目管理系统</h1>
+	</span>
+	
+	<span id="button">
+		<button type="button" class="pgbutton" onclick=window.parent.window.location.href="./smarty_manage_group.php">小组管理{$mzftest}</button>
+		<button type="button" class="pgbutton" onclick=window.parent.window.location.href="./smarty_manage_personnel.php">人员管理</button>
+	</span>
+	
+	<span class="bold">Welcome, {$gui->whoami|escape}</span>
+	<span>&nbsp;&nbsp;&nbsp;
+	      <a href="../{$gui->logout}" target="_parent" accesskey="q">
+	      <img src="{$tlImages.logout}" title="{$labels.link_logout}"></a>
+	</span>
+</div>
+
+</body>
+ 
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>人员管理</title>
+    <script type="text/javascript" src="./js/mp.js"></script>
+    <script type="text/javascript" src="./js/jquery.min.js"></script>
+    <link rel="stylesheet" href="./css/base.css" />
+    <link rel="stylesheet" href="./css/pgbase.css" />
+  </head>
+  
+  <script>
+	  window.onload = function() {
+		  personnel_dis_display();
+	  }
+	</script>
+  
+  <body>
+    <iframe
+      align="center"
+      width="100%"
+      height="80"
+      src="smarty_header.php"
+      frameborder="no"
+      border="0"
+      marginwidth="0"
+      marginheight="0"
+      scrolling="no"
+    ></iframe>
+	<div>
+	    <h3 style="color:SlateGray">
+	      显示所有人员&nbsp;&nbsp;&nbsp;
+	      <button id="personnel_dis_display" onclick="personnel_dis_display()">
+	        展开/刷新
+	      </button>
+	      <button
+	        id="personnel_dis_hide"
+	        onclick="document.getElementById('personnel_dis').style.display='none'"
+	      >
+	        折叠
+	      </button>
+	    </h3>
+	    <div id="personnel_dis" hidden>
+	      <p id="dis_all_personnel">人员列表:</p>
+	      <br /><br />
+	    </div>
+	    <hr />
+	  </div>
+	</body>
+	{if $permit !== "guest"}
+    <div>
+      <h3 style="color:LightSeaGreen">
+        添加人员&nbsp;&nbsp;&nbsp;
+        <button id="personnel_add_display" onclick="personnel_add_display()">
+          展开/刷新
+        </button>
+        <button
+          id="personnel_add_hide"
+          onclick="document.getElementById('personnel_add').style.display='none'"
+        >
+          折叠
+        </button>
+      </h3>
+      <div id="personnel_add" hidden>
+        人员名称: <br />
+        <input
+          type="text"
+          name="personnel_name"
+          id="personnel_name"
+          value=""
+          required="required"
+          style="width:300px;height:20px;"
+        />
+        <br /><br />
+        <p id="get_all_group">
+          该人员所在小组&nbsp&nbsp&nbsp(notice:可多选)&nbsp:
+        </p>
+        <br />
+        <button id="add_commit" onclick="add_commit()">提交</button>
+      </div>
+      <hr />
+    </div>
+    <div>
+      <h3 style="color:LightSeaGreen">
+        修改人员信息&nbsp;&nbsp;&nbsp;
+        <button
+          id="personnel_modify_display"
+          onclick="personnel_modify_display()"
+        >
+          展开/刷新
+        </button>
+        <button
+          id="personnel_modify_hide"
+          onclick="document.getElementById('personnel_modify').style.display='none'"
+        >
+          折叠
+        </button>
+      </h3>
+      <div id="personnel_modify" hidden>
+        <p>请选中要修改的人员&nbsp&nbsp&nbsp:</p>
+        <select id="modify_personnel" onclick="modify_personnel()"
+          >select </select
+        ><br />
+        <pre id="txta1"></pre>
+        <!--<textarea id="txta1" name="txta1"></textarea>-->
+        <p id="modify_get_all_group">
+          该人员所在小组&nbsp&nbsp&nbsp(notice:可多选)&nbsp:
+        </p>
+        <br />
+        <button id="modify_commit" onclick="modify_commit()">提交</button>
+      </div>
+      <hr />
+    </div>
+    <div>
+      <h3 style="color:Brown">
+        删除人员&nbsp;&nbsp;&nbsp;
+        <button id="personnel_del_display" onclick="personnel_del_display()">
+          展开/刷新
+        </button>
+        <button
+          id="personnel_del_hide"
+          onclick="document.getElementById('personnel_del').style.display='none'"
+        >
+          折叠
+        </button>
+      </h3>
+      <div id="personnel_del" hidden>
+        <p id="get_all_personnel">
+          请选中要删除的人员&nbsp&nbsp&nbsp(notice:可多选)&nbsp:
+        </p>
+        <br />
+        <button id="del_commit" onclick="del_commit()">提交</button>
+      </div>
+      <hr />
+    </div>
+	{/if}
+</html>

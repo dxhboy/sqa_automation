@@ -1,0 +1,110 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+<style>
+*{margin:0;padding:0}
+a{text-decoration:none}
+<!-- 控制长度 -->
+#conter{width:100%;margin:auto}
+#help-left{width:100%;font-family:'microsoft YaHei';float:left}
+.menu{border-left:0.5px solid #ccc;border-right:0.5px solid #ccc}
+.menu:last-child{border-bottom:50px solid #ccc}
+
+.menu summary{white-space:nowrap;height:50px;line-height:50px;text-indent:15px;outline:0;font-size:16px;font-weight:400;border-top:0.5px solid #ddd;background:-webkit-gradient(linear,left top,left bottom,color-stop(0,#FEFEFE),color-stop(1,#CCC));cursor:pointer}
+.menu summary::-webkit-details-marker{display:none}
+.menu summary:before{content:"+";display:inline-block;width:60px;height:10px;margin-right:10px;font-size:14px;font-weight:100}
+.menu[open] summary:before{content:"-"}
+
+.menu ul{padding:20px 0}
+.menu ul {height:40px;line-height:40px;text-indent:15px;outline:0;font-size:10px;font-weight:200;border-top:0.5px solid #ddd;background:-webkit-gradient(linear,left top,left bottom,color-stop(0,#BEEEEE),color-stop(1,#CCH));cursor:pointer}
+
+<!-- .menu ul li{list-style:none;text-indent:15px;font-size:22px;height:60px;line-height:50px} -->
+.menu ul li a{display:block;color:#566}
+.menu ul li a:hover{text-decoration:underline}
+
+.summary{height:50px;line-height:50px;text-indent:30px;outline:0;font-size:18px;font-weight:600;border-top:0.5px solid #ddd;background:-webkit-gradient(linear,left top,left bottom,color-stop(0,#FEFEFE),color-stop(1,#CDC));cursor:pointer}
+</style>
+<script type="text/javascript">
+	
+	window.onload = function(){
+		var liNodes = document.getElementsByTagName("li");
+		for(var i = 0 ;i < liNodes.length; i++){
+			liNodes[i].onclick = function(e){
+				
+				var id=e.target.id;
+				localStorage.setItem('projectid', id);
+				<!-- 请求用例数据 -->
+				
+				parent.initialization(id);
+				parent.getcaselist(id);
+			}
+		}
+
+	}
+</script>
+</head>
+
+<body bgcolor="#E6E6EA">
+
+	<!--代码部分begin -->
+	<summary  class="summary">测试项目</summary>
+    <section id="conter">
+        <section id="help-left">
+			<script type="text/javascript">
+				//用innerHTML动态创建li
+				addElementDetails("help-left");
+				function addElementDetails(obj) {
+					var section = document.getElementById(obj);
+
+					var projectobj = JSON.parse(localStorage.getItem('projectobj'));
+					
+					var projectobj1=projectobj["testproject"];
+					for(var k in projectobj1){//遍历json对象的每个key/value对,p为key
+						
+						var jsonobj=projectobj1[k];
+						<!-- console.log(projectarry); -->
+						
+						
+						for(var p in jsonobj){//遍历json对象的每个key/value对,p为key
+							
+							var taskarry=jsonobj[p];
+							
+							var taskobj=taskarry[0];
+							
+							var details = document.createElement("details");
+							details.setAttribute("class", "menu");
+							var summary = document.createElement("summary");
+							summary.setAttribute("id", p);
+							summary.innerHTML = taskobj['prname'];
+							details.appendChild(summary);
+							section.appendChild(details);
+							for(var q in taskobj){
+								
+								if (q!="prname") {
+									var ul = document.createElement("ul");
+									ul.setAttribute("id", "task");
+									
+									var li = document.createElement("li");
+									//设置 li 属性，如 id
+									li.setAttribute("id", q);
+									li.innerHTML = taskobj[q];
+									
+									ul.appendChild(li);
+									
+									
+									details.appendChild(ul);
+								} 
+							}
+						}
+					}
+				}
+			</script>
+        </section>
+        <section id="help-right"></section>
+    </section>
+    <!--代码部分end -->
+</body>
+</html>
+

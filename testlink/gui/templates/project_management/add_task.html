@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>任务分配</title>
+	<link rel="stylesheet" type="text/css" href="./base.css" />
+	<style type="text/css">
+		li{
+			cursor: pointer;
+			width:auto;
+/*			 border: 1px solid black; */
+		}
+		table[name="task_info"] td{
+			border:0.5px solid black;
+			text-align:center;
+			width:200px;
+		}
+		#table_right{
+			border:1px solid black;
+		}
+		#messages{ width:100%; height: auto; border:1px solid #ccc; overflow:auto; padding:10px; box-sizing: border-box; position: relative;}
+		#drop {
+			border: 0px solid gray;
+			height: 35px;
+		}
+		img {
+			height: 100px;
+		}
+		.file {
+			position: relative;
+			display: inline-block;
+			background: #EEEEFF;
+			border: 1px solid #99D3F5;
+			border-radius: 4px;
+			padding: 4px 12px;
+			overflow: hidden;
+			color: #1E88C7;
+			text-decoration: none;
+			text-indent: 0;
+			line-height: 20px;
+		}
+		.file input {
+			position: absolute;
+			font-size: 100px;
+			right: 0;
+			top: 0;
+			opacity: 0;
+		}
+		.file:hover {
+			background: #AADFFD;
+			border-color: #78C3F3;
+			color: #004974;
+			text-decoration: none;
+		}
+	</style>
+	<script src="JS_lib.js"></script>
+</head>
+
+
+<script type="text/javascript">
+	
+	//there are two work mode: add mode; modify mode
+	//set default mode is add mode
+	localStorage.setItem('work_mode', 'add');
+	
+	// get all project id and name
+	get_all_project();
+	function get_all_project(){
+		Run_Php_File(http_type="post", post_info="", php_file="read_all_project.php", locStorVal="projectobj");
+	}
+	
+	function get_task(project_id){
+		//console.log('####################');
+		Run_Php_File(http_type="post", post_info=project_id, php_file="read_task.php", locStorVal="taskobj")
+	}
+	
+	function get_task_info(task_id){
+		//console.log('####################');
+		Run_Php_File(http_type="post", post_info=task_id, php_file="read_task_info.php", locStorVal="taskinfoobj")
+	}
+	
+	get_groups();
+	function get_groups(){
+		Run_Php_File(http_type="post", post_info="", php_file="read_groups.php", locStorVal="groupobj");
+	}
+	
+	function get_persons(group_id){
+		//console.log(group_id);
+		Run_Php_File(http_type="post", post_info=group_id, php_file="read_persons.php", locStorVal="personobj");
+		//console.log('group_id');
+	}
+	
+	function loadPerson(){
+		
+		//##############get the selected groups id
+		var oOpt = document.getElementsByName('task_group');
+		//console.log(oOpt);
+		var group_id = oOpt[0].value;
+		//console.log(group_id);
+		
+		//#############get all person list from DB according prject id
+		get_persons(group_id);
+		
+		
+		//############delete old person list
+		var groups_obj = document.getElementsByName('task_staff')[0];
+		groups_obj.innerHTML = '<option value="" selected="">---------</option>';
+		//console.log(groups_obj.innerHTML);
+		
+		
+		var oS1=document.getElementsByName('task_staff');
+		//console.log(localStorage.getItem('personobj'));
+	
+		var person_arrays = JSON.parse(localStorage.getItem('personobj'));
+		
+		//console.log(person_arrays);
+		for(var index in person_arrays){
+			var person_id = person_arrays[index][0];
+			var person_name = person_arrays[index][1];
+			add_html = '<option value="'+person_id+'">'+person_name+'</option>';
+			//console.log(add_html);
+			oS1[0].innerHTML+=add_html;
+		}
+	}
+	
+	function id2name(id, type) {
+		/*方法说明
+		 *@method id2name : check DB and get the name from id
+		 *@for 
+		 *@param{参数类型}参数名 参数说明
+		 * @id(int or string) 
+		 * @type(string) : from file "db_config.php", table key value
+		 *@return {string} name value
+		*/
+		var mycars=new Array();
+		mycars[0]=id;
+		mycars[1]=type;
+		//console.log(mycars);
+		Run_Php_File(http_type="post", post_info=mycars, php_file="id2name.php", locStorVal="json_name")
+		var myarray = JSON.parse(localStorage.getItem('json_name'))[0];
+		//console.log(myarray);
+		name = myarray.name;
+		return name;
+	}
+	
+	function load_Task_Info(task_id) {
+
+		//get info from DB
+		get_task_info(task_id);
+
+		var task_info_array = JSON.parse(localStorage.getItem('taskinfoobj'))[0];
+		//console.log(task_info_array);
+		var group_name = id2name(task_info_array.group_id, "groups");
+		//console.log(group_name);
+		var staff_name = id2name(task_info_array.staff_id, "personnel");
+		task_info_array['group'] = group_name;
+		task_info_array['staff'] = staff_name;
+
+		//load and show task info
+		var task_info_obj = document.getElementsByName('task_info')[0];
+		td_list = task_info_obj.getElementsByTagName('TD');
+
+		//console.log(task_info_obj.getElementsByTagName('TD'));
+		
+		//reset all info
+		for (var index in td_list) {
+			if(td_list[index] instanceof HTMLElement){
+				name = td_list[index].getAttribute('name');
+
+				if (name == 'notes') {
+					//console.log(td_list[index].childNodes);
+					
+					td_list[index].childNodes[1].innerHTML = "";
+				} else {
+					if (name != 'null') {
+						td_list[index].innerHTML = "";
+					}
+					
+				}
+			}
+		}
+		
+		
+		for (var index in td_list) {
+			if(td_list[index] instanceof HTMLElement){
+				//console.log(td_list[index]);
+				//console.log(td_list[index].name);
+				name = td_list[index].getAttribute('name');
+				if (name != 'null') {
+					//console.log(name);
+					if (name == 'notes') {
+						//console.log(task_info_array[name]);
+						td_list[index].childNodes[1].innerHTML = task_info_array[name];
+					} else {
+						td_list[index].innerHTML = task_info_array[name];
+						if (name == "pc") {
+							td_list[index].innerHTML += "%";
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	function detect_click_task(){
+		var aObj=document.getElementsByTagName('li');
+		for(var i=0;i<aObj.length;i++)
+		{	
+			aObj[i].onclick=function()
+			{
+				if(this.getAttribute('id'))
+				{
+					reset_li_selected();
+					this.setAttribute('selected','1');
+					this.style.color = 'white';
+					this.style.backgroundColor = 'gray';
+					load_Task_Info(this.getAttribute('id'));
+					localStorage.setItem('task_id_selected',this.getAttribute('id'));
+					localStorage.setItem('task_name_selected',this.innerHTML);
+					// console.log(this);
+					// console.log(this.innerHTML);
+// 					console.log(this.getAttribute('selected'));
+// 					console.log(this.getAttribute('id'));
+				}
+				return false;
+			}
+			aObj[i].onmouseover = function(){
+				if(this.style.backgroundColor != 'gray'){
+					this.style.backgroundColor = 'yellow';
+				}
+			}
+			aObj[i].onmouseout = function(){
+				if(this.style.backgroundColor != 'gray'){
+					this.style.backgroundColor = 'white';
+				}
+			}
+		}
+	}
+	
+	window.onload=function()
+	{
+
+		var proj_id_selected = getQueryVariable("proj_id_selected");
+		//console.log(proj_id_selected);
+		if (proj_id_selected == false) {
+			detect_click_task();
+		} else {
+			var proj_obj=document.getElementsByName('project')[0];
+			//console.log(proj_obj);
+			select_option(proj_obj, proj_id_selected);
+			loadTask(); //include detect_click_task()
+			
+		}
+		//绑定粘贴事件
+		document.getElementById('messages').onpaste = function () { 
+			paste_img(event); 
+			return false; 
+		};
+	} 
+	
+	
+	
+	function reset_li_selected() {
+		var aObj=document.getElementsByTagName('li');
+		for(var i=0;i<aObj.length;i++)
+		{
+			aObj[i].setAttribute('selected','');
+			aObj[i].style.backgroundColor = 'white';
+			aObj[i].style.color = 'black';
+		}
+	}
+	
+	function update_task_rela(work_mode) {
+		// work_mode only accept "add" or "modify"
+		
+		var aObj=document.getElementsByTagName('li');
+		//console.log(aObj.length);
+		if (aObj.length == 0) {
+			return false
+		}
+		
+		for(var i=0;i<aObj.length;i++)
+		{
+			if (aObj[i].getAttribute('selected') == "1") {
+				task_id = aObj[i].getAttribute('id');
+				obj = aObj[i];
+				break;
+			}
+		}
+		var task_rela = "";
+		
+		if (work_mode == "modify") {
+			obj = obj.parentElement;
+		}
+		
+		while (obj.nodeName != "TD") {
+			
+
+			if (obj.nodeName == "LI") {
+//  				console.log(obj.nodeName);
+// 				console.log(obj.innerHTML); 
+				var info = obj.innerHTML;
+				var task_rela = info + ">>>" + task_rela;
+				obj = obj.parentElement;
+			} else if (obj.nodeName == "UL") {
+				obj = obj.previousElementSibling;
+				if (!obj) {
+					break
+				}
+				continue;
+			} else {
+				break;
+			}
+		}
+		var task_rela = "根" + ">>>" + task_rela;
+		var task_rela_obj=document.getElementsByName('task_rela');
+		task_rela_obj[0].setAttribute('value', "");
+		task_rela_obj[0].setAttribute('value', task_rela);
+		
+		var task_rela_obj=document.getElementsByName('task_parent_id');
+		task_rela_obj[0].setAttribute('value', task_id);
+	}
+	
+	function update_task_form_action(work_mode) {
+		
+		var obj=document.getElementsByName('task_form')[0];
+
+		if (work_mode == "modify") {
+			obj.action = "modify_task.php";
+		} else if (work_mode == "add") {
+			obj.action = "add_task.php";
+		}
+	
+	}
+	
+	function prepare_add_task() {
+		
+		localStorage.setItem('work_mode', 'add');
+		update_work_mode_name();
+		
+		var aObj=document.getElementsByTagName('li');
+		//console.log(aObj.length);
+		if (aObj.length == 0) {
+			return false
+		}
+		update_task_rela("add");
+		update_task_form_action("add");
+	}
+		
+	function prepare_modify_task () {
+		localStorage.setItem('work_mode', 'modify');
+		update_work_mode_name();
+		update_task_rela("modify");
+		update_task_form_action("modify");
+		
+		//get info from DB
+		get_task_info(task_id);
+		var task_info_array = JSON.parse(localStorage.getItem('taskinfoobj'))[0];
+		//console.log(task_info_array);
+
+		
+		//change the select mode
+		var task_name_obj=document.getElementsByName('task_name')[0];
+		task_name_obj.setAttribute('value', task_info_array['name']);
+		
+		var task_notes_obj=document.getElementsByName('task_notes')[0];
+		task_notes_obj.innerHTML = task_info_array['notes'];
+		
+		var task_group_obj=document.getElementsByName('task_group')[0];
+		task_group_obj.setAttribute('value', task_info_array['group_id']);
+		select_option(task_group_obj, task_info_array['group_id']);
+		
+		var task_id_obj=document.getElementsByName('task_id')[0];
+		task_id_obj.setAttribute('value', task_info_array['id']);
+		
+		loadPerson();
+		
+		var task_staff_obj=document.getElementsByName('task_staff')[0];
+		task_staff_obj.setAttribute('value', task_info_array['staff_id']);
+		//console.log(task_staff_obj);
+		//console.log(task_info_array['staff_id']);
+		select_option(task_staff_obj, task_info_array['staff_id'])
+		
+		var task_status_obj=document.getElementsByName('task_status')[0];
+		task_status_obj.setAttribute('value', task_info_array['status']);
+		select_option(task_status_obj, task_info_array['status'])
+		
+		var task_pc_obj=document.getElementsByName('task_pc')[0];
+		task_pc_obj.setAttribute('value', task_info_array['pc']);
+		select_option(task_pc_obj, task_info_array['pc'])
+		
+		var task_starttime_obj=document.getElementsByName('task_starttime')[0];
+		task_starttime_obj.setAttribute('value', task_info_array['start_time']);
+		
+		var task_endtime_obj=document.getElementsByName('task_endtime')[0];
+		task_endtime_obj.setAttribute('value', task_info_array['est_com_time']);
+		if(task_info_array['picpath']!=null){
+			var task_pic_path=document.getElementsByName('picpath')[0];
+			task_pic_path.setAttribute('value', task_info_array['picpath']);
+		}
+		if(task_info_array['filepath']!=null){
+			var task_file_path=document.getElementsByName('filepath')[0];
+			task_file_path.setAttribute('value', task_info_array['filepath']);
+		}
+	}
+	
+	function select_option(html_obj, value) {
+		obj_list = html_obj.getElementsByTagName('OPTION');
+		//console.log(obj_list);
+		for (var index in obj_list) {
+			obj = obj_list[index];
+			if(obj instanceof HTMLElement){
+				//console.log(obj);
+				obj.removeAttribute('selected')
+				if (obj.getAttribute('value') == value) {
+					obj.setAttribute('selected', "");
+				}
+			}
+		} 
+	}
+	
+	function delete_task() {
+		task_id = localStorage.getItem('task_id_selected')
+		task_name = localStorage.getItem('task_name_selected');
+		if (confirm("确定删除任务\""+task_name+"\"吗?")) {
+			Run_Php_File(http_type="post", post_info=task_id, php_file="delete_task.php", locStorVal="");
+			location.reload() 
+		}
+	}
+	
+	function Reload() {
+		var proj_obj=document.getElementsByName('project')[0];
+		//console.log(proj_obj.value);
+		current_url = window.location.href;
+		//current_url = http://localhost/project_mag/add_task.html?proj_id_selected=2
+		//console.log(current_url);
+		
+		//change the proj_id_selected
+		if (current_url.search(/proj_id_selected=\d*/) == "-1") {
+			target_url = current_url + "?proj_id_selected=" + proj_obj.value;
+		} else {
+			//console.log(22222222);
+			target_url = current_url.replace(/proj_id_selected=\d*/g, "proj_id_selected=" + proj_obj.value);
+		}
+		console.log(target_url);
+		
+		window.location.href=target_url;
+
+	}
+	
+	function loadTask(){
+		
+		//##############get the selected project id
+		var oOpt = document.getElementsByName('project');
+		//console.log(oOpt);
+		
+		if(oOpt[0] instanceof HTMLElement){
+			var project_id = oOpt[0].value;
+			//console.log(project_id);
+			if (!project_id) {
+				return false
+			}
+			
+			//#############get all task list from DB according prject id
+			get_task(project_id);
+	
+			var task_arrays = JSON.parse(localStorage.getItem('taskobj'));
+			console.log(task_arrays);
+			if (task_arrays.length == 0) {
+				//console.log('1111111111');
+				var root_ulobj = document.getElementsByName('task_list')[0];
+				//console.log(root_ulobj.innerHTML);
+				root_ulobj.innerHTML = "当前项目任务列表为空";
+				//console.log(root_ulobj.innerHTML);
+			}
+			
+			//############delete old task list
+			var root_ulobj = document.getElementsByName('task_list')[0];
+			root_ulobj.innerHTML = "";
+			
+			//############# load and show all task 
+			showTask(task_arrays);
+			detect_click_task();
+		}
+	}
+	
+	function showTask(task_arrays) {
+		task_arrays.sort(function(a,b){
+			return a.id - b.id
+		})
+		//console.log(task_arrays);
+		for(var index in task_arrays){
+			task_id = task_arrays[index].id;
+			task_name = task_arrays[index].name;
+			task_parent_id = task_arrays[index].parent_id;
+			task_pc = task_arrays[index].pc;
+			//console.log(task_parent_id);
+			if (!task_parent_id) {
+				var root_ulobj = document.getElementsByName('task_list')[0];
+				add_html = '<li id="'+task_id+'">'+task_name+" ("+task_pc+"%)"+'</li>';
+				add_html += '<ul parent_id ="'+ task_id +'">'
+				root_ulobj.innerHTML += add_html;
+			} else {
+				var ulobjs = document.getElementsByTagName('ul');
+				//console.log(ulobjs);
+				for (var index in ulobjs) {
+					ulobj = ulobjs[index];
+					if(ulobj instanceof HTMLElement){
+						//console.log(ulobj);
+						//console.log(ulobj.getAttribute('parent_id'));
+						if (ulobj.getAttribute('parent_id') == task_parent_id) {
+							add_html = '<li id="'+task_id+'">'+task_name+" ("+task_pc+"%)"+'</li>';
+							add_html += '<ul parent_id ="'+ task_id +'">'
+							ulobj.innerHTML += add_html;
+						}
+					}
+				}
+			}
+			
+		}
+	}
+	
+</script>
+
+ 
+ 
+ 
+<body>
+
+	<iframe align="center" width="100%" height="80" src="header.html"  frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+	
+	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+		<tr>
+			<th>任务列表</th>
+			<th name="work_frame"></th>
+				<script type="text/javascript">
+					update_work_mode_name();
+					function update_work_mode_name() {
+						work_mode = localStorage.getItem('work_mode');
+						//console.log(work_mode)
+						var work_mode_obj=document.getElementsByName('work_frame')[0];
+						//console.log(work_mode_obj);
+						if (work_mode == "add") {
+							work_mode_obj.innerHTML="添加任务";   
+						} else {
+							work_mode_obj.innerHTML="修改任务";   
+						}
+					}
+				</script>
+			<th>任务详情</th>
+		</tr>
+
+		<tr>
+			
+			<td width="30%">
+			
+						<div>
+				
+						<ul name="task_list"></ul> 
+						
+						<script type="text/javascript">
+						
+							loadTask();
+						</script>
+							
+							
+							<div class="submit-row">
+								<input type="submit" value="新建子任务" onclick="prepare_add_task()"/>
+							</div>
+							
+							<div class="submit-row">
+								<input type="submit" value="修改选中任务" onclick="prepare_modify_task()"/>
+							</div>
+							
+							<div>
+								<input type="submit" value="删除选中任务" onclick="delete_task()"/>
+							</div>
+						</div>
+			
+			</td>
+			
+			<td width="30%">
+				<div>
+					
+					
+					<form name="task_form" action="./add_task.php" method="post">
+						
+						<div>	
+							<label style="display: block" for="project">项目:</label>
+							<select name="project" required id="" onchange="Reload()">
+								<option value="" selected>---------</option>
+								<!--<option value="项目在数据库的id">项目名称</option>-->
+								
+							</select>
+							
+							<script type="text/javascript">
+								
+								loadProject()
+								function loadProject(){
+									var oS1=document.getElementsByName('project');
+									//console.log(oS1)
+									var project_arrays = JSON.parse(localStorage.getItem('projectobj'));
+									//console.log(oS1[0].innerHTML);
+									for(var index in project_arrays){
+										var proj_id = project_arrays[index][0];
+										var proj_name = project_arrays[index][1];
+										add_html = '<option value="'+proj_id+'">'+proj_name+'</option>';
+										//console.log(add_html);
+										oS1[0].innerHTML+=add_html;
+									}
+								}
+								
+							</script>
+							
+						</div>
+						
+						<div>	
+							<label style="display: block" for="task_rela">任务关联:</label>
+							<input name="task_rela" type="text" maxlength="100" required id="task_rela" disabled="disabled" value="根>>>"/>
+						</div>
+						
+						<div style="display:none">
+							<label for="task_parent_id"></label>
+							<input name="task_parent_id" type="text" maxlength="100" id="task_parent_id" value=""/>
+						</div>
+						
+						<div style="display: none">
+							<label for="task_id">任务id:</label>
+							<input name="task_id" type="text" maxlength="100" id="task_id" />
+						</div>
+						
+						<div>	
+							<label style="display: block" for="task_name">任务名称:</label>
+							<input name="task_name" type="text" maxlength="100" required id="task_name" />
+						</div>
+						
+						<div>    
+							<label style="display: block" for="task_notes">任务说明:</label>
+							<textarea name="task_notes" cols="50" rows="10" id="task_notes"></textarea>         
+						</div>
+						
+						<div>	
+							<label style="display: block" for="groups">负责小组:</label>
+							<select name="task_group" required id="groups" required onchange="loadPerson()">
+								<option value="" selected>---------</option>
+								<!--<option value="小组在数据库的id">小组名称</option>-->
+								
+							</select>
+							
+							<script type="text/javascript">
+								
+								loadGroup()
+								function loadGroup(){
+									var oS1=document.getElementsByName('task_group');
+									//console.log(localStorage.getItem('groupobj'));
+									var group_arrays = JSON.parse(localStorage.getItem('groupobj'));
+									//console.log(group_arrays);
+									for(var index in group_arrays){
+										var group_id = group_arrays[index].id;
+										var group_name = group_arrays[index].name;
+										add_html = '<option value="'+group_id+'">'+group_name+'</option>';
+										//console.log(add_html);
+										oS1[0].innerHTML+=add_html;
+									}
+								}
+								
+								
+								
+							</script>
+							
+						</div>
+						
+						<div>	
+							<label style="display: block" for="persons">负责人员:</label>
+							<select name="task_staff" required id="persons">
+								<option value="" selected>---------</option>
+								<!--<option value="人员在数据库的id">人员名称</option>-->
+								
+							</select>
+							
+						</div>	
+						
+						<div>    
+							<label style="display: block" for="task_status">任务状态:</label>
+							<select name="task_status" required id="task_status">
+								<option value="" selected="">---------</option>
+								<option value="start">启动</option>
+								<option value="pause">暂停</option>
+								<option value="stop">终止</option>
+								<option value="finish">完成</option>   
+							</select>
+						</div>
+						
+						<div>    
+							<label style="display: block" for="task_pc">任务进度:</label>
+							<select name="task_pc" id="task_pc">
+								<option value="" selected>---------</option>
+								<option value="0">0</option>
+								<option value="25">25</option>
+								<option value="50">50</option>
+								<option value="75">75</option>
+								<option value="100">100</option>  							
+							</select>%
+						</div>
+						
+						<div>	
+							<label style="display: block" for="task_starttime">任务预计启动时间:</label>
+							<input name="task_starttime" type="date" value="------" id="task_starttime"/>
+						</div>
+
+						<div>	
+							<label style="display: block" for="task_endtime">任务预计结束时间:</label>
+							<input name="task_endtime" type="date" value="------" id="task_endtime"/>
+						</div>
+						<div >
+							<p>1、截图/图片打开后的复制；2、图片拖入下列框内上传；3、支持浏览上传图片；4、暂未做重复上传区分。<br/></p>
+							<p><input name="taskpicpath"  type="hidden" id="taskpicpath" /></p>
+							<p><input name="taskfilepath" type="hidden"  id="taskfilepath" /></p>
+							
+							<div >
+								<a href="javascript:;" class="file">选择文件
+									<input type="file" name="upload-file" id="upload-file">
+								</a>
+								<span id="nametext"></span>
+							</div>
+							<div id="messages" contenteditable="true"></div>
+							<script type="text/javascript" src="js/taskupfile.js"></script>
+						</div>
+						<div class="submit-row">
+							<input type="submit" value="确认"/>
+						</div>
+					
+					</form>
+				</div>
+				
+
+
+			</td>
+			
+			
+			<td>
+				<div>
+					<table id='table_right' name="task_info" cellpadding='0' cellspacing='0'>
+						<tr>
+							<td><b>任务名称</b></td>
+							<td name="name"></td>
+						</tr>
+						<tr>
+							<td><b>任务信息</b></td>
+							<td name="notes">
+								<textarea name="task_info_notes" cols="50" rows="10"></textarea>	
+								
+							</td>
+						</tr>
+						<tr>
+							<td><b>任务所属小组</b></td>
+							<td name="group"></td>
+						</tr>
+						<tr>
+							<td><b>任务所属人员</b></td>
+							<td name="staff"></td>
+						</tr>
+						<tr>
+							<td><b>任务创建日期</b></td>
+							<td name="create_time"></td>
+						</tr>
+						<tr>
+							<td><b>任务开始日期</b></td>
+							<td name="start_time"></td>
+						</tr>
+						<tr>
+							<td><b>任务预期结束日期</b></td>
+							<td name="est_com_time"></td>
+						</tr>
+						<tr>
+							<td><b>任务实际结束日期</b></td>
+							<td name="act_com_time"></td>
+						</tr>
+						<tr>
+							<td><b>任务进度</b></td>
+							<td name="pc"></td>
+						</tr>
+						<tr>
+							<td><b>任务状态</b></td>
+							<td name="status"></td>
+						</tr>
+					</table>
+				<div>
+			</td>
+		</tr>
+	</table>
+
+
+
+
+
+</body>
+ 
+</html>

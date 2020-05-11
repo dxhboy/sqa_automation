@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>首页</title>
+<link rel="stylesheet" href="css/default.css" />
+<link rel="stylesheet" href="css/index.css" />
+<script src="JS_lib_new.js"></script>
+<script type="text/javascript" src="js/jquery-1.8.0.min.js" ></script>
+<script type="text/javascript" src="js/jquery.superslide.2.1.1.js" ></script>
+<script type="text/javascript" src="js/index.js" ></script>
+
+<script>
+function gettaskinfo(id){
+	var httpRequest = new XMLHttpRequest;
+	httpRequest.open('post', 'show_project_task.php');
+	httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+	var contact = new Object();
+	contact.projectid = id;
+	
+	var jsondata = JSON.stringify(contact);	
+	httpRequest.send(jsondata);
+	
+	httpRequest.onreadystatechange = function() {
+		if(httpRequest.readyState == 4 && (httpRequest.status == 200 || httpRequest.status ==304)) { //响应完成并且响应码为200或304
+			var json = httpRequest.responseText;//获取到服务端返回的数据
+			localStorage.setItem('taskinfo', json);
+			// var iframe1 = document.getElementById('main');
+			var iframe1 =window.parent.document.getElementById("below");
+			// window.parent.frames["below"].contentWindow.location.reload(true);
+			iframe1.contentWindow.location.reload(true);
+			// window.parent.frames.item('below').location.reload();
+			// window.parent.document.forms[1].location.reload();
+		}
+	};
+}
+// get all project id and name
+get_all_project();
+function get_all_project(){
+	Run_Php_File(http_type="post", post_info="", php_file="read_all_project.php", locStorVal="projectobj");
+}
+
+function loadProject(){
+	var oS1=document.getElementsByName('project');
+	
+	var project_arrays = JSON.parse(localStorage.getItem('projectobj'));
+	
+	var num=0;
+	for(var index in project_arrays){
+		var proj_id = project_arrays[index][0];
+		if(index%3==0) {
+			num=0;
+		}
+		var proj_name = project_arrays[index][1];
+		add_html = '<li ><a onclick="gettaskinfo(\''+proj_id+'\')"><i class="ico'+num+'"></i><p>' + proj_name + '</p></a></li>';
+		//console.log(add_html);
+		oS1[0].innerHTML+=add_html;
+		num=num+1;
+	}
+}
+
+
+
+</script>
+</head>
+<body>
+
+
+	<div class="picScroll-left">
+		<div class="hd">
+			<a class="next"></a>
+			<a class="prev"></a>
+		</div>
+		<div  class="bd">
+			<ul  name="project" class="picList cleafix">
+				
+				
+				<!-- <li>
+					<a href="#">
+						<i class="ico"></i>
+						<p>{{item.name}}</p>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<i class="ico1"></i>
+						<p>MME</p>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<i class="ico2"></i>
+						<p>ALF</p>
+					</a>
+				</li> -->
+				<li id="blocks">
+					<a href="#">
+						<i class="ico3"></i>
+						<p>Add new project</p>
+					</a>
+				</li>
+				
+			</ul>
+			<script>
+				loadProject()
+			</script>
+		</div>
+	</div>
+
+</body>
+</html>

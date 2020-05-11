@@ -1,0 +1,243 @@
+##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### 
+# AutoApp    v15.1009
+# Harness:   root@tclserver8
+# Date:      02/26/2020 10:44:20 PM
+# Script:    /public/casa-495/test/Tests/hxd/SAEGW.test
+# Eth0 IP:   0.0.0.0
+# Loopback:  
+# Image:     
+# Descript:  
+# Config:    /public/casa-495/test/Config/saegw_dxj.tcf
+# Log File:  /public/casa-495/test/Log/SAEGW_2956-00.txt
+##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### 
+
+Info(Include): Installed package casaExcel v1.0
+Info(Include): Installed package casaSAEGW v1.0
+TRACE(SAEGW::Main) : Calledby RunTest
+Info(Include): Installed package casaExcel v1.0
+Info(Include): Installed package casaLandslide v1.0
+
+STEP(22:44:20): START Step 1: 1.Get the Excel list;
+STEP(22:44:20): RESULT=PASS  Step 1: 1.Get the Excel list;
+
+STEP(22:44:20): START Step 2: 2.Get a list of use cases;
+STEP(22:44:20): RESULT=PASS  Step 2: 2.Get a list of use cases;
+Info(Include): Installed package casaCmd v9.0
+Info(Include): Installed package casaSAEGW v1.0
+Info(Include): Installed package casaPGW v1.0
+Info(Include): Installed package casaIxia v1.0
+Info(Include): Installed package casaPlatform v1.0
+   TRACE(StartSaegwTest)	 Calledby ::SAEGW::Main 
+
+
+=================================== 22:44:21 ===================================
+=== ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no 172.0.10.51
+=== root@172.0.10.51's password: 
+=== Last login: Wed Feb 26 05:57:25 2020 from 192.168.157.100
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# su casa
+=== 
+=== ===================================
+=== Welcome to CASA MEC x86 Platform
+=== ===================================
+=== CLI services started!
+=== CASA-MOBILE>
+=== CASA-MOBILE>en
+=== Password: 
+=== CASA-MOBILE#
+=== CASA-MOBILE#show task crash
+=== Number  Task             Crash-Time                Exit-Code     Exit-Reason     Core-file
+=== ==========================================================================================
+=== Total 0 crash records
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 22:44:23 ===================================
+=== ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no 172.0.10.57
+=== root@172.0.10.57's password: 
+=== Last login: Wed Feb 26 14:39:18 2020 from 172.0.11.192
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# su casa
+=== 
+=== ===================================
+=== Welcome to CASA MEC x86 Platform
+=== ===================================
+=== CLI services started!
+=== CASA-MOBILE>
+=== CASA-MOBILE>en
+=== Password: 
+=== CASA-MOBILE#
+=== CASA-MOBILE#show task crash
+=== Number  Task             Crash-Time                Exit-Code     Exit-Reason     Core-file
+=== ==========================================================================================
+=== Total 0 crash records
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+STEP(22:44:25): START Step 3: SSH to SAEGW linux
+TRACE(Ssh_Retry) Calledby ::DEALEXCEL::Ssh_Server_Linux
+
+=================================== 22:44:25 ===================================
+=== ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no 172.0.10.51
+=== root@172.0.10.51's password: 
+=== Last login: Wed Feb 26 14:44:21 2020 from 172-0-11-88.lightspeed.rcsntx.sbcglobal.net
+=== root@CASA-MOBILE:~# page-off
+=== page-off: command not found
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+================================================================================
+
+!!Success(DEALEXCEL::Ssh_Server_Linux): Ssh 172.0.10.51 Success fd: ::DEALEXCEL::Linux_Spawn_Id(SPAWN_ID_SAEGW_C_Linux_1)=exp7
+TRACE(Ssh_Retry) Calledby ::DEALEXCEL::Ssh_Server_Linux
+
+=================================== 22:44:28 ===================================
+=== ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no 172.0.10.57
+=== root@172.0.10.57's password: 
+=== Last login: Wed Feb 26 14:44:24 2020 from 172-0-11-88.lightspeed.rcsntx.sbcglobal.net
+=== root@CASA-MOBILE:~# page-off
+=== page-off: command not found
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+================================================================================
+
+!!Success(DEALEXCEL::Ssh_Server_Linux): Ssh 172.0.10.57 Success fd: ::DEALEXCEL::Linux_Spawn_Id(SPAWN_ID_SAEGW_U_Linux_1)=exp8
+STEP(22:44:29): RESULT=PASS  Step 3: SSH to SAEGW linux
+
+STEP(22:44:29): START Step 4: 3.SSH to SAEGW-C and SAEGW-U as casa and log into enable mode;
+
+=================================== 22:44:29 ===================================
+=== ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no  172.0.10.51
+=== root@172.0.10.51's password: 
+=== Last login: Wed Feb 26 14:44:25 2020 from 172-0-11-88.lightspeed.rcsntx.sbcglobal.net
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+================================================================================
+
+!!Success(SAEGW::LOGIN_SAEGW_SERVER): Ssh  172.0.10.51 Success fd=exp9
+
+=================================== 22:44:34 ===================================
+=== su casa
+=== 
+=== ===================================
+=== Welcome to CASA MEC x86 Platform
+=== ===================================
+=== CLI services started!
+=== CASA-MOBILE>
+=== CASA-MOBILE>en
+=== Password: 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+!!Success(SAEGW::LOGIN_SAEGW_SERVER): enter CASA-MOBILE Success!!!
+
+=================================== 22:44:34 ===================================
+=== ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no  172.0.10.57
+=== root@172.0.10.57's password: 
+=== Last login: Wed Feb 26 14:44:28 2020 from 172-0-11-88.lightspeed.rcsntx.sbcglobal.net
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+================================================================================
+
+!!Success(SAEGW::LOGIN_SAEGW_SERVER): Ssh  172.0.10.57 Success fd=exp10
+
+=================================== 22:44:37 ===================================
+=== su casa
+=== 
+=== ===================================
+=== Welcome to CASA MEC x86 Platform
+=== ===================================
+=== CLI services started!
+=== CASA-MOBILE>
+=== CASA-MOBILE>en
+=== Password: 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+!!Success(SAEGW::LOGIN_SAEGW_SERVER): enter CASA-MOBILE Success!!!
+STEP(22:44:37): RESULT=PASS  Step 4: 3.SSH to SAEGW-C and SAEGW-U as casa and log into enable mode;
+
+STEP(22:44:37): START Step 5: 4.get excel case info
+1
+################start read test link database info################
+python3 ./Lib/casaPython/Read_Test_Plan_DB.py 17296 '17295_17297_17299' /public/dxj/tcpdump
+################finish read test link database info################
+STEP(22:44:44): RESULT=PASS  Step 5: 4.get excel case info
+
+STEP(22:44:44): START Step 6: 5.get excel case info
+Execute Step:3199 
+!! Info(Adapt_Environment): Global variable ADAPT_ENVIR_FLAG not exists or == 0, pass this proc
+step_3199
+
+=================================== 22:44:45 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(CasaGetPrompt): Current CLI mode for exp9 is enable
+
+=================================== 22:44:45 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 22:44:47 ===================================
+=== 
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 22:44:48 ===================================
+=== config
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+
+=================================== 22:44:50 ===================================
+=== 
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+
+================================================================================
+
+
+================================================================================
+
+
+================================================================================
+

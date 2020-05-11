@@ -1,0 +1,1090 @@
+##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### 
+# AutoApp    v15.1009
+# Harness:   root@tclserver8
+# Date:      02/20/2020 05:32:04 PM
+# Script:    /public/casa-493/test/mmenew.test
+# Eth0 IP:   0.0.0.0
+# Loopback:  
+# Image:     
+# Descript:  
+# Config:    /public/casa-493/test/Config/ldq_ixia_mme_245_ixiahss_testlink.tcf
+# Log File:  /public/casa-493/test/Log/mmenew_19956-00.txt
+##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### 
+
+Info(Include): Installed package casaSAEGW v1.0
+numc=1 NUM_MME=2
+numc=2 NUM_MME=2
+Info(Include): Installed package casaMME v1.0
+TRACE(MME::Main) : Calledby RunTest
+Info(Include): Installed package casaExcel v1.0
+Info(Include): Installed package casaLandslide v1.0
+
+STEP(17:32:04): START Step 1: 1.Get the Excel list;
+STEP(17:32:04): RESULT=PASS  Step 1: 1.Get the Excel list;
+
+STEP(17:32:04): START Step 2: 2.Get a list of use cases;
+STEP(17:32:04): RESULT=PASS  Step 2: 2.Get a list of use cases;
+Info(Include): Installed package casaCmd v9.0
+Info(Include): Installed package casaSeGW v1.0
+Info(Include): Installed package casaHenbGW v1.0
+Info(Include): Installed package casaIxia v1.0
+numc=1 NUM_MME=2
+numc=2 NUM_MME=2
+Info(Include): Installed package casaMME v1.0
+Info(Include): Installed package casaPlatform v1.0
+     TRACE(StartMmeTest)	 Calledby ::MME::Main 
+
+
+=================================== 17:32:05 ===================================
+=== ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no 172.0.14.245
+=== root@172.0.14.245's password: 
+=== Welcome to Ubuntu 14.04.6 LTS (GNU/Linux 3.19.0-25-generic x86_64)
+=== 
+===  * Documentation:  https://help.ubuntu.com/
+=== 
+===   System information as of Thu Feb 20 09:31:07 UTC 2020
+=== 
+===   System load:  3.13               Users logged in:        1
+===   Usage of /:   38.5% of 23.38GB   IP address for eth0:    172.0.14.245
+===   Memory usage: 52%                IP address for docker0: 172.17.42.1
+===   Swap usage:   0%                 IP address for dp_0_1:  172.1.14.245
+===   Processes:    258
+=== 
+===   Graph this data and manage this system at:
+===     https://landscape.canonical.com/
+=== 
+===   Get cloud support with Ubuntu Advantage Cloud Guest:
+===     http://www.ubuntu.com/business/services/cloud
+=== 
+=== 9 updates can be installed immediately.
+=== 1 of these updates is a security update.
+=== 
+=== New release '16.04.6 LTS' available.
+=== Run 'do-release-upgrade' to upgrade to it.
+=== 
+=== 
+=== WARNING: Security updates for your current Hardware Enablement Stack
+=== ended on 2016-08-04:
+===  * http://wiki.ubuntu.com/1404_HWE_EOL
+=== 
+=== The following packages are no longer supported:
+===  linux-image-extra-3.19.0-25-generic linux-image-3.19.0-25-generic
+=== 
+=== Please upgrade them to a supported HWE stack or remove them if you
+=== no longer need them.
+=== 
+=== 
+=== Last login: Thu Feb 20 09:31:09 2020 from 172.0.11.88
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# su casa
+=== 
+=== ===================================
+=== Welcome to CASA MEC x86 Platform
+=== ===================================
+=== CLI services started!
+=== WARNING: CPU Config - Available cores only 0 out of 2 for task mepmgr
+=== CASA-MOBILE>
+=== CASA-MOBILE>en
+=== Password: 
+=== CASA-MOBILE#
+=== CASA-MOBILE#show task crash
+=== Number  Task             Crash-Time                Exit-Code     Exit-Reason     Core-file
+=== ==========================================================================================
+=== Total 0 crash records
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+STEP(17:32:09): START Step 3: SSH to MME linux
+TRACE(Ssh_Retry) Calledby ::DEALEXCEL::Ssh_Server_Linux
+
+=================================== 17:32:09 ===================================
+=== ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no 172.0.14.245
+=== root@172.0.14.245's password: 
+=== Welcome to Ubuntu 14.04.6 LTS (GNU/Linux 3.19.0-25-generic x86_64)
+=== 
+===  * Documentation:  https://help.ubuntu.com/
+=== 
+===   System information as of Thu Feb 20 09:32:05 UTC 2020
+=== 
+===   System load:  3.08               Users logged in:        1
+===   Usage of /:   38.5% of 23.38GB   IP address for eth0:    172.0.14.245
+===   Memory usage: 51%                IP address for docker0: 172.17.42.1
+===   Swap usage:   0%                 IP address for dp_0_1:  172.1.14.245
+===   Processes:    253
+=== 
+===   Graph this data and manage this system at:
+===     https://landscape.canonical.com/
+=== 
+===   Get cloud support with Ubuntu Advantage Cloud Guest:
+===     http://www.ubuntu.com/business/services/cloud
+=== 
+=== 9 updates can be installed immediately.
+=== 1 of these updates is a security update.
+=== 
+=== New release '16.04.6 LTS' available.
+=== Run 'do-release-upgrade' to upgrade to it.
+=== 
+=== 
+=== WARNING: Security updates for your current Hardware Enablement Stack
+=== ended on 2016-08-04:
+===  * http://wiki.ubuntu.com/1404_HWE_EOL
+=== 
+=== The following packages are no longer supported:
+===  linux-image-extra-3.19.0-25-generic linux-image-3.19.0-25-generic
+=== 
+=== Please upgrade them to a supported HWE stack or remove them if you
+=== no longer need them.
+=== 
+=== 
+=== Last login: Thu Feb 20 09:32:07 2020 from 172.0.11.88
+=== root@CASA-MOBILE:~# page-off
+=== page-off: command not found
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+================================================================================
+
+!!Success(DEALEXCEL::Ssh_Server_Linux): Ssh 172.0.14.245 Success fd: ::DEALEXCEL::Linux_Spawn_Id(SPAWN_ID_MME_Linux_1)=exp7
+TRACE(Ssh_Retry) Calledby ::DEALEXCEL::Ssh_Server_Linux
+
+=================================== 17:32:13 ===================================
+=== ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no 172.0.14.49
+=== root@172.0.14.49's password: 
+=== Welcome to Ubuntu 14.04.6 LTS (GNU/Linux 3.19.0-25-generic x86_64)
+=== 
+===  * Documentation:  https://help.ubuntu.com/
+=== 
+===   System information as of Thu Feb 20 17:25:32 CST 2020
+=== 
+===   System load:  3.08               Users logged in:        1
+===   Usage of /:   32.1% of 23.38GB   IP address for eth0:    172.0.14.49
+===   Memory usage: 52%                IP address for docker0: 172.17.42.1
+===   Swap usage:   0%                 IP address for dp_0_1:  172.1.14.49
+===   Processes:    248                IP address for lo10:    10.10.10.49
+=== 
+===   Graph this data and manage this system at:
+===     https://landscape.canonical.com/
+=== 
+===   Get cloud support with Ubuntu Advantage Cloud Guest:
+===     http://www.ubuntu.com/business/services/cloud
+=== 
+=== 10 updates can be installed immediately.
+=== 1 of these updates is a security update.
+=== 
+=== New release '16.04.6 LTS' available.
+=== Run 'do-release-upgrade' to upgrade to it.
+=== 
+=== 
+=== WARNING: Security updates for your current Hardware Enablement Stack
+=== ended on 2016-08-04:
+===  * http://wiki.ubuntu.com/1404_HWE_EOL
+=== 
+=== The following packages are no longer supported:
+===  linux-image-3.19.0-25-generic linux-image-extra-3.19.0-25-generic
+=== 
+=== Please upgrade them to a supported HWE stack or remove them if you
+=== no longer need them.
+=== 
+=== 
+=== Last login: Thu Feb 20 17:25:32 2020 from 172.0.11.88
+=== root@CASA-MOBILE:~# page-off
+=== page-off: command not found
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+================================================================================
+
+!!Success(DEALEXCEL::Ssh_Server_Linux): Ssh 172.0.14.49 Success fd: ::DEALEXCEL::Linux_Spawn_Id(SPAWN_ID_MME_Linux_2)=exp8
+STEP(17:32:16): RESULT=PASS  Step 3: SSH to MME linux
+
+STEP(17:32:16): START Step 4: 3.SSH to MME as casa and log into enable mode;
+
+=================================== 17:32:17 ===================================
+=== ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no  172.0.14.245
+=== root@172.0.14.245's password: 
+=== Welcome to Ubuntu 14.04.6 LTS (GNU/Linux 3.19.0-25-generic x86_64)
+=== 
+===  * Documentation:  https://help.ubuntu.com/
+=== 
+===   System information as of Thu Feb 20 09:32:09 UTC 2020
+=== 
+===   System load:  3.15               Users logged in:        1
+===   Usage of /:   38.5% of 23.38GB   IP address for eth0:    172.0.14.245
+===   Memory usage: 51%                IP address for docker0: 172.17.42.1
+===   Swap usage:   0%                 IP address for dp_0_1:  172.1.14.245
+===   Processes:    254
+=== 
+===   Graph this data and manage this system at:
+===     https://landscape.canonical.com/
+=== 
+===   Get cloud support with Ubuntu Advantage Cloud Guest:
+===     http://www.ubuntu.com/business/services/cloud
+=== 
+=== 9 updates can be installed immediately.
+=== 1 of these updates is a security update.
+=== 
+=== New release '16.04.6 LTS' available.
+=== Run 'do-release-upgrade' to upgrade to it.
+=== 
+=== 
+=== WARNING: Security updates for your current Hardware Enablement Stack
+=== ended on 2016-08-04:
+===  * http://wiki.ubuntu.com/1404_HWE_EOL
+=== 
+=== The following packages are no longer supported:
+===  linux-image-extra-3.19.0-25-generic linux-image-3.19.0-25-generic
+=== 
+=== Please upgrade them to a supported HWE stack or remove them if you
+=== no longer need them.
+=== 
+=== 
+=== Last login: Thu Feb 20 09:32:11 2020 from 172.0.11.88
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+================================================================================
+
+!!Success(MME::LOGIN_MME_SERVER): Ssh  172.0.14.245 Success fd=exp9
+
+=================================== 17:32:21 ===================================
+=== su casa
+=== 
+=== ===================================
+=== Welcome to CASA MEC x86 Platform
+=== ===================================
+=== CLI services started!
+=== WARNING: CPU Config - Available cores only 0 out of 2 for task mepmgr
+=== CASA-MOBILE>
+=== CASA-MOBILE>en
+=== Password: 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+!!Success(MME::LOGIN_MME_SERVER): enter CASA-MOBILE Success!!!
+
+=================================== 17:32:21 ===================================
+=== ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no 172.0.14.49
+=== root@172.0.14.49's password: 
+=== Welcome to Ubuntu 14.04.6 LTS (GNU/Linux 3.19.0-25-generic x86_64)
+=== 
+===  * Documentation:  https://help.ubuntu.com/
+=== 
+===   System information as of Thu Feb 20 17:32:13 CST 2020
+=== 
+===   System load:  3.38               Users logged in:        1
+===   Usage of /:   32.1% of 23.38GB   IP address for eth0:    172.0.14.49
+===   Memory usage: 52%                IP address for docker0: 172.17.42.1
+===   Swap usage:   0%                 IP address for dp_0_1:  172.1.14.49
+===   Processes:    247                IP address for lo10:    10.10.10.49
+=== 
+===   Graph this data and manage this system at:
+===     https://landscape.canonical.com/
+=== 
+===   Get cloud support with Ubuntu Advantage Cloud Guest:
+===     http://www.ubuntu.com/business/services/cloud
+=== 
+=== 10 updates can be installed immediately.
+=== 1 of these updates is a security update.
+=== 
+=== New release '16.04.6 LTS' available.
+=== Run 'do-release-upgrade' to upgrade to it.
+=== 
+=== 
+=== WARNING: Security updates for your current Hardware Enablement Stack
+=== ended on 2016-08-04:
+===  * http://wiki.ubuntu.com/1404_HWE_EOL
+=== 
+=== The following packages are no longer supported:
+===  linux-image-3.19.0-25-generic linux-image-extra-3.19.0-25-generic
+=== 
+=== Please upgrade them to a supported HWE stack or remove them if you
+=== no longer need them.
+=== 
+=== 
+=== Last login: Thu Feb 20 17:32:15 2020 from 172.0.11.88
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+================================================================================
+
+!!Success(MME::LOGIN_MME_SERVER): Ssh 172.0.14.49 Success fd=exp10
+
+=================================== 17:32:25 ===================================
+=== su casa
+=== 
+=== ===================================
+=== Welcome to CASA MEC x86 Platform
+=== ===================================
+=== CLI services started!
+=== CASA-MOBILE>
+=== CASA-MOBILE>en
+=== Password: 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+!!Success(MME::LOGIN_MME_SERVER): enter CASA-MOBILE Success!!!
+STEP(17:32:25): RESULT=PASS  Step 4: 3.SSH to MME as casa and log into enable mode;
+
+STEP(17:32:25): START Step 5: Clear old crash and status in MME, respectively
+
+=================================== 17:32:25 ===================================
+=== clear mme statistics all
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 17:32:26 ===================================
+=== clear mme statistics all
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+STEP(17:32:26): RESULT=PASS  Step 5: Clear old crash and status in MME, respectively
+
+STEP(17:32:26): START Step 6: 4.get excel case info
+1
+################start read test link database info################
+python3 ./Lib/casaPython/Read_Test_Plan_DB.py 31441 '31416_31430_31440' /public/ldq_ixia_mme_245/tcpdump
+################finish read test link database info################
+STEP(17:32:31): RESULT=PASS  Step 6: 4.get excel case info
+
+STEP(17:32:31): START Step 7: 5.get excel case info
+Execute Step:9956 
+Info(Include): Installed package casaIxia v1.0
+this context no need to transform, input information has not changed, and store in variable "output"
+
+=================================== 17:32:33 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+TRACE(LteCliSend) : Calledby Mirror
+{
+			mirror mme protocol sctp
+			mirror mme protocol gtpc
+			mirror mme protocol tcp
+		
+			mirror start timeout never
+			mirror destination file 31416_31430_31440
+		} -- -fd exp9
+
+=================================== 17:32:33 ===================================
+=== mirror mme protocol sctp
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 17:32:33 ===================================
+=== mirror mme protocol gtpc
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 17:32:33 ===================================
+=== mirror mme protocol tcp
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 17:32:33 ===================================
+=== mirror start timeout never
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 17:32:33 ===================================
+=== mirror destination file 31416_31430_31440
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+runixiatest -test hsstest -rxf C:/ixiaAuto_ldq/test/MME/2.4.1_8_13_HSS.rxf
+Info(ixiaTestCreate): Sleeping 10 second(s)...
+Info(ixiaTestCreate): Sleeping 10 second(s)...
+Info(ixiaTestCreate): Sleeping 10 second(s)...
+Info(ixiaTestCreate): Sleeping 10 second(s)...
+Info(ixiaTestCreate): Sleeping 10 second(s)...
+rxf log is C:/Program Files (x86)/Ixia/IxLoad/8.50-EA-Update1/TclScripts/remoteScriptingService/8-log-2-00.log
+Error(runixiatest): CheckThreadRunning -test hsstest failed!!
+=== === === === === Tips === === === === === === ===
+=== Error(DEALEXCEL::ExecuteStep): runixiatest failed!!
+=== 启动IXIA失败，请检查ixia服务是否开启连接成功，脚本是否存放目录在C:ixiaAuto	estXXX对应目录
+=== Failed to start IXIA, please check
+=== === === === === === === === === === === === ===
+runixiatest -test hsstest -rxf C:/ixiaAuto_ldq/test/MME/2.4.1_8_13_HSS.rxf
+Info(ixiaTestCreate): Sleeping 10 second(s)...
+Info(ixiaTestCreate): Sleeping 10 second(s)...
+Info(ixiaTestCreate): Sleeping 10 second(s)...
+Info(ixiaTestCreate): Sleeping 10 second(s)...
+Info(ixiaTestCreate): Sleeping 10 second(s)...
+Info(ixiaTestCreate): Sleeping 10 second(s)...
+rxf log is C:/Program Files (x86)/Ixia/IxLoad/8.50-EA-Update1/TclScripts/remoteScriptingService/8-log-5-00.log
+Info(ixiaTestCheckRun): Sleeping 10 second(s)...
+Info(ixiaTestCheckRun): Sleeping 10 second(s)...
+Info(ixiaTestCheckRun): Sleeping 10 second(s)...
+Info(ixiaTestCheckRun): Sleeping 10 second(s)...
+Info(ixiaTestCheckRun): Sleeping 10 second(s)...
+Info(ixiaTestCheckRun): Sleeping 10 second(s)...
+Info(ixiaTestCheckRun): Sleeping 10 second(s)...
+Info(ixiaTestCheckRun): Sleeping 10 second(s)...
+Info(ixiaTestCheckRun): Sleeping 10 second(s)...
+Info(ixiaTestCheckRun): Sleeping 10 second(s)...
+Info(ixiaTestCheckRun): Sleeping 10 second(s)...
+*Info 02/20 17:37:29.253 Test Controller: Test is Running.
+!!!Success(DEALEXCEL::ExecuteStep):start ixia Success!!
+Success Step:9956
+Execute Step:9957 
+mzftxt_before:show%k_diameter-endpoint
+mzftxt: have not '!vertical_bar!'
+
+<> Warning(casaCmd::showDiameterEndpoint): variable spawn_id isn't exits.
+TRACE(DEALEXCEL::Get_Checkpoint_Check) : Calledby ::DEALEXCEL::Loop_Execute_Check_CLI
+##############enter nodes foreach############
+!! execute ::casaCmd::Analyze -cmd show diameter-endpoint -- -toRunCmd -tofd exp9  -dia_endpoint.name mmes6a -route.id 0 -route.state I_OPEN!!!
+Information(casaCmd::Analyze): command 'show diameter-endpoint' map to api 'showDiameterEndpoint' in file 'casaCmdToApi'
+Info(::casaCmd::Run): ... run command % show diameter-endpoint % on  172.0.14.245:22 ...
+
+=================================== 17:37:32 ===================================
+=== 
+=== CASA-MOBILE#show diameter-endpoint
+=== 
+=== ---- Diameter-Endpoint# 1 [name: mmes6a] ----------
+===     Diameter_Protocol_Profile:  none
+===     Count:  [in_txn_count: 0] [out_txn_count: 0] [mme_subs_count: 0]
+===     Timer:  [watch dog timer: 100s] [peer reconnect timer: 5s]
+===     Origin: [host_name: MME.Spirent-245.com] [realm_name: epc.mnc001.mcc460.3gppnetwork.org][ip_addr: 172.1.14.245][ipv6_addr: 172:1:14::245]
+=== 
+===     ***** Number Peers in the Endpoint: 1 *****
+===        Peer Host                    Realm                             IP-address                      Prefix  Port    Protocol
+===        1    HSSServer.Spirent.com   epc.mnc001.mcc460.3gppnetwork.org 172.1.14.241                    32      3868    SCTP      
+=== 
+===     ***** Number Routes in the Endpoint: 1 *****
+=== 
+===     ++++ Route# 1 [is_default: false] ++++
+===        [app_realm: epc.mnc001.mcc460.3gppnetwork.org] [app_type: 16777251]  [next_peer: none]
+===        Primary Peers [route_state: down]
+===            Primary-peer Host                     Source-port     State
+===            0            HSSServer.Spirent.com    10000           WT_I_CEA  
+===  
+===        no secondary peers
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(casaCmd::Analyze): xmlfile is [/public/ldq_ixia_mme_245/tcpdump/casa_show_diameter_endpoint.xml]
+!!Error(casaCmd::Analyze): Unable to match xpath : //command[@id='1' and dia_endpoint[@name='mmes6a' and route[@state='I_OPEN' and @id='0']]].
+
+                              casaCmd_Analyze <show diameter-endpoint> on  172.0.14.245:22
+-------------------------------------------------------------------------------------------------------------------------
+             command.id           dia_endpoint.name           route.id           route.state            RESULT          
+-------------------------------------------------------------------------------------------------------------------------
+ 1           1                    mmes6a                      0                  I_OPEN(Fail)           Fail            
+-------------------------------------------------------------------------------------------------------------------------
+warning(DEALEXCEL::Get_Checkpoint_Check): execute ::casaCmd::Analyze -cmd show diameter-endpoint -- -toRunCmd -tofd exp9  -dia_endpoint.name mmes6a -route.id 0 -route.state I_OPEN fail 1 time!!!!
+Info(::DEALEXCEL::Get_Checkpoint_Check): Sleeping 2 second(s)...
+!! execute ::casaCmd::Analyze -cmd show diameter-endpoint -- -toRunCmd -tofd exp9  -dia_endpoint.name mmes6a -route.id 0 -route.state I_OPEN!!!
+Information(casaCmd::Analyze): command 'show diameter-endpoint' map to api 'showDiameterEndpoint' in file 'casaCmdToApi'
+Info(::casaCmd::Run): ... run command % show diameter-endpoint % on  172.0.14.245:22 ...
+
+=================================== 17:37:34 ===================================
+=== 
+=== CASA-MOBILE#show diameter-endpoint
+=== 
+=== ---- Diameter-Endpoint# 1 [name: mmes6a] ----------
+===     Diameter_Protocol_Profile:  none
+===     Count:  [in_txn_count: 0] [out_txn_count: 0] [mme_subs_count: 0]
+===     Timer:  [watch dog timer: 100s] [peer reconnect timer: 5s]
+===     Origin: [host_name: MME.Spirent-245.com] [realm_name: epc.mnc001.mcc460.3gppnetwork.org][ip_addr: 172.1.14.245][ipv6_addr: 172:1:14::245]
+=== 
+===     ***** Number Peers in the Endpoint: 1 *****
+===        Peer Host                    Realm                             IP-address                      Prefix  Port    Protocol
+===        1    HSSServer.Spirent.com   epc.mnc001.mcc460.3gppnetwork.org 172.1.14.241                    32      3868    SCTP      
+=== 
+===     ***** Number Routes in the Endpoint: 1 *****
+=== 
+===     ++++ Route# 1 [is_default: false] ++++
+===        [app_realm: epc.mnc001.mcc460.3gppnetwork.org] [app_type: 16777251]  [next_peer: none]
+===        Primary Peers [route_state: down]
+===            Primary-peer Host                     Source-port     State
+===            0            HSSServer.Spirent.com    10000           WT_I_CEA  
+===  
+===        no secondary peers
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(casaCmd::Analyze): xmlfile is [/public/ldq_ixia_mme_245/tcpdump/casa_show_diameter_endpoint.xml]
+!!Error(casaCmd::Analyze): Unable to match xpath : //command[@id='1' and dia_endpoint[@name='mmes6a' and route[@state='I_OPEN' and @id='0']]].
+
+                              casaCmd_Analyze <show diameter-endpoint> on  172.0.14.245:22
+-------------------------------------------------------------------------------------------------------------------------
+             command.id           dia_endpoint.name           route.id           route.state            RESULT          
+-------------------------------------------------------------------------------------------------------------------------
+ 1           1                    mmes6a                      0                  I_OPEN(Fail)           Fail            
+-------------------------------------------------------------------------------------------------------------------------
+warning(DEALEXCEL::Get_Checkpoint_Check): execute ::casaCmd::Analyze -cmd show diameter-endpoint -- -toRunCmd -tofd exp9  -dia_endpoint.name mmes6a -route.id 0 -route.state I_OPEN fail 2 time!!!!
+Info(::DEALEXCEL::Get_Checkpoint_Check): Sleeping 2 second(s)...
+!! execute ::casaCmd::Analyze -cmd show diameter-endpoint -- -toRunCmd -tofd exp9  -dia_endpoint.name mmes6a -route.id 0 -route.state I_OPEN!!!
+Information(casaCmd::Analyze): command 'show diameter-endpoint' map to api 'showDiameterEndpoint' in file 'casaCmdToApi'
+Info(::casaCmd::Run): ... run command % show diameter-endpoint % on  172.0.14.245:22 ...
+
+=================================== 17:37:36 ===================================
+=== 
+=== CASA-MOBILE#show diameter-endpoint
+=== 
+=== ---- Diameter-Endpoint# 1 [name: mmes6a] ----------
+===     Diameter_Protocol_Profile:  none
+===     Count:  [in_txn_count: 0] [out_txn_count: 0] [mme_subs_count: 0]
+===     Timer:  [watch dog timer: 100s] [peer reconnect timer: 5s]
+===     Origin: [host_name: MME.Spirent-245.com] [realm_name: epc.mnc001.mcc460.3gppnetwork.org][ip_addr: 172.1.14.245][ipv6_addr: 172:1:14::245]
+=== 
+===     ***** Number Peers in the Endpoint: 1 *****
+===        Peer Host                    Realm                             IP-address                      Prefix  Port    Protocol
+===        1    HSSServer.Spirent.com   epc.mnc001.mcc460.3gppnetwork.org 172.1.14.241                    32      3868    SCTP      
+=== 
+===     ***** Number Routes in the Endpoint: 1 *****
+=== 
+===     ++++ Route# 1 [is_default: false] ++++
+===        [app_realm: epc.mnc001.mcc460.3gppnetwork.org] [app_type: 16777251]  [next_peer: none]
+===        Primary Peers [route_state: down]
+===            Primary-peer Host                     Source-port     State
+===            0            HSSServer.Spirent.com    10000           WT_I_CEA  
+===  
+===        no secondary peers
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(casaCmd::Analyze): xmlfile is [/public/ldq_ixia_mme_245/tcpdump/casa_show_diameter_endpoint.xml]
+!!Error(casaCmd::Analyze): Unable to match xpath : //command[@id='1' and dia_endpoint[@name='mmes6a' and route[@state='I_OPEN' and @id='0']]].
+
+                              casaCmd_Analyze <show diameter-endpoint> on  172.0.14.245:22
+-------------------------------------------------------------------------------------------------------------------------
+             command.id           dia_endpoint.name           route.id           route.state            RESULT          
+-------------------------------------------------------------------------------------------------------------------------
+ 1           1                    mmes6a                      0                  I_OPEN(Fail)           Fail            
+-------------------------------------------------------------------------------------------------------------------------
+warning(DEALEXCEL::Get_Checkpoint_Check): execute ::casaCmd::Analyze -cmd show diameter-endpoint -- -toRunCmd -tofd exp9  -dia_endpoint.name mmes6a -route.id 0 -route.state I_OPEN fail 3 time!!!!
+Info(::DEALEXCEL::Get_Checkpoint_Check): Sleeping 2 second(s)...
+!! execute ::casaCmd::Analyze -cmd show diameter-endpoint -- -toRunCmd -tofd exp9  -dia_endpoint.name mmes6a -route.id 0 -route.state I_OPEN!!!
+Information(casaCmd::Analyze): command 'show diameter-endpoint' map to api 'showDiameterEndpoint' in file 'casaCmdToApi'
+Info(::casaCmd::Run): ... run command % show diameter-endpoint % on  172.0.14.245:22 ...
+
+=================================== 17:37:38 ===================================
+=== 
+=== CASA-MOBILE#show diameter-endpoint
+=== 
+=== ---- Diameter-Endpoint# 1 [name: mmes6a] ----------
+===     Diameter_Protocol_Profile:  none
+===     Count:  [in_txn_count: 0] [out_txn_count: 0] [mme_subs_count: 0]
+===     Timer:  [watch dog timer: 100s] [peer reconnect timer: 5s]
+===     Origin: [host_name: MME.Spirent-245.com] [realm_name: epc.mnc001.mcc460.3gppnetwork.org][ip_addr: 172.1.14.245][ipv6_addr: 172:1:14::245]
+=== 
+===     ***** Number Peers in the Endpoint: 1 *****
+===        Peer Host                    Realm                             IP-address                      Prefix  Port    Protocol
+===        1    HSSServer.Spirent.com   epc.mnc001.mcc460.3gppnetwork.org 172.1.14.241                    32      3868    SCTP      
+=== 
+===     ***** Number Routes in the Endpoint: 1 *****
+=== 
+===     ++++ Route# 1 [is_default: false] ++++
+===        [app_realm: epc.mnc001.mcc460.3gppnetwork.org] [app_type: 16777251]  [next_peer: none]
+===        Primary Peers [route_state: down]
+===            Primary-peer Host                     Source-port     State
+===            0            HSSServer.Spirent.com    10000           WT_I_CEA  
+===  
+===        no secondary peers
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(casaCmd::Analyze): xmlfile is [/public/ldq_ixia_mme_245/tcpdump/casa_show_diameter_endpoint.xml]
+!!Error(casaCmd::Analyze): Unable to match xpath : //command[@id='1' and dia_endpoint[@name='mmes6a' and route[@state='I_OPEN' and @id='0']]].
+
+                              casaCmd_Analyze <show diameter-endpoint> on  172.0.14.245:22
+-------------------------------------------------------------------------------------------------------------------------
+             command.id           dia_endpoint.name           route.id           route.state            RESULT          
+-------------------------------------------------------------------------------------------------------------------------
+ 1           1                    mmes6a                      0                  I_OPEN(Fail)           Fail            
+-------------------------------------------------------------------------------------------------------------------------
+warning(DEALEXCEL::Get_Checkpoint_Check): execute ::casaCmd::Analyze -cmd show diameter-endpoint -- -toRunCmd -tofd exp9  -dia_endpoint.name mmes6a -route.id 0 -route.state I_OPEN fail 4 time!!!!
+Info(::DEALEXCEL::Get_Checkpoint_Check): Sleeping 2 second(s)...
+!! execute ::casaCmd::Analyze -cmd show diameter-endpoint -- -toRunCmd -tofd exp9  -dia_endpoint.name mmes6a -route.id 0 -route.state I_OPEN!!!
+Information(casaCmd::Analyze): command 'show diameter-endpoint' map to api 'showDiameterEndpoint' in file 'casaCmdToApi'
+Info(::casaCmd::Run): ... run command % show diameter-endpoint % on  172.0.14.245:22 ...
+
+=================================== 17:37:40 ===================================
+=== 
+=== CASA-MOBILE#show diameter-endpoint
+=== 
+=== ---- Diameter-Endpoint# 1 [name: mmes6a] ----------
+===     Diameter_Protocol_Profile:  none
+===     Count:  [in_txn_count: 0] [out_txn_count: 0] [mme_subs_count: 0]
+===     Timer:  [watch dog timer: 100s] [peer reconnect timer: 5s]
+===     Origin: [host_name: MME.Spirent-245.com] [realm_name: epc.mnc001.mcc460.3gppnetwork.org][ip_addr: 172.1.14.245][ipv6_addr: 172:1:14::245]
+=== 
+===     ***** Number Peers in the Endpoint: 1 *****
+===        Peer Host                    Realm                             IP-address                      Prefix  Port    Protocol
+===        1    HSSServer.Spirent.com   epc.mnc001.mcc460.3gppnetwork.org 172.1.14.241                    32      3868    SCTP      
+=== 
+===     ***** Number Routes in the Endpoint: 1 *****
+=== 
+===     ++++ Route# 1 [is_default: false] ++++
+===        [app_realm: epc.mnc001.mcc460.3gppnetwork.org] [app_type: 16777251]  [next_peer: none]
+===        Primary Peers [route_state: down]
+===            Primary-peer Host                     Source-port     State
+===            0            HSSServer.Spirent.com    10000           WT_I_CEA  
+===  
+===        no secondary peers
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(casaCmd::Analyze): xmlfile is [/public/ldq_ixia_mme_245/tcpdump/casa_show_diameter_endpoint.xml]
+!!Error(casaCmd::Analyze): Unable to match xpath : //command[@id='1' and dia_endpoint[@name='mmes6a' and route[@state='I_OPEN' and @id='0']]].
+
+                              casaCmd_Analyze <show diameter-endpoint> on  172.0.14.245:22
+-------------------------------------------------------------------------------------------------------------------------
+             command.id           dia_endpoint.name           route.id           route.state            RESULT          
+-------------------------------------------------------------------------------------------------------------------------
+ 1           1                    mmes6a                      0                  I_OPEN(Fail)           Fail            
+-------------------------------------------------------------------------------------------------------------------------
+warning(DEALEXCEL::Get_Checkpoint_Check): execute ::casaCmd::Analyze -cmd show diameter-endpoint -- -toRunCmd -tofd exp9  -dia_endpoint.name mmes6a -route.id 0 -route.state I_OPEN fail 5 time!!!!
+Info(::DEALEXCEL::Get_Checkpoint_Check): Sleeping 2 second(s)...
+!! execute ::casaCmd::Analyze -cmd show diameter-endpoint -- -toRunCmd -tofd exp9  -dia_endpoint.name mmes6a -route.id 0 -route.state I_OPEN!!!
+Information(casaCmd::Analyze): command 'show diameter-endpoint' map to api 'showDiameterEndpoint' in file 'casaCmdToApi'
+Info(::casaCmd::Run): ... run command % show diameter-endpoint % on  172.0.14.245:22 ...
+
+=================================== 17:37:42 ===================================
+=== 
+=== CASA-MOBILE#show diameter-endpoint
+=== 
+=== ---- Diameter-Endpoint# 1 [name: mmes6a] ----------
+===     Diameter_Protocol_Profile:  none
+===     Count:  [in_txn_count: 0] [out_txn_count: 0] [mme_subs_count: 0]
+===     Timer:  [watch dog timer: 100s] [peer reconnect timer: 5s]
+===     Origin: [host_name: MME.Spirent-245.com] [realm_name: epc.mnc001.mcc460.3gppnetwork.org][ip_addr: 172.1.14.245][ipv6_addr: 172:1:14::245]
+=== 
+===     ***** Number Peers in the Endpoint: 1 *****
+===        Peer Host                    Realm                             IP-address                      Prefix  Port    Protocol
+===        1    HSSServer.Spirent.com   epc.mnc001.mcc460.3gppnetwork.org 172.1.14.241                    32      3868    SCTP      
+=== 
+===     ***** Number Routes in the Endpoint: 1 *****
+=== 
+===     ++++ Route# 1 [is_default: false] ++++
+===        [app_realm: epc.mnc001.mcc460.3gppnetwork.org] [app_type: 16777251]  [next_peer: none]
+===        Primary Peers [route_state: down]
+===            Primary-peer Host                     Source-port     State
+===            0            HSSServer.Spirent.com    10000           STATE_CLOSE
+===  
+===        no secondary peers
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(casaCmd::Analyze): xmlfile is [/public/ldq_ixia_mme_245/tcpdump/casa_show_diameter_endpoint.xml]
+!!Error(casaCmd::Analyze): Unable to match xpath : //command[@id='1' and dia_endpoint[@name='mmes6a' and route[@state='I_OPEN' and @id='0']]].
+
+                              casaCmd_Analyze <show diameter-endpoint> on  172.0.14.245:22
+-------------------------------------------------------------------------------------------------------------------------
+             command.id           dia_endpoint.name           route.id           route.state            RESULT          
+-------------------------------------------------------------------------------------------------------------------------
+ 1           1                    mmes6a                      0                  I_OPEN(Fail)           Fail            
+-------------------------------------------------------------------------------------------------------------------------
+warning(DEALEXCEL::Get_Checkpoint_Check): execute ::casaCmd::Analyze -cmd show diameter-endpoint -- -toRunCmd -tofd exp9  -dia_endpoint.name mmes6a -route.id 0 -route.state I_OPEN fail 6 time!!!!
+Info(::DEALEXCEL::Get_Checkpoint_Check): Sleeping 2 second(s)...
+!! execute ::casaCmd::Analyze -cmd show diameter-endpoint -- -toRunCmd -tofd exp9  -dia_endpoint.name mmes6a -route.id 0 -route.state I_OPEN!!!
+Information(casaCmd::Analyze): command 'show diameter-endpoint' map to api 'showDiameterEndpoint' in file 'casaCmdToApi'
+Info(::casaCmd::Run): ... run command % show diameter-endpoint % on  172.0.14.245:22 ...
+
+=================================== 17:37:44 ===================================
+=== 
+=== CASA-MOBILE#show diameter-endpoint
+=== 
+=== ---- Diameter-Endpoint# 1 [name: mmes6a] ----------
+===     Diameter_Protocol_Profile:  none
+===     Count:  [in_txn_count: 0] [out_txn_count: 0] [mme_subs_count: 0]
+===     Timer:  [watch dog timer: 100s] [peer reconnect timer: 5s]
+===     Origin: [host_name: MME.Spirent-245.com] [realm_name: epc.mnc001.mcc460.3gppnetwork.org][ip_addr: 172.1.14.245][ipv6_addr: 172:1:14::245]
+=== 
+===     ***** Number Peers in the Endpoint: 1 *****
+===        Peer Host                    Realm                             IP-address                      Prefix  Port    Protocol
+===        1    HSSServer.Spirent.com   epc.mnc001.mcc460.3gppnetwork.org 172.1.14.241                    32      3868    SCTP      
+=== 
+===     ***** Number Routes in the Endpoint: 1 *****
+=== 
+===     ++++ Route# 1 [is_default: false] ++++
+===        [app_realm: epc.mnc001.mcc460.3gppnetwork.org] [app_type: 16777251]  [next_peer: none]
+===        Primary Peers [route_state: down]
+===            Primary-peer Host                     Source-port     State
+===            0            HSSServer.Spirent.com    10000           STATE_CLOSE
+===  
+===        no secondary peers
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(casaCmd::Analyze): xmlfile is [/public/ldq_ixia_mme_245/tcpdump/casa_show_diameter_endpoint.xml]
+!!Error(casaCmd::Analyze): Unable to match xpath : //command[@id='1' and dia_endpoint[@name='mmes6a' and route[@state='I_OPEN' and @id='0']]].
+
+                              casaCmd_Analyze <show diameter-endpoint> on  172.0.14.245:22
+-------------------------------------------------------------------------------------------------------------------------
+             command.id           dia_endpoint.name           route.id           route.state            RESULT          
+-------------------------------------------------------------------------------------------------------------------------
+ 1           1                    mmes6a                      0                  I_OPEN(Fail)           Fail            
+-------------------------------------------------------------------------------------------------------------------------
+warning(DEALEXCEL::Get_Checkpoint_Check): execute ::casaCmd::Analyze -cmd show diameter-endpoint -- -toRunCmd -tofd exp9  -dia_endpoint.name mmes6a -route.id 0 -route.state I_OPEN fail 7 time!!!!
+Info(::DEALEXCEL::Get_Checkpoint_Check): Sleeping 2 second(s)...
+!! execute ::casaCmd::Analyze -cmd show diameter-endpoint -- -toRunCmd -tofd exp9  -dia_endpoint.name mmes6a -route.id 0 -route.state I_OPEN!!!
+Information(casaCmd::Analyze): command 'show diameter-endpoint' map to api 'showDiameterEndpoint' in file 'casaCmdToApi'
+Info(::casaCmd::Run): ... run command % show diameter-endpoint % on  172.0.14.245:22 ...
+
+=================================== 17:37:46 ===================================
+=== 
+=== CASA-MOBILE#show diameter-endpoint
+=== 
+=== ---- Diameter-Endpoint# 1 [name: mmes6a] ----------
+===     Diameter_Protocol_Profile:  none
+===     Count:  [in_txn_count: 0] [out_txn_count: 0] [mme_subs_count: 0]
+===     Timer:  [watch dog timer: 100s] [peer reconnect timer: 5s]
+===     Origin: [host_name: MME.Spirent-245.com] [realm_name: epc.mnc001.mcc460.3gppnetwork.org][ip_addr: 172.1.14.245][ipv6_addr: 172:1:14::245]
+=== 
+===     ***** Number Peers in the Endpoint: 1 *****
+===        Peer Host                    Realm                             IP-address                      Prefix  Port    Protocol
+===        1    HSSServer.Spirent.com   epc.mnc001.mcc460.3gppnetwork.org 172.1.14.241                    32      3868    SCTP      
+=== 
+===     ***** Number Routes in the Endpoint: 1 *****
+=== 
+===     ++++ Route# 1 [is_default: false] ++++
+===        [app_realm: epc.mnc001.mcc460.3gppnetwork.org] [app_type: 16777251]  [next_peer: none]
+===        Primary Peers [route_state: down]
+===            Primary-peer Host                     Source-port     State
+===            0            HSSServer.Spirent.com    10000           WT_I_CEA  
+===  
+===        no secondary peers
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(casaCmd::Analyze): xmlfile is [/public/ldq_ixia_mme_245/tcpdump/casa_show_diameter_endpoint.xml]
+!!Error(casaCmd::Analyze): Unable to match xpath : //command[@id='1' and dia_endpoint[@name='mmes6a' and route[@state='I_OPEN' and @id='0']]].
+
+                              casaCmd_Analyze <show diameter-endpoint> on  172.0.14.245:22
+-------------------------------------------------------------------------------------------------------------------------
+             command.id           dia_endpoint.name           route.id           route.state            RESULT          
+-------------------------------------------------------------------------------------------------------------------------
+ 1           1                    mmes6a                      0                  I_OPEN(Fail)           Fail            
+-------------------------------------------------------------------------------------------------------------------------
+warning(DEALEXCEL::Get_Checkpoint_Check): execute ::casaCmd::Analyze -cmd show diameter-endpoint -- -toRunCmd -tofd exp9  -dia_endpoint.name mmes6a -route.id 0 -route.state I_OPEN fail 8 time!!!!
+Info(::DEALEXCEL::Get_Checkpoint_Check): Sleeping 2 second(s)...
+!! execute ::casaCmd::Analyze -cmd show diameter-endpoint -- -toRunCmd -tofd exp9  -dia_endpoint.name mmes6a -route.id 0 -route.state I_OPEN!!!
+Information(casaCmd::Analyze): command 'show diameter-endpoint' map to api 'showDiameterEndpoint' in file 'casaCmdToApi'
+Info(::casaCmd::Run): ... run command % show diameter-endpoint % on  172.0.14.245:22 ...
+
+=================================== 17:37:48 ===================================
+=== 
+=== CASA-MOBILE#show diameter-endpoint
+=== 
+=== ---- Diameter-Endpoint# 1 [name: mmes6a] ----------
+===     Diameter_Protocol_Profile:  none
+===     Count:  [in_txn_count: 0] [out_txn_count: 0] [mme_subs_count: 0]
+===     Timer:  [watch dog timer: 100s] [peer reconnect timer: 5s]
+===     Origin: [host_name: MME.Spirent-245.com] [realm_name: epc.mnc001.mcc460.3gppnetwork.org][ip_addr: 172.1.14.245][ipv6_addr: 172:1:14::245]
+=== 
+===     ***** Number Peers in the Endpoint: 1 *****
+===        Peer Host                    Realm                             IP-address                      Prefix  Port    Protocol
+===        1    HSSServer.Spirent.com   epc.mnc001.mcc460.3gppnetwork.org 172.1.14.241                    32      3868    SCTP      
+=== 
+===     ***** Number Routes in the Endpoint: 1 *****
+=== 
+===     ++++ Route# 1 [is_default: false] ++++
+===        [app_realm: epc.mnc001.mcc460.3gppnetwork.org] [app_type: 16777251]  [next_peer: none]
+===        Primary Peers [route_state: down]
+===            Primary-peer Host                     Source-port     State
+===            0            HSSServer.Spirent.com    10000           WT_I_CEA  
+===  
+===        no secondary peers
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(casaCmd::Analyze): xmlfile is [/public/ldq_ixia_mme_245/tcpdump/casa_show_diameter_endpoint.xml]
+!!Error(casaCmd::Analyze): Unable to match xpath : //command[@id='1' and dia_endpoint[@name='mmes6a' and route[@state='I_OPEN' and @id='0']]].
+
+                              casaCmd_Analyze <show diameter-endpoint> on  172.0.14.245:22
+-------------------------------------------------------------------------------------------------------------------------
+             command.id           dia_endpoint.name           route.id           route.state            RESULT          
+-------------------------------------------------------------------------------------------------------------------------
+ 1           1                    mmes6a                      0                  I_OPEN(Fail)           Fail            
+-------------------------------------------------------------------------------------------------------------------------
+warning(DEALEXCEL::Get_Checkpoint_Check): execute ::casaCmd::Analyze -cmd show diameter-endpoint -- -toRunCmd -tofd exp9  -dia_endpoint.name mmes6a -route.id 0 -route.state I_OPEN fail 9 time!!!!
+Info(::DEALEXCEL::Get_Checkpoint_Check): Sleeping 2 second(s)...
+!! execute ::casaCmd::Analyze -cmd show diameter-endpoint -- -toRunCmd -tofd exp9  -dia_endpoint.name mmes6a -route.id 0 -route.state I_OPEN!!!
+Information(casaCmd::Analyze): command 'show diameter-endpoint' map to api 'showDiameterEndpoint' in file 'casaCmdToApi'
+Info(::casaCmd::Run): ... run command % show diameter-endpoint % on  172.0.14.245:22 ...
+
+=================================== 17:37:50 ===================================
+=== 
+=== CASA-MOBILE#show diameter-endpoint
+=== 
+=== ---- Diameter-Endpoint# 1 [name: mmes6a] ----------
+===     Diameter_Protocol_Profile:  none
+===     Count:  [in_txn_count: 0] [out_txn_count: 0] [mme_subs_count: 0]
+===     Timer:  [watch dog timer: 100s] [peer reconnect timer: 5s]
+===     Origin: [host_name: MME.Spirent-245.com] [realm_name: epc.mnc001.mcc460.3gppnetwork.org][ip_addr: 172.1.14.245][ipv6_addr: 172:1:14::245]
+=== 
+===     ***** Number Peers in the Endpoint: 1 *****
+===        Peer Host                    Realm                             IP-address                      Prefix  Port    Protocol
+===        1    HSSServer.Spirent.com   epc.mnc001.mcc460.3gppnetwork.org 172.1.14.241                    32      3868    SCTP      
+=== 
+===     ***** Number Routes in the Endpoint: 1 *****
+=== 
+===     ++++ Route# 1 [is_default: false] ++++
+===        [app_realm: epc.mnc001.mcc460.3gppnetwork.org] [app_type: 16777251]  [next_peer: none]
+===        Primary Peers [route_state: down]
+===            Primary-peer Host                     Source-port     State
+===            0            HSSServer.Spirent.com    10000           WT_I_CEA  
+===  
+===        no secondary peers
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(casaCmd::Analyze): xmlfile is [/public/ldq_ixia_mme_245/tcpdump/casa_show_diameter_endpoint.xml]
+!!Error(casaCmd::Analyze): Unable to match xpath : //command[@id='1' and dia_endpoint[@name='mmes6a' and route[@state='I_OPEN' and @id='0']]].
+
+                              casaCmd_Analyze <show diameter-endpoint> on  172.0.14.245:22
+-------------------------------------------------------------------------------------------------------------------------
+             command.id           dia_endpoint.name           route.id           route.state            RESULT          
+-------------------------------------------------------------------------------------------------------------------------
+ 1           1                    mmes6a                      0                  I_OPEN(Fail)           Fail            
+-------------------------------------------------------------------------------------------------------------------------
+warning(DEALEXCEL::Get_Checkpoint_Check): execute ::casaCmd::Analyze -cmd show diameter-endpoint -- -toRunCmd -tofd exp9  -dia_endpoint.name mmes6a -route.id 0 -route.state I_OPEN fail 10 time!!!!
+Info(::DEALEXCEL::Get_Checkpoint_Check): Sleeping 2 second(s)...
+!! execute ::casaCmd::Analyze -cmd show diameter-endpoint -- -toRunCmd -tofd exp9  -dia_endpoint.name mmes6a -route.id 0 -route.state I_OPEN!!!
+Information(casaCmd::Analyze): command 'show diameter-endpoint' map to api 'showDiameterEndpoint' in file 'casaCmdToApi'
+Info(::casaCmd::Run): ... run command % show diameter-endpoint % on  172.0.14.245:22 ...
+
+=================================== 17:37:52 ===================================
+=== 
+=== CASA-MOBILE#show diameter-endpoint
+=== 
+=== ---- Diameter-Endpoint# 1 [name: mmes6a] ----------
+===     Diameter_Protocol_Profile:  none
+===     Count:  [in_txn_count: 0] [out_txn_count: 0] [mme_subs_count: 0]
+===     Timer:  [watch dog timer: 100s] [peer reconnect timer: 5s]
+===     Origin: [host_name: MME.Spirent-245.com] [realm_name: epc.mnc001.mcc460.3gppnetwork.org][ip_addr: 172.1.14.245][ipv6_addr: 172:1:14::245]
+=== 
+===     ***** Number Peers in the Endpoint: 1 *****
+===        Peer Host                    Realm                             IP-address                      Prefix  Port    Protocol
+===        1    HSSServer.Spirent.com   epc.mnc001.mcc460.3gppnetwork.org 172.1.14.241                    32      3868    SCTP      
+=== 
+===     ***** Number Routes in the Endpoint: 1 *****
+=== 
+===     ++++ Route# 1 [is_default: false] ++++
+===        [app_realm: epc.mnc001.mcc460.3gppnetwork.org] [app_type: 16777251]  [next_peer: none]
+===        Primary Peers [route_state: down]
+===            Primary-peer Host                     Source-port     State
+===            0            HSSServer.Spirent.com    10000           WT_I_CEA  
+===  
+===        no secondary peers
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(casaCmd::Analyze): xmlfile is [/public/ldq_ixia_mme_245/tcpdump/casa_show_diameter_endpoint.xml]
+!!Error(casaCmd::Analyze): Unable to match xpath : //command[@id='1' and dia_endpoint[@name='mmes6a' and route[@state='I_OPEN' and @id='0']]].
+
+                              casaCmd_Analyze <show diameter-endpoint> on  172.0.14.245:22
+-------------------------------------------------------------------------------------------------------------------------
+             command.id           dia_endpoint.name           route.id           route.state            RESULT          
+-------------------------------------------------------------------------------------------------------------------------
+ 1           1                    mmes6a                      0                  I_OPEN(Fail)           Fail            
+-------------------------------------------------------------------------------------------------------------------------
+warning(DEALEXCEL::Get_Checkpoint_Check): execute ::casaCmd::Analyze -cmd show diameter-endpoint -- -toRunCmd -tofd exp9  -dia_endpoint.name mmes6a -route.id 0 -route.state I_OPEN fail 11 time!!!!
+Info(::DEALEXCEL::Get_Checkpoint_Check): Sleeping 2 second(s)...
+!! execute ::casaCmd::Analyze -cmd show diameter-endpoint -- -toRunCmd -tofd exp9  -dia_endpoint.name mmes6a -route.id 0 -route.state I_OPEN!!!
+Information(casaCmd::Analyze): command 'show diameter-endpoint' map to api 'showDiameterEndpoint' in file 'casaCmdToApi'
+Info(::casaCmd::Run): ... run command % show diameter-endpoint % on  172.0.14.245:22 ...
+
+=================================== 17:37:54 ===================================
+=== 
+=== CASA-MOBILE#show diameter-endpoint
+=== 
+=== ---- Diameter-Endpoint# 1 [name: mmes6a] ----------
+===     Diameter_Protocol_Profile:  none
+===     Count:  [in_txn_count: 0] [out_txn_count: 0] [mme_subs_count: 0]
+===     Timer:  [watch dog timer: 100s] [peer reconnect timer: 5s]
+===     Origin: [host_name: MME.Spirent-245.com] [realm_name: epc.mnc001.mcc460.3gppnetwork.org][ip_addr: 172.1.14.245][ipv6_addr: 172:1:14::245]
+=== 
+===     ***** Number Peers in the Endpoint: 1 *****
+===        Peer Host                    Realm                             IP-address                      Prefix  Port    Protocol
+===        1    HSSServer.Spirent.com   epc.mnc001.mcc460.3gppnetwork.org 172.1.14.241                    32      3868    SCTP      
+=== 
+===     ***** Number Routes in the Endpoint: 1 *****
+=== 
+===     ++++ Route# 1 [is_default: false] ++++
+===        [app_realm: epc.mnc001.mcc460.3gppnetwork.org] [app_type: 16777251]  [next_peer: none]
+===        Primary Peers [route_state: down]
+===            Primary-peer Host                     Source-port     State
+===            0            HSSServer.Spirent.com    10000           WT_I_CEA  
+===  
+===        no secondary peers
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(casaCmd::Analyze): xmlfile is [/public/ldq_ixia_mme_245/tcpdump/casa_show_diameter_endpoint.xml]
+!!Error(casaCmd::Analyze): Unable to match xpath : //command[@id='1' and dia_endpoint[@name='mmes6a' and route[@state='I_OPEN' and @id='0']]].
+
+                              casaCmd_Analyze <show diameter-endpoint> on  172.0.14.245:22
+-------------------------------------------------------------------------------------------------------------------------
+             command.id           dia_endpoint.name           route.id           route.state            RESULT          
+-------------------------------------------------------------------------------------------------------------------------
+ 1           1                    mmes6a                      0                  I_OPEN(Fail)           Fail            
+-------------------------------------------------------------------------------------------------------------------------
+warning(DEALEXCEL::Get_Checkpoint_Check): execute ::casaCmd::Analyze -cmd show diameter-endpoint -- -toRunCmd -tofd exp9  -dia_endpoint.name mmes6a -route.id 0 -route.state I_OPEN fail 12 time!!!!
+Info(::DEALEXCEL::Get_Checkpoint_Check): Sleeping 2 second(s)...
+!! execute ::casaCmd::Analyze -cmd show diameter-endpoint -- -toRunCmd -tofd exp9  -dia_endpoint.name mmes6a -route.id 0 -route.state I_OPEN!!!
+Information(casaCmd::Analyze): command 'show diameter-endpoint' map to api 'showDiameterEndpoint' in file 'casaCmdToApi'
+Info(::casaCmd::Run): ... run command % show diameter-endpoint % on  172.0.14.245:22 ...
+
+=================================== 17:37:56 ===================================
+=== 
+=== CASA-MOBILE#show diameter-endpoint
+=== 
+=== ---- Diameter-Endpoint# 1 [name: mmes6a] ----------
+===     Diameter_Protocol_Profile:  none
+===     Count:  [in_txn_count: 0] [out_txn_count: 0] [mme_subs_count: 0]
+===     Timer:  [watch dog timer: 100s] [peer reconnect timer: 5s]
+===     Origin: [host_name: MME.Spirent-245.com] [realm_name: epc.mnc001.mcc460.3gppnetwork.org][ip_addr: 172.1.14.245][ipv6_addr: 172:1:14::245]
+=== 
+===     ***** Number Peers in the Endpoint: 1 *****
+===        Peer Host                    Realm                             IP-address                      Prefix  Port    Protocol
+===        1    HSSServer.Spirent.com   epc.mnc001.mcc460.3gppnetwork.org 172.1.14.241                    32      3868    SCTP      
+=== 
+===     ***** Number Routes in the Endpoint: 1 *****
+=== 
+===     ++++ Route# 1 [is_default: false] ++++
+===        [app_realm: epc.mnc001.mcc460.3gppnetwork.org] [app_type: 16777251]  [next_peer: none]
+===        Primary Peers [route_state: down]
+===            Primary-peer Host                     Source-port     State
+===            0            HSSServer.Spirent.com    10000           STATE_CLOSE
+===  
+===        no secondary peers
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(casaCmd::Analyze): xmlfile is [/public/ldq_ixia_mme_245/tcpdump/casa_show_diameter_endpoint.xml]
+!!Error(casaCmd::Analyze): Unable to match xpath : //command[@id='1' and dia_endpoint[@name='mmes6a' and route[@state='I_OPEN' and @id='0']]].
+
+                              casaCmd_Analyze <show diameter-endpoint> on  172.0.14.245:22
+-------------------------------------------------------------------------------------------------------------------------
+             command.id           dia_endpoint.name           route.id           route.state            RESULT          
+-------------------------------------------------------------------------------------------------------------------------
+ 1           1                    mmes6a                      0                  I_OPEN(Fail)           Fail            
+-------------------------------------------------------------------------------------------------------------------------
+warning(DEALEXCEL::Get_Checkpoint_Check): execute ::casaCmd::Analyze -cmd show diameter-endpoint -- -toRunCmd -tofd exp9  -dia_endpoint.name mmes6a -route.id 0 -route.state I_OPEN fail 13 time!!!!
+Info(::DEALEXCEL::Get_Checkpoint_Check): Sleeping 2 second(s)...
+!! execute ::casaCmd::Analyze -cmd show diameter-endpoint -- -toRunCmd -tofd exp9  -dia_endpoint.name mmes6a -route.id 0 -route.state I_OPEN!!!
+Information(casaCmd::Analyze): command 'show diameter-endpoint' map to api 'showDiameterEndpoint' in file 'casaCmdToApi'
+Info(::casaCmd::Run): ... run command % show diameter-endpoint % on  172.0.14.245:22 ...
+
+=================================== 17:37:58 ===================================
+=== 
+=== CASA-MOBILE#show diameter-endpoint
+=== 
+=== ---- Diameter-Endpoint# 1 [name: mmes6a] ----------
+===     Diameter_Protocol_Profile:  none
+===     Count:  [in_txn_count: 0] [out_txn_count: 0] [mme_subs_count: 0]
+===     Timer:  [watch dog timer: 100s] [peer reconnect timer: 5s]
+===     Origin: [host_name: MME.Spirent-245.com] [realm_name: epc.mnc001.mcc460.3gppnetwork.org][ip_addr: 172.1.14.245][ipv6_addr: 172:1:14::245]
+=== 
+===     ***** Number Peers in the Endpoint: 1 *****
+===        Peer Host                    Realm                             IP-address                      Prefix  Port    Protocol
+===        1    HSSServer.Spirent.com   epc.mnc001.mcc460.3gppnetwork.org 172.1.14.241                    32      3868    SCTP      
+=== 
+===     ***** Number Routes in the Endpoint: 1 *****
+=== 
+===     ++++ Route# 1 [is_default: false] ++++
+===        [app_realm: epc.mnc001.mcc460.3gppnetwork.org] [app_type: 16777251]  [next_peer: none]
+===        Primary Peers [route_state: down]
+===            Primary-peer Host                     Source-port     State
+===            0            HSSServer.Spirent.com    10000           STATE_CLOSE
+===  
+===        no secondary peers
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(casaCmd::Analyze): xmlfile is [/public/ldq_ixia_mme_245/tcpdump/casa_show_diameter_endpoint.xml]
+!!Error(casaCmd::Analyze): Unable to match xpath : //command[@id='1' and dia_endpoint[@name='mmes6a' and route[@state='I_OPEN' and @id='0']]].
+
+                              casaCmd_Analyze <show diameter-endpoint> on  172.0.14.245:22
+-------------------------------------------------------------------------------------------------------------------------
+             command.id           dia_endpoint.name           route.id           route.state            RESULT          
+-------------------------------------------------------------------------------------------------------------------------
+ 1           1                    mmes6a                      0                  I_OPEN(Fail)           Fail            
+-------------------------------------------------------------------------------------------------------------------------
+warning(DEALEXCEL::Get_Checkpoint_Check): execute ::casaCmd::Analyze -cmd show diameter-endpoint -- -toRunCmd -tofd exp9  -dia_endpoint.name mmes6a -route.id 0 -route.state I_OPEN fail 14 time!!!!
+Info(::DEALEXCEL::Get_Checkpoint_Check): Sleeping 2 second(s)...
+!! execute ::casaCmd::Analyze -cmd show diameter-endpoint -- -toRunCmd -tofd exp9  -dia_endpoint.name mmes6a -route.id 0 -route.state I_OPEN!!!
+Information(casaCmd::Analyze): command 'show diameter-endpoint' map to api 'showDiameterEndpoint' in file 'casaCmdToApi'
+Info(::casaCmd::Run): ... run command % show diameter-endpoint % on  172.0.14.245:22 ...
+
+=================================== 17:38:00 ===================================
+=== 
+=== CASA-MOBILE#show diameter-endpoint
+=== 
+=== ---- Diameter-Endpoint# 1 [name: mmes6a] ----------
+===     Diameter_Protocol_Profile:  none
+===     Count:  [in_txn_count: 0] [out_txn_count: 0] [mme_subs_count: 0]
+===     Timer:  [watch dog timer: 100s] [peer reconnect timer: 5s]
+===     Origin: [host_name: MME.Spirent-245.com] [realm_name: epc.mnc001.mcc460.3gppnetwork.org][ip_addr: 172.1.14.245][ipv6_addr: 172:1:14::245]
+=== 
+===     ***** Number Peers in the Endpoint: 1 *****
+===        Peer Host                    Realm                             IP-address                      Prefix  Port    Protocol
+===        1    HSSServer.Spirent.com   epc.mnc001.mcc460.3gppnetwork.org 172.1.14.241                    32      3868    SCTP      
+=== 
+===     ***** Number Routes in the Endpoint: 1 *****
+=== 
+===     ++++ Route# 1 [is_default: false] ++++
+===        [app_realm: epc.mnc001.mcc460.3gppnetwork.org] [app_type: 16777251]  [next_peer: none]
+===        Primary Peers [route_state: down]
+===            Primary-peer Host                     Source-port     State
+===            0            HSSServer.Spirent.com    10000           STATE_CLOSE
+===  
+===        no secondary peers
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(casaCmd::Analyze): xmlfile is [/public/ldq_ixia_mme_245/tcpdump/casa_show_diameter_endpoint.xml]
+!!Error(casaCmd::Analyze): Unable to match xpath : //command[@id='1' and dia_endpoint[@name='mmes6a' an

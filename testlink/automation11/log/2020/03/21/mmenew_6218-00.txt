@@ -1,0 +1,2608 @@
+##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### 
+# AutoApp    v15.1009
+# Harness:   root@tclserver8
+# Date:      03/21/2020 10:20:16 AM
+# Script:    /public/casa-493/test/mmenew.test
+# Eth0 IP:   0.0.0.0
+# Loopback:  
+# Image:     
+# Descript:  
+# Config:    /public/casa-493/test/Config/hfj_ixia_mme_122_ixiahss_testlink.tcf
+# Log File:  /public/casa-493/test/Log/mmenew_6218-00.txt
+##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### 
+
+Info(Include): Installed package casaSAEGW v1.0
+numc=1 NUM_MME=2
+numc=2 NUM_MME=2
+Info(Include): Installed package casaMME v1.0
+TRACE(MME::Main) : Calledby RunTest
+Info(Include): Installed package casaExcel v1.0
+Info(Include): Installed package casaLandslide v1.0
+
+STEP(10:20:16): START Step 1: 1.Get the Excel list;
+STEP(10:20:16): RESULT=PASS  Step 1: 1.Get the Excel list;
+
+STEP(10:20:16): START Step 2: 2.Get a list of use cases;
+STEP(10:20:16): RESULT=PASS  Step 2: 2.Get a list of use cases;
+Info(Include): Installed package casaCmd v9.0
+Info(Include): Installed package casaSeGW v1.0
+Info(Include): Installed package casaHenbGW v1.0
+Info(Include): Installed package casaIxia v1.0
+numc=1 NUM_MME=2
+numc=2 NUM_MME=2
+Info(Include): Installed package casaMME v1.0
+Info(Include): Installed package casaPlatform v1.0
+     TRACE(StartMmeTest)	 Calledby ::MME::Main 
+
+
+=================================== 10:20:17 ===================================
+=== ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no 172.0.14.122
+=== root@172.0.14.122's password: 
+=== Welcome to Ubuntu 14.04.6 LTS (GNU/Linux 3.19.0-25-generic x86_64)
+=== 
+===  * Documentation:  https://help.ubuntu.com/
+=== 
+===   System information as of Sat Mar 21 02:19:45 UTC 2020
+=== 
+===   System load:  3.18               Users logged in:        1
+===   Usage of /:   31.5% of 23.38GB   IP address for eth0:    172.0.14.122
+===   Memory usage: 52%                IP address for docker0: 172.17.42.1
+===   Swap usage:   0%                 IP address for dp_0_0:  172.1.14.122
+===   Processes:    252
+=== 
+===   Graph this data and manage this system at:
+===     https://landscape.canonical.com/
+=== 
+===   Get cloud support with Ubuntu Advantage Cloud Guest:
+===     http://www.ubuntu.com/business/services/cloud
+=== 
+=== 10 updates can be installed immediately.
+=== 1 of these updates is a security update.
+=== 
+=== New release '16.04.6 LTS' available.
+=== Run 'do-release-upgrade' to upgrade to it.
+=== 
+=== 
+=== WARNING: Security updates for your current Hardware Enablement Stack
+=== ended on 2016-08-04:
+===  * http://wiki.ubuntu.com/1404_HWE_EOL
+=== 
+=== The following packages are no longer supported:
+===  linux-image-extra-3.19.0-25-generic linux-image-3.19.0-25-generic
+=== 
+=== Please upgrade them to a supported HWE stack or remove them if you
+=== no longer need them.
+=== 
+=== 
+=== Last login: Sat Mar 21 02:19:46 2020 from 172-0-11-88.lightspeed.rcsntx.sbcglobal.net
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# su casa
+=== 
+=== ===================================
+=== Welcome to CASA MEC x86 Platform
+=== ===================================
+=== CLI services started!
+=== WARNING: CPU Config - Available cores only 0 out of 2 for task mepmgr
+=== CASA-MOBILE>
+=== CASA-MOBILE>en
+=== Password: 
+=== CASA-MOBILE#
+=== CASA-MOBILE#show task crash
+=== Number  Task             Crash-Time                Exit-Code     Exit-Reason     Core-file
+=== ==========================================================================================
+=== Total 0 crash records
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+STEP(10:20:20): START Step 3: SSH to MME as casa and log into enable mode;
+
+=================================== 10:20:21 ===================================
+=== ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no  172.0.14.122
+=== root@172.0.14.122's password: 
+=== Welcome to Ubuntu 14.04.6 LTS (GNU/Linux 3.19.0-25-generic x86_64)
+=== 
+===  * Documentation:  https://help.ubuntu.com/
+=== 
+===   System information as of Sat Mar 21 02:20:27 UTC 2020
+=== 
+===   System load:  3.26               Users logged in:        0
+===   Usage of /:   31.5% of 23.38GB   IP address for eth0:    172.0.14.122
+===   Memory usage: 52%                IP address for docker0: 172.17.42.1
+===   Swap usage:   0%                 IP address for dp_0_0:  172.1.14.122
+===   Processes:    247
+=== 
+===   Graph this data and manage this system at:
+===     https://landscape.canonical.com/
+=== 
+===   Get cloud support with Ubuntu Advantage Cloud Guest:
+===     http://www.ubuntu.com/business/services/cloud
+=== 
+=== 10 updates can be installed immediately.
+=== 1 of these updates is a security update.
+=== 
+=== New release '16.04.6 LTS' available.
+=== Run 'do-release-upgrade' to upgrade to it.
+=== 
+=== 
+=== WARNING: Security updates for your current Hardware Enablement Stack
+=== ended on 2016-08-04:
+===  * http://wiki.ubuntu.com/1404_HWE_EOL
+=== 
+=== The following packages are no longer supported:
+===  linux-image-extra-3.19.0-25-generic linux-image-3.19.0-25-generic
+=== 
+=== Please upgrade them to a supported HWE stack or remove them if you
+=== no longer need them.
+=== 
+=== 
+=== Last login: Sat Mar 21 02:20:29 2020 from 172-0-11-88.lightspeed.rcsntx.sbcglobal.net
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+================================================================================
+
+!!Success(MME::LOGIN_MME_SERVER): Ssh  172.0.14.122 Success fd=exp7
+
+=================================== 10:20:26 ===================================
+=== su casa
+=== 
+=== ===================================
+=== Welcome to CASA MEC x86 Platform
+=== ===================================
+=== CLI services started!
+=== WARNING: CPU Config - Available cores only 0 out of 2 for task mepmgr
+=== CASA-MOBILE>
+=== CASA-MOBILE>en
+=== Password: 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+!!Success(MME::LOGIN_MME_SERVER): enter CASA-MOBILE Success!!!
+
+=================================== 10:20:27 ===================================
+=== ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no 172.0.14.123
+=== root@172.0.14.123's password: 
+=== Welcome to Ubuntu 14.04.5 LTS (GNU/Linux 3.19.0-25-generic x86_64)
+=== 
+===  * Documentation:  https://help.ubuntu.com/
+=== 
+===   System information as of Sat Mar 21 02:11:59 UTC 2020
+=== 
+===   System load:  3.04               Users logged in:       2
+===   Usage of /:   30.2% of 23.38GB   IP address for eth0:   172.0.14.123
+===   Memory usage: 49%                IP address for dp_0_0: 172.1.14.123
+===   Swap usage:   0%                 IP address for dp_0_1: 172.2.14.123
+===   Processes:    238
+=== 
+===   Graph this data and manage this system at:
+===     https://landscape.canonical.com/
+=== 
+===   Get cloud support with Ubuntu Advantage Cloud Guest:
+===     http://www.ubuntu.com/business/services/cloud
+=== 
+=== 65 packages can be updated.
+=== 49 updates are security updates.
+=== 
+=== New release '16.04.6 LTS' available.
+=== Run 'do-release-upgrade' to upgrade to it.
+=== 
+=== 
+=== WARNING: Security updates for your current Hardware Enablement Stack
+=== ended on 2016-08-04:
+===  * http://wiki.ubuntu.com/1404_HWE_EOL
+=== 
+=== The following packages are no longer supported:
+===  linux-image-extra-3.19.0-25-generic linux-image-3.19.0-25-generic
+=== 
+=== Please upgrade them to a supported HWE stack or remove them if you
+=== no longer need them.
+=== 
+=== 
+=== Last login: Sat Mar 21 02:12:01 2020 from 172-0-11-88.lightspeed.rcsntx.sbcglobal.net
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+================================================================================
+
+!!Success(MME::LOGIN_MME_SERVER): Ssh 172.0.14.123 Success fd=exp8
+
+=================================== 10:20:31 ===================================
+=== su casa
+=== 
+=== ===================================
+=== Welcome to CASA MEC x86 Platform
+=== ===================================
+=== CLI services started!
+=== WARNING: CPU Config - Available cores only 0 out of 2 for task mepmgr
+=== CASA-MOBILE>
+=== CASA-MOBILE>en
+=== Password: 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+!!Success(MME::LOGIN_MME_SERVER): enter CASA-MOBILE Success!!!
+STEP(10:20:31): RESULT=PASS  Step 3: SSH to MME as casa and log into enable mode;
+
+STEP(10:20:31): START Step 4: SSH to MME linux
+TRACE(Ssh_Retry) Calledby ::DEALEXCEL::Ssh_Server
+
+=================================== 10:20:31 ===================================
+=== ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no 172.0.14.122
+=== root@172.0.14.122's password: 
+=== Welcome to Ubuntu 14.04.6 LTS (GNU/Linux 3.19.0-25-generic x86_64)
+=== 
+===  * Documentation:  https://help.ubuntu.com/
+=== 
+===   System information as of Sat Mar 21 02:20:32 UTC 2020
+=== 
+===   System load:  3.26               Users logged in:        0
+===   Usage of /:   31.5% of 23.38GB   IP address for eth0:    172.0.14.122
+===   Memory usage: 52%                IP address for docker0: 172.17.42.1
+===   Swap usage:   0%                 IP address for dp_0_0:  172.1.14.122
+===   Processes:    248
+=== 
+===   Graph this data and manage this system at:
+===     https://landscape.canonical.com/
+=== 
+===   Get cloud support with Ubuntu Advantage Cloud Guest:
+===     http://www.ubuntu.com/business/services/cloud
+=== 
+=== 10 updates can be installed immediately.
+=== 1 of these updates is a security update.
+=== 
+=== New release '16.04.6 LTS' available.
+=== Run 'do-release-upgrade' to upgrade to it.
+=== 
+=== 
+=== WARNING: Security updates for your current Hardware Enablement Stack
+=== ended on 2016-08-04:
+===  * http://wiki.ubuntu.com/1404_HWE_EOL
+=== 
+=== The following packages are no longer supported:
+===  linux-image-extra-3.19.0-25-generic linux-image-3.19.0-25-generic
+=== 
+=== Please upgrade them to a supported HWE stack or remove them if you
+=== no longer need them.
+=== 
+=== 
+=== Last login: Sat Mar 21 02:20:33 2020 from 172-0-11-88.lightspeed.rcsntx.sbcglobal.net
+=== root@CASA-MOBILE:~# page-off
+=== page-off: command not found
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+================================================================================
+
+!!Success(DEALEXCEL::Ssh_Server): Ssh 172.0.14.122 Success fd: ::DEALEXCEL::Spawn_Id(SPAWN_ID_MME_Linux_1)=exp9
+TRACE(Ssh_Retry) Calledby ::DEALEXCEL::Ssh_Server
+
+=================================== 10:20:35 ===================================
+=== ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no 172.0.14.123
+=== root@172.0.14.123's password: 
+=== Welcome to Ubuntu 14.04.5 LTS (GNU/Linux 3.19.0-25-generic x86_64)
+=== 
+===  * Documentation:  https://help.ubuntu.com/
+=== 
+===   System information as of Sat Mar 21 02:20:38 UTC 2020
+=== 
+===   System load:  3.02               Users logged in:       2
+===   Usage of /:   30.2% of 23.38GB   IP address for eth0:   172.0.14.123
+===   Memory usage: 49%                IP address for dp_0_0: 172.1.14.123
+===   Swap usage:   0%                 IP address for dp_0_1: 172.2.14.123
+===   Processes:    231
+=== 
+===   Graph this data and manage this system at:
+===     https://landscape.canonical.com/
+=== 
+===   Get cloud support with Ubuntu Advantage Cloud Guest:
+===     http://www.ubuntu.com/business/services/cloud
+=== 
+=== 65 packages can be updated.
+=== 49 updates are security updates.
+=== 
+=== New release '16.04.6 LTS' available.
+=== Run 'do-release-upgrade' to upgrade to it.
+=== 
+=== 
+=== WARNING: Security updates for your current Hardware Enablement Stack
+=== ended on 2016-08-04:
+===  * http://wiki.ubuntu.com/1404_HWE_EOL
+=== 
+=== The following packages are no longer supported:
+===  linux-image-extra-3.19.0-25-generic linux-image-3.19.0-25-generic
+=== 
+=== Please upgrade them to a supported HWE stack or remove them if you
+=== no longer need them.
+=== 
+=== 
+=== Last login: Sat Mar 21 02:20:38 2020 from 172-0-11-88.lightspeed.rcsntx.sbcglobal.net
+=== root@CASA-MOBILE:~# page-off
+=== page-off: command not found
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+================================================================================
+
+!!Success(DEALEXCEL::Ssh_Server): Ssh 172.0.14.123 Success fd: ::DEALEXCEL::Spawn_Id(SPAWN_ID_MME_Linux_2)=exp10
+!!Warning(DEALEXCEL::Ssh_Server): please set global variable "IP_DNS_SERVER" in your config file if you need it
+STEP(10:20:39): RESULT=PASS  Step 4: SSH to MME linux
+
+STEP(10:20:39): START Step 5: Clear old crash and status in MME, respectively
+
+=================================== 10:20:39 ===================================
+=== clear mme statistics all
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 10:20:39 ===================================
+=== clear mme statistics all
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+STEP(10:20:39): RESULT=PASS  Step 5: Clear old crash and status in MME, respectively
+
+STEP(10:20:39): START Step 6: 4.get excel case info
+1
+################start read test link database info################
+python3 ./Lib/casaPython/Read_Test_Plan_DB.py 31485 '31484' /public/hfj/tcpdump
+################finish read test link database info################
+STEP(10:20:46): RESULT=PASS  Step 6: 4.get excel case info
+
+STEP(10:20:46): START Step 7: 5.get excel case info
+Execute Step:10050 
+this context no need to transform, input information has not changed, and store in variable "output"
+step_10050
+
+=================================== 10:20:47 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(CasaGetPrompt): Current CLI mode for exp7 is enable
+
+=================================== 10:20:47 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 10:20:49 ===================================
+=== 
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 10:20:50 ===================================
+=== config
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+
+=================================== 10:20:52 ===================================
+=== 
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+SendAndExpect  lte-service mme  -- -fd exp7  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 10:20:52 ===================================
+=== lte-service mme
+=== CASA-MOBILE(config-mme)#
+=== CASA-MOBILE(config-mme)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  mme-service mme1  -- -fd exp7  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 10:20:53 ===================================
+=== mme-service mme1
+=== CASA-MOBILE(config-mme-svc mme1)#
+=== CASA-MOBILE(config-mme-svc mme1)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  no associate call-profile  -- -fd exp7  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 10:20:54 ===================================
+=== no associate call-profile
+=== CASA-MOBILE(config-mme-svc mme1)#
+=== CASA-MOBILE(config-mme-svc mme1)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  exit  -- -fd exp7  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 10:20:55 ===================================
+=== exit
+=== CASA-MOBILE(config-mme)#
+=== CASA-MOBILE(config-mme)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  call-profile cp1  -- -fd exp7  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 10:20:56 ===================================
+=== call-profile cp1
+=== CASA-MOBILE(config-mme-call-prof)#
+=== CASA-MOBILE(config-mme-call-prof)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  service-request authentication mandatory  -- -fd exp7  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 10:20:57 ===================================
+=== service-request authentication mandatory
+=== CASA-MOBILE(config-mme-call-prof)#
+=== CASA-MOBILE(config-mme-call-prof)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  exit  -- -fd exp7  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 10:20:58 ===================================
+=== exit
+=== CASA-MOBILE(config-mme)#
+=== CASA-MOBILE(config-mme)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  mme-service mme1  -- -fd exp7  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 10:20:59 ===================================
+=== mme-service mme1
+=== CASA-MOBILE(config-mme-svc mme1)#
+=== CASA-MOBILE(config-mme-svc mme1)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  associate call-profile cp1  -- -fd exp7  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 10:21:00 ===================================
+=== associate call-profile cp1
+=== CASA-MOBILE(config-mme-svc mme1)#
+=== CASA-MOBILE(config-mme-svc mme1)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  exit  -- -fd exp7  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 10:21:01 ===================================
+=== exit
+=== CASA-MOBILE(config-mme)#
+=== CASA-MOBILE(config-mme)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect    -- -fd exp7  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 10:21:02 ===================================
+=== 
+=== CASA-MOBILE(config-mme)#
+=== CASA-MOBILE(config-mme)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+step_10058
+
+=================================== 10:21:04 ===================================
+=== 
+=== CASA-MOBILE(config-mme)#
+=== CASA-MOBILE(config-mme)#
+================================================================================
+
+Info(CasaGetPrompt): Current CLI mode for exp7 is config-mme)#
+CASA-MOBILE(config-mme
+
+=================================== 10:21:04 ===================================
+=== end
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+
+=================================== 10:21:04 ===================================
+=== 
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+Info(CasaGetPrompt): Current CLI mode for exp7 is config)#
+CASA-MOBILE(config
+
+=================================== 10:21:04 ===================================
+=== 
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+
+=================================== 10:21:06 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 10:21:07 ===================================
+=== config
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+
+=================================== 10:21:09 ===================================
+=== 
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+
+=================================== 10:21:09 ===================================
+=== exit
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Success Step:10050
+Execute Step:10051 
+Info(Include): Installed package casaIxia v1.0
+this context no need to transform, input information has not changed, and store in variable "output"
+
+=================================== 10:21:10 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+TRACE(LteCliSend) : Calledby Mirror
+{
+			mirror mme protocol sctp
+			mirror mme protocol gtpc
+			mirror mme protocol tcp
+		
+			mirror start timeout never
+			mirror destination file 31484
+		} -- -fd exp7
+
+=================================== 10:21:10 ===================================
+=== mirror mme protocol sctp
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 10:21:10 ===================================
+=== mirror mme protocol gtpc
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 10:21:10 ===================================
+=== mirror mme protocol tcp
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 10:21:10 ===================================
+=== mirror start timeout never
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 10:21:10 ===================================
+=== mirror destination file 31484
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+runixiatest -test hsstest -rxf C:/ixiaAuto/test/MME1/2.4.35_HSS.rxf
+Info(ixiaTestCreate): Sleeping 10 second(s)...
+Info(ixiaTestCreate): Sleeping 10 second(s)...
+Info(ixiaTestCreate): Sleeping 10 second(s)...
+Info(ixiaTestCreate): Sleeping 10 second(s)...
+rxf log is C:/Program Files (x86)/Ixia/IxLoad/8.50-EA-Update1/TclScripts/remoteScriptingService/HSS.rxf-log-3-00.log
+Info(ixiaTestCheckRun): Sleeping 10 second(s)...
+Info(ixiaTestCheckRun): Sleeping 10 second(s)...
+Info(ixiaTestCheckRun): Sleeping 10 second(s)...
+Info(ixiaTestCheckRun): Sleeping 10 second(s)...
+Info(ixiaTestCheckRun): Sleeping 10 second(s)...
+Info(ixiaTestCheckRun): Sleeping 10 second(s)...
+Info(ixiaTestCheckRun): Sleeping 10 second(s)...
+*Info 03/21 10:23:12.701 Test Controller: Test is Running.
+!!!Success(DEALEXCEL::ExecuteStep):start ixia Success!!
+Success Step:10051
+Execute Step:10052 
+mzftxt_before:show%k_diameter-endpoint
+mzftxt: have not '!vertical_bar!'
+
+<> Warning(casaCmd::showDiameterEndpoint): variable spawn_id isn't exits.
+TRACE(DEALEXCEL::Get_Checkpoint_Check) : Calledby ::DEALEXCEL::Loop_Execute_Check_CLI
+##############enter nodes foreach############
+!! execute ::casaCmd::Analyze -cmd show diameter-endpoint -- -toRunCmd -tofd exp7  -dia_endpoint.name mmes6a -route.id 0 -route.state I_OPEN!!!
+Information(casaCmd::Analyze): command 'show diameter-endpoint' map to api 'showDiameterEndpoint' in file 'casaCmdToApi'
+Info(::casaCmd::Run): ... run command % show diameter-endpoint % on  172.0.14.122:22 ...
+
+=================================== 10:23:12 ===================================
+=== 
+=== CASA-MOBILE#show diameter-endpoint
+=== 
+=== ---- Diameter-Endpoint# 1 [name: mmes6a] ----------
+===     Diameter_Protocol_Profile:  none
+===     Count:  [in_txn_count: 0] [out_txn_count: 0] [mme_subs_count: 40]
+===     Timer:  [watch dog timer: 30s] [peer reconnect timer: 10s]
+===     Origin: [host_name: HSSdiam] [realm_name: HSSdiam][ip_addr: 172.1.14.122]
+=== 
+===     ***** Number Peers in the Endpoint: 1 *****
+===        Peer Host                    Realm                             IP-address                      Prefix  Port    Protocol
+===        1    HSSServer.casa.com      epc.mnc260.mcc310.3gppnetwork.org 172.1.101.9                     32      3868    SCTP      
+=== 
+===     ***** Number Routes in the Endpoint: 1 *****
+=== 
+===     ++++ Route# 1 [is_default: false] ++++
+===        [app_realm: epc.mnc260.mcc310.3gppnetwork.org] [app_type: 16777251]  [next_peer: HSSServer.casa.com]
+===        Primary Peers [route_state: up]
+===            Primary-peer Host                     Source-port     State
+===            0            HSSServer.casa.com       10000           I_OPEN    
+===  
+===        no secondary peers
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(casaCmd::Analyze): xmlfile is [/public/hfj/tcpdump/casa_show_diameter_endpoint.xml]
+
+                              casaCmd_Analyze <show diameter-endpoint> on  172.0.14.122:22
+------------------------------------------------------------------------------------------------------------------------
+             command.id           dia_endpoint.name           route.id           route.state           RESULT          
+------------------------------------------------------------------------------------------------------------------------
+ 1           1                    mmes6a                      0                  I_OPEN                P               
+------------------------------------------------------------------------------------------------------------------------
+############   CLI:show diameter-endpoint Forward Verification Completed       ######
+##############enter no_nodes foreach############
+##############end no_nodes foreach############
+Success(DEALEXCEL::Get_Checkpoint_Check): The Expect cli id=0 Number of checkpoints is 1 ,actual Number of checkpoints is 1!!!
+Info(::DEALEXCEL::Loop_Execute_Check_CLI): Sleeping 2 second(s)...
+Success Step:10052
+Execute Step:10053 
+runixiatest -test uetest -rxf C:/ixiaAuto/test/MME1/2.4.35_UE.rxf
+Info(ixiaTestCreate): Sleeping 10 second(s)...
+Info(ixiaTestCreate): Sleeping 10 second(s)...
+Info(ixiaTestCreate): Sleeping 10 second(s)...
+Info(ixiaTestCreate): Sleeping 10 second(s)...
+Info(ixiaTestCreate): Sleeping 10 second(s)...
+rxf log is C:/Program Files (x86)/Ixia/IxLoad/8.50-EA-Update1/TclScripts/remoteScriptingService/UE.rxf-log-4-00.log
+Info(ixiaTestCheckRun): Sleeping 10 second(s)...
+Info(ixiaTestCheckRun): Sleeping 10 second(s)...
+Info(ixiaTestCheckRun): Sleeping 10 second(s)...
+Info(ixiaTestCheckRun): Sleeping 10 second(s)...
+Info(ixiaTestCheckRun): Sleeping 10 second(s)...
+Info(ixiaTestCheckRun): Sleeping 10 second(s)...
+Info(ixiaTestCheckRun): Sleeping 10 second(s)...
+Info(ixiaTestCheckRun): Sleeping 10 second(s)...
+*Info 03/21 10:25:35.855 Test Controller: Test is Running.
+!!!Success(DEALEXCEL::ExecuteStep):start ixia Success!!
+Success Step:10053
+Execute Step:10054 
+mzftxt_before:show%k_mme%k_subscribers%k_list
+mzftxt: have not '!vertical_bar!'
+
+<> Warning(casaCmd::showMmeSubscribersList): variable spawn_id isn't exits.
+TRACE(DEALEXCEL::Get_Checkpoint_Check) : Calledby ::DEALEXCEL::Loop_Execute_Check_CLI
+##############enter nodes foreach############
+!! execute ::casaCmd::Analyze -cmd show mme subscribers list -- -toRunCmd -tofd exp7  -message.imsi 310260000000000 -message.state I!!!
+Information(casaCmd::Analyze): command 'show mme subscribers list' map to api 'showMmeSubscribersList' in file 'casaCmdToApi'
+Info(::casaCmd::Run): ... run command % show mme subscribers list % on  172.0.14.122:22 ...
+
+=================================== 10:25:35 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+=== CASA-MOBILE#show mme subscribers list
+=== Flag: N--Null, I--Idle, C--Connected, D--Detached, P--Paused, F--Forceful Clear, S--Suspend
+=== 
+=== instance  imsi/imei        m-tmsi      state    enb                                      tai           pdns  bearers erabs
+=== ---------+----------------+-----------+--------+----------------------------------------+-------------+-----+-------+------
+=== 0         310260000000000  0x000006a9  C        172.1.101.16                               310:260:0001   1     1       1     
+=== 0         310260000000001  0x000006aa  C        172.1.101.17                               310:260:0001   1     1       1     
+=== 0         310260000000003  0x000006ab  C        172.1.101.17                               310:260:0001   1     1       1     
+=== 0         310260000000002  0x000006ac  C        172.1.101.16                               310:260:0001   1     1       1     
+=== 0         310260000000005  0x000006ad  C        172.1.101.17                               310:260:0001   1     1       1     
+=== 0         310260000000004  0x000006ae  C        172.1.101.16                               310:260:0001   1     1       1     
+=== 0         310260000000007  0x000006af  C        172.1.101.17                               310:260:0001   1     1       1     
+=== 0         310260000000006  0x000006b0  C        172.1.101.16                               310:260:0001   1     1       1     
+=== 0         310260000000009  0x000006b1  C        172.1.101.17                               310:260:0001   1     1       1     
+=== 0         310260000000008  0x000006b2  C        172.1.101.16                               310:260:0001   1     1       1     
+=== ---------------------------------------------------------------------------------------------------------------------------
+=== total UEs                 :10
+=== total Connected UEs       :10
+=== total bearers             :10
+=== total erabs               :10
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(casaCmd::Analyze): xmlfile is [/public/hfj/tcpdump/casa_show_mme_subscribers_list.xml]
+!!Error(casaCmd::Analyze): Unable to match xpath : //command[@id='1' and message[@state='I' and @imsi='310260000000000']].
+
+                   casaCmd_Analyze <show mme subscribers list> on  172.0.14.122:22
+-----------------------------------------------------------------------------------------------------
+             command.id           message.imsi              message.state           RESULT          
+-----------------------------------------------------------------------------------------------------
+ 1           1                    310260000000000           I(Fail)                 Fail            
+-----------------------------------------------------------------------------------------------------
+warning(DEALEXCEL::Get_Checkpoint_Check): execute ::casaCmd::Analyze -cmd show mme subscribers list -- -toRunCmd -tofd exp7  -message.imsi 310260000000000 -message.state I fail 1 time!!!!
+Info(::DEALEXCEL::Get_Checkpoint_Check): Sleeping 2 second(s)...
+!! execute ::casaCmd::Analyze -cmd show mme subscribers list -- -toRunCmd -tofd exp7  -message.imsi 310260000000000 -message.state I!!!
+Information(casaCmd::Analyze): command 'show mme subscribers list' map to api 'showMmeSubscribersList' in file 'casaCmdToApi'
+Info(::casaCmd::Run): ... run command % show mme subscribers list % on  172.0.14.122:22 ...
+
+=================================== 10:25:38 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+=== CASA-MOBILE#show mme subscribers list
+=== Flag: N--Null, I--Idle, C--Connected, D--Detached, P--Paused, F--Forceful Clear, S--Suspend
+=== 
+=== instance  imsi/imei        m-tmsi      state    enb                                      tai           pdns  bearers erabs
+=== ---------+----------------+-----------+--------+----------------------------------------+-------------+-----+-------+------
+=== 0         310260000000000  0x000006a9  C        172.1.101.16                               310:260:0001   1     1       1     
+=== 0         310260000000001  0x000006aa  C        172.1.101.17                               310:260:0001   1     1       1     
+=== 0         310260000000003  0x000006ab  C        172.1.101.17                               310:260:0001   1     1       1     
+=== 0         310260000000002  0x000006ac  C        172.1.101.16                               310:260:0001   1     1       1     
+=== 0         310260000000005  0x000006ad  C        172.1.101.17                               310:260:0001   1     1       1     
+=== 0         310260000000004  0x000006ae  C        172.1.101.16                               310:260:0001   1     1       1     
+=== 0         310260000000007  0x000006af  C        172.1.101.17                               310:260:0001   1     1       1     
+=== 0         310260000000006  0x000006b0  C        172.1.101.16                               310:260:0001   1     1       1     
+=== 0         310260000000009  0x000006b1  C        172.1.101.17                               310:260:0001   1     1       1     
+=== 0         310260000000008  0x000006b2  C        172.1.101.16                               310:260:0001   1     1       1     
+=== ---------------------------------------------------------------------------------------------------------------------------
+=== total UEs                 :10
+=== total Connected UEs       :10
+=== total bearers             :10
+=== total erabs               :10
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(casaCmd::Analyze): xmlfile is [/public/hfj/tcpdump/casa_show_mme_subscribers_list.xml]
+!!Error(casaCmd::Analyze): Unable to match xpath : //command[@id='1' and message[@state='I' and @imsi='310260000000000']].
+
+                   casaCmd_Analyze <show mme subscribers list> on  172.0.14.122:22
+-----------------------------------------------------------------------------------------------------
+             command.id           message.imsi              message.state           RESULT          
+-----------------------------------------------------------------------------------------------------
+ 1           1                    310260000000000           I(Fail)                 Fail            
+-----------------------------------------------------------------------------------------------------
+warning(DEALEXCEL::Get_Checkpoint_Check): execute ::casaCmd::Analyze -cmd show mme subscribers list -- -toRunCmd -tofd exp7  -message.imsi 310260000000000 -message.state I fail 2 time!!!!
+Info(::DEALEXCEL::Get_Checkpoint_Check): Sleeping 2 second(s)...
+!! execute ::casaCmd::Analyze -cmd show mme subscribers list -- -toRunCmd -tofd exp7  -message.imsi 310260000000000 -message.state I!!!
+Information(casaCmd::Analyze): command 'show mme subscribers list' map to api 'showMmeSubscribersList' in file 'casaCmdToApi'
+Info(::casaCmd::Run): ... run command % show mme subscribers list % on  172.0.14.122:22 ...
+
+=================================== 10:25:41 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+=== CASA-MOBILE#show mme subscribers list
+=== Flag: N--Null, I--Idle, C--Connected, D--Detached, P--Paused, F--Forceful Clear, S--Suspend
+=== 
+=== instance  imsi/imei        m-tmsi      state    enb                                      tai           pdns  bearers erabs
+=== ---------+----------------+-----------+--------+----------------------------------------+-------------+-----+-------+------
+=== 0         310260000000000  0x000006a9  C        172.1.101.16                               310:260:0001   1     1       1     
+=== 0         310260000000001  0x000006aa  C        172.1.101.17                               310:260:0001   1     1       1     
+=== 0         310260000000003  0x000006ab  C        172.1.101.17                               310:260:0001   1     1       1     
+=== 0         310260000000002  0x000006ac  C        172.1.101.16                               310:260:0001   1     1       1     
+=== 0         310260000000005  0x000006ad  C        172.1.101.17                               310:260:0001   1     1       1     
+=== 0         310260000000004  0x000006ae  C        172.1.101.16                               310:260:0001   1     1       1     
+=== 0         310260000000007  0x000006af  C        172.1.101.17                               310:260:0001   1     1       1     
+=== 0         310260000000006  0x000006b0  C        172.1.101.16                               310:260:0001   1     1       1     
+=== 0         310260000000009  0x000006b1  C        172.1.101.17                               310:260:0001   1     1       1     
+=== 0         310260000000008  0x000006b2  C        172.1.101.16                               310:260:0001   1     1       1     
+=== ---------------------------------------------------------------------------------------------------------------------------
+=== total UEs                 :10
+=== total Connected UEs       :10
+=== total bearers             :10
+=== total erabs               :10
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(casaCmd::Analyze): xmlfile is [/public/hfj/tcpdump/casa_show_mme_subscribers_list.xml]
+!!Error(casaCmd::Analyze): Unable to match xpath : //command[@id='1' and message[@state='I' and @imsi='310260000000000']].
+
+                   casaCmd_Analyze <show mme subscribers list> on  172.0.14.122:22
+-----------------------------------------------------------------------------------------------------
+             command.id           message.imsi              message.state           RESULT          
+-----------------------------------------------------------------------------------------------------
+ 1           1                    310260000000000           I(Fail)                 Fail            
+-----------------------------------------------------------------------------------------------------
+warning(DEALEXCEL::Get_Checkpoint_Check): execute ::casaCmd::Analyze -cmd show mme subscribers list -- -toRunCmd -tofd exp7  -message.imsi 310260000000000 -message.state I fail 3 time!!!!
+Info(::DEALEXCEL::Get_Checkpoint_Check): Sleeping 2 second(s)...
+!! execute ::casaCmd::Analyze -cmd show mme subscribers list -- -toRunCmd -tofd exp7  -message.imsi 310260000000000 -message.state I!!!
+Information(casaCmd::Analyze): command 'show mme subscribers list' map to api 'showMmeSubscribersList' in file 'casaCmdToApi'
+Info(::casaCmd::Run): ... run command % show mme subscribers list % on  172.0.14.122:22 ...
+
+=================================== 10:25:44 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+=== CASA-MOBILE#show mme subscribers list
+=== Flag: N--Null, I--Idle, C--Connected, D--Detached, P--Paused, F--Forceful Clear, S--Suspend
+=== 
+=== instance  imsi/imei        m-tmsi      state    enb                                      tai           pdns  bearers erabs
+=== ---------+----------------+-----------+--------+----------------------------------------+-------------+-----+-------+------
+=== 0         310260000000000  0x000006a9  C        172.1.101.16                               310:260:0001   1     1       1     
+=== 0         310260000000001  0x000006aa  C        172.1.101.17                               310:260:0001   1     1       1     
+=== 0         310260000000003  0x000006ab  C        172.1.101.17                               310:260:0001   1     1       1     
+=== 0         310260000000002  0x000006ac  C        172.1.101.16                               310:260:0001   1     1       1     
+=== 0         310260000000005  0x000006ad  C        172.1.101.17                               310:260:0001   1     1       1     
+=== 0         310260000000004  0x000006ae  C        172.1.101.16                               310:260:0001   1     1       1     
+=== 0         310260000000007  0x000006af  C        172.1.101.17                               310:260:0001   1     1       1     
+=== 0         310260000000006  0x000006b0  C        172.1.101.16                               310:260:0001   1     1       1     
+=== 0         310260000000009  0x000006b1  C        172.1.101.17                               310:260:0001   1     1       1     
+=== 0         310260000000008  0x000006b2  C        172.1.101.16                               310:260:0001   1     1       1     
+=== ---------------------------------------------------------------------------------------------------------------------------
+=== total UEs                 :10
+=== total Connected UEs       :10
+=== total bearers             :10
+=== total erabs               :10
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(casaCmd::Analyze): xmlfile is [/public/hfj/tcpdump/casa_show_mme_subscribers_list.xml]
+!!Error(casaCmd::Analyze): Unable to match xpath : //command[@id='1' and message[@state='I' and @imsi='310260000000000']].
+
+                   casaCmd_Analyze <show mme subscribers list> on  172.0.14.122:22
+-----------------------------------------------------------------------------------------------------
+             command.id           message.imsi              message.state           RESULT          
+-----------------------------------------------------------------------------------------------------
+ 1           1                    310260000000000           I(Fail)                 Fail            
+-----------------------------------------------------------------------------------------------------
+warning(DEALEXCEL::Get_Checkpoint_Check): execute ::casaCmd::Analyze -cmd show mme subscribers list -- -toRunCmd -tofd exp7  -message.imsi 310260000000000 -message.state I fail 4 time!!!!
+Info(::DEALEXCEL::Get_Checkpoint_Check): Sleeping 2 second(s)...
+!! execute ::casaCmd::Analyze -cmd show mme subscribers list -- -toRunCmd -tofd exp7  -message.imsi 310260000000000 -message.state I!!!
+Information(casaCmd::Analyze): command 'show mme subscribers list' map to api 'showMmeSubscribersList' in file 'casaCmdToApi'
+Info(::casaCmd::Run): ... run command % show mme subscribers list % on  172.0.14.122:22 ...
+
+=================================== 10:25:47 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+=== CASA-MOBILE#show mme subscribers list
+=== Flag: N--Null, I--Idle, C--Connected, D--Detached, P--Paused, F--Forceful Clear, S--Suspend
+=== 
+=== instance  imsi/imei        m-tmsi      state    enb                                      tai           pdns  bearers erabs
+=== ---------+----------------+-----------+--------+----------------------------------------+-------------+-----+-------+------
+=== 0         310260000000000  0x000006a9  C        172.1.101.16                               310:260:0001   1     1       1     
+=== 0         310260000000001  0x000006aa  C        172.1.101.17                               310:260:0001   1     1       1     
+=== 0         310260000000003  0x000006ab  C        172.1.101.17                               310:260:0001   1     1       1     
+=== 0         310260000000002  0x000006ac  C        172.1.101.16                               310:260:0001   1     1       1     
+=== 0         310260000000005  0x000006ad  C        172.1.101.17                               310:260:0001   1     1       1     
+=== 0         310260000000004  0x000006ae  C        172.1.101.16                               310:260:0001   1     1       1     
+=== 0         310260000000007  0x000006af  C        172.1.101.17                               310:260:0001   1     1       1     
+=== 0         310260000000006  0x000006b0  C        172.1.101.16                               310:260:0001   1     1       1     
+=== 0         310260000000009  0x000006b1  C        172.1.101.17                               310:260:0001   1     1       1     
+=== 0         310260000000008  0x000006b2  C        172.1.101.16                               310:260:0001   1     1       1     
+=== ---------------------------------------------------------------------------------------------------------------------------
+=== total UEs                 :10
+=== total Connected UEs       :10
+=== total bearers             :10
+=== total erabs               :10
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(casaCmd::Analyze): xmlfile is [/public/hfj/tcpdump/casa_show_mme_subscribers_list.xml]
+!!Error(casaCmd::Analyze): Unable to match xpath : //command[@id='1' and message[@state='I' and @imsi='310260000000000']].
+
+                   casaCmd_Analyze <show mme subscribers list> on  172.0.14.122:22
+-----------------------------------------------------------------------------------------------------
+             command.id           message.imsi              message.state           RESULT          
+-----------------------------------------------------------------------------------------------------
+ 1           1                    310260000000000           I(Fail)                 Fail            
+-----------------------------------------------------------------------------------------------------
+warning(DEALEXCEL::Get_Checkpoint_Check): execute ::casaCmd::Analyze -cmd show mme subscribers list -- -toRunCmd -tofd exp7  -message.imsi 310260000000000 -message.state I fail 5 time!!!!
+Info(::DEALEXCEL::Get_Checkpoint_Check): Sleeping 2 second(s)...
+!! execute ::casaCmd::Analyze -cmd show mme subscribers list -- -toRunCmd -tofd exp7  -message.imsi 310260000000000 -message.state I!!!
+Information(casaCmd::Analyze): command 'show mme subscribers list' map to api 'showMmeSubscribersList' in file 'casaCmdToApi'
+Info(::casaCmd::Run): ... run command % show mme subscribers list % on  172.0.14.122:22 ...
+
+=================================== 10:25:50 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+=== CASA-MOBILE#show mme subscribers list
+=== Flag: N--Null, I--Idle, C--Connected, D--Detached, P--Paused, F--Forceful Clear, S--Suspend
+=== 
+=== instance  imsi/imei        m-tmsi      state    enb                                      tai           pdns  bearers erabs
+=== ---------+----------------+-----------+--------+----------------------------------------+-------------+-----+-------+------
+=== 0         310260000000000  0x000006a9  I                                                 310:260:0001   1     1       0     
+=== 0         310260000000001  0x000006aa  I                                                 310:260:0001   1     1       0     
+=== 0         310260000000003  0x000006ab  I                                                 310:260:0001   1     1       0     
+=== 0         310260000000002  0x000006ac  I                                                 310:260:0001   1     1       0     
+=== 0         310260000000005  0x000006ad  I                                                 310:260:0001   1     1       0     
+=== 0         310260000000004  0x000006ae  I                                                 310:260:0001   1     1       0     
+=== 0         310260000000007  0x000006af  C        172.1.101.17                               310:260:0001   1     1       1     
+=== 0         310260000000006  0x000006b0  C        172.1.101.16                               310:260:0001   1     1       1     
+=== 0         310260000000009  0x000006b1  C        172.1.101.17                               310:260:0001   1     1       1     
+=== 0         310260000000008  0x000006b2  C        172.1.101.16                               310:260:0001   1     1       1     
+=== ---------------------------------------------------------------------------------------------------------------------------
+=== total UEs                 :10
+=== total Connected UEs       :4
+=== total bearers             :10
+=== total erabs               :4
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(casaCmd::Analyze): xmlfile is [/public/hfj/tcpdump/casa_show_mme_subscribers_list.xml]
+
+                   casaCmd_Analyze <show mme subscribers list> on  172.0.14.122:22
+-----------------------------------------------------------------------------------------------------
+             command.id           message.imsi              message.state           RESULT          
+-----------------------------------------------------------------------------------------------------
+ 1           1                    310260000000000           I                       P               
+-----------------------------------------------------------------------------------------------------
+!! execute ::casaCmd::Analyze -cmd show mme subscribers list -- -toRunCmd -tofd exp7  -message.imsi 310260000000001 -message.state I!!!
+Information(casaCmd::Analyze): command 'show mme subscribers list' map to api 'showMmeSubscribersList' in file 'casaCmdToApi'
+Info(casaCmd::Analyze): xmlfile is [/public/hfj/tcpdump/casa_show_mme_subscribers_list.xml]
+
+                   casaCmd_Analyze <show mme subscribers list> on  172.0.14.122:22
+-----------------------------------------------------------------------------------------------------
+             command.id           message.imsi              message.state           RESULT          
+-----------------------------------------------------------------------------------------------------
+ 1           1                    310260000000001           I                       P               
+-----------------------------------------------------------------------------------------------------
+!! execute ::casaCmd::Analyze -cmd show mme subscribers list -- -toRunCmd -tofd exp7  -message.imsi 310260000000002 -message.state I!!!
+Information(casaCmd::Analyze): command 'show mme subscribers list' map to api 'showMmeSubscribersList' in file 'casaCmdToApi'
+Info(casaCmd::Analyze): xmlfile is [/public/hfj/tcpdump/casa_show_mme_subscribers_list.xml]
+
+                   casaCmd_Analyze <show mme subscribers list> on  172.0.14.122:22
+-----------------------------------------------------------------------------------------------------
+             command.id           message.imsi              message.state           RESULT          
+-----------------------------------------------------------------------------------------------------
+ 1           1                    310260000000002           I                       P               
+-----------------------------------------------------------------------------------------------------
+!! execute ::casaCmd::Analyze -cmd show mme subscribers list -- -toRunCmd -tofd exp7  -message.imsi 310260000000004 -message.state I!!!
+Information(casaCmd::Analyze): command 'show mme subscribers list' map to api 'showMmeSubscribersList' in file 'casaCmdToApi'
+Info(casaCmd::Analyze): xmlfile is [/public/hfj/tcpdump/casa_show_mme_subscribers_list.xml]
+
+                   casaCmd_Analyze <show mme subscribers list> on  172.0.14.122:22
+-----------------------------------------------------------------------------------------------------
+             command.id           message.imsi              message.state           RESULT          
+-----------------------------------------------------------------------------------------------------
+ 1           1                    310260000000004           I                       P               
+-----------------------------------------------------------------------------------------------------
+!! execute ::casaCmd::Analyze -cmd show mme subscribers list -- -toRunCmd -tofd exp7  -message.imsi 310260000000003 -message.state I!!!
+Information(casaCmd::Analyze): command 'show mme subscribers list' map to api 'showMmeSubscribersList' in file 'casaCmdToApi'
+Info(casaCmd::Analyze): xmlfile is [/public/hfj/tcpdump/casa_show_mme_subscribers_list.xml]
+
+                   casaCmd_Analyze <show mme subscribers list> on  172.0.14.122:22
+-----------------------------------------------------------------------------------------------------
+             command.id           message.imsi              message.state           RESULT          
+-----------------------------------------------------------------------------------------------------
+ 1           1                    310260000000003           I                       P               
+-----------------------------------------------------------------------------------------------------
+!! execute ::casaCmd::Analyze -cmd show mme subscribers list -- -toRunCmd -tofd exp7  -message.imsi 310260000000006 -message.state I!!!
+Information(casaCmd::Analyze): command 'show mme subscribers list' map to api 'showMmeSubscribersList' in file 'casaCmdToApi'
+Info(casaCmd::Analyze): xmlfile is [/public/hfj/tcpdump/casa_show_mme_subscribers_list.xml]
+!!Error(casaCmd::Analyze): Unable to match xpath : //command[@id='1' and message[@state='I' and @imsi='310260000000006']].
+
+                   casaCmd_Analyze <show mme subscribers list> on  172.0.14.122:22
+-----------------------------------------------------------------------------------------------------
+             command.id           message.imsi              message.state           RESULT          
+-----------------------------------------------------------------------------------------------------
+ 1           1                    310260000000006           I(Fail)                 Fail            
+-----------------------------------------------------------------------------------------------------
+warning(DEALEXCEL::Get_Checkpoint_Check): execute ::casaCmd::Analyze -cmd show mme subscribers list -- -toRunCmd -tofd exp7  -message.imsi 310260000000006 -message.state I fail 1 time!!!!
+Info(::DEALEXCEL::Get_Checkpoint_Check): Sleeping 2 second(s)...
+!! execute ::casaCmd::Analyze -cmd show mme subscribers list -- -toRunCmd -tofd exp7  -message.imsi 310260000000006 -message.state I!!!
+Information(casaCmd::Analyze): command 'show mme subscribers list' map to api 'showMmeSubscribersList' in file 'casaCmdToApi'
+Info(::casaCmd::Run): ... run command % show mme subscribers list % on  172.0.14.122:22 ...
+
+=================================== 10:25:53 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+=== CASA-MOBILE#show mme subscribers list
+=== Flag: N--Null, I--Idle, C--Connected, D--Detached, P--Paused, F--Forceful Clear, S--Suspend
+=== 
+=== instance  imsi/imei        m-tmsi      state    enb                                      tai           pdns  bearers erabs
+=== ---------+----------------+-----------+--------+----------------------------------------+-------------+-----+-------+------
+=== 0         310260000000000  0x000006a9  I                                                 310:260:0001   1     1       0     
+=== 0         310260000000001  0x000006aa  I                                                 310:260:0001   1     1       0     
+=== 0         310260000000003  0x000006ab  I                                                 310:260:0001   1     1       0     
+=== 0         310260000000002  0x000006ac  I                                                 310:260:0001   1     1       0     
+=== 0         310260000000005  0x000006ad  I                                                 310:260:0001   1     1       0     
+=== 0         310260000000004  0x000006ae  I                                                 310:260:0001   1     1       0     
+=== 0         310260000000007  0x000006af  I                                                 310:260:0001   1     1       0     
+=== 0         310260000000006  0x000006b0  I                                                 310:260:0001   1     1       0     
+=== 0         310260000000009  0x000006b1  I                                                 310:260:0001   1     1       0     
+=== 0         310260000000008  0x000006b2  I                                                 310:260:0001   1     1       0     
+=== ---------------------------------------------------------------------------------------------------------------------------
+=== total UEs                 :10
+=== total Connected UEs       :0
+=== total bearers             :10
+=== total erabs               :0
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(casaCmd::Analyze): xmlfile is [/public/hfj/tcpdump/casa_show_mme_subscribers_list.xml]
+
+                   casaCmd_Analyze <show mme subscribers list> on  172.0.14.122:22
+-----------------------------------------------------------------------------------------------------
+             command.id           message.imsi              message.state           RESULT          
+-----------------------------------------------------------------------------------------------------
+ 1           1                    310260000000006           I                       P               
+-----------------------------------------------------------------------------------------------------
+!! execute ::casaCmd::Analyze -cmd show mme subscribers list -- -toRunCmd -tofd exp7  -message.imsi 310260000000005 -message.state I!!!
+Information(casaCmd::Analyze): command 'show mme subscribers list' map to api 'showMmeSubscribersList' in file 'casaCmdToApi'
+Info(casaCmd::Analyze): xmlfile is [/public/hfj/tcpdump/casa_show_mme_subscribers_list.xml]
+
+                   casaCmd_Analyze <show mme subscribers list> on  172.0.14.122:22
+-----------------------------------------------------------------------------------------------------
+             command.id           message.imsi              message.state           RESULT          
+-----------------------------------------------------------------------------------------------------
+ 1           1                    310260000000005           I                       P               
+-----------------------------------------------------------------------------------------------------
+!! execute ::casaCmd::Analyze -cmd show mme subscribers list -- -toRunCmd -tofd exp7  -message.imsi 310260000000008 -message.state I!!!
+Information(casaCmd::Analyze): command 'show mme subscribers list' map to api 'showMmeSubscribersList' in file 'casaCmdToApi'
+Info(casaCmd::Analyze): xmlfile is [/public/hfj/tcpdump/casa_show_mme_subscribers_list.xml]
+
+                   casaCmd_Analyze <show mme subscribers list> on  172.0.14.122:22
+-----------------------------------------------------------------------------------------------------
+             command.id           message.imsi              message.state           RESULT          
+-----------------------------------------------------------------------------------------------------
+ 1           1                    310260000000008           I                       P               
+-----------------------------------------------------------------------------------------------------
+!! execute ::casaCmd::Analyze -cmd show mme subscribers list -- -toRunCmd -tofd exp7  -message.imsi 310260000000007 -message.state I!!!
+Information(casaCmd::Analyze): command 'show mme subscribers list' map to api 'showMmeSubscribersList' in file 'casaCmdToApi'
+Info(casaCmd::Analyze): xmlfile is [/public/hfj/tcpdump/casa_show_mme_subscribers_list.xml]
+
+                   casaCmd_Analyze <show mme subscribers list> on  172.0.14.122:22
+-----------------------------------------------------------------------------------------------------
+             command.id           message.imsi              message.state           RESULT          
+-----------------------------------------------------------------------------------------------------
+ 1           1                    310260000000007           I                       P               
+-----------------------------------------------------------------------------------------------------
+!! execute ::casaCmd::Analyze -cmd show mme subscribers list -- -toRunCmd -tofd exp7  -message.imsi 310260000000009 -message.state I!!!
+Information(casaCmd::Analyze): command 'show mme subscribers list' map to api 'showMmeSubscribersList' in file 'casaCmdToApi'
+Info(casaCmd::Analyze): xmlfile is [/public/hfj/tcpdump/casa_show_mme_subscribers_list.xml]
+
+                   casaCmd_Analyze <show mme subscribers list> on  172.0.14.122:22
+-----------------------------------------------------------------------------------------------------
+             command.id           message.imsi              message.state           RESULT          
+-----------------------------------------------------------------------------------------------------
+ 1           1                    310260000000009           I                       P               
+-----------------------------------------------------------------------------------------------------
+!! execute ::casaCmd::Analyze -cmd show mme subscribers list -- -toRunCmd -tofd exp7  -total.ues 10!!!
+Information(casaCmd::Analyze): command 'show mme subscribers list' map to api 'showMmeSubscribersList' in file 'casaCmdToApi'
+Info(casaCmd::Analyze): xmlfile is [/public/hfj/tcpdump/casa_show_mme_subscribers_list.xml]
+
+    casaCmd_Analyze <show mme subscribers list> on  172.0.14.122:22
+-----------------------------------------------------------------------
+             command.id           total.ues           RESULT          
+-----------------------------------------------------------------------
+ 1           1                    10                  P               
+-----------------------------------------------------------------------
+!! execute ::casaCmd::Analyze -cmd show mme subscribers list -- -toRunCmd -tofd exp7  -total.connected_ue 0!!!
+Information(casaCmd::Analyze): command 'show mme subscribers list' map to api 'showMmeSubscribersList' in file 'casaCmdToApi'
+Info(casaCmd::Analyze): xmlfile is [/public/hfj/tcpdump/casa_show_mme_subscribers_list.xml]
+
+        casaCmd_Analyze <show mme subscribers list> on  172.0.14.122:22
+--------------------------------------------------------------------------------
+             command.id           total.connected_ue           RESULT          
+--------------------------------------------------------------------------------
+ 1           1                    0                            P               
+--------------------------------------------------------------------------------
+!! execute ::casaCmd::Analyze -cmd show mme subscribers list -- -toRunCmd -tofd exp7  -total.bearers 10!!!
+Information(casaCmd::Analyze): command 'show mme subscribers list' map to api 'showMmeSubscribersList' in file 'casaCmdToApi'
+Info(casaCmd::Analyze): xmlfile is [/public/hfj/tcpdump/casa_show_mme_subscribers_list.xml]
+
+      casaCmd_Analyze <show mme subscribers list> on  172.0.14.122:22
+---------------------------------------------------------------------------
+             command.id           total.bearers           RESULT          
+---------------------------------------------------------------------------
+ 1           1                    10                      P               
+---------------------------------------------------------------------------
+!! execute ::casaCmd::Analyze -cmd show mme subscribers list -- -toRunCmd -tofd exp7  -total.erabs 0!!!
+Information(casaCmd::Analyze): command 'show mme subscribers list' map to api 'showMmeSubscribersList' in file 'casaCmdToApi'
+Info(casaCmd::Analyze): xmlfile is [/public/hfj/tcpdump/casa_show_mme_subscribers_list.xml]
+
+     casaCmd_Analyze <show mme subscribers list> on  172.0.14.122:22
+-------------------------------------------------------------------------
+             command.id           total.erabs           RESULT          
+-------------------------------------------------------------------------
+ 1           1                    0                     P               
+-------------------------------------------------------------------------
+############   CLI:show mme subscribers list Forward Verification Completed       ######
+##############enter no_nodes foreach############
+##############end no_nodes foreach############
+Success(DEALEXCEL::Get_Checkpoint_Check): The Expect cli id=1 Number of checkpoints is 14 ,actual Number of checkpoints is 14!!!
+Info(::DEALEXCEL::Loop_Execute_Check_CLI): Sleeping 2 second(s)...
+Success Step:10054
+Execute Step:10055 
+can not regexp lte-service pgw-u or sgw-u or pgw-c or sgw-c or mme or Filter(include ip) or ACL(include ip)
+SendAndExpect  clear mme subscriber imsi 310260000000000  -- -fd exp7 -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 10:25:55 ===================================
+=== clear mme subscriber imsi 310260000000000
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteCommand): Sleeping 1 second(s)...
+SendAndExpect  clear mme subscriber imsi 310260000000001  -- -fd exp7 -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 10:25:56 ===================================
+=== clear mme subscriber imsi 310260000000001
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteCommand): Sleeping 1 second(s)...
+SendAndExpect  clear mme subscriber imsi 310260000000002  -- -fd exp7 -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 10:25:57 ===================================
+=== clear mme subscriber imsi 310260000000002
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteCommand): Sleeping 1 second(s)...
+SendAndExpect  clear mme subscriber imsi 310260000000003  -- -fd exp7 -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 10:25:58 ===================================
+=== clear mme subscriber imsi 310260000000003
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteCommand): Sleeping 1 second(s)...
+SendAndExpect  clear mme subscriber imsi 310260000000004  -- -fd exp7 -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 10:25:59 ===================================
+=== clear mme subscriber imsi 310260000000004
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteCommand): Sleeping 1 second(s)...
+SendAndExpect  clear mme subscriber imsi 310260000000005  -- -fd exp7 -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 10:26:00 ===================================
+=== clear mme subscriber imsi 310260000000005
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteCommand): Sleeping 1 second(s)...
+SendAndExpect  clear mme subscriber imsi 310260000000006  -- -fd exp7 -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 10:26:01 ===================================
+=== clear mme subscriber imsi 310260000000006
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteCommand): Sleeping 1 second(s)...
+SendAndExpect  clear mme subscriber imsi 310260000000007  -- -fd exp7 -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 10:26:02 ===================================
+=== clear mme subscriber imsi 310260000000007
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteCommand): Sleeping 1 second(s)...
+SendAndExpect  clear mme subscriber imsi 310260000000008  -- -fd exp7 -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 10:26:03 ===================================
+=== clear mme subscriber imsi 310260000000008
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteCommand): Sleeping 1 second(s)...
+SendAndExpect  clear mme subscriber imsi 310260000000009  -- -fd exp7 -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 10:26:04 ===================================
+=== clear mme subscriber imsi 310260000000009
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteCommand): Sleeping 1 second(s)...
+SendAndExpect    -- -fd exp7 -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 10:26:05 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteCommand): Sleeping 1 second(s)...
+SendAndExpect    -- -fd exp7 -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 10:26:06 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteCommand): Sleeping 1 second(s)...
+Success Step:10055
+Execute Step:10056 
+::DEALEXCEL::check_packet_filter  -step  step_10056!!
+this context no need to transform, input information has not changed, and store in variable "output"
+this is step_10056
+fd#SPAWN_ID_MME1
+##Check MME recieved performs authentication procedure.
+filter 1 (Authentication response): nas_eps.nas_msg_emm_type == 0x53; num>=10
+filter 2 (Security mode complete): nas_eps.nas_msg_emm_type == 0x5e; num>=10
+##Check MME paging ue failed.
+filter 3 (paging): s1ap.procedureCode == 10; num==50
+
+ just for test 
+This is step_10056, just for test===
+This is fd#SPAWN_ID_MME1, just for test===
+Ssh -ip  172.0.14.122 -callback spawn_tshark
+
+=================================== 10:26:07 ===================================
+=== ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no  172.0.14.122
+=== root@172.0.14.122's password: 
+=== Welcome to Ubuntu 14.04.6 LTS (GNU/Linux 3.19.0-25-generic x86_64)
+=== 
+===  * Documentation:  https://help.ubuntu.com/
+=== 
+===   System information as of Sat Mar 21 02:20:42 UTC 2020
+=== 
+===   System load:  3.3                Users logged in:        1
+===   Usage of /:   31.5% of 23.38GB   IP address for eth0:    172.0.14.122
+===   Memory usage: 52%                IP address for docker0: 172.17.42.1
+===   Swap usage:   0%                 IP address for dp_0_0:  172.1.14.122
+===   Processes:    254
+=== 
+===   Graph this data and manage this system at:
+===     https://landscape.canonical.com/
+=== 
+===   Get cloud support with Ubuntu Advantage Cloud Guest:
+===     http://www.ubuntu.com/business/services/cloud
+=== 
+=== 10 updates can be installed immediately.
+=== 1 of these updates is a security update.
+=== 
+=== New release '16.04.6 LTS' available.
+=== Run 'do-release-upgrade' to upgrade to it.
+=== 
+=== 
+=== WARNING: Security updates for your current Hardware Enablement Stack
+=== ended on 2016-08-04:
+===  * http://wiki.ubuntu.com/1404_HWE_EOL
+=== 
+=== The following packages are no longer supported:
+===  linux-image-extra-3.19.0-25-generic linux-image-3.19.0-25-generic
+=== 
+=== Please upgrade them to a supported HWE stack or remove them if you
+=== no longer need them.
+=== 
+=== 
+=== Last login: Sat Mar 21 02:20:44 2020 from 172-0-11-88.lightspeed.rcsntx.sbcglobal.net
+=== root@CASA-MOBILE:~# page-off
+=== page-off: command not found
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+================================================================================
+
+Ssh -ip  172.0.14.122 successful, spawn_tshark = exp18
+This is ##Check MME recieved performs authentication procedure., just for test===
+This is filter 1 (Authentication response): nas_eps.nas_msg_emm_type == 0x53; num>=10, just for test===
+this is filter 1 (Authentication response): nas_eps.nas_msg_emm_type == 0x53; num>=10 just for test
+LtePktFilter -fd exp18 -dir /fdsk/mirror -pkt 31484.pcap -filter  nas_eps.nas_msg_emm_type == 0x53
+
+=================================== 10:26:09 ===================================
+=== invaild_command_91434 in order to clear buffer
+=== invaild_command_91434: command not found
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+================================================================================
+
+Info(LtePktFilter): Sleeping 2 second(s)...
+LogMsg Filter is       :  nas_eps.nas_msg_emm_type == 0x53
+1SendAndExpect tshark -2 -R " nas_eps.nas_msg_emm_type == 0x53" -r /fdsk/mirror/31484.pcap -V | egrep "^Frame" -- -fd exp18  -timeout 30 -prompt casa -callback buffer -ignoreErr Minor
+
+=================================== 10:26:15 ===================================
+=== tshark -2 -R " nas_eps.nas_msg_emm_type == 0x53" -r /fdsk<-2 -R " nas_eps.nas_msg_emm_type == 0x53" -r /fdsk/                         
+=== mirror/31484.pcap -V | eg<m_type == 0x53" -r /fdsk/mirror/31484.pcap -V | egr                         
+=== ep "^Frame"
+=== Running as user "root" and group "root". This could be dangerous.
+=== Frame 1: 144 bytes on wire (1152 bits), 144 bytes captured (1152 bits)
+=== Frame 2: 144 bytes on wire (1152 bits), 144 bytes captured (1152 bits)
+=== Frame 3: 144 bytes on wire (1152 bits), 144 bytes captured (1152 bits)
+=== Frame 4: 144 bytes on wire (1152 bits), 144 bytes captured (1152 bits)
+=== Frame 5: 144 bytes on wire (1152 bits), 144 bytes captured (1152 bits)
+=== Frame 6: 144 bytes on wire (1152 bits), 144 bytes captured (1152 bits)
+=== Frame 7: 144 bytes on wire (1152 bits), 144 bytes captured (1152 bits)
+=== Frame 8: 144 bytes on wire (1152 bits), 144 bytes captured (1152 bits)
+=== Frame 9: 144 bytes on wire (1152 bits), 144 bytes captured (1152 bits)
+=== Frame 10: 144 bytes on wire (1152 bits), 144 bytes captured (1152 bits)
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+================================================================================
+
+Info(LtePktFilter):The number of match message  nas_eps.nas_msg_emm_type == 0x53 is 10
+(LtePktFilter)get pkg_number: 10
+Success(DEALEXCEL::check_packet_filter):check filter pkg_num=10 >= exp_num=10 Success!!!
+This is filter 2 (Security mode complete): nas_eps.nas_msg_emm_type == 0x5e; num>=10, just for test===
+this is filter 2 (Security mode complete): nas_eps.nas_msg_emm_type == 0x5e; num>=10 just for test
+LtePktFilter -fd exp18 -dir /fdsk/mirror -pkt 31484.pcap -filter  nas_eps.nas_msg_emm_type == 0x5e
+
+=================================== 10:26:15 ===================================
+=== invaild_command_47652 in order to clear buffer
+=== invaild_command_47652: command not found
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+================================================================================
+
+Info(LtePktFilter): Sleeping 2 second(s)...
+LogMsg Filter is       :  nas_eps.nas_msg_emm_type == 0x5e
+1SendAndExpect tshark -2 -R " nas_eps.nas_msg_emm_type == 0x5e" -r /fdsk/mirror/31484.pcap -V | egrep "^Frame" -- -fd exp18  -timeout 30 -prompt casa -callback buffer -ignoreErr Minor
+
+=================================== 10:26:17 ===================================
+=== tshark -2 -R " nas_eps.nas_msg_emm_type == 0x5e" -r /fdsk<-2 -R " nas_eps.nas_msg_emm_type == 0x5e" -r /fdsk/                         
+=== mirror/31484.pcap -V | eg<m_type == 0x5e" -r /fdsk/mirror/31484.pcap -V | egr                         
+=== ep "^Frame"
+=== Running as user "root" and group "root". This could be dangerous.
+=== Frame 1: 140 bytes on wire (1120 bits), 140 bytes captured (1120 bits)
+=== Frame 2: 140 bytes on wire (1120 bits), 140 bytes captured (1120 bits)
+=== Frame 3: 140 bytes on wire (1120 bits), 140 bytes captured (1120 bits)
+=== Frame 4: 140 bytes on wire (1120 bits), 140 bytes captured (1120 bits)
+=== Frame 5: 140 bytes on wire (1120 bits), 140 bytes captured (1120 bits)
+=== Frame 6: 140 bytes on wire (1120 bits), 140 bytes captured (1120 bits)
+=== Frame 7: 140 bytes on wire (1120 bits), 140 bytes captured (1120 bits)
+=== Frame 8: 140 bytes on wire (1120 bits), 140 bytes captured (1120 bits)
+=== Frame 9: 140 bytes on wire (1120 bits), 140 bytes captured (1120 bits)
+=== Frame 10: 140 bytes on wire (1120 bits), 140 bytes captured (1120 bits)
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+================================================================================
+
+Info(LtePktFilter):The number of match message  nas_eps.nas_msg_emm_type == 0x5e is 10
+(LtePktFilter)get pkg_number: 10
+Success(DEALEXCEL::check_packet_filter):check filter pkg_num=10 >= exp_num=10 Success!!!
+This is ##Check MME paging ue failed., just for test===
+This is filter 3 (paging): s1ap.procedureCode == 10; num==50, just for test===
+this is filter 3 (paging): s1ap.procedureCode == 10; num==50 just for test
+LtePktFilter -fd exp18 -dir /fdsk/mirror -pkt 31484.pcap -filter  s1ap.procedureCode == 10
+
+=================================== 10:26:17 ===================================
+=== invaild_command_93925 in order to clear buffer
+=== invaild_command_93925: command not found
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+================================================================================
+
+Info(LtePktFilter): Sleeping 2 second(s)...
+LogMsg Filter is       :  s1ap.procedureCode == 10
+1SendAndExpect tshark -2 -R " s1ap.procedureCode == 10" -r /fdsk/mirror/31484.pcap -V | egrep "^Frame" -- -fd exp18  -timeout 30 -prompt casa -callback buffer -ignoreErr Minor
+
+=================================== 10:26:19 ===================================
+=== tshark -2 -R " s1ap.procedureCode == 10" -r /fdsk/mirror/<-2 -R " s1ap.procedureCode == 10" -r /fdsk/mirror/3                         
+=== 1484.pcap -V | egrep "^Fr< == 10" -r /fdsk/mirror/31484.pcap -V | egrep "^Fra                         
+=== me"
+=== Running as user "root" and group "root". This could be dangerous.
+=== Frame 1: 112 bytes on wire (896 bits), 112 bytes captured (896 bits)
+=== Frame 2: 112 bytes on wire (896 bits), 112 bytes captured (896 bits)
+=== Frame 3: 112 bytes on wire (896 bits), 112 bytes captured (896 bits)
+=== Frame 4: 112 bytes on wire (896 bits), 112 bytes captured (896 bits)
+=== Frame 5: 112 bytes on wire (896 bits), 112 bytes captured (896 bits)
+=== Frame 6: 112 bytes on wire (896 bits), 112 bytes captured (896 bits)
+=== Frame 7: 112 bytes on wire (896 bits), 112 bytes captured (896 bits)
+=== Frame 8: 112 bytes on wire (896 bits), 112 bytes captured (896 bits)
+=== Frame 9: 112 bytes on wire (896 bits), 112 bytes captured (896 bits)
+=== Frame 10: 112 bytes on wire (896 bits), 112 bytes captured (896 bits)
+=== Frame 11: 112 bytes on wire (896 bits), 112 bytes captured (896 bits)
+=== Frame 12: 112 bytes on wire (896 bits), 112 bytes captured (896 bits)
+=== Frame 13: 112 bytes on wire (896 bits), 112 bytes captured (896 bits)
+=== Frame 14: 112 bytes on wire (896 bits), 112 bytes captured (896 bits)
+=== Frame 15: 112 bytes on wire (896 bits), 112 bytes captured (896 bits)
+=== Frame 16: 112 bytes on wire (896 bits), 112 bytes captured (896 bits)
+=== Frame 17: 112 bytes on wire (896 bits), 112 bytes captured (896 bits)
+=== Frame 18: 112 bytes on wire (896 bits), 112 bytes captured (896 bits)
+=== Frame 19: 112 bytes on wire (896 bits), 112 bytes captured (896 bits)
+=== Frame 20: 112 bytes on wire (896 bits), 112 bytes captured (896 bits)
+=== Frame 21: 112 bytes on wire (896 bits), 112 bytes captured (896 bits)
+=== Frame 22: 112 bytes on wire (896 bits), 112 bytes captured (896 bits)
+=== Frame 23: 112 bytes on wire (896 bits), 112 bytes captured (896 bits)
+=== Frame 24: 112 bytes on wire (896 bits), 112 bytes captured (896 bits)
+=== Frame 25: 112 bytes on wire (896 bits), 112 bytes captured (896 bits)
+=== Frame 26: 112 bytes on wire (896 bits), 112 bytes captured (896 bits)
+=== Frame 27: 112 bytes on wire (896 bits), 112 bytes captured (896 bits)
+=== Frame 28: 112 bytes on wire (896 bits), 112 bytes captured (896 bits)
+=== Frame 29: 112 bytes on wire (896 bits), 112 bytes captured (896 bits)
+=== Frame 30: 112 bytes on wire (896 bits), 112 bytes captured (896 bits)
+=== Frame 31: 112 bytes on wire (896 bits), 112 bytes captured (896 bits)
+=== Frame 32: 112 bytes on wire (896 bits), 112 bytes captured (896 bits)
+=== Frame 33: 112 bytes on wire (896 bits), 112 bytes captured (896 bits)
+=== Frame 34: 112 bytes on wire (896 bits), 112 bytes captured (896 bits)
+=== Frame 35: 112 bytes on wire (896 bits), 112 bytes captured (896 bits)
+=== Frame 36: 112 bytes on wire (896 bits), 112 bytes captured (896 bits)
+=== Frame 37: 112 bytes on wire (896 bits), 112 bytes captured (896 bits)
+=== Frame 38: 112 bytes on wire (896 bits), 112 bytes captured (896 bits)
+=== Frame 39: 112 bytes on wire (896 bits), 112 bytes captured (896 bits)
+=== Frame 40: 112 bytes on wire (896 bits), 112 bytes captured (896 bits)
+=== Frame 41: 112 bytes on wire (896 bits), 112 bytes captured (896 bits)
+=== Frame 42: 112 bytes on wire (896 bits), 112 bytes captured (896 bits)
+=== Frame 43: 112 bytes on wire (896 bits), 112 bytes captured (896 bits)
+=== Frame 44: 112 bytes on wire (896 bits), 112 bytes captured (896 bits)
+=== Frame 45: 112 bytes on wire (896 bits), 112 bytes captured (896 bits)
+=== Frame 46: 112 bytes on wire (896 bits), 112 bytes captured (896 bits)
+=== Frame 47: 112 bytes on wire (896 bits), 112 bytes captured (896 bits)
+=== Frame 48: 112 bytes on wire (896 bits), 112 bytes captured (896 bits)
+=== Frame 49: 112 bytes on wire (896 bits), 112 bytes captured (896 bits)
+=== Frame 50: 112 bytes on wire (896 bits), 112 bytes captured (896 bits)
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+================================================================================
+
+Info(LtePktFilter):The number of match message  s1ap.procedureCode == 10 is 50
+(LtePktFilter)get pkg_number: 50
+Success(DEALEXCEL::check_packet_filter):check filter pkg_num=50 == exp_num=50 Success!!!
+This is , just for test===
+This is , just for test===
+Success Step:10056
+Execute Step:10057 
+mzftxt_before:show%k_mme%k_subscribers%k_list
+mzftxt: have not '!vertical_bar!'
+this context no need to transform, input information has not changed, and store in variable "output"
+
+<> Warning(casaCmd::showMmeSubscribersList): variable spawn_id isn't exits.
+Error!!!(casaCmd::showMmeSubscribersList):no mme subscribers on the lists!!!!!!!
+TRACE(DEALEXCEL::Get_Checkpoint_Check) : Calledby ::DEALEXCEL::Loop_Execute_Check_CLI
+##############enter nodes foreach############
+!! execute ::casaCmd::Analyze -cmd show mme subscribers list -- -toRunCmd -tofd exp7  -total.ues 0!!!
+Information(casaCmd::Analyze): command 'show mme subscribers list' map to api 'showMmeSubscribersList' in file 'casaCmdToApi'
+Info(::casaCmd::Run): ... run command % show mme subscribers list % on  172.0.14.122:22 ...
+
+=================================== 10:26:20 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+=== CASA-MOBILE#show mme subscribers list
+=== Flag: N--Null, I--Idle, C--Connected, D--Detached, P--Paused, F--Forceful Clear, S--Suspend
+=== 
+=== instance  imsi/imei        m-tmsi      state    enb                                      tai           pdns  bearers erabs
+=== ---------+----------------+-----------+--------+----------------------------------------+-------------+-----+-------+------
+=== 0         310260000000000  0x000006a9  D(19s)                                            310:260:0001   0     0       0     
+=== 0         310260000000001  0x000006aa  D(20s)                                            310:260:0001   0     0       0     
+=== 0         310260000000003  0x000006ab  D(22s)                                            310:260:0001   0     0       0     
+=== 0         310260000000002  0x000006ac  D(21s)                                            310:260:0001   0     0       0     
+=== 0         310260000000005  0x000006ad  D(24s)                                            310:260:0001   0     0       0     
+=== 0         310260000000004  0x000006ae  D(23s)                                            310:260:0001   0     0       0     
+=== 0         310260000000007  0x000006af  D(26s)                                            310:260:0001   0     0       0     
+=== 0         310260000000006  0x000006b0  D(25s)                                            310:260:0001   0     0       0     
+=== 0         310260000000009  0x000006b1  D(28s)                                            310:260:0001   0     0       0     
+=== 0         310260000000008  0x000006b2  D(27s)                                            310:260:0001   0     0       0     
+=== ---------------------------------------------------------------------------------------------------------------------------
+=== total UEs                 :10
+=== total Connected UEs       :0
+=== total bearers             :0
+=== total erabs               :0
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(casaCmd::Analyze): xmlfile is [/public/hfj/tcpdump/casa_show_mme_subscribers_list.xml]
+!!Error(casaCmd::Analyze): Unable to match xpath : //command[@id='1' and total[@ues='0']].
+
+    casaCmd_Analyze <show mme subscribers list> on  172.0.14.122:22
+-----------------------------------------------------------------------
+             command.id           total.ues           RESULT          
+-----------------------------------------------------------------------
+ 1           1                    0(Fail)             Fail            
+-----------------------------------------------------------------------
+warning(DEALEXCEL::Get_Checkpoint_Check): execute ::casaCmd::Analyze -cmd show mme subscribers list -- -toRunCmd -tofd exp7  -total.ues 0 fail 1 time!!!!
+Info(::DEALEXCEL::Get_Checkpoint_Check): Sleeping 2 second(s)...
+!! execute ::casaCmd::Analyze -cmd show mme subscribers list -- -toRunCmd -tofd exp7  -total.ues 0!!!
+Information(casaCmd::Analyze): command 'show mme subscribers list' map to api 'showMmeSubscribersList' in file 'casaCmdToApi'
+Info(::casaCmd::Run): ... run command % show mme subscribers list % on  172.0.14.122:22 ...
+
+=================================== 10:26:23 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+=== CASA-MOBILE#show mme subscribers list
+=== Flag: N--Null, I--Idle, C--Connected, D--Detached, P--Paused, F--Forceful Clear, S--Suspend
+=== 
+=== instance  imsi/imei        m-tmsi      state    enb                                      tai           pdns  bearers erabs
+=== ---------+----------------+-----------+--------+----------------------------------------+-------------+-----+-------+------
+=== 0         310260000000000  0x000006a9  D(17s)                                            310:260:0001   0     0       0     
+=== 0         310260000000001  0x000006aa  D(18s)                                            310:260:0001   0     0       0     
+=== 0         310260000000003  0x000006ab  D(20s)                                            310:260:0001   0     0       0     
+=== 0         310260000000002  0x000006ac  D(19s)                                            310:260:0001   0     0       0     
+=== 0         310260000000005  0x000006ad  D(22s)                                            310:260:0001   0     0       0     
+=== 0         310260000000004  0x000006ae  D(21s)                                            310:260:0001   0     0       0     
+=== 0         310260000000007  0x000006af  D(24s)                                            310:260:0001   0     0       0     
+=== 0         310260000000006  0x000006b0  D(23s)                                            310:260:0001   0     0       0     
+=== 0         310260000000009  0x000006b1  D(26s)                                            310:260:0001   0     0       0     
+=== 0         310260000000008  0x000006b2  D(25s)                                            310:260:0001   0     0       0     
+=== ---------------------------------------------------------------------------------------------------------------------------
+=== total UEs                 :10
+=== total Connected UEs       :0
+=== total bearers             :0
+=== total erabs               :0
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(casaCmd::Analyze): xmlfile is [/public/hfj/tcpdump/casa_show_mme_subscribers_list.xml]
+!!Error(casaCmd::Analyze): Unable to match xpath : //command[@id='1' and total[@ues='0']].
+
+    casaCmd_Analyze <show mme subscribers list> on  172.0.14.122:22
+-----------------------------------------------------------------------
+             command.id           total.ues           RESULT          
+-----------------------------------------------------------------------
+ 1           1                    0(Fail)             Fail            
+-----------------------------------------------------------------------
+warning(DEALEXCEL::Get_Checkpoint_Check): execute ::casaCmd::Analyze -cmd show mme subscribers list -- -toRunCmd -tofd exp7  -total.ues 0 fail 2 time!!!!
+Info(::DEALEXCEL::Get_Checkpoint_Check): Sleeping 2 second(s)...
+!! execute ::casaCmd::Analyze -cmd show mme subscribers list -- -toRunCmd -tofd exp7  -total.ues 0!!!
+Information(casaCmd::Analyze): command 'show mme subscribers list' map to api 'showMmeSubscribersList' in file 'casaCmdToApi'
+Info(::casaCmd::Run): ... run command % show mme subscribers list % on  172.0.14.122:22 ...
+
+=================================== 10:26:26 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+=== CASA-MOBILE#show mme subscribers list
+=== Flag: N--Null, I--Idle, C--Connected, D--Detached, P--Paused, F--Forceful Clear, S--Suspend
+=== 
+=== instance  imsi/imei        m-tmsi      state    enb                                      tai           pdns  bearers erabs
+=== ---------+----------------+-----------+--------+----------------------------------------+-------------+-----+-------+------
+=== 0         310260000000000  0x000006a9  D(14s)                                            310:260:0001   0     0       0     
+=== 0         310260000000001  0x000006aa  D(15s)                                            310:260:0001   0     0       0     
+=== 0         310260000000003  0x000006ab  D(17s)                                            310:260:0001   0     0       0     
+=== 0         310260000000002  0x000006ac  D(16s)                                            310:260:0001   0     0       0     
+=== 0         310260000000005  0x000006ad  D(19s)                                            310:260:0001   0     0       0     
+=== 0         310260000000004  0x000006ae  D(18s)                                            310:260:0001   0     0       0     
+=== 0         310260000000007  0x000006af  D(21s)                                            310:260:0001   0     0       0     
+=== 0         310260000000006  0x000006b0  D(20s)                                            310:260:0001   0     0       0     
+=== 0         310260000000009  0x000006b1  D(23s)                                            310:260:0001   0     0       0     
+=== 0         310260000000008  0x000006b2  D(22s)                                            310:260:0001   0     0       0     
+=== ---------------------------------------------------------------------------------------------------------------------------
+=== total UEs                 :10
+=== total Connected UEs       :0
+=== total bearers             :0
+=== total erabs               :0
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(casaCmd::Analyze): xmlfile is [/public/hfj/tcpdump/casa_show_mme_subscribers_list.xml]
+!!Error(casaCmd::Analyze): Unable to match xpath : //command[@id='1' and total[@ues='0']].
+
+    casaCmd_Analyze <show mme subscribers list> on  172.0.14.122:22
+-----------------------------------------------------------------------
+             command.id           total.ues           RESULT          
+-----------------------------------------------------------------------
+ 1           1                    0(Fail)             Fail            
+-----------------------------------------------------------------------
+warning(DEALEXCEL::Get_Checkpoint_Check): execute ::casaCmd::Analyze -cmd show mme subscribers list -- -toRunCmd -tofd exp7  -total.ues 0 fail 3 time!!!!
+Info(::DEALEXCEL::Get_Checkpoint_Check): Sleeping 2 second(s)...
+!! execute ::casaCmd::Analyze -cmd show mme subscribers list -- -toRunCmd -tofd exp7  -total.ues 0!!!
+Information(casaCmd::Analyze): command 'show mme subscribers list' map to api 'showMmeSubscribersList' in file 'casaCmdToApi'
+Info(::casaCmd::Run): ... run command % show mme subscribers list % on  172.0.14.122:22 ...
+
+=================================== 10:26:29 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+=== CASA-MOBILE#show mme subscribers list
+=== Flag: N--Null, I--Idle, C--Connected, D--Detached, P--Paused, F--Forceful Clear, S--Suspend
+=== 
+=== instance  imsi/imei        m-tmsi      state    enb                                      tai           pdns  bearers erabs
+=== ---------+----------------+-----------+--------+----------------------------------------+-------------+-----+-------+------
+=== 0         310260000000000  0x000006a9  D(11s)                                            310:260:0001   0     0       0     
+=== 0         310260000000001  0x000006aa  D(12s)                                            310:260:0001   0     0       0     
+=== 0         310260000000003  0x000006ab  D(14s)                                            310:260:0001   0     0       0     
+=== 0         310260000000002  0x000006ac  D(13s)                                            310:260:0001   0     0       0     
+=== 0         310260000000005  0x000006ad  D(16s)                                            310:260:0001   0     0       0     
+=== 0         310260000000004  0x000006ae  D(15s)                                            310:260:0001   0     0       0     
+=== 0         310260000000007  0x000006af  D(18s)                                            310:260:0001   0     0       0     
+=== 0         310260000000006  0x000006b0  D(17s)                                            310:260:0001   0     0       0     
+=== 0         310260000000009  0x000006b1  D(20s)                                            310:260:0001   0     0       0     
+=== 0         310260000000008  0x000006b2  D(19s)                                            310:260:0001   0     0       0     
+=== ---------------------------------------------------------------------------------------------------------------------------
+=== total UEs                 :10
+=== total Connected UEs       :0
+=== total bearers             :0
+=== total erabs               :0
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(casaCmd::Analyze): xmlfile is [/public/hfj/tcpdump/casa_show_mme_subscribers_list.xml]
+!!Error(casaCmd::Analyze): Unable to match xpath : //command[@id='1' and total[@ues='0']].
+
+    casaCmd_Analyze <show mme subscribers list> on  172.0.14.122:22
+-----------------------------------------------------------------------
+             command.id           total.ues           RESULT          
+-----------------------------------------------------------------------
+ 1           1                    0(Fail)             Fail            
+-----------------------------------------------------------------------
+warning(DEALEXCEL::Get_Checkpoint_Check): execute ::casaCmd::Analyze -cmd show mme subscribers list -- -toRunCmd -tofd exp7  -total.ues 0 fail 4 time!!!!
+Info(::DEALEXCEL::Get_Checkpoint_Check): Sleeping 2 second(s)...
+!! execute ::casaCmd::Analyze -cmd show mme subscribers list -- -toRunCmd -tofd exp7  -total.ues 0!!!
+Information(casaCmd::Analyze): command 'show mme subscribers list' map to api 'showMmeSubscribersList' in file 'casaCmdToApi'
+Info(::casaCmd::Run): ... run command % show mme subscribers list % on  172.0.14.122:22 ...
+
+=================================== 10:26:32 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+=== CASA-MOBILE#show mme subscribers list
+=== Flag: N--Null, I--Idle, C--Connected, D--Detached, P--Paused, F--Forceful Clear, S--Suspend
+=== 
+=== instance  imsi/imei        m-tmsi      state    enb                                      tai           pdns  bearers erabs
+=== ---------+----------------+-----------+--------+----------------------------------------+-------------+-----+-------+------
+=== 0         310260000000000  0x000006a9  D(8s)                                            310:260:0001   0     0       0     
+=== 0         310260000000001  0x000006aa  D(9s)                                            310:260:0001   0     0       0     
+=== 0         310260000000003  0x000006ab  D(11s)                                            310:260:0001   0     0       0     
+=== 0         310260000000002  0x000006ac  D(10s)                                            310:260:0001   0     0       0     
+=== 0         310260000000005  0x000006ad  D(13s)                                            310:260:0001   0     0       0     
+=== 0         310260000000004  0x000006ae  D(12s)                                            310:260:0001   0     0       0     
+=== 0         310260000000007  0x000006af  D(15s)                                            310:260:0001   0     0       0     
+=== 0         310260000000006  0x000006b0  D(14s)                                            310:260:0001   0     0       0     
+=== 0         310260000000009  0x000006b1  D(17s)                                            310:260:0001   0     0       0     
+=== 0         310260000000008  0x000006b2  D(16s)                                            310:260:0001   0     0       0     
+=== ---------------------------------------------------------------------------------------------------------------------------
+=== total UEs                 :10
+=== total Connected UEs       :0
+=== total bearers             :0
+=== total erabs               :0
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(casaCmd::Analyze): xmlfile is [/public/hfj/tcpdump/casa_show_mme_subscribers_list.xml]
+!!Error(casaCmd::Analyze): Unable to match xpath : //command[@id='1' and total[@ues='0']].
+
+    casaCmd_Analyze <show mme subscribers list> on  172.0.14.122:22
+-----------------------------------------------------------------------
+             command.id           total.ues           RESULT          
+-----------------------------------------------------------------------
+ 1           1                    0(Fail)             Fail            
+-----------------------------------------------------------------------
+warning(DEALEXCEL::Get_Checkpoint_Check): execute ::casaCmd::Analyze -cmd show mme subscribers list -- -toRunCmd -tofd exp7  -total.ues 0 fail 5 time!!!!
+Info(::DEALEXCEL::Get_Checkpoint_Check): Sleeping 2 second(s)...
+!! execute ::casaCmd::Analyze -cmd show mme subscribers list -- -toRunCmd -tofd exp7  -total.ues 0!!!
+Information(casaCmd::Analyze): command 'show mme subscribers list' map to api 'showMmeSubscribersList' in file 'casaCmdToApi'
+Info(::casaCmd::Run): ... run command % show mme subscribers list % on  172.0.14.122:22 ...
+
+=================================== 10:26:35 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+=== CASA-MOBILE#show mme subscribers list
+=== Flag: N--Null, I--Idle, C--Connected, D--Detached, P--Paused, F--Forceful Clear, S--Suspend
+=== 
+=== instance  imsi/imei        m-tmsi      state    enb                                      tai           pdns  bearers erabs
+=== ---------+----------------+-----------+--------+----------------------------------------+-------------+-----+-------+------
+=== 0         310260000000000  0x000006a9  D(5s)                                            310:260:0001   0     0       0     
+=== 0         310260000000001  0x000006aa  D(6s)                                            310:260:0001   0     0       0     
+=== 0         310260000000003  0x000006ab  D(8s)                                            310:260:0001   0     0       0     
+=== 0         310260000000002  0x000006ac  D(7s)                                            310:260:0001   0     0       0     
+=== 0         310260000000005  0x000006ad  D(10s)                                            310:260:0001   0     0       0     
+=== 0         310260000000004  0x000006ae  D(9s)                                            310:260:0001   0     0       0     
+=== 0         310260000000007  0x000006af  D(12s)                                            310:260:0001   0     0       0     
+=== 0         310260000000006  0x000006b0  D(11s)                                            310:260:0001   0     0       0     
+=== 0         310260000000009  0x000006b1  D(14s)                                            310:260:0001   0     0       0     
+=== 0         310260000000008  0x000006b2  D(13s)                                            310:260:0001   0     0       0     
+=== ---------------------------------------------------------------------------------------------------------------------------
+=== total UEs                 :10
+=== total Connected UEs       :0
+=== total bearers             :0
+=== total erabs               :0
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(casaCmd::Analyze): xmlfile is [/public/hfj/tcpdump/casa_show_mme_subscribers_list.xml]
+!!Error(casaCmd::Analyze): Unable to match xpath : //command[@id='1' and total[@ues='0']].
+
+    casaCmd_Analyze <show mme subscribers list> on  172.0.14.122:22
+-----------------------------------------------------------------------
+             command.id           total.ues           RESULT          
+-----------------------------------------------------------------------
+ 1           1                    0(Fail)             Fail            
+-----------------------------------------------------------------------
+warning(DEALEXCEL::Get_Checkpoint_Check): execute ::casaCmd::Analyze -cmd show mme subscribers list -- -toRunCmd -tofd exp7  -total.ues 0 fail 6 time!!!!
+Info(::DEALEXCEL::Get_Checkpoint_Check): Sleeping 2 second(s)...
+!! execute ::casaCmd::Analyze -cmd show mme subscribers list -- -toRunCmd -tofd exp7  -total.ues 0!!!
+Information(casaCmd::Analyze): command 'show mme subscribers list' map to api 'showMmeSubscribersList' in file 'casaCmdToApi'
+Info(::casaCmd::Run): ... run command % show mme subscribers list % on  172.0.14.122:22 ...
+
+=================================== 10:26:38 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+=== CASA-MOBILE#show mme subscribers list
+=== Flag: N--Null, I--Idle, C--Connected, D--Detached, P--Paused, F--Forceful Clear, S--Suspend
+=== 
+=== instance  imsi/imei        m-tmsi      state    enb                                      tai           pdns  bearers erabs
+=== ---------+----------------+-----------+--------+----------------------------------------+-------------+-----+-------+------
+=== 0         310260000000000  0x000006a9  D(2s)                                            310:260:0001   0     0       0     
+=== 0         310260000000001  0x000006aa  D(3s)                                            310:260:0001   0     0       0     
+=== 0         310260000000003  0x000006ab  D(5s)                                            310:260:0001   0     0       0     
+=== 0         310260000000002  0x000006ac  D(4s)                                            310:260:0001   0     0       0     
+=== 0         310260000000005  0x000006ad  D(7s)                                            310:260:0001   0     0       0     
+=== 0         310260000000004  0x000006ae  D(6s)                                            310:260:0001   0     0       0     
+=== 0         310260000000007  0x000006af  D(9s)                                            310:260:0001   0     0       0     
+=== 0         310260000000006  0x000006b0  D(8s)                                            310:260:0001   0     0       0     
+=== 0         310260000000009  0x000006b1  D(11s)                                            310:260:0001   0     0       0     
+=== 0         310260000000008  0x000006b2  D(10s)                                            310:260:0001   0     0       0     
+=== ---------------------------------------------------------------------------------------------------------------------------
+=== total UEs                 :10
+=== total Connected UEs       :0
+=== total bearers             :0
+=== total erabs               :0
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(casaCmd::Analyze): xmlfile is [/public/hfj/tcpdump/casa_show_mme_subscribers_list.xml]
+!!Error(casaCmd::Analyze): Unable to match xpath : //command[@id='1' and total[@ues='0']].
+
+    casaCmd_Analyze <show mme subscribers list> on  172.0.14.122:22
+-----------------------------------------------------------------------
+             command.id           total.ues           RESULT          
+-----------------------------------------------------------------------
+ 1           1                    0(Fail)             Fail            
+-----------------------------------------------------------------------
+warning(DEALEXCEL::Get_Checkpoint_Check): execute ::casaCmd::Analyze -cmd show mme subscribers list -- -toRunCmd -tofd exp7  -total.ues 0 fail 7 time!!!!
+Info(::DEALEXCEL::Get_Checkpoint_Check): Sleeping 2 second(s)...
+!! execute ::casaCmd::Analyze -cmd show mme subscribers list -- -toRunCmd -tofd exp7  -total.ues 0!!!
+Information(casaCmd::Analyze): command 'show mme subscribers list' map to api 'showMmeSubscribersList' in file 'casaCmdToApi'
+Info(::casaCmd::Run): ... run command % show mme subscribers list % on  172.0.14.122:22 ...
+
+=================================== 10:26:41 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+=== CASA-MOBILE#show mme subscribers list
+=== Flag: N--Null, I--Idle, C--Connected, D--Detached, P--Paused, F--Forceful Clear, S--Suspend
+=== 
+=== instance  imsi/imei        m-tmsi      state    enb                                      tai           pdns  bearers erabs
+=== ---------+----------------+-----------+--------+----------------------------------------+-------------+-----+-------+------
+=== 0         310260000000003  0x000006ab  D(2s)                                            310:260:0001   0     0       0     
+=== 0         310260000000002  0x000006ac  D(1s)                                            310:260:0001   0     0       0     
+=== 0         310260000000005  0x000006ad  D(4s)                                            310:260:0001   0     0       0     
+=== 0         310260000000004  0x000006ae  D(3s)                                            310:260:0001   0     0       0     
+=== 0         310260000000007  0x000006af  D(6s)                                            310:260:0001   0     0       0     
+=== 0         310260000000006  0x000006b0  D(5s)                                            310:260:0001   0     0       0     
+=== 0         310260000000009  0x000006b1  D(8s)                                            310:260:0001   0     0       0     
+=== 0         310260000000008  0x000006b2  D(7s)                                            310:260:0001   0     0       0     
+=== ---------------------------------------------------------------------------------------------------------------------------
+=== total UEs                 :8
+=== total Connected UEs       :0
+=== total bearers             :0
+=== total erabs               :0
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(casaCmd::Analyze): xmlfile is [/public/hfj/tcpdump/casa_show_mme_subscribers_list.xml]
+!!Error(casaCmd::Analyze): Unable to match xpath : //command[@id='1' and total[@ues='0']].
+
+    casaCmd_Analyze <show mme subscribers list> on  172.0.14.122:22
+-----------------------------------------------------------------------
+             command.id           total.ues           RESULT          
+-----------------------------------------------------------------------
+ 1           1                    0(Fail)             Fail            
+-----------------------------------------------------------------------
+warning(DEALEXCEL::Get_Checkpoint_Check): execute ::casaCmd::Analyze -cmd show mme subscribers list -- -toRunCmd -tofd exp7  -total.ues 0 fail 8 time!!!!
+Info(::DEALEXCEL::Get_Checkpoint_Check): Sleeping 2 second(s)...
+!! execute ::casaCmd::Analyze -cmd show mme subscribers list -- -toRunCmd -tofd exp7  -total.ues 0!!!
+Information(casaCmd::Analyze): command 'show mme subscribers list' map to api 'showMmeSubscribersList' in file 'casaCmdToApi'
+Info(::casaCmd::Run): ... run command % show mme subscribers list % on  172.0.14.122:22 ...
+
+=================================== 10:26:44 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+=== CASA-MOBILE#show mme subscribers list
+=== Flag: N--Null, I--Idle, C--Connected, D--Detached, P--Paused, F--Forceful Clear, S--Suspend
+=== 
+=== instance  imsi/imei        m-tmsi      state    enb                                      tai           pdns  bearers erabs
+=== ---------+----------------+-----------+--------+----------------------------------------+-------------+-----+-------+------
+=== 0         310260000000005  0x000006ad  D(1s)                                            310:260:0001   0     0       0     
+=== 0         310260000000007  0x000006af  D(3s)                                            310:260:0001   0     0       0     
+=== 0         310260000000006  0x000006b0  D(2s)                                            310:260:0001   0     0       0     
+=== 0         310260000000009  0x000006b1  D(5s)                                            310:260:0001   0     0       0     
+=== 0         310260000000008  0x000006b2  D(4s)                                            310:260:0001   0     0       0     
+=== ---------------------------------------------------------------------------------------------------------------------------
+=== total UEs                 :5
+=== total Connected UEs       :0
+=== total bearers             :0
+=== total erabs               :0
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(casaCmd::Analyze): xmlfile is [/public/hfj/tcpdump/casa_show_mme_subscribers_list.xml]
+!!Error(casaCmd::Analyze): Unable to match xpath : //command[@id='1' and total[@ues='0']].
+
+    casaCmd_Analyze <show mme subscribers list> on  172.0.14.122:22
+-----------------------------------------------------------------------
+             command.id           total.ues           RESULT          
+-----------------------------------------------------------------------
+ 1           1                    0(Fail)             Fail            
+-----------------------------------------------------------------------
+warning(DEALEXCEL::Get_Checkpoint_Check): execute ::casaCmd::Analyze -cmd show mme subscribers list -- -toRunCmd -tofd exp7  -total.ues 0 fail 9 time!!!!
+Info(::DEALEXCEL::Get_Checkpoint_Check): Sleeping 2 second(s)...
+!! execute ::casaCmd::Analyze -cmd show mme subscribers list -- -toRunCmd -tofd exp7  -total.ues 0!!!
+Information(casaCmd::Analyze): command 'show mme subscribers list' map to api 'showMmeSubscribersList' in file 'casaCmdToApi'
+Info(::casaCmd::Run): ... run command % show mme subscribers list % on  172.0.14.122:22 ...
+
+=================================== 10:26:47 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+=== CASA-MOBILE#show mme subscribers list
+=== Flag: N--Null, I--Idle, C--Connected, D--Detached, P--Paused, F--Forceful Clear, S--Suspend
+=== 
+=== instance  imsi/imei        m-tmsi      state    enb                                      tai           pdns  bearers erabs
+=== ---------+----------------+-----------+--------+----------------------------------------+-------------+-----+-------+------
+=== 0         310260000000009  0x000006b1  D(2s)                                            310:260:0001   0     0       0     
+=== 0         310260000000008  0x000006b2  D(1s)                                            310:260:0001   0     0       0     
+=== ---------------------------------------------------------------------------------------------------------------------------
+=== total UEs                 :2
+=== total Connected UEs       :0
+=== total bearers             :0
+=== total erabs               :0
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(casaCmd::Analyze): xmlfile is [/public/hfj/tcpdump/casa_show_mme_subscribers_list.xml]
+!!Error(casaCmd::Analyze): Unable to match xpath : //command[@id='1' and total[@ues='0']].
+
+    casaCmd_Analyze <show mme subscribers list> on  172.0.14.122:22
+-----------------------------------------------------------------------
+             command.id           total.ues           RESULT          
+-----------------------------------------------------------------------
+ 1           1                    0(Fail)             Fail            
+-----------------------------------------------------------------------
+warning(DEALEXCEL::Get_Checkpoint_Check): execute ::casaCmd::Analyze -cmd show mme subscribers list -- -toRunCmd -tofd exp7  -total.ues 0 fail 10 time!!!!
+Info(::DEALEXCEL::Get_Checkpoint_Check): Sleeping 2 second(s)...
+!! execute ::casaCmd::Analyze -cmd show mme subscribers list -- -toRunCmd -tofd exp7  -total.ues 0!!!
+Information(casaCmd::Analyze): command 'show mme subscribers list' map to api 'showMmeSubscribersList' in file 'casaCmdToApi'
+Info(::casaCmd::Run): ... run command % show mme subscribers list % on  172.0.14.122:22 ...
+
+=================================== 10:26:50 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+=== CASA-MOBILE#show mme subscribers list
+=== ---------------------------------------------------------------------------------------------------------------------------
+=== total UEs                 :0
+=== total Connected UEs       :0
+=== total bearers             :0
+=== total erabs               :0
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Error!!!(casaCmd::showMmeSubscribersList):no mme subscribers on the lists!!!!!!!
+Info(casaCmd::Analyze): xmlfile is [/public/hfj/tcpdump/casa_show_mme_subscribers_list.xml]
+
+    casaCmd_Analyze <show mme subscribers list> on  172.0.14.122:22
+-----------------------------------------------------------------------
+             command.id           total.ues           RESULT          
+-----------------------------------------------------------------------
+ 1           1                    0                   P               
+-----------------------------------------------------------------------
+!! execute ::casaCmd::Analyze -cmd show mme subscribers list -- -toRunCmd -tofd exp7  -total.connected_ue 0!!!
+Information(casaCmd::Analyze): command 'show mme subscribers list' map to api 'showMmeSubscribersList' in file 'casaCmdToApi'
+Info(casaCmd::Analyze): xmlfile is [/public/hfj/tcpdump/casa_show_mme_subscribers_list.xml]
+
+        casaCmd_Analyze <show mme subscribers list> on  172.0.14.122:22
+--------------------------------------------------------------------------------
+             command.id           total.connected_ue           RESULT          
+--------------------------------------------------------------------------------
+ 1           1                    0                            P               
+--------------------------------------------------------------------------------
+!! execute ::casaCmd::Analyze -cmd show mme subscribers list -- -toRunCmd -tofd exp7  -total.bearers 0!!!
+Information(casaCmd::Analyze): command 'show mme subscribers list' map to api 'showMmeSubscribersList' in file 'casaCmdToApi'
+Info(casaCmd::Analyze): xmlfile is [/public/hfj/tcpdump/casa_show_mme_subscribers_list.xml]
+
+      casaCmd_Analyze <show mme subscribers list> on  172.0.14.122:22
+---------------------------------------------------------------------------
+             command.id           total.bearers           RESULT          
+---------------------------------------------------------------------------
+ 1           1                    0                       P               
+---------------------------------------------------------------------------
+!! execute ::casaCmd::Analyze -cmd show mme subscribers list -- -toRunCmd -tofd exp7  -total.erabs 0!!!
+Information(casaCmd::Analyze): command 'show mme subscribers list' map to api 'showMmeSubscribersList' in file 'casaCmdToApi'
+Info(casaCmd::Analyze): xmlfile is [/public/hfj/tcpdump/casa_show_mme_subscribers_list.xml]
+
+     casaCmd_Analyze <show mme subscribers list> on  172.0.14.122:22
+-------------------------------------------------------------------------
+             command.id           total.erabs           RESULT          
+-------------------------------------------------------------------------
+ 1           1                    0                     P               
+-------------------------------------------------------------------------
+############   CLI:show mme subscribers list Forward Verification Completed       ######
+##############enter no_nodes foreach############
+##############end no_nodes foreach############
+Success(DEALEXCEL::Get_Checkpoint_Check): The Expect cli id=2 Number of checkpoints is 4 ,actual Number of checkpoints is 4!!!
+Info(::DEALEXCEL::Loop_Execute_Check_CLI): Sleeping 2 second(s)...
+Success Step:10057
+Execute Step:10058 
+this context no need to transform, input information has not changed, and store in variable "output"
+step_10058
+
+=================================== 10:26:53 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(CasaGetPrompt): Current CLI mode for exp7 is enable
+
+=================================== 10:26:53 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 10:26:55 ===================================
+=== 
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 10:26:56 ===================================
+=== config
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+
+=================================== 10:26:58 ===================================
+=== 
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+SendAndExpect  lte-service mme  -- -fd exp7  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 10:26:58 ===================================
+=== lte-service mme
+=== CASA-MOBILE(config-mme)#
+=== CASA-MOBILE(config-mme)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  mme-service mme1  -- -fd exp7  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 10:26:59 ===================================
+=== mme-service mme1
+=== CASA-MOBILE(config-mme-svc mme1)#
+=== CASA-MOBILE(config-mme-svc mme1)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  no associate call-profile  -- -fd exp7  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 10:27:00 ===================================
+=== no associate call-profile
+=== CASA-MOBILE(config-mme-svc mme1)#
+=== CASA-MOBILE(config-mme-svc mme1)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  exit  -- -fd exp7  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 10:27:01 ===================================
+=== exit
+=== CASA-MOBILE(config-mme)#
+=== CASA-MOBILE(config-mme)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  call-profile cp1  -- -fd exp7  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 10:27:02 ===================================
+=== call-profile cp1
+=== CASA-MOBILE(config-mme-call-prof)#
+=== CASA-MOBILE(config-mme-call-prof)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  no service-request authentication mandatory  -- -fd exp7  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 10:27:03 ===================================
+=== no service-request authentication mandatory
+=== CASA-MOBILE(config-mme-call-prof)#
+=== CASA-MOBILE(config-mme-call-prof)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  exit  -- -fd exp7  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 10:27:04 ===================================
+=== exit
+=== CASA-MOBILE(config-mme)#
+=== CASA-MOBILE(config-mme)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  mme-service mme1  -- -fd exp7  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 10:27:05 ===================================
+=== mme-service mme1
+=== CASA-MOBILE(config-mme-svc mme1)#
+=== CASA-MOBILE(config-mme-svc mme1)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  associate call-profile cp1  -- -fd exp7  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 10:27:06 ===================================
+=== associate call-profile cp1
+=== CASA-MOBILE(config-mme-svc mme1)#
+=== CASA-MOBILE(config-mme-svc mme1)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  exit  -- -fd exp7  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 10:27:07 ===================================
+=== exit
+=== CASA-MOBILE(config-mme)#
+=== CASA-MOBILE(config-mme)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect    -- -fd exp7  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 10:27:08 ===================================
+=== 
+=== CASA-MOBILE(config-mme)#
+=== CASA-MOBILE(config-mme)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect    -- -fd exp7  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 10:27:09 ===================================
+=== 
+=== CASA-MOBILE(config-mme)#
+=== CASA-MOBILE(config-mme)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+
+=================================== 10:27:11 ===================================
+=== 
+=== CASA-MOBILE(config-mme)#
+=== CASA-MOBILE(config-mme)#
+================================================================================
+
+Info(CasaGetPrompt): Current CLI mode for exp7 is config-mme)#
+CASA-MOBILE(config-mme
+
+=================================== 10:27:11 ===================================
+=== end
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+
+=================================== 10:27:11 ===================================
+=== 
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+Info(CasaGetPrompt): Current CLI mode for exp7 is config)#
+CASA-MOBILE(config
+
+=================================== 10:27:11 ===================================
+=== 
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+
+=================================== 10:27:13 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 10:27:14 ===================================
+=== config
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+
+=================================== 10:27:16 ===================================
+=== 
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+
+=================================== 10:27:16 ===================================
+=== exit
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Success Step:10058
+Success(DEALEXCEL::ExecuteStep): !!! the Expect is 9 and Actual is 9!!
+STEP(10:27:16): RESULT=PASS  Step 7: 5.get excel case info
+Recovery conf!!
+recovery_conf!!
+Stop tools!!
+Info(ixiaTestStop): Sleeping 20 second(s)...
+Info(ixiaTestStop): Sleeping 20 second(s)...
+Info(ixiaTestStop): Sleeping 20 second(s)...
+ixiaReleaseConnect!!
+Info(ixiaTestStop): Sleeping 20 second(s)...
+Info(ixiaTestStop): Sleeping 20 second(s)...
+ixiaReleaseConnect!!
+Info(DEALEXCEL::Mirror_Clear): There are the following spawn_id of NFV that should clear mirror config (SPAWN_ID_SAEGW_C)
+Info(DEALEXCEL::Mirror_Clear): There are the following spawn_id of NFV that should clear mirror config (SPAWN_ID_SAEGW_U)
+
+STEP(10:28:58): START Step 8: Judge whether:: saegw:: main is executed successfully
+STEP(10:28:58): RESULT=PASS  Step 8: Judge whether:: saegw:: main is executed successfully
+Complete all steps!!
+Info(EndofMmeTest): test==/public/casa-493/test/mmenew.test
+
+TRACE(ShowHistory) : Calledby EndofMmeTest
+
+
+                                                                     
+------------------------------------------------------------------------------------------------------------------------------------------
+    Time     spawn_id Descr               Command                                                                                        
+------------------------------------------------------------------------------------------------------------------------------------------
+ 1  10:20:17 exp7     172.0.14.122:22:23  casa                                                                                           
+ 2  10:20:20 exp7     172.0.14.122:22:23  su casa                                                                                        
+ 3  10:20:20 exp7     172.0.14.122:22:23  en\ncasa                                                                                       
+ 4  10:20:20 exp7     172.0.14.122:22:23  show task crash                                                                                
+ 5  10:20:21 exp7      172.0.14.122:22:23 casa                                                                                           
+ 6  10:20:26 exp7      172.0.14.122:22:23 su casa                                                                                        
+ 7  10:20:26 exp7      172.0.14.122:22:23 en\ncasa                                                                                       
+ 8  10:20:27 exp8     172.0.14.123:22:23  casa                                                                                           
+ 9  10:20:31 exp8     172.0.14.123:22:23  su casa                                                                                        
+ 10 10:20:31 exp8     172.0.14.123:22:23  en\ncasa                                                                                       
+ 11 10:20:31 exp9     172.0.14.122:22:23  casa                                                                                           
+ 12 10:20:33 exp9     172.0.14.122:22:23  page-off                                                                                       
+ 13 10:20:35 exp10    172.0.14.123:22:23  casa                                                                                           
+ 14 10:20:38 exp10    172.0.14.123:22:23  page-off                                                                                       
+ 15 10:20:39 exp7      172.0.14.122:22:23 clear mme statistics all                                                                       
+ 16 10:20:39 exp8     172.0.14.123:22:23  clear mme statistics all                                                                       
+ 17 10:20:47 exp7      172.0.14.122:22:23 CTRL-Z                                                                                         
+ 18 10:20:50 exp7      172.0.14.122:22:23 config                                                                                         
+ 19 10:20:52 exp7      172.0.14.122:22:23 lte-service mme                                                                                
+ 20 10:20:53 exp7      172.0.14.122:22:23 mme-service mme1                                                                               
+ 21 10:20:54 exp7      172.0.14.122:22:23 no associate call-profile                                                                      
+ 22 10:20:55 exp7      172.0.14.122:22:23 exit                                                                                           
+ 23 10:20:56 exp7      172.0.14.122:22:23 call-profile cp1                                                                               
+ 24 10:20:57 exp7      172.0.14.122:22:23 service-request authentication mandatory                                                       
+ 25 10:20:58 exp7      172.0.14.122:22:23 exit                                                                                           
+ 26 10:20:59 exp7      172.0.14.122:22:23 mme-service mme1                                                                               
+ 27 10:21:00 exp7      172.0.14.122:22:23 associate call-profile cp1                                                                     
+ 28 10:21:01 exp7      172.0.14.122:22:23 exit                                                                                           
+ 29 10:21:04 exp7      172.0.14.122:22:23 end                                                                                            
+ 30 10:21:04 exp7      172.0.14.122:22:23 CTRL-Z                                                                                         
+ 31 10:21:07 exp7      172.0.14.122:22:23 config                                                                                         
+ 32 10:21:09 exp7      172.0.14.122:22:23 exit                                                                                           
+ 33 10:21:10 exp7      172.0.14.122:22:23 mirror mme protocol sctp                                                                       
+ 34 10:21:10 exp7      172.0.14.122:22:23 mirror mme protocol gtpc                                                                       
+ 35 10:21:10 exp7      172.0.14.122:22:23 mirror mme protocol tcp                                                                        
+ 36 10:21:10 exp7      172.0.14.122:22:23 mirror start timeout never                                                                     
+ 37 10:21:10 exp7      172.0.14.122:22:23 mirror destination file 31484                                                                  
+ 38 10:23:12 exp7      172.0.14.122:22:23 \nshow diameter-endpoint                                                                       
+ 39 10:25:35 exp7      172.0.14.122:22:23 \nshow mme subscribers list                                                                    
+ 40 10:25:38 exp7      172.0.14.122:22:23 \nshow mme subscribers list                                                                    
+ 41 10:25:41 exp7      172.0.14.122:22:23 \nshow mme subscribers list                                                                    
+ 42 10:25:44 exp7      172.0.14.122:22:23 \nshow mme subscribers list                                                                    
+ 43 10:25:47 exp7      172.0.14.122:22:23 \nshow mme subscribers list                                                                    
+ 44 10:25:50 exp7      172.0.14.122:22:23 \nshow mme subscribers list                                                                    
+ 45 10:25:53 exp7      172.0.14.122:22:23 \nshow mme subscribers list                                                                    
+ 46 10:25:55 exp7      172.0.14.122:22:23 clear mme subscriber imsi 310260000000000                                                      
+ 47 10:25:56 exp7      172.0.14.122:22:23 clear mme subscriber imsi 310260000000001                                                      
+ 48 10:25:57 exp7      172.0.14.122:22:23 clear mme subscriber imsi 310260000000002                                                      
+ 49 10:25:58 exp7      172.0.14.122:22:23 clear mme subscriber imsi 310260000000003                                                      
+ 50 10:25:59 exp7      172.0.14.122:22:23 clear mme subscriber imsi 310260000000004                                                      
+ 51 10:26:00 exp7      172.0.14.122:22:23 clear mme subscriber imsi 310260000000005                                                      
+ 52 10:26:01 exp7      172.0.14.122:22:23 clear mme subscriber imsi 310260000000006                                                      
+ 53 10:26:02 exp7      172.0.14.122:22:23 clear mme subscriber imsi 310260000000007                                                      
+ 54 10:26:03 exp7      172.0.14.122:22:23 clear mme subscriber imsi 310260000000008                                                      
+ 55 10:26:04 exp7      172.0.14.122:22:23 clear mme subscriber imsi 310260000000009                                                      
+ 56 10:26:07 exp18     172.0.14.122:22:23 casa                                                                                           
+ 57 10:26:07 exp18     172.0.14.122:22:23 page-off                                                                                       
+ 58 10:26:09 exp18     172.0.14.122:22:23 invaild_command_91434 in order to clear buffer                                                 
+ 59 10:26:11 exp18     172.0.14.122:22:23 tshark -2 -R " nas_eps.nas_msg_emm_type == 0x53" -r /fdsk/mirror/31484.pcap -V | egrep "^Frame"
+ 60 10:26:15 exp18     172.0.14.122:22:23 invaild_command_47652 in order to clear buffer                                                 
+ 61 10:26:17 exp18     172.0.14.122:22:23 tshark -2 -R " nas_eps.nas_msg_emm_type == 0x5e" -r /fdsk/mirror/31484.pcap -V | egrep "^Frame"
+ 62 10:26:17 exp18     172.0.14.122:22:23 invaild_command_93925 in order to clear buffer                                                 
+ 63 10:26:19 exp18     172.0.14.122:22:23 tshark -2 -R " s1ap.procedureCode == 10" -r /fdsk/mirror/31484.pcap -V | egrep "^Frame"        
+ 64 10:26:20 exp7      172.0.14.122:22:23 \nshow mme subscribers list                                                                    
+ 65 10:26:23 exp7      172.0.14.122:22:23 \nshow mme subscribers list                                                                    
+ 66 10:26:26 exp7      172.0.14.122:22:23 \nshow mme subscribers list                                                                    
+ 67 10:26:29 exp7      172.0.14.122:22:23 \nshow mme subscribers list                                                                    
+ 68 10:26:32 exp7      172.0.14.122:22:23 \nshow mme subscribers list                                                                    
+ 69 10:26:35 exp7      172.0.14.122:22:23 \nshow mme subscribers list                                                                    
+ 70 10:26:38 exp7      172.0.14.122:22:23 \nshow mme subscribers list                                                                    
+ 71 10:26:41 exp7      172.0.14.122:22:23 \nshow mme subscribers list                                                                    
+ 72 10:26:44 exp7      172.0.14.122:22:23 \nshow mme subscribers list                                                                    
+ 73 10:26:47 exp7      172.0.14.122:22:23 \nshow mme subscribers list                                                                    
+ 74 10:26:50 exp7      172.0.14.122:22:23 \nshow mme subscribers list                                                                    
+ 75 10:26:53 exp7      172.0.14.122:22:23 CTRL-Z                                                                                         
+ 76 10:26:56 exp7      172.0.14.122:22:23 config                                                                                         
+ 77 10:26:58 exp7      172.0.14.122:22:23 lte-service mme                                                                                
+ 78 10:26:59 exp7      172.0.14.122:22:23 mme-service mme1                                                                               
+ 79 10:27:00 exp7      172.0.14.122:22:23 no associate call-profile                                                                      
+ 80 10:27:01 exp7      172.0.14.122:22:23 exit                                                                                           
+ 81 10:27:02 exp7      172.0.14.122:22:23 call-profile cp1                                                                               
+ 82 10:27:03 exp7      172.0.14.122:22:23 no service-request authentication mandatory                                                    
+ 83 10:27:04 exp7      172.0.14.122:22:23 exit                                                                                           
+ 84 10:27:05 exp7      172.0.14.122:22:23 mme-service mme1                                                                               
+ 85 10:27:06 exp7      172.0.14.122:22:23 associate call-profile cp1                                                                     
+ 86 10:27:07 exp7      172.0.14.122:22:23 exit                                                                                           
+ 87 10:27:11 exp7      172.0.14.122:22:23 end                                                                                            
+ 88 10:27:11 exp7      172.0.14.122:22:23 CTRL-Z                                                                                         
+ 89 10:27:14 exp7      172.0.14.122:22:23 config                                                                                         
+ 90 10:27:16 exp7      172.0.14.122:22:23 exit                                                                                           
+------------------------------------------------------------------------------------------------------------------------------------------
+    Time     spawn_id Descr               Command                                                                                        
+------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+=================================== 10:28:59 ===================================
+=== ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no 172.0.14.122
+=== root@172.0.14.122's password: 
+=== Welcome to Ubuntu 14.04.6 LTS (GNU/Linux 3.19.0-25-generic x86_64)
+=== 
+===  * Documentation:  https://help.ubuntu.com/
+=== 
+===   System information as of Sat Mar 21 02:26:18 UTC 2020
+=== 
+===   System load:  3.06               Users logged in:        2
+===   Usage of /:   31.5% of 23.38GB   IP address for eth0:    172.0.14.122
+===   Memory usage: 52%                IP address for docker0: 172.17.42.1
+===   Swap usage:   0%                 IP address for dp_0_0:  172.1.14.122
+===   Processes:    252
+=== 
+===   Graph this data and manage this system at:
+===     https://landscape.canonical.com/
+=== 
+===   Get cloud support with Ubuntu Advantage Cloud Guest:
+===     http://www.ubuntu.com/business/services/cloud
+=== 
+=== 10 updates can be installed immediately.
+=== 1 of these updates is a security update.
+=== 
+=== New release '16.04.6 LTS' available.
+=== Run 'do-release-upgrade' to upgrade to it.
+=== 
+=== 
+=== WARNING: Security updates for your current Hardware Enablement Stack
+=== ended on 2016-08-04:
+===  * http://wiki.ubuntu.com/1404_HWE_EOL
+=== 
+=== The following packages are no longer supported:
+===  linux-image-extra-3.19.0-25-generic linux-image-3.19.0-25-generic
+=== 
+=== Please upgrade them to a supported HWE stack or remove them if you
+=== no longer need them.
+=== 
+=== 
+=== Last login: Sat Mar 21 02:26:18 2020 from 172-0-11-88.lightspeed.rcsntx.sbcglobal.net
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# su casa
+=== 
+=== ===================================
+=== Welcome to CASA MEC x86 Platform
+=== ===================================
+=== CLI services started!
+=== WARNING: CPU Config - Available cores only 0 out of 2 for task mepmgr
+=== CASA-MOBILE>
+=== CASA-MOBILE>en
+=== Password: 
+=== CASA-MOBILE#
+=== CASA-MOBILE#show task crash
+=== Number  Task             Crash-Time                Exit-Code     Exit-Reason     Core-file
+=== ==========================================================================================
+=== Total 0 crash records
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+#####  Result:    PASSED
+#####  Script:    mmenew.test/31484
+#####  Last Step: 8: Judge whether:: saegw:: main is executed successfully
+#####  Date:      03/21/2020 10:20:16 AM
+#####  Log:       /public/casa-493/test/Log/mmenew_6218-00.txt
+#####  Warnings:  3
+#####  Errors:    16
+#####  SubTest Duration: 08:45
+
+##########################################
+All test cases have been executed
+##########################################
+
+                                               mmenew
+----------------------------------------------------------------------------------------------------
+       Test      Duration     Verdict     Errs     Warns     Type                Bugs     Fixed    
+----------------------------------------------------------------------------------------------------
+ 1     31484     08:45        P           16       3         Expect No Error                       
+----------------------------------------------------------------------------------------------------
+
+############################################
+#####  Passed:    1
+#####  Aborted:   0
+#####  Canceled:  0
+#####  Failed:    0
+#####  ----------------
+#####  Total:     1
+#####  Duration:  08:45
+#####
+#####  Script:    /public/casa-493/test/mmenew.test
+#####  Date:      03/21/2020 10:29:01 AM
+#####  Log:       /public/casa-493/test/Log/mmenew_6218-00.txt
+#####  Verdict:   PASSED
+############################################
+
+Info(RunTest): Closing all Telnet and Ssh sessions (1)
+
+=================================== 10:29:01 ===================================
+=== ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no 172.0.14.27
+=== root@172.0.14.27's password: 
+=== Welcome to Ubuntu 14.04.3 LTS (GNU/Linux 3.19.0-25-generic x86_64)
+=== 
+===  * Documentation:  https://help.ubuntu.com/
+=== 
+===   System information as of Sat Mar 21 10:19:24 CST 2020
+=== 
+===   System load:  0.0                Users logged in:       1
+===   Usage of /:   10.8% of 17.34GB   IP address for eth0:   172.0.14.27
+===   Memory usage: 6%                 IP address for eth1:   172.1.14.27
+===   Swap usage:   0%                 IP address for eth2:   172.2.14.27
+===   Processes:    96                 IP address for virbr0: 192.168.122.1
+=== 
+===   Graph this data and manage this system at:
+===     https://landscape.canonical.com/
+=== 
+=== 231 packages can be updated.
+=== 163 updates are security updates.
+=== 
+=== New release '16.04.6 LTS' available.
+=== Run 'do-release-upgrade' to upgrade to it.
+=== 
+=== You have new mail.
+=== Last login: Sat Mar 21 10:19:24 2020 from 172-0-11-88.lightspeed.rcsntx.sbcglobal.net
+=== root@lte:~# page-off
+=== page-off: command not found
+=== root@lte:~# 
+=== root@lte:~# 
+=== root@lte:~# 
+=== root@lte:~# 
+=== root@lte:~# 
+=== root@lte:~# 
+=== root@lte:~# 
+=== root@lte:~# ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no 172.0.14.122
+=== root@172.0.14.122's password: 
+=== Welcome to Ubuntu 14.04.6 LTS (GNU/Linux 3.19.0-25-generic x86_64)
+=== 
+===  * Documentation:  https://help.ubuntu.com/
+=== 
+===   System information as of Sat Mar 21 02:29:09 UTC 2020
+=== 
+===   System load:  3.04               Users logged in:        2
+===   Usage of /:   31.5% of 23.38GB   IP address for eth0:    172.0.14.122
+===   Memory usage: 52%                IP address for docker0: 172.17.42.1
+===   Swap usage:   0%                 IP address for dp_0_0:  172.1.14.122
+===   Processes:    253
+=== 
+===   Graph this data and manage this system at:
+===     https://landscape.canonical.com/
+=== 
+===   Get cloud support with Ubuntu Advantage Cloud Guest:
+===     http://www.ubuntu.com/business/services/cloud
+=== 
+=== 10 updates can be installed immediately.
+=== 1 of these updates is a security update.
+=== 
+=== New release '16.04.6 LTS' available.
+=== Run 'do-release-upgrade' to upgrade to it.
+=== 
+=== 
+=== WARNING: Security updates for your current Hardware Enablement Stack
+=== ended on 2016-08-04:
+===  * http://wiki.ubuntu.com/1404_HWE_EOL
+=== 
+=== The following packages are no longer supported:
+===  linux-image-extra-3.19.0-25-generic linux-image-3.19.0-25-generic
+=== 
+=== Please upgrade them to a supported HWE stack or remove them if you
+=== no longer need them.
+=== 
+=== 
+=== Last login: Sat Mar 21 02:29:10 2020 from 172-0-11-88.lightspeed.rcsntx.sbcglobal.net
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# su casa
+=== 
+=== ===================================
+=== Welcome to CASA MEC x86 Platform
+=== ===================================
+=== CLI services started!
+=== WARNING: CPU Config - Available cores only 0 out of 2 for task mepmgr
+=== CASA-MOBILE>
+=== CASA-MOBILE>en
+=== Password: 
+=== CASA-MOBILE#
+=== CASA-MOBILE#show version
+=== QA Release: 4.9.3-1600
+=== Build Time: Tue Mar 17 00:03:43 EDT 2020
+=== 
+================================================================================
+
+
+=================================== 10:29:09 ===================================
+=== cd /email
+=== root@lte:/email# 
+=== root@lte:/email# 
+================================================================================
+
+
+=================================== 10:29:09 ===================================
+=== scp root@[172.0.11.88]:/public/casa-493/test/Log/mmenew_6218<172.0.11.88]:/public/casa-493/test/Log/mmenew_6218-                         
+=== 00.txt /email/mmenew_6218<493/test/Log/mmenew_6218-00.txt /email/mmenew_6218-                         
+=== 00.txt
+=== root@172.0.11.88's password: 
+================================================================================
+
+
+=================================== 10:29:09 ===================================
+=== 
+=== mmenew_6218-00.txt                              0%    0     0.0KB/s   --:-- ETAmmenew_6218-00.txt                            100%  131KB 131.4KB/s   00:00    
+=== root@lte:/email# 
+================================================================================
+
+Info(Mail): Sleeping 2 second(s)...
+
+=================================== 10:29:11 ===================================
+=== tar Jcvf mmenew_6218-00.tar.bz2 mmenew_6218-00.txt
+=== mmenew_6218-00.txt
+=== root@lte:/email# 
+=== root@lte:/email# 
+================================================================================
+
+
+=================================== 10:29:11 ===================================
+=== rm casa.txt
+=== root@lte:/email# 
+=== root@lte:/email# 
+================================================================================
+
+
+=================================== 10:29:11 ===================================
+=== sed  -i 's/Impossible characters, let the whole content as a</Impossible characters, let the whole content as a                          
+=== domain/ /'  /email/mmenew<t the whole content as a domain/ /'  /email/mmenew_                         
+=== 6218-00.txt
+=== root@lte:/email# 
+=== root@lte:/email# 
+================================================================================
+
+
+=================================== 10:29:11 ===================================
+=== awk 'BEGIN {RS = "Impossible characters, let the whole conte< {RS = "Impossible characters, let the whole conten                         
+=== t as a domain"; FS = "mme<ers, let the whole content as a domain"; FS = "mmen                         
+=== ew\n"}/./{print $NF}' /em< as a domain"; FS = "mmenew\n"}/./{print $NF}' /ema                         
+=== il/mmenew_6218-00.txt  >
+================================================================================
+
+
+=================================== 10:29:11 ===================================
+===  <w\n"}/./{print $NF}' /email/mmenew_6218-00.txt  > c                         
+=== asa.txt
+=== root@lte:/email# 
+=== root@lte:/email# mail -v -s "Version:4.9.3-1600 Passed: mmenew.test  MEC:172.< "Version:4.9.3-1600 Passed: mmenew.test  MEC:172.0                         
+=== .14.122" -a mmenew_6218-0<d: mmenew.test  MEC:172.0.14.122" -a mmenew_6218-00                         
+=== .tar.bz2 gzltesqa@casachi<14.122" -a mmenew_6218-00.tar.bz2 gzltesqa@casachin                         
+=== a.com.cn < casa.txt
+=== Resolving host smtp.qiye.163.com . . . done.
+=== Connecting to 220.194.24.10:smtp . . . connected.
+=== 220 ****************************************
+=== >>> EHLO lte
+=== 
+================================================================================
+
+
+=================================== 10:29:12 ===================================
+=== 
+=== 
+=== 250-proxy-sm-thq-1.hmbj.internal
+=== 250-PIPELINING
+=== 250-8BITMIME
+=== 250-AUTH=LOGIN PLAIN
+=== 250-AUTH PLAIN LOGIN
+=== 250 XXXXXXXA
+=== >>> AUTH LOGIN
+=== 334 VXNlcm5hbWU6
+=== >>> aGVmZW5nanVhbkBjYXNhY2hpbmEuY29tLmNu
+=== 334 UGFzc3dvcmQ6
+=== >>> MTIzNDVBYQ==
+=== 235 2.0.0 OK
+=== >>> MAIL FROM:<hefengjuan@casachina.com.cn>
+=== 250 Mail OK
+=== >>> RCPT TO:<gzltesqa@casachina.com.cn>
+=== 250 Mail OK
+=== >>> DATA
+=== 354 End data with <CR><LF>.<CR><LF>
+=== >>> .
+=== 250 Mail OK queued as smtp6,JudpCgA3aM4CfHVe1PhvAQ--.1067S2 1584757762
+=== >>> QUIT
+=== 221 Bye
+=== root@lte:/email# 
+=== root@lte:/email# 
+=== root@lte:/email# 
+=== root@lte:/email# 
+================================================================================
+

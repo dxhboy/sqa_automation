@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>任务分配</title>
+	<link rel="stylesheet" href="./css/gizmoMenu.css">
+	<link rel="stylesheet" type="text/css" href="./base.css" />
+	<link rel="stylesheet" href="css/image-hover.css" type="text/css">
+	<style type="text/css">
+		span{
+			cursor: pointer;
+			width:auto;
+
+			list-style:none;
+		}
+		ul span{
+			list-style:none;
+		}
+		table[name="task_info"] td{
+			border:0.5px solid black;
+			text-align:center;
+			width:200px;
+		}
+		#table_right{
+			border:1px solid black;
+		}
+		#messages{ width:100%; height: auto; border:1px solid #ccc; overflow:auto; padding:10px; box-sizing: border-box; position: relative;}
+		#drop {
+			border: 0px solid gray;
+			height: 35px;
+		}
+
+		.file {
+			position: relative;
+			display: inline-block;
+			background: #EEEEFF;
+			border: 1px solid #99D3F5;
+			border-radius: 4px;
+			padding: 4px 12px;
+			overflow: hidden;
+			color: #1E88C7;
+			text-decoration: none;
+			text-indent: 0;
+			line-height: 20px;
+		}
+		.file input {
+			position: absolute;
+			font-size: 100px;
+			right: 0;
+			top: 0;
+			opacity: 0;
+		}
+		.file:hover {
+			background: #AADFFD;
+			border-color: #78C3F3;
+			color: #004974;
+			text-decoration: none;
+		}
+		.table{
+			display: table; 
+			border-collapse: collapse;
+			width: auto;
+			height: auto;
+		}
+		.tr{
+			display: table-row;
+			height: auto;
+		}
+		.td{
+			display: table-cell;
+			width:auto;
+			text-align: center;
+			vertical-align: middle;
+			border: solid 0px red;
+			table-layout: fixed;
+			
+			
+		}
+		.table .td img{
+			width: auto;
+			height: auto;
+			display:block;
+		}
+	</style>
+	<script src="JS_lib.js"></script>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+</head>
+
+
+<script type="text/javascript">
+	
+	//there are two work mode: add mode; modify mode
+	//set default mode is add mode
+	localStorage.setItem('work_mode', 'add');
+	
+	// get all project id and name
+	get_all_project();
+	function get_all_project(){
+		console.log('1111111111');
+		Run_Php_File(http_type="post", post_info="", php_file="read_all_project.php", locStorVal="projectobj");
+	}
+	
+	get_groups();
+
+	window.onload=function()
+	{
+		console.log('222222222');
+		var proj_id_selected = '{$proj_id_selected}';
+		//console.log(proj_id_selected);
+		if (proj_id_selected != false) {
+			
+			var proj_obj=document.getElementsByName('project')[0];
+			//console.log(proj_obj);
+			select_option(proj_obj, proj_id_selected);
+			loadTask(); //include detect_click_task()
+			detect_click_task();
+			detect_Chick_showOrHide_Span();
+		}
+		document.body.oncontextmenu = function(e) {
+			console.log(window.event);
+			var e = e || window.event;
+			e.preventDefault(); //阻止系统右键菜单 IE8-不支持
+		};
+		//绑定粘贴事件
+		document.getElementById('messages').onpaste = function () { 
+			paste_img(event); 
+			return false; 
+		};
+	} 
+	
+	
+	
+	function reset_li_selected() {
+	console.log('33333333333');
+		var aObj=document.getElementsByTagName('span');
+		for(var i=0;i<aObj.length;i++)
+		{
+			aObj[i].setAttribute('selected','');
+			aObj[i].style.backgroundColor = 'white';
+			aObj[i].style.color = 'black';
+		}
+	}
+	
+	function update_task_rela(work_mode) {
+		// work_mode only accept "add" or "modify"
+		console.log('44444444444444');
+		var task_id = "";
+		var aObj=document.getElementsByTagName('span');
+		//console.log(aObj.length);
+		if (aObj.length == 0) {
+			return false
+		}
+		
+		for(var i=0;i<aObj.length;i++)
+		{
+			if (aObj[i].getAttribute('selected') == "1") {
+				task_id = aObj[i].getAttribute('id');
+				if (task_id == "root") {
+					task_id = "";
+				}
+				obj = aObj[i];
+				break;
+			}
+		}
+		var task_rela = "";
+		//console.log(obj);
+		if (work_mode == "modify") {
+			obj = obj.parentElement.parentElement.previousElementSibling.childNodes[2];
+			//console.log(obj);
+		}
+		
+		while (true) {
+			//console.log(obj);
+
+			if (obj.nodeName == "SPAN") {
+
+				var info = obj.innerHTML.replace(/<select.+/,'');
+				var task_rela = info + ">>>" + task_rela;
+				
+				var parent_obj = obj.parentElement.parentElement.previousElementSibling;
+				if (parent_obj.id == "root") {
+					break
+				}
+				
+				obj = parent_obj.getElementsByTagName('SPAN')[1];
+				continue
+			} 
+		}
+		var task_rela = "根" + ">>>" + task_rela;
+		var task_rela_obj=document.getElementsByName('task_rela');
+		task_rela_obj[0].setAttribute('value', "");
+		task_rela_obj[0].setAttribute('value', task_rela);
+		
+		var task_rela_obj=document.getElementsByName('task_parent_id');
+		task_rela_obj[0].setAttribute('value', task_id);
+	}
+	
+	function update_task_form_action(work_mode) {
+		console.log('55555555555');
+		var obj=document.getElementsByName('task_form')[0];
+
+		if (work_mode == "modify") {
+			obj.action = "modify_task.php";
+		} else if (work_mode == "add") {
+			obj.action = "add_task.php";
+		}
+	
+	}
+	
+	function check_task_third() {
+		/*
+		task 1
+			task 1.1
+				task 1.1.1  (third layer)
+				
+		if task is third layer, return 1, or return null
+		*/
+		console.log('666666666666666');
+		var selected_task_id = localStorage.getItem('task_id_selected');
+		var selected_ele = document.getElementById(selected_task_id);
+		
+		if (selected_ele.parentNode.parentNode.getAttribute("parent_id")) {
+			return 1;
+		} else {
+			return null;
+		}
+		
+	}
+	
+	function prepare_add_task() {
+		console.log('7777777777777777777');
+		if (check_task_third()) {
+			alert("任务层次最多三层!!!");
+			return;
+		}
+		
+		localStorage.setItem('work_mode', 'add');
+		update_work_mode_name();
+		
+		var aObj=document.getElementsByTagName('span');
+	
+		if (aObj.length == 0) {
+			return false
+		}
+		update_task_rela("add");
+		update_task_form_action("add");
+	}
+		
+	function reset_work_field() {
+		console.log('88888888888888888');
+		var task_rela_obj=document.getElementsByName('task_rela')[0];
+		task_rela_obj.setAttribute('value', '根>>>');
+		
+		var task_parentid_obj=document.getElementsByName('task_parent_id')[0];
+		task_parentid_obj.removeAttribute('value');
+		
+		var task_name_obj=document.getElementsByName('task_name')[0];
+		task_name_obj.removeAttribute('value');
+		console.log(task_name_obj);
+		var task_notes_obj=document.getElementsByName('task_notes')[0];
+		task_notes_obj.innerHTML = "";
+		
+		var task_group_obj=document.getElementsByName('task_group')[0];
+		select_option(task_group_obj, '---------');
+		
+		var task_id_obj=document.getElementsByName('task_id')[0];
+		task_id_obj.removeAttribute('value');
+		
+		var task_staff_obj=document.getElementsByName('task_staff')[0];
+		select_option(task_staff_obj, '---------');
+
+		var task_status_obj=document.getElementsByName('task_status')[0];
+		select_option(task_status_obj, '未完成');
+		
+		var task_pc_obj=document.getElementsByName('task_pc')[0];
+		select_option(task_pc_obj, '0');
+		
+		var task_starttime_obj=document.getElementsByName('task_starttime')[0];
+		task_starttime_obj.removeAttribute('value');
+		
+		var task_endtime_obj=document.getElementsByName('task_endtime')[0];
+		task_endtime_obj.removeAttribute('value');
+		
+	}
+
+	function prepare_modify_task () {
+		console.log('99999999999999999999');
+		localStorage.setItem('work_mode', 'modify');
+		update_work_mode_name();
+		update_task_rela("modify");
+		update_task_form_action("modify");
+		
+		//get info from DB
+		task_id = localStorage.getItem('task_id_selected');
+		get_task_info(task_id);
+		var task_info_array = JSON.parse(localStorage.getItem('taskinfoobj'))[0];
+		//console.log(task_info_array);
+		
+		var task_name=document.getElementsByName('task_list');
+		console.log(task_name);
+		//change the select mode
+		var task_name_obj=document.getElementsByName('task_name')[0];
+		task_name_obj.setAttribute('value', task_info_array['name']);
+		
+		var task_notes_obj=document.getElementsByName('task_notes')[0];
+		task_notes_obj.innerHTML = task_info_array['notes'];
+		
+		var task_group_obj=document.getElementsByName('task_group')[0];
+		task_group_obj.setAttribute('value', task_info_array['group_id']);
+		select_option(task_group_obj, task_info_array['group_id']);
+		
+		var task_id_obj=document.getElementsByName('task_id')[0];
+		task_id_obj.setAttribute('value', task_info_array['id']);
+		
+		loadPerson();
+		
+		var task_staff_obj=document.getElementsByName('task_staff')[0];
+		task_staff_obj.setAttribute('value', task_info_array['staff_id']);
+		//console.log(task_staff_obj);
+		//console.log(task_info_array['staff_id']);
+		select_option(task_staff_obj, task_info_array['staff_id'])
+		
+		var task_status_obj=document.getElementsByName('task_status')[0];
+		task_status_obj.setAttribute('value', task_info_array['status']);
+		select_option(task_status_obj, task_info_array['status'])
+		
+		var task_starttime_obj=document.getElementsByName('task_starttime')[0];
+		task_starttime_obj.setAttribute('value', task_info_array['start_time']);
+		
+		var task_endtime_obj=document.getElementsByName('task_endtime')[0];
+		task_endtime_obj.setAttribute('value', task_info_array['est_com_time']);
+		
+		if(task_info_array['taskpicpath']!=null){
+			var task_pic_path=document.getElementsByName('taskpicpath')[0];
+			task_pic_path.setAttribute('value', task_info_array['taskpicpath']);
+		}
+		if(task_info_array['taskfilepath']!=null){
+			var task_file_path=document.getElementsByName('taskfilepath')[0];
+			task_file_path.setAttribute('value', task_info_array['taskfilepath']);
+		}
+	}
+	
+	function delete_task() {
+		console.log('A 0000000000');
+		task_id = localStorage.getItem('task_id_selected')
+		task_name = localStorage.getItem('task_name_selected');
+		
+		task_ele = $("#"+task_id)[0]
+		//console.log(task_ele);
+		
+		li_list = casa_getAllElementsByTag(task_ele.nextSibling, "SPAN");
+		//console.log(li_list);
+		li_list = casa_Element_Reverse_Filter(li_list, 'class', 'showOrHide')
+		
+		li_text = "";
+		li_id_list = new Array();
+		li_id_list.push(task_id);
+		if (li_list.length > 0) {
+			for (var i=0; i<li_list.length; i++) {
+				//console.log(li_list[i]);
+				li_id_list.push(li_list[i].getAttribute("id"));
+				//console.log(li_list[i]);
+				li_name = li_list[i].innerHTML.replace(/<select.+/,'');
+				//console.log(li_name);
+				li_text += li_name + "\r\n"
+			}
+		}
+		//console.log(li_id_list);
+		if (confirm("确定删除任务\""+task_name+"\"和以下所有子任务吗?\r\n"+li_text)) {
+			Run_Php_File(http_type="post", post_info=li_id_list, php_file="delete_task.php", locStorVal="");
+			location.reload();
+		}
+	}
+	
+	function Reload() {
+		var proj_obj=document.getElementsByName('project')[0];
+		console.log('A 11111111111111');
+		current_url = window.location.href;
+		
+		
+		//change the proj_id_selected
+		if (current_url.search(/proj_id_selected=\d*/) == "-1") {
+			target_url = current_url + "?proj_id_selected=" + proj_obj.value;
+		} else {
+			
+			target_url = current_url.replace(/proj_id_selected=\d*/g, "proj_id_selected=" + proj_obj.value);
+		}
+		//console.log(target_url);
+		
+		window.location.href=target_url;
+
+	}
+	
+	function loadTask(){
+		console.log('A 2222222222');
+		//##############get the selected project id
+		var oOpt = document.getElementsByName('project');
+		//console.log(oOpt);
+		
+		if(oOpt[0] instanceof HTMLElement){
+			var project_id = oOpt[0].value;
+			//console.log(project_id);
+			if (!project_id) {
+				return false
+			}
+			
+			//#############get all task list from DB according prject id
+			get_task(project_id);
+	
+			var task_arrays = JSON.parse(localStorage.getItem('taskobj'));
+			console.log(task_arrays);
+			if (task_arrays.length == 0) {
+				
+				var root_ulobj = document.getElementsByName('task_list')[0];
+				//console.log(root_ulobj.innerHTML);
+				root_ulobj.innerHTML = "当前项目任务列表为空";
+				//console.log(root_ulobj.innerHTML);
+			}
+			
+			//############delete old task list
+			var root_ulobj = document.getElementsByName('task_list')[0];
+			root_ulobj.innerHTML = "";
+
+			//############# load and show all task 
+			showTask(task_arrays);
+
+		}
+	}
+	
+
+	
+	function check_time() {
+		console.log('A 3333333333333');
+		var start_obj = document.getElementById("task_starttime");
+		var starttime = start_obj.value;
+		//console.log(starttime);
+		if (!starttime) {
+			return
+		}
+		var end_obj = document.getElementById("task_endtime");
+		var endtime = end_obj.value;
+		//console.log(endtime);
+		if (!endtime) {
+			return
+		}
+		
+		var judge_obj = document.getElementById("judge_time");
+		if (check_endtime_bigger_starttime(starttime, endtime)) {
+			judge_obj.innerHTML = "";
+			open_submit("submit");
+		} else {
+			judge_obj.innerHTML = "  (预期结束时间不能早于预计启动时间)";
+			block_submit("submit");
+		}
+	}
+	
+	function block_submit(id) {
+	console.log('A 444444444444');
+	console.log(id);
+		var submit_obj = document.getElementById(id);
+		submit_obj.setAttribute('disabled','disabled');
+	}
+	
+	function open_submit(id) {
+	console.log('A 5555555555555');
+	console.log(id);
+		var submit_obj = document.getElementById(id);
+		submit_obj.removeAttribute('disabled');
+	}
+	
+	
+</script>
+
+ 
+ 
+ 
+<body>
+	<!-- <iframe align="center" width="100%" height="80" src="smarty_header.php"  frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no"></iframe> -->
+	<div id="taskmenu" class="gizmoMenu gizmoDropDown">
+	</div>
+
+	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+		<tr>
+			<th>任务列表</th>
+			<th>任务详情</th>
+			<th name="work_frame"></th>
+				<script type="text/javascript">
+					update_work_mode_name();
+					function update_work_mode_name() {
+						work_mode = localStorage.getItem('work_mode');
+						//console.log(work_mode)
+						var work_mode_obj=document.getElementsByName('work_frame')[0];
+						//console.log(work_mode_obj);
+						if (work_mode == "add") {
+							work_mode_obj.innerHTML="添加任务";   
+						} else {
+							work_mode_obj.innerHTML="修改任务";   
+						}
+					}
+				</script>
+
+		</tr>
+
+		<tr>
+			
+			<td width="30%">
+			
+						
+				<span id="root">根</span>
+				<ul name="task_list"></ul> 
+				
+				<div class="submit-row">
+					<input type="submit" value="新建子任务" onclick="prepare_add_task()"/>
+				</div>
+				
+				<div class="submit-row">
+					<input id="modify_button" type="submit" value="修改选中任务" onclick="prepare_modify_task()"/>
+				</div>
+				
+				<div>
+					<input style="background-color:#993300;" type="submit" value="删除选中任务" onclick="delete_task()"/>
+				</div>
+						
+			
+			</td>
+			
+			<td>
+				<div>
+					<button type="button" onclick="send_task_email()">发送邮件</button>
+					<table id='table_right' name="task_info" cellpadding='0' cellspacing='0'>
+						<tr>
+							<td><b>任务名称</b></td>
+							<td name="name"></td>
+						</tr>
+						<tr>
+							<td><b>任务信息</b></td>
+							<td name="notes">
+								<textarea name="task_info_notes" cols="50" rows="10"></textarea>	
+								
+							</td>
+						</tr>
+						<tr>
+							<td><b>任务所属小组</b></td>
+							<td name="group"></td>
+						</tr>
+						<tr>
+							<td><b>任务所属人员</b></td>
+							<td name="staff"></td>
+						</tr>
+						<tr>
+							<td><b>任务创建日期</b></td>
+							<td name="create_time"></td>
+						</tr>
+						<tr>
+							<td><b>任务开始日期</b></td>
+							<td name="start_time"></td>
+						</tr>
+						<tr>
+							<td><b>任务预期结束日期</b></td>
+							<td name="est_com_time"></td>
+						</tr>
+						<tr>
+							<td><b>任务实际结束日期</b></td>
+							<td name="act_com_time"></td>
+						</tr>
+					</table>
+				<div>
+				</br></br></br></br></br></br></br>
+				<div class='table' id="show_img">
+					<div class='tr'>
+						<div class='td'><img class="img" src="img/110355.png" alt="" />
+						<img style="border:none;cursor: pointer; height: 6%;width: 3%;" 
+								   
+										 title="删除图片" 
+										 onclick="delete('img/110355.png');"
+										 src="img/delete.jpg"/></div>
+						
+					</div>
+					<div class='tr'>
+						<div class='td'><img class="img" src="img/110355.png" alt="" />
+						<img style="border:none;cursor: pointer; height: 5%;width: 3%;" 
+								   
+										 title="删除图片" 
+										 onclick="delete('img/110355.png');"
+										 src="img/delete.jpg"/></div>
+					</div>
+				</div>
+			</td>
+			
+			<td width="30%">
+				<div>
+					
+					
+					<form name="task_form" action="./add_task.php" method="post">
+						
+						<div>	
+							<label style="display: block" for="project">项目:</label>
+							<select name="project" required id="" onchange="Reload()">
+								<option value="" selected>---------</option>
+								<!--<option value="项目在数据库的id">项目名称</option>-->
+								
+							</select>
+							
+							<script type="text/javascript">
+								
+								loadProject();
+								function loadProject(){
+									var oS1=document.getElementsByName('project');
+									//console.log(oS1)
+									var project_arrays = JSON.parse(localStorage.getItem('projectobj'));
+									//console.log(project_arrays);
+									for(var index in project_arrays){
+										var proj_id = project_arrays[index].id;
+										var proj_name = project_arrays[index].name;
+										add_html = '<option value="'+proj_id+'">'+proj_name+'</option>';
+										//console.log(add_html);
+										oS1[0].innerHTML+=add_html;
+									}
+								}
+								
+							</script>
+							
+						</div>
+						
+						<div>	
+							<label style="display: block" for="task_rela">任务关联:</label>
+							<input name="task_rela" size="40" type="text" maxlength="200" required id="task_rela" disabled="disabled" value="根>>>"/>
+						</div>
+						
+						<div style="display:none">
+							<label for="task_parent_id"></label>
+							<input name="task_parent_id" type="text" maxlength="100" id="task_parent_id" value=""/>
+						</div>
+						
+						<div style="display: none">
+							<label for="task_id">任务id:</label>
+							<input name="task_id" type="text" maxlength="100" id="task_id" />
+						</div>
+						
+						<div>	
+							<label style="display: block" for="task_name">任务名称:</label>
+							<input name="task_name" type="text" maxlength="100" required id="task_name" />
+						</div>
+						
+						<div>    
+							<label style="display: block" for="task_notes">任务说明:</label>
+							<textarea name="task_notes" cols="50" rows="10" id="task_notes"></textarea>         
+						</div>
+						
+						<div>	
+							<label style="display: block" for="groups">负责小组:</label>
+							<select name="task_group" id="groups" onchange="loadPerson()">
+								<option value="" selected>---------</option>
+								<!--<option value="小组在数据库的id">小组名称</option>-->
+								
+							</select>
+							
+							<script type="text/javascript">
+								
+								loadGroup()
+							
+							</script>
+							
+						</div>
+						
+						<div>	
+							<label style="display: block" for="persons">负责人员:</label>
+							<select name="task_staff" id="persons">
+								<option value="" selected>---------</option>
+								<!--<option value="人员在数据库的id">人员名称</option>-->
+								
+							</select>
+							
+						</div>	
+						
+						<div>    
+							<label style="display: block" for="task_status">任务状态:</label>
+							<select name="task_status" required id="task_status">
+								<option value="start" selected="">未完成</option>
+								<option value="finish">完成</option>   
+							</select>
+						</div>
+						
+						<div style="display:none">
+							<label style="display: block" for="task_pc">任务状态:</label>
+							<select name="task_pc" required id="task_pc">
+								<option value="0" selected="">0</option>
+								<option value="100">100</option>   
+							</select>
+						</div>
+						
+						<div>	
+							<label style="display: block" for="task_starttime">任务预计启动时间:</label>
+							<input name="task_starttime" type="date" value="------" id="task_starttime" oninput="check_time()"/>
+						</div>
+
+						<div>	
+							<label style="display: block" for="task_endtime">任务预计结束时间:</label>
+							<input name="task_endtime" type="date" value="------" id="task_endtime" oninput="check_time()"/>
+							<font id="judge_time" size="1" color="red"></font>
+						</div>
+						
+						<div >
+						
+							<p>添加图片操作：<br/>1、截图/图片打开后的复制；2、图片拖入下列框内上传；3、支持浏览上传图片；4、暂未做重复上传区分。</p>
+							<p><input name="taskpicpath"  type="hidden" id="taskpicpath" /></p>
+							<p><input name="taskfilepath"  type="hidden" id="taskfilepath" /></p>
+						
+							<div >
+								<a href="javascript:;" class="file">选择文件
+									<input type="file" name="upload-file" id="upload-file">
+								</a>
+								<span id="nametext"></span>
+							</div>
+							<div id="messages" contenteditable="true"></div>
+							<script type="text/javascript" src="js/taskupfile.js"></script>
+						</div>
+						
+						
+						
+						
+						<div class="submit-row">
+							<input id="submit" type="submit" value="确认"/>
+						</div>
+					
+					</form>
+				</div>
+				
+
+
+			</td>
+			
+			
+		</tr>
+	</table>
+
+
+</body>
+ 
+</html>

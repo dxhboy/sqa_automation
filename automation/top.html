@@ -1,0 +1,321 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>CASA LTE-SQA 自动化测试平台</title>
+<style type="text/css">
+.sttn {
+     width:60px;
+     text-align:center;
+     line-height:100%;
+     padding:0.3em;
+     font:16px Arial,sans-serif bold;
+     font-style:normal;
+     text-decoration:none;
+     margin:2px;
+     vertical-align:text-bottom;
+     zoom:1;
+     outline:none;
+     font-size-adjust:none;
+     font-stretch:normal;
+     border-radius:50px;
+     box-shadow:0px 1px 2px rgba(0,0,0,0.2);
+     text-shadow:0px 1px 1px rgba(0,0,0,0.3);
+     color:#fefee9;
+     border:0.2px solid #2299ff;
+     background-repeat:repeat;
+     background-size:auto;
+     background-origin:padding-box;
+     background-clip:padding-box;
+     background-color:#e1a;
+     background: linear-gradient(to bottom, #eeeff9 0%,#e1a 100%);
+}
+ 
+.sttn:hover {
+    background: #ab0;
+}
+</style>
+</head>
+
+<body bgcolor="#E6E6FA">
+<script type="text/javascript" src="js/sentcase.js"></script>
+<h1 align="center">CASA LTE-SQA 自动化测试平台</h1>
+<form action="">	
+	<table width="100%" border="0">
+		<tr align="center">
+			
+			<td colspan="2" width="4%"><input type="button" class="btn" value="初始化" onclick='clearrecords();' /> </td>
+			<td  align="right" width="4%">测试人:</td>
+			
+			<td width="3%">
+				<script type="text/javascript">
+					
+					function loadCallback(){
+						
+						var oS1=document.getElementsByName('tester');
+						
+						var objs = JSON.parse(localStorage.getItem('obj'));
+						var obj2=objs.tester;
+						
+						var obj=obj2[0];
+						for(var p in obj){//遍历json对象的每个key/value对,p为key
+							
+						   
+							oS1[0].innerHTML+='<option value="'+p+'">'+obj[p]+'</option>';
+						   
+						   
+						}
+					}
+					
+					function addLoadEvent(func){ 
+						var oldonload=window.onload; 
+						if(typeof window.onload!='function'){ 
+							window.onload=func; 
+							
+						} else{ 
+							window.onload=function(){ 
+								oldonload(); 
+								func(); 
+								
+							} 
+						} 
+						
+					} 
+					addLoadEvent(loadCallback);
+					
+				</script>
+				<select name="tester" id="tester">
+					<option value="">--请选择--</option>
+				</select>
+			</td>
+			<td  align="right" width="5%">测试版本:</td>
+			<td width="5%">
+				<script type="text/javascript">
+					
+					function loadCallback(){
+						
+						var oS1=document.getElementsByName('edition');
+						<!-- var pro=['492','493','494','495']; -->
+						<!-- for(var i=0;i<pro.length;i++){ -->
+							<!-- oS1[0].innerHTML+='<option value="'+pro[i]+'">'+pro[i]+'</option>'; -->
+						<!-- } -->
+						var objs = JSON.parse(localStorage.getItem('obj'));
+						var obj2=objs.edition;
+						
+						var obj=obj2[0];
+						for(var p in obj){//遍历json对象的每个key/value对,p为key
+							
+						   
+							oS1[0].innerHTML+='<option value="'+obj[p]+'">'+obj[p]+'</option>';
+						   
+						   
+						}
+					}
+					
+					function addLoadEvent(func){ 
+						var oldonload=window.onload; 
+						if(typeof window.onload!='function'){ 
+							window.onload=func; 
+						} else{ 
+							window.onload=function(){ 
+								oldonload(); 
+								func(); 
+							} 
+						} 
+					} 
+					addLoadEvent(loadCallback);
+				</script>
+				<select name="edition" id="edition">
+					<option value="">--请选择--</option>
+				</select>
+			</td>
+			<td  align="right" width="4%">版本号:</td>
+			<td width="5%">
+				<script type="text/javascript">
+					
+					function loadCallback(){
+						
+						var oS1=document.getElementsByName('smalledition');
+						
+						var objs = JSON.parse(localStorage.getItem('obj'));
+						var obj3=objs.smalledition;
+						
+						var obj=obj3[0];
+						for(var p in obj){//遍历json对象的每个key/value对,p为key
+							
+						  
+							oS1[0].innerHTML+='<option value="'+p+'">'+obj[p]+'</option>';
+						   
+						   
+						}
+						
+					}
+					function updateversion(){
+						var objSel = document.getElementById("smalledition");
+ 
+						if(null == objSel){
+							alert('id为' + selectId +'的下拉菜单不存在，请返回检查！');
+							<!-- return ''; -->
+						}
+					 
+						var selectVal = objSel.value;    //获取下拉菜单的当前选定值
+						
+						var ops = objSel.options;
+					 
+						if(null==ops || ops.length==0){
+							alert('length！');
+						}
+					 
+						for(var i=0; i<ops.length; i++){
+							if(selectVal == ops[i].value){
+								//返回当前选定值对应的显示值
+								var opsvalue=ops[i].text;
+								<!-- console.log(opsvalue); -->
+								if (opsvalue=="--请选择--") {
+									
+									localStorage.setItem('smalleditionobj', "Initialization");
+								} else {
+									
+									localStorage.setItem('smalleditionobj', opsvalue);
+								}
+								
+								var projectid=localStorage.getItem('projectid');
+								parent.getcaselist(projectid);
+							}
+						}
+						
+					}
+					function addLoadEvent(func){ 
+						var oldonload=window.onload; 
+						if(typeof window.onload!='function'){ 
+							window.onload=func; 
+						} else{ 
+							window.onload=function(){ 
+								oldonload(); 
+								func(); 
+							} 
+						} 
+					} 
+					addLoadEvent(loadCallback);
+				</script>
+				<select name="smalledition" id="smalledition" onclick="updateversion()">
+					<option value="Initialization">--请选择--</option>
+				</select>
+			</td>
+			<td align="right" width="5%">循环次数:</td>
+			<td width="5%"><input type="text" id="looptimes" align="left" maxlength="15" size="15"></td>
+			
+			<td align="right" width="5%">执行环境:</td>
+			<td width="5%">
+				<script type="text/javascript">
+					
+					function onloadCallback(){
+						
+						
+						var oS1=document.getElementsByName('environment');
+						
+						var objs = JSON.parse(localStorage.getItem('obj'));
+						var obj1=objs.environmental;
+						
+						var obj=obj1[0];
+						for(var p in obj){//遍历json对象的每个key/value对,p为key
+							
+						   if (p!="state") {
+								oS1[0].innerHTML+='<option value="'+p+'">'+obj[p]+'</option>';
+						   }
+						   
+						}
+						
+					}
+					
+					
+					function addLoadEvent(func){ 
+						
+						var oldonload=window.onload; 
+						if(typeof window.onload!='function'){ 
+							window.onload=func; 
+							
+						} else{ 
+							window.onload=function(){ 
+								oldonload(); 
+								func(); 
+								
+							} 
+						} 
+						
+					} 
+					 
+					addLoadEvent(onloadCallback);
+				</script>
+				<select name="environment" id="environment" >
+					<option value="">--请选择--</option>
+				</select>
+			</td>
+			<td align="right" width="4%">指定顺序:</td>
+			<td width="2%"> 
+				<script type="text/javascript">
+					function onloadCall(){
+					  var oS=document.getElementsByName('order');
+						var pwro=['是'];
+						for(var i=0;i<pwro.length;i++){
+							oS[0].innerHTML+='<option value="yes">'+pwro[i]+'</option>';
+						}
+					}
+					
+					function addLoadEvent(func){ 
+						var oldonload=window.onload; 
+						if(typeof window.onload!='function'){ 
+							window.onload=func; 
+						} else{ 
+							window.onload=function(){ 
+								oldonload(); 
+								func(); 
+							} 
+						} 
+					} 
+					addLoadEvent(onloadCall);
+				</script>
+				<select name="order" id="order">
+					<option value="no">否</option>
+				</select>
+			</td>
+			<td align="right" width="5%">发送邮件:</td>
+			<td width="2%"> 
+				<script type="text/javascript">
+					function onloadCall(){
+					  var oS=document.getElementsByName('sentmail');
+						var pwro=['否'];
+						for(var i=0;i<pwro.length;i++){
+							oS[0].innerHTML+='<option value="'+pwro[i]+'">'+pwro[i]+'</option>';
+						}
+					}
+					
+					function addLoadEvent(func){ 
+						var oldonload=window.onload; 
+						if(typeof window.onload!='function'){ 
+							window.onload=func; 
+						} else{ 
+							window.onload=function(){ 
+								oldonload(); 
+								func(); 
+							} 
+						} 
+					} 
+					addLoadEvent(onloadCall);
+				</script>
+				<select name="sentmail" id="sentmail">
+					<option value="on">是</option>
+				</select>
+			</td>
+			<td align="right" width="5%">测试备注:</td>
+			<td width="5%"><input type="text" id="remarks" align="left" maxlength="15" size="15"></td>
+			<td colspan="2" width="3%"><input type="submit"  id="submit" value="发送" onclick="runcase();" ></td>
+			<td colspan="2" width="3%"><input type="button" style="display: none"  id="Pause"  value="暂停" onclick="Pausecase();" ></td>
+			<td colspan="2" width="3%"><input type="button" style="display: none"  id="stop"  value="停止" onclick="stopcase();" ></td>
+			<td colspan="2" width="3%"><input type="button" style="display: none"  id="stopall"  value="终止" onclick="stopallcase();" ></td>
+			
+		</tr>
+	</table>
+</form>
+</body>
+</html>

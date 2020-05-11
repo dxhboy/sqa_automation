@@ -1,0 +1,1258 @@
+##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### 
+# AutoApp    v15.1009
+# Harness:   root@tclserver8
+# Date:      03/29/2020 04:25:38 PM
+# Script:    /public/casa-495/test/Tests/hxd/SAEGW.test
+# Eth0 IP:   0.0.0.0
+# Loopback:  
+# Image:     
+# Descript:  
+# Config:    /public/casa-495/test/Config/saegw_dxj.tcf
+# Log File:  /public/casa-495/test/Log/SAEGW_25431-00.txt
+##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### 
+
+Info(Include): Installed package casaExcel v1.0
+Info(Include): Installed package casaSAEGW v1.0
+TRACE(SAEGW::Main) : Calledby RunTest
+Info(Include): Installed package casaExcel v1.0
+Info(Include): Installed package casaLandslide v1.0
+
+STEP(16:25:38): START Step 1: 1.Get the Excel list;
+STEP(16:25:38): RESULT=PASS  Step 1: 1.Get the Excel list;
+
+STEP(16:25:38): START Step 2: 2.Get a list of use cases;
+STEP(16:25:38): RESULT=PASS  Step 2: 2.Get a list of use cases;
+Info(Include): Installed package casaCmd v9.0
+Info(Include): Installed package casaSAEGW v1.0
+Info(Include): Installed package casaPGW v1.0
+Info(Include): Installed package casaIxia v1.0
+Info(Include): Installed package casaPlatform v1.0
+   TRACE(StartSaegwTest)	 Calledby ::SAEGW::Main 
+
+
+=================================== 16:25:39 ===================================
+=== ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no 172.0.10.51
+=== root@172.0.10.51's password: 
+=== Last login: Sun Mar 29 08:00:38 2020 from 172-0-11-88.lightspeed.rcsntx.sbcglobal.net
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# su casa
+=== 
+=== ===================================
+=== Welcome to CASA MEC x86 Platform
+=== ===================================
+=== CLI services started!
+=== CASA-MOBILE>
+=== CASA-MOBILE>en
+=== Password: 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(check_task_crash): Sleeping 1 second(s)...
+
+=================================== 16:25:42 ===================================
+=== show task crash
+=== Number  Task             Crash-Time                Exit-Code     Exit-Reason     Core-file
+=== ==========================================================================================
+=== Total 0 crash records
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 16:25:42 ===================================
+=== ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no 172.0.10.57
+=== root@172.0.10.57's password: 
+=== Last login: Sun Mar 29 08:00:31 2020 from 172-0-11-88.lightspeed.rcsntx.sbcglobal.net
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# su casa
+=== 
+=== ===================================
+=== Welcome to CASA MEC x86 Platform
+=== ===================================
+=== CLI services started!
+=== CASA-MOBILE>
+=== CASA-MOBILE>en
+=== Password: 
+=== CASA-MOBILE#
+=== CASA-MOBILE#show task crash
+=== Number  Task             Crash-Time                Exit-Code     Exit-Reason     Core-file
+=== ==========================================================================================
+=== Total 0 crash records
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+STEP(16:25:43): START Step 3: SSH to SAEGW linux
+TRACE(Ssh_Retry) Calledby ::DEALEXCEL::Ssh_Server
+
+=================================== 16:25:44 ===================================
+=== ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no 172.0.10.51
+=== root@172.0.10.51's password: 
+=== Last login: Sun Mar 29 08:25:46 2020 from 172-0-11-88.lightspeed.rcsntx.sbcglobal.net
+=== root@CASA-MOBILE:~# page-off
+=== page-off: command not found
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+================================================================================
+
+!!Success(DEALEXCEL::Ssh_Server): Ssh 172.0.10.51 Success fd: ::DEALEXCEL::Spawn_Id(SPAWN_ID_SAEGW_C_Linux_1)=exp7
+TRACE(Ssh_Retry) Calledby ::DEALEXCEL::Ssh_Server
+
+=================================== 16:25:46 ===================================
+=== ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no 172.0.10.57
+=== root@172.0.10.57's password: 
+=== Last login: Sun Mar 29 08:25:49 2020 from 172-0-11-88.lightspeed.rcsntx.sbcglobal.net
+=== root@CASA-MOBILE:~# page-off
+=== page-off: command not found
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+================================================================================
+
+!!Success(DEALEXCEL::Ssh_Server): Ssh 172.0.10.57 Success fd: ::DEALEXCEL::Spawn_Id(SPAWN_ID_SAEGW_U_Linux_1)=exp8
+STEP(16:25:48): RESULT=PASS  Step 3: SSH to SAEGW linux
+
+STEP(16:25:48): START Step 4: 3.SSH to SAEGW-C and SAEGW-U as casa and log into enable mode;
+
+=================================== 16:25:48 ===================================
+=== ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no  172.0.10.51
+=== root@172.0.10.51's password: 
+=== Last login: Sun Mar 29 08:25:51 2020 from 172-0-11-88.lightspeed.rcsntx.sbcglobal.net
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+================================================================================
+
+!!Success(SAEGW::LOGIN_SAEGW_SERVER): Ssh  172.0.10.51 Success fd=exp9
+
+=================================== 16:25:52 ===================================
+=== su casa
+=== 
+=== ===================================
+=== Welcome to CASA MEC x86 Platform
+=== ===================================
+=== CLI services started!
+=== CASA-MOBILE>
+=== CASA-MOBILE>en
+=== Password: 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+!!Success(SAEGW::LOGIN_SAEGW_SERVER): enter CASA-MOBILE Success!!!
+
+=================================== 16:25:52 ===================================
+=== ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no  172.0.10.57
+=== root@172.0.10.57's password: 
+=== Last login: Sun Mar 29 08:25:54 2020 from 172-0-11-88.lightspeed.rcsntx.sbcglobal.net
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+================================================================================
+
+!!Success(SAEGW::LOGIN_SAEGW_SERVER): Ssh  172.0.10.57 Success fd=exp10
+
+=================================== 16:25:56 ===================================
+=== su casa
+=== 
+=== ===================================
+=== Welcome to CASA MEC x86 Platform
+=== ===================================
+=== CLI services started!
+=== CASA-MOBILE>
+=== CASA-MOBILE>en
+=== Password: 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+!!Success(SAEGW::LOGIN_SAEGW_SERVER): enter CASA-MOBILE Success!!!
+STEP(16:25:56): RESULT=PASS  Step 4: 3.SSH to SAEGW-C and SAEGW-U as casa and log into enable mode;
+
+STEP(16:25:56): START Step 5: 4.get excel case info
+1
+################start read test link database info################
+python3 ./Lib/casaPython/Read_Test_Plan_DB.py 29415 '29414_29450_29452_29454_29456_29458_29460_29462' /public/dxj/tcpdump
+################finish read test link database info################
+STEP(16:26:06): RESULT=PASS  Step 5: 4.get excel case info
+
+STEP(16:26:06): START Step 6: 5.get excel case info
+Execute Step:6412 
+start_config_mirror
+Info(Include): Installed package casaIxia v1.0
+!! Info(Adapt_Environment): Global variable ADAPT_ENVIR_FLAG not exists or == 0, pass this proc
+step_6412
+
+=================================== 16:26:07 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#mirror stop
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+SendAndExpect  mirror destination file 1.5.5_7.1.1_2_3_7.2.1_7.3.2_7.6.2_7.9.2  -- -fd exp9  -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 16:26:07 ===================================
+=== mirror destination file 1.5.5_7.1.1_2_3_7.2.1_7.3.2_7.6.2_7.9.2
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(::DEALEXCEL::Start_Mirror): Sleeping 1 second(s)...
+SendAndExpect  mirror start timeout never  -- -fd exp9  -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 16:26:08 ===================================
+=== mirror start timeout never
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(::DEALEXCEL::Start_Mirror): Sleeping 1 second(s)...
+SendAndExpect  mirror sgw protocol s4s11  -- -fd exp9  -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 16:26:09 ===================================
+=== mirror sgw protocol s4s11
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(::DEALEXCEL::Start_Mirror): Sleeping 1 second(s)...
+SendAndExpect  mirror sgw protocol pfcp  -- -fd exp9  -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 16:26:10 ===================================
+=== mirror sgw protocol pfcp
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(::DEALEXCEL::Start_Mirror): Sleeping 1 second(s)...
+SendAndExpect  mirror pgw protocol gtpc  -- -fd exp9  -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 16:26:11 ===================================
+=== mirror pgw protocol gtpc
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(::DEALEXCEL::Start_Mirror): Sleeping 1 second(s)...
+SendAndExpect  mirror pgw protocol pfcp  -- -fd exp9  -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 16:26:12 ===================================
+=== mirror pgw protocol pfcp
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(::DEALEXCEL::Start_Mirror): Sleeping 1 second(s)...
+SendAndExpect  mirror aaa protocol diameter tcp  -- -fd exp9  -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 16:26:13 ===================================
+=== mirror aaa protocol diameter tcp
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(::DEALEXCEL::Start_Mirror): Sleeping 1 second(s)...
+Success Step:6412
+Execute Step:6403 
+!! Info(Adapt_Environment): Global variable ADAPT_ENVIR_FLAG not exists or == 0, pass this proc
+step_6403
+
+=================================== 16:26:15 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(CasaGetPrompt): Current CLI mode for exp9 is enable
+
+=================================== 16:26:15 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 16:26:17 ===================================
+=== 
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 16:26:18 ===================================
+=== config
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+
+=================================== 16:26:20 ===================================
+=== 
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+SendAndExpect  diameter-endpoint s6b  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 16:26:20 ===================================
+=== diameter-endpoint s6b
+=== CASA-MOBILE(config-diameter-ep-s6b)#
+=== CASA-MOBILE(config-diameter-ep-s6b)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  origin host pgw01.rf.epc.gz realm asac.com gige 0/1  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 16:26:21 ===================================
+=== origin host pgw01.rf.epc.gz realm asac.com gige 0/1
+=== config diameter endpoint failed, rc= -1
+===     failed reason = failed to config diameter endpoint, origin is existent, need to delete all peers and all routes first
+=== CASA-MOBILE(config-diameter-ep-s6b)#
+=== CASA-MOBILE(config-diameter-ep-s6b)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  peer host ls.s6b realm ls.com ipv4 172.1.166.102 tcp  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 16:26:22 ===================================
+=== peer host ls.s6b realm ls.com ipv4 172.1.166.102 tcp
+=== config diameter endpoint failed, rc= -1
+===     failed reason = failed to add diameter peer, the same peer ls.s6b already exists and is used in route_entry
+=== CASA-MOBILE(config-diameter-ep-s6b)#
+=== CASA-MOBILE(config-diameter-ep-s6b)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  peer host ls.s6b1 realm ls.com ipv4 172.1.166.103 tcp  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 16:26:23 ===================================
+=== peer host ls.s6b1 realm ls.com ipv4 172.1.166.103 tcp
+=== config diameter endpoint failed, rc= -1
+===     failed reason = failed to add diameter peer, the same peer ls.s6b1 already exists and is used in route_entry
+=== CASA-MOBILE(config-diameter-ep-s6b)#
+=== CASA-MOBILE(config-diameter-ep-s6b)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  route-entry realm ls.com app s6b peer host ls.s6b1 weight 50  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 16:26:24 ===================================
+=== route-entry realm ls.com app s6b peer host ls.s6b1 weight 50
+=== CASA-MOBILE(config-diameter-ep-s6b)#
+=== CASA-MOBILE(config-diameter-ep-s6b)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  route-entry realm ls.com app s6b peer host ls.s6b secondary  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 16:26:25 ===================================
+=== route-entry realm ls.com app s6b peer host ls.s6b secondary
+=== CASA-MOBILE(config-diameter-ep-s6b)#
+=== CASA-MOBILE(config-diameter-ep-s6b)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  exit  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 16:26:26 ===================================
+=== exit
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect    -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 16:26:27 ===================================
+=== 
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  s6b-service  s6b  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 16:26:28 ===================================
+=== s6b-service  s6b
+=== CASA-MOBILE(config-s6b-service-s6b)#
+=== CASA-MOBILE(config-s6b-service-s6b)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  no diameter-endpoint s6b  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 16:26:29 ===================================
+=== no diameter-endpoint s6b
+=== CASA-MOBILE(config-s6b-service-s6b)#
+=== CASA-MOBILE(config-s6b-service-s6b)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  exit  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 16:26:30 ===================================
+=== exit
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect    -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 16:26:31 ===================================
+=== 
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  no s6b-service  s6b  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 16:26:32 ===================================
+=== no s6b-service  s6b
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect    -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 16:26:33 ===================================
+=== 
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  s6b-service  s6b  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 16:26:34 ===================================
+=== s6b-service  s6b
+=== CASA-MOBILE(config-s6b-service-s6b)#
+=== CASA-MOBILE(config-s6b-service-s6b)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  diameter-endpoint s6b  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 16:26:35 ===================================
+=== diameter-endpoint s6b
+=== CASA-MOBILE(config-s6b-service-s6b)#
+=== CASA-MOBILE(config-s6b-service-s6b)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  destination realm ls.com  host ls.s6b  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 16:26:36 ===================================
+=== destination realm ls.com  host ls.s6b
+=== CASA-MOBILE(config-s6b-service-s6b)#
+=== CASA-MOBILE(config-s6b-service-s6b)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  exit  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 16:26:37 ===================================
+=== exit
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect    -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 16:26:38 ===================================
+=== 
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  lte-service pgw-c  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 16:26:39 ===================================
+=== lte-service pgw-c
+=== CASA-MOBILE(config-pgw-c)#
+=== CASA-MOBILE(config-pgw-c)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  no apn apn1  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 16:26:40 ===================================
+=== no apn apn1
+=== CASA-MOBILE(config-pgw-c)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  apn apn1  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 16:26:41 ===================================
+=== 
+=== CASA-MOBILE(config-pgw-c)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  ip pool name ue-pool-4  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 16:26:42 ===================================
+=== apn apn1
+=== CASA-MOBILE(config-pgw-apn-apn1)#
+=== CASA-MOBILE(config-pgw-apn-apn1)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  diameter-app s6b-service s6b  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 16:26:43 ===================================
+=== ip pool name ue-pool-4
+=== CASA-MOBILE(config-pgw-apn-apn1)#
+=== CASA-MOBILE(config-pgw-apn-apn1)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  exit  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 16:26:44 ===================================
+=== diameter-app s6b-service s6b
+=== CASA-MOBILE(config-pgw-apn-apn1)#
+=== CASA-MOBILE(config-pgw-apn-apn1)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect    -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 16:26:45 ===================================
+=== exit
+=== CASA-MOBILE(config-pgw-c)#
+=== CASA-MOBILE(config-pgw-c)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+step_6432
+
+=================================== 16:26:46 ===================================
+=== 
+=== CASA-MOBILE(config-pgw-c)#
+=== CASA-MOBILE(config-pgw-c)#
+================================================================================
+
+Info(CasaGetPrompt): Current CLI mode for exp9 is config-pgw-c)#
+CASA-MOBILE(config-pgw-c
+
+=================================== 16:26:46 ===================================
+=== end
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+
+=================================== 16:26:46 ===================================
+=== 
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+Info(CasaGetPrompt): Current CLI mode for exp9 is config)#
+CASA-MOBILE(config
+
+=================================== 16:26:46 ===================================
+=== 
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+
+=================================== 16:26:48 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 16:26:49 ===================================
+=== config
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+
+=================================== 16:26:51 ===================================
+=== 
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+
+=================================== 16:26:51 ===================================
+=== exit
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Success Step:6403
+Execute Step:6404 
+Landslide step: Landslide
+TRACE(Landslide) : Calledby ::DEALEXCEL::Handle_Landslide
+################ start landslide(172.0.10.2) python script (run) ################
+python3 ./Lib/casaLandslide/RunLandslide.py --test_server_ip 172.0.10.2 --uname dxj --passwd casa1234 --library_id 10778 --test_sess_name '1.5.5_7.1.1_2_3_7.2.1_7.3.2_7.6.2_7.9.2' --action 'run' --body 'None'
+Run landslide fail, python script log:
+Connect landslide 172.0.10.2 succ
+Current session status:(88, 'COMPLETE')
+Start session, wait for 5 seconds and check
+Current sesion status: (89, 'COMPLETE')
+Current sesion status: (89, 'COMPLETE')
+Current sesion status: (89, 'COMPLETE')
+Current sesion status: (89, 'COMPLETE')
+Current sesion status: (89, 'COMPLETE')
+Current sesion status: (89, 'COMPLETE')
+Current sesion status: (89, 'COMPLETE')
+Current sesion status: (89, 'COMPLETE')
+Current sesion status: (89, 'COMPLETE')
+Current sesion status: (89, 'COMPLETE')
+Current sesion status: (89, 'COMPLETE')
+Current sesion status: (89, 'COMPLETE')
+Current sesion status: (89, 'COMPLETE')
+Current sesion status: (89, 'COMPLETE')
+Current sesion status: (89, 'COMPLETE')
+Current sesion status: (89, 'COMPLETE')
+Current sesion status: (89, 'COMPLETE')
+Current sesion status: (89, 'COMPLETE')
+Current sesion status: (89, 'COMPLETE')
+Current sesion status: (89, 'COMPLETE')
+Current sesion status: (89, 'COMPLETE')
+Current sesion status: (89, 'COMPLETE')
+Current sesion status: (89, 'COMPLETE')
+Current sesion status: (89, 'COMPLETE')
+Current sesion status: (89, 'COMPLETE')
+Current sesion status: (89, 'COMPLETE')
+Current sesion status: (89, 'COMPLETE')
+Current sesion status: (89, 'COMPLETE')
+Current sesion status: (89, 'COMPLETE')
+Current sesion status: (89, 'COMPLETE')
+Request failed: ('POST', '/api=ZHhqOmNhc2ExMjM0/runningTests/', '{"name": "1.5.5_7.1.1_2_3_7.2.1_7.3.2_7.6.2_7.9.2", "library": "10778"}', {'Content-type': 'application/json', 'Accept': 'application/json', 'Authorization': 'Basic ZHhqOmNhc2ExMjM0'}): Status: 400
+Start session failed, Http response from landslide
+
+run session 1.5.5_7.1.1_2_3_7.2.1_7.3.2_7.6.2_7.9.2 fail, now status is COMPLETE
+!!Error(DEALEXCEL::Handle_Landslide):Landslide -test_server_ip 172.0.10.2 -uname dxj -passwd casa1234 -library_id 10778 -test_sess_name 1.5.5_7.1.1_2_3_7.2.1_7.3.2_7.6.2_7.9.2 -action run fail
+Error(DEALEXCEL::ExecuteStep): ::DEALEXCEL::Handle_Landslide -info run LS 1.5.5_7.1.1_2_3_7.2.1_7.3.2_7.6.2_7.9.2 -andover_flag 0 failed!!
+Error(SAEGW::Main): ::DEALEXCEL::ExecuteStep -casenum 29414_29450_29452_29454_29456_29458_29460_29462  failed!!
+STEP(16:29:21): RESULT=FAIL  Step 6: 5.get excel case info
+Failed script name: /public/casa-495/test/Tests/hxd/SAEGW.test
+Recovery conf!!
+recovery_conf!!
+!! Info(Adapt_Environment): Global variable ADAPT_ENVIR_FLAG not exists or == 0, pass this proc
+step_6432
+
+=================================== 16:29:22 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(CasaGetPrompt): Current CLI mode for exp9 is enable
+
+=================================== 16:29:22 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 16:29:25 ===================================
+=== 
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 16:29:26 ===================================
+=== config
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+
+=================================== 16:29:28 ===================================
+=== 
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+SendAndExpect  lte-service pgw-c  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 16:29:28 ===================================
+=== lte-service pgw-c
+=== CASA-MOBILE(config-pgw-c)#
+=== CASA-MOBILE(config-pgw-c)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  no apn apn1  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 16:29:29 ===================================
+=== no apn apn1
+=== CASA-MOBILE(config-pgw-c)#
+=== CASA-MOBILE(config-pgw-c)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  apn apn1  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 16:29:30 ===================================
+=== apn apn1
+=== CASA-MOBILE(config-pgw-apn-apn1)#
+=== CASA-MOBILE(config-pgw-apn-apn1)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  ip pool name ue-pool-4  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 16:29:31 ===================================
+=== ip pool name ue-pool-4
+=== CASA-MOBILE(config-pgw-apn-apn1)#
+=== CASA-MOBILE(config-pgw-apn-apn1)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  exit  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 16:29:32 ===================================
+=== exit
+=== CASA-MOBILE(config-pgw-c)#
+=== CASA-MOBILE(config-pgw-c)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect    -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 16:29:33 ===================================
+=== 
+=== CASA-MOBILE(config-pgw-c)#
+=== CASA-MOBILE(config-pgw-c)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect    -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 16:29:34 ===================================
+=== 
+=== CASA-MOBILE(config-pgw-c)#
+=== CASA-MOBILE(config-pgw-c)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+
+=================================== 16:29:36 ===================================
+=== 
+=== CASA-MOBILE(config-pgw-c)#
+=== CASA-MOBILE(config-pgw-c)#
+================================================================================
+
+Info(CasaGetPrompt): Current CLI mode for exp9 is config-pgw-c)#
+CASA-MOBILE(config-pgw-c
+
+=================================== 16:29:36 ===================================
+=== end
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+
+=================================== 16:29:36 ===================================
+=== 
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+Info(CasaGetPrompt): Current CLI mode for exp9 is config)#
+CASA-MOBILE(config
+
+=================================== 16:29:36 ===================================
+=== 
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+
+=================================== 16:29:38 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 16:29:39 ===================================
+=== config
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+
+=================================== 16:29:41 ===================================
+=== 
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+
+=================================== 16:29:41 ===================================
+=== exit
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Stop tools!!
+Info(DEALEXCEL::Mirror_Clear): There are the following spawn_id of NFV that should clear mirror config (SPAWN_ID_SAEGW_C)
+
+=================================== 16:29:42 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#mirror stop
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+TRACE(LteCliSend) : Calledby Mirror
+{
+					no mirror destination
+					no mirror pgw protocol pfcp
+					no mirror pgw protocol gtpc
+					no mirror sgw protocol s4s11 
+					no mirror sgw protocol pfcp
+					no mirror aaa protocol diameter
+				} -- -fd exp9
+
+=================================== 16:29:42 ===================================
+=== no mirror destination
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 16:29:42 ===================================
+=== no mirror pgw protocol pfcp
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 16:29:42 ===================================
+=== no mirror pgw protocol gtpc
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 16:29:42 ===================================
+=== no mirror sgw protocol s4s11 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 16:29:42 ===================================
+=== no mirror sgw protocol pfcp
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 16:29:42 ===================================
+=== no mirror aaa protocol diameter
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(DEALEXCEL::Mirror_Clear): There are the following spawn_id of NFV that should clear mirror config (SPAWN_ID_SAEGW_U)
+
+=================================== 16:29:43 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#mirror stop
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+TRACE(LteCliSend) : Calledby Mirror
+{
+					no mirror destination
+					no mirror pgw protocol user
+					no mirror pgw protocol gtpu 
+					no mirror sgw protocol s1u 
+				} -- -fd exp10
+
+=================================== 16:29:43 ===================================
+=== no mirror destination
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 16:29:43 ===================================
+=== no mirror pgw protocol user
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 16:29:43 ===================================
+=== no mirror pgw protocol gtpu 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 16:29:43 ===================================
+=== no mirror sgw protocol s1u 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Complete all steps!!
+Info(EndofSaegwTest): test==/public/casa-495/test/Tests/hxd/SAEGW.test
+
+TRACE(ShowHistory) : Calledby EndofSaegwTest
+
+
+                                                                 
+----------------------------------------------------------------------------------------------------------------------------------
+         Time          spawn_id      Descr                   Command                                                             
+----------------------------------------------------------------------------------------------------------------------------------
+ 1       16:25:39      exp7          172.0.10.51:22:23       casa                                                                
+ 2       16:25:40      exp7          172.0.10.51:22:23       su casa                                                             
+ 3       16:25:41      exp7          172.0.10.51:22:23       en\ncasa                                                            
+ 4       16:25:41      exp7          172.0.10.51:22:23       show task crash                                                     
+ 5       16:25:42      exp7          172.0.10.51:22:23       show task crash                                                     
+ 6       16:25:42      exp7          172.0.10.57:22:23       casa                                                                
+ 7       16:25:43      exp7          172.0.10.57:22:23       su casa                                                             
+ 8       16:25:43      exp7          172.0.10.57:22:23       en\ncasa                                                            
+ 9       16:25:43      exp7          172.0.10.57:22:23       show task crash                                                     
+ 10      16:25:44      exp7          172.0.10.51:22:23       casa                                                                
+ 11      16:25:44      exp7          172.0.10.51:22:23       page-off                                                            
+ 12      16:25:46      exp8          172.0.10.57:22:23       casa                                                                
+ 13      16:25:46      exp8          172.0.10.57:22:23       page-off                                                            
+ 14      16:25:48      exp9           172.0.10.51:22:23      casa                                                                
+ 15      16:25:51      exp9           172.0.10.51:22:23      su casa                                                             
+ 16      16:25:52      exp9           172.0.10.51:22:23      en\ncasa                                                            
+ 17      16:25:52      exp10          172.0.10.57:22:23      casa                                                                
+ 18      16:25:56      exp10          172.0.10.57:22:23      su casa                                                             
+ 19      16:25:56      exp10          172.0.10.57:22:23      en\ncasa                                                            
+ 20      16:26:07      exp9           172.0.10.51:22:23      mirror stop                                                         
+ 21      16:26:07      exp9           172.0.10.51:22:23      mirror destination file 1.5.5_7.1.1_2_3_7.2.1_7.3.2_7.6.2_7.9.2     
+ 22      16:26:08      exp9           172.0.10.51:22:23      mirror start timeout never                                          
+ 23      16:26:09      exp9           172.0.10.51:22:23      mirror sgw protocol s4s11                                           
+ 24      16:26:10      exp9           172.0.10.51:22:23      mirror sgw protocol pfcp                                            
+ 25      16:26:11      exp9           172.0.10.51:22:23      mirror pgw protocol gtpc                                            
+ 26      16:26:12      exp9           172.0.10.51:22:23      mirror pgw protocol pfcp                                            
+ 27      16:26:13      exp9           172.0.10.51:22:23      mirror aaa protocol diameter tcp                                    
+ 28      16:26:15      exp9           172.0.10.51:22:23      CTRL-Z                                                              
+ 29      16:26:18      exp9           172.0.10.51:22:23      config                                                              
+ 30      16:26:20      exp9           172.0.10.51:22:23      diameter-endpoint s6b                                               
+ 31      16:26:21      exp9           172.0.10.51:22:23      origin host pgw01.rf.epc.gz realm asac.com gige 0/1                 
+ 32      16:26:22      exp9           172.0.10.51:22:23      peer host ls.s6b realm ls.com ipv4 172.1.166.102 tcp                
+ 33      16:26:23      exp9           172.0.10.51:22:23      peer host ls.s6b1 realm ls.com ipv4 172.1.166.103 tcp               
+ 34      16:26:24      exp9           172.0.10.51:22:23      route-entry realm ls.com app s6b peer host ls.s6b1 weight 50        
+ 35      16:26:25      exp9           172.0.10.51:22:23      route-entry realm ls.com app s6b peer host ls.s6b secondary         
+ 36      16:26:26      exp9           172.0.10.51:22:23      exit                                                                
+ 37      16:26:28      exp9           172.0.10.51:22:23      s6b-service  s6b                                                    
+ 38      16:26:29      exp9           172.0.10.51:22:23      no diameter-endpoint s6b                                            
+ 39      16:26:30      exp9           172.0.10.51:22:23      exit                                                                
+ 40      16:26:32      exp9           172.0.10.51:22:23      no s6b-service  s6b                                                 
+ 41      16:26:34      exp9           172.0.10.51:22:23      s6b-service  s6b                                                    
+ 42      16:26:35      exp9           172.0.10.51:22:23      diameter-endpoint s6b                                               
+ 43      16:26:36      exp9           172.0.10.51:22:23      destination realm ls.com  host ls.s6b                               
+ 44      16:26:37      exp9           172.0.10.51:22:23      exit                                                                
+ 45      16:26:39      exp9           172.0.10.51:22:23      lte-service pgw-c                                                   
+ 46      16:26:40      exp9           172.0.10.51:22:23      no apn apn1                                                         
+ 47      16:26:41      exp9           172.0.10.51:22:23      apn apn1                                                            
+ 48      16:26:42      exp9           172.0.10.51:22:23      ip pool name ue-pool-4                                              
+ 49      16:26:43      exp9           172.0.10.51:22:23      diameter-app s6b-service s6b                                        
+ 50      16:26:44      exp9           172.0.10.51:22:23      exit                                                                
+ 51      16:26:46      exp9           172.0.10.51:22:23      end                                                                 
+ 52      16:26:46      exp9           172.0.10.51:22:23      CTRL-Z                                                              
+ 53      16:26:49      exp9           172.0.10.51:22:23      config                                                              
+ 54      16:26:51      exp9           172.0.10.51:22:23      exit                                                                
+ 55      16:29:22      exp9           172.0.10.51:22:23      CTRL-Z                                                              
+ 56      16:29:26      exp9           172.0.10.51:22:23      config                                                              
+ 57      16:29:28      exp9           172.0.10.51:22:23      lte-service pgw-c                                                   
+ 58      16:29:29      exp9           172.0.10.51:22:23      no apn apn1                                                         
+ 59      16:29:30      exp9           172.0.10.51:22:23      apn apn1                                                            
+ 60      16:29:31      exp9           172.0.10.51:22:23      ip pool name ue-pool-4                                              
+ 61      16:29:32      exp9           172.0.10.51:22:23      exit                                                                
+ 62      16:29:36      exp9           172.0.10.51:22:23      end                                                                 
+ 63      16:29:36      exp9           172.0.10.51:22:23      CTRL-Z                                                              
+ 64      16:29:39      exp9           172.0.10.51:22:23      config                                                              
+ 65      16:29:41      exp9           172.0.10.51:22:23      exit                                                                
+ 66      16:29:42      exp9           172.0.10.51:22:23      mirror stop                                                         
+ 67      16:29:42      exp9           172.0.10.51:22:23      no mirror destination                                               
+ 68      16:29:42      exp9           172.0.10.51:22:23      no mirror pgw protocol pfcp                                         
+ 69      16:29:42      exp9           172.0.10.51:22:23      no mirror pgw protocol gtpc                                         
+ 70      16:29:42      exp9           172.0.10.51:22:23      no mirror sgw protocol s4s11                                        
+ 71      16:29:42      exp9           172.0.10.51:22:23      no mirror sgw protocol pfcp                                         
+ 72      16:29:42      exp9           172.0.10.51:22:23      no mirror aaa protocol diameter                                     
+ 73      16:29:43      exp10          172.0.10.57:22:23      mirror stop                                                         
+ 74      16:29:43      exp10          172.0.10.57:22:23      no mirror destination                                               
+ 75      16:29:43      exp10          172.0.10.57:22:23      no mirror pgw protocol user                                         
+ 76      16:29:43      exp10          172.0.10.57:22:23      no mirror pgw protocol gtpu                                         
+ 77      16:29:43      exp10          172.0.10.57:22:23      no mirror sgw protocol s1u                                          
+----------------------------------------------------------------------------------------------------------------------------------
+         Time          spawn_id      Descr                   Command                                                             
+----------------------------------------------------------------------------------------------------------------------------------
+
+
+
+=================================== 16:29:44 ===================================
+=== ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no 172.0.10.51
+=== root@172.0.10.51's password: 
+=== Last login: Sun Mar 29 08:25:56 2020 from 172-0-11-88.lightspeed.rcsntx.sbcglobal.net
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# su casa
+=== 
+=== ===================================
+=== Welcome to CASA MEC x86 Platform
+=== ===================================
+=== CLI services started!
+=== CASA-MOBILE>
+=== CASA-MOBILE>en
+=== Password: 
+=== CASA-MOBILE#
+=== CASA-MOBILE#show task crash
+=== Number  Task             Crash-Time                Exit-Code     Exit-Reason     Core-file
+=== ==========================================================================================
+=== Total 0 crash records
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 16:29:46 ===================================
+=== ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no 172.0.10.57
+=== root@172.0.10.57's password: 
+=== Last login: Sun Mar 29 08:26:00 2020 from 172-0-11-88.lightspeed.rcsntx.sbcglobal.net
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# su casa
+=== 
+=== ===================================
+=== Welcome to CASA MEC x86 Platform
+=== ===================================
+=== CLI services started!
+=== CASA-MOBILE>
+=== CASA-MOBILE>en
+=== Password: 
+=== CASA-MOBILE#
+=== CASA-MOBILE#show task crash
+=== Number  Task             Crash-Time                Exit-Code     Exit-Reason     Core-file
+=== ==========================================================================================
+=== Total 0 crash records
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+#####  Result:    FAILED
+#####  Script:    SAEGW.test/29414_29450_29452_29454_29456_29458_29460_29462
+#####  Last Step: 6: 5.get excel case info
+#####  Date:      03/29/2020 04:25:38 PM
+#####  Log:       /public/casa-495/test/Log/SAEGW_25431-00.txt
+#####  Warnings:  0
+#####  Errors:    1
+#####  SubTest Duration: 04:11
+
+##########################################
+All test cases have been executed
+##########################################
+
+                                                  SAEGW
+----------------------------------------------------------------------------------------------------------
+   Test                                            Duration Verdict Errs Warns Type            Bugs Fixed
+----------------------------------------------------------------------------------------------------------
+ 1 29414_29450_29452_29454_29456_29458_29460_29462 04:11    Fail    1          Expect No Error           
+----------------------------------------------------------------------------------------------------------
+
+############################################
+#####  Passed:    0
+#####  Aborted:   0
+#####  Canceled:  0
+#####  Failed:    1
+#####  ----------------
+#####  Total:     1
+#####  Duration:  04:11
+#####
+#####  Script:    /public/casa-495/test/Tests/hxd/SAEGW.test
+#####  Date:      03/29/2020 04:29:49 PM
+#####  Log:       /public/casa-495/test/Log/SAEGW_25431-00.txt
+#####  Verdict:   FAILED
+############################################
+
+Mail -body SAEGW -subject Failed: SAEGW.test  -to gzltesqa@casachina.com.cn -attach /public/casa-495/test/Log/SAEGW_25431-00.txt
+
+=================================== 16:29:49 ===================================
+=== ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no 172.0.10.51
+=== root@172.0.10.51's password: 
+=== Last login: Sun Mar 29 08:29:51 2020 from 172-0-11-88.lightspeed.rcsntx.sbcglobal.net
+=== root@CASA-MOBILE:~# page-off
+=== page-off: command not found
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no 172.0.10.51
+=== root@172.0.10.51's password: 
+=== Last login: Sun Mar 29 08:29:57 2020 from 172-0-11-88.lightspeed.rcsntx.sbcglobal.net
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# su casa
+=== 
+=== ===================================
+=== Welcome to CASA MEC x86 Platform
+=== ===================================
+=== CLI services started!
+=== CASA-MOBILE>
+=== CASA-MOBILE>en
+=== Password: 
+=== CASA-MOBILE#
+=== CASA-MOBILE#show version
+=== QA Release: 5.0.0-205
+=== Build Time: Thu Mar 26 00:34:38 EDT 2020
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 16:29:56 ===================================
+=== cd /email
+=== root@CASA-MOBILE:/email# 
+=== root@CASA-MOBILE:/email# 
+================================================================================
+
+
+=================================== 16:29:56 ===================================
+=== scp root@[172.0.11.88]:/public/casa-495/test/Log/SAE<p root@[172.0.11.88]:/public/casa-495/test/Log/SAEG                         
+=== W_25431-00.txt /email/SAE<ic/casa-495/test/Log/SAEGW_25431-00.txt /email/SAEG                         
+=== W_25431-00.txt
+=== root@172.0.11.88's password: 
+================================================================================
+
+
+=================================== 16:29:56 ===================================
+=== 
+=== SAEGW_25431-00.txt                              0%    0     0.0KB/s   --:-- ETASAEGW_25431-00.txt                            100%   50KB  50.0KB/s   00:00    
+=== root@CASA-MOBILE:/email# 
+================================================================================
+
+Info(Mail): Sleeping 2 second(s)...
+
+=================================== 16:29:58 ===================================
+=== tar Jcvf SAEGW_25431-00.tar.bz2 SAEGW_25431-00.txt
+=== SAEGW_25431-00.txt
+=== root@CASA-MOBILE:/email# 
+=== root@CASA-MOBILE:/email# 
+================================================================================
+
+
+=================================== 16:29:58 ===================================
+=== rm casa.txt
+=== root@CASA-MOBILE:/email# 
+=== root@CASA-MOBILE:/email# 
+================================================================================
+
+
+=================================== 16:29:58 ===================================
+=== sed  -i 's/Impossible characters, let the whole cont<d  -i 's/Impossible characters, let the whole conte                         
+=== nt as a domain/ /'  /emai<ters, let the whole content as a domain/ /'  /email                         
+=== /SAEGW_25431-00.txt
+=== root@CASA-MOBILE:/email# 
+=== root@CASA-MOBILE:/email# 
+================================================================================
+
+
+=================================== 16:29:58 ===================================
+=== awk 'BEGIN {RS = "Impossible characters, let the who<k 'BEGIN {RS = "Impossible characters, let the whol                         
+=== e content as a domain"; F< characters, let the whole content as a domain"; FS                         
+===  = "SAEGW\n"}/./{print $N< content as a domain"; FS = "SAEGW\n"}/./{print $NF                         
+=== }' /email/SAEGW_25431-00.<= "SAEGW\n"}/./{print $NF}' /email/SAEGW_25431-00.t                         
+=== xt  >
+================================================================================
+
+
+=================================== 16:29:58 ===================================
+=== > casa.txt
+=== mail -v -s "Version:5.0.0-205 Failed: SAEGW.test  MEC:172.0.10.51" -a SAEGW_25431-00.tar.bz2 gzltesqa@casachina.com.cn < casa.txt
+=== 
+=== root@CASA-MOBILE:/email# 
+=== root@CASA-MOBILE:/email# mail -v -s "Version:5.0.0-205 Failed: SAEGW.test  ME<il -v -s "Version:5.0.0-205 Failed: SAEGW.test  MEC                         
+=== :172.0.10.51" -a SAEGW_25<5 Failed: SAEGW.test  MEC:172.0.10.51" -a SAEGW_254                         
+=== 31-00.tar.bz2 gzltesqa@ca<172.0.10.51" -a SAEGW_25431-00.tar.bz2 gzltesqa@cas                         
+=== achina.com.cn < casa.txt
+=== Resolving host smtp.qiye.163.com . . .
+================================================================================
+
+
+=================================== 16:29:59 ===================================
+===  done.
+=== Connecting to 220.194.24.10:smtp . . . connected.
+=== 
+=== 
+=== 220 ****************************************
+=== >>> EHLO localhost.localdomain
+=== 250-proxy-sm-thq-1.hmbj.internal
+=== 250-PIPELINING
+=== 250-8BITMIME
+=== 250-AUTH=LOGIN PLAIN
+=== 250-AUTH PLAIN LOGIN
+=== 250 XXXXXXXA
+=== >>> AUTH LOGIN
+=== 334 VXNlcm5hbWU6
+=== >>> ZGVuZ3h1ZWp1YW5AY2FzYWNoaW5hLmNvbS5jbg==
+=== 334 UGFzc3dvcmQ6
+=== >>> MTcyLjEuMTAuNTc=
+=== 235 2.0.0 OK
+=== >>> MAIL FROM:<dengxuejuan@casachina.com.cn>
+=== 250 Mail OK
+=== >>> RCPT TO:<gzltesqa@casachina.com.cn>
+=== 250 Mail OK
+=== >>> DATA
+=== 354 End data with <CR><LF>.<CR><LF>
+=== >>> .
+=== 250 Mail OK queued as smtp5,huCowAB3efaOXIBef7K3AQ--.18869S2 1585470607
+=== >>> QUIT
+=== 221 Bye
+=== 
+================================================================================
+

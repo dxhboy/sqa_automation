@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<title>成员任务列表</title>
+<link href="/favicon.ico" rel="icon" type="image/x-icon" />
+<link rel="stylesheet" type="text/css" href="./base.css" />
+<link rel="stylesheet" href="css/membertasks.css" />
+	<style type="text/css">
+		#gray_name{
+			
+			background: url('images/tuoyuanxing_gray.png');
+			width: 100%;
+			height: 40px;
+			margin: 0; 
+			padding: 0;
+			background-repeat: no-repeat;
+			/* background-size:70px 70px; */
+			background-position: center;
+
+		}
+		#green_name{
+			
+			background: url('images/tuoyuanxing_green.png');
+			width: 100%;
+			height:40px;
+			background-repeat: no-repeat;
+			/* background-size:70px 70px; */
+			background-position: center;
+		}
+		.person_name{
+			display:inline-block;
+			margin: 12px; 
+		}
+	</style>
+	
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="renderer" content="webkit">
+<meta name="author" content="Alvaro Trigo Lopez">
+<meta name="Resource-type" content="Document">
+
+
+<script src="./jquery-3.4.1.js"></script>
+<script src="./JS_lib.js"></script>
+
+</head>
+
+<script>
+	get_groups();
+	
+	function filter(group,person,person_name) {
+		
+		
+		var group_id = group.value;
+		var select_person = person.options[person.selectedIndex].text;
+		var input_person_name = person_name.value;
+		
+		// console.log(group.value);
+		// console.log(person.options[person.selectedIndex].text);
+		// console.log(person_name.value);
+		
+		function filter_task_info(person_list) {
+			
+			//console.log(person_list);
+			var task_info_json=localStorage.getItem('taskinfo');
+			var task_info=JSON.parse(task_info_json); 
+			for(var key in task_info){
+				var a = person_list.indexOf(key)
+				if (a == "-1") {
+					delete task_info[key];
+				}
+			}
+
+			return task_info;
+		}
+		
+		//优先根据输入的名称查看
+		if (input_person_name != "") {
+			var task_info = filter_task_info([input_person_name]);
+			return filter_show(task_info);
+		} 
+		
+		//根据人员选择查看
+		if (select_person != "---------") {
+			var task_info = filter_task_info([select_person]);
+			return filter_show(task_info);
+		} 
+		
+		//根据小组选择
+		//只有选择小组，没有选择人员，显示小组内所有相关人员
+		if (group_id != "") {
+			get_persons(group_id);
+			var person_list_json = localStorage.getItem('personobj');
+			var person_list = JSON.parse(person_list_json);
+			//console.log(person_list);
+			//person_list==[["9","马镇峰","3,4"],["10","马峰","3"]]
+			//change it
+			var new_person_list=new Array()
+			for (var i=0;i<person_list.length;i++) {
+				new_person_list[i] = person_list[i][1];
+			}
+			//console.log(new_person_list);
+			
+			var task_info = filter_task_info(new_person_list);
+			return filter_show(task_info);
+		} 
+		
+		//没有输入
+		if (input_person_name == "" && group_id == "") {
+			var task_info_json=localStorage.getItem('taskinfo');
+			
+			var task_info=JSON.parse(task_info_json); 
+			return filter_show(task_info);
+		}
+	}
+	
+	function filter_show(task_info) {
+		localStorage.setItem('taskinfo', JSON.stringify(task_info));
+		$('table#service').empty();
+		showtask();
+		delete_mouse_move();
+		detect_Chick_Span_Task();
+		
+		gettaskinfo() //恢复缓存'taskinfo'
+	}
+	
+</script>
+	
+	
+<body>
+<div >
+        <div style="width:100%;height:250px">
+            <div style="width:75%;float:left;" class="title">
+                
+				<div style="display:inline-block; vertical-align:middle; line-height: 500%;"><h1>成员任务一览表</h1></div>
+				</br></br>
+			</div>
+			<div style="width:25%;float:left;">
+				<form id="form">
+					<div>
+						<label style="display: block" for="groups">负责小组（可选）:</label>
+						<select name="task_group" id="groups" onchange="loadPerson()">
+							<option value="" selected>---------</option>
+							<!--<option value="小组在数据库的id">小组名称</option>-->
+							
+						</select>
+						
+						<script type="text/javascript">
+							loadGroup()
+						</script>
+						
+					</div>
+					
+					<div>	
+						<label style="display: block" for="persons">负责人员（可选）:</label>
+						<select name="task_staff" id="persons">
+							<option value="" selected>---------</option>
+							<!--<option value="人员在数据库的id">人员名称</option>-->
+							
+						</select>
+						<script type="text/javascript">
+							loadPerson()
+						</script>
+					</div>	
+					
+
+					<div>
+						<label style="display: block" for="person_name">输入姓名（可选，优先）:</label>
+						<input name="person_name" type="text" size="4" maxlength="4" id="person_name" />
+					</div>
+					</br>
+
+					<div class="submit-row">
+						<input id="button" type="button" onclick="filter(form.task_group,form.task_staff,form.person_name)" value="查找"/>
+					</div>
+				</form>	
+            </div>
+			</hr>
+			</hr>
+		</div>	
+
+		<div>
+            <table width="100%" id="service">
+
+
+			</table>
+			<script type="text/javascript">
+					 (function(){
+					  
+					  var nav1s=document.getElementsByName("span");
+					  var nav2s=document.getElementsByName("ul");
+					  for(var i=0,len=nav1s.length;i<len;i++){
+					   nav1s[i].onclick=(function(i){
+					    return function(){
+						console.log(len);
+					     for(var j=0;j<len;j++){
+							console.log(nav2s[j]);
+							console.log(j);
+					      nav2s[j].style.display="none";
+					     }
+					     nav2s[i].style.display="block";
+					    }
+					   })(i)
+					  }
+					 })()
+			</script>
+        </div>
+   
+</div>
+</body>
+
+</html>
+<script> 
+	function showevertask(span_ele) {
+ 
+		$ul_ele =  $(span_ele).parent().next();
+		if ($ul_ele.is(':hidden')) {
+			$ul_ele.show();
+			$(span_ele).css("background","#DDDDDD");
+		} else {
+			$ul_ele.hide();
+			$(span_ele).css("background","");
+		}
+	
+	}
+	
+	function gettaskinfo(){
+		var proj_id_selected = '{$proj_id_selected}';
+		var httpRequest = new XMLHttpRequest;
+		httpRequest.open('post', 'show_project_task.php');
+		httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+		var contact = new Object();
+		contact.projectid = proj_id_selected;
+		
+		var jsondata = JSON.stringify(contact);	
+
+		httpRequest.send(jsondata);
+		
+		httpRequest.onreadystatechange = function() {
+			if(httpRequest.readyState == 4 && (httpRequest.status == 200 || httpRequest.status ==304)) { //响应完成并且响应码为200或304
+				var json = httpRequest.responseText;//获取到服务端返回的数据
+				//console.log(json);
+				json = json.split('xxx For split a string xxx')[1];
+				//console.log(json);
+				localStorage.setItem('taskinfo', json);
+			}
+		};
+	}
+	
+	function gettaskinfo_show(){
+		
+		var proj_id_selected = '{$proj_id_selected}';
+		var httpRequest = new XMLHttpRequest;
+		httpRequest.open('post', 'show_project_task.php');
+		httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+		var contact = new Object();
+		contact.projectid = proj_id_selected;
+		
+		var jsondata = JSON.stringify(contact);	
+
+		httpRequest.send(jsondata);
+		
+		httpRequest.onreadystatechange = function() {
+			if(httpRequest.readyState == 4 && (httpRequest.status == 200 || httpRequest.status ==304)) { //响应完成并且响应码为200或304
+				var json = httpRequest.responseText;//获取到服务端返回的数据
+				//console.log(json);
+				
+				task_info_json = json.split('xxx For split a string xxx')[1];
+				//console.log(task_info_json);
+				
+				localStorage.setItem('taskinfo', task_info_json);
+				
+				showtask();
+				delete_mouse_move();
+				detect_Chick_Span_Task();
+			}
+		};
+	}
+	
+	function showtask() {
+
+		var jsonstr=localStorage.getItem('taskinfo');
+		var json=JSON.parse(jsonstr); 
+		//console.log(json);
+		var objDiv = document.getElementById("service"); 
+		var _html='';
+		var num=1;
+		var tasknum=1;
+		var datadelay=800;
+		var number=0; //通过判断这个数能否被5整除，结合表格标签，实现5个div为一行
+
+		for(var p in json){    //遍历json对象的每个key/value对,p为key
+		  if (number%5 == 0) {
+			  _html+= '<tr>'
+		  }
+
+		  if (JSON.stringify(json[p]).indexOf("current_") != -1) {
+			  _html+='<td valign="top" width="20%"> \
+				<div>\
+				  <div id="green_name">\
+					<div style="color:#FFB90F;"class="person_name"><h2>'+p+'</h2>\
+				  </div>\
+				</div>';  
+		  } else {
+			  _html+='<td valign="top" width="20%"> \
+			  <div>\
+				<div id="gray_name">\
+					  <div class="person_name"><h2>'+p+'</h2>\
+				</div>\
+			  </div>';
+		  }
+		  if(num==7) {
+			num=1;
+		  }
+		  num++;
+		  var myperson=json[p];
+		
+		  for(var q in myperson){
+			tasknum++;
+			var task=myperson[q];
+			
+			var flag=q.indexOf("current_");
+			//console.log(q.split('_'));
+			
+			var split = q.split('_');
+			
+			var proj_id = split[split.length-1];
+			var q = q.replace('_'+proj_id, '');
+			
+			if(flag!= -1){
+				var q = q.replace('current_', '');
+				var class_font = "taskcuspantite"
+			} else {
+				var class_font = "taskspantite"
+			}
+				
+			_html+='<div id="side_nav" style="right: 25px;"  class="servicebox step step4 ifadeIn" data-delay="1800">'+
+			
+			'<p><span name="span" onclick="showevertask(this)" class="'+class_font+'">'+q+'</span></p>'+
+			'<ul name="ul" class="taskul" proj_id="'+ proj_id + '" person_name="' + p +'">';
+			//console.log(task);
+			// for(var o=0; o < task.length;o++){
+				
+			// 	console.log(task[o]);
+			// 	var task_id = task[o]['id'];
+			// 	var task_name = task[o]['name'];
+			// 	var task_parent_id = task[o]['parent_id'];
+			// 	//_html+='<p ><span class="taskspan" >&nbsp;&nbsp;'+task[o]+'</span></p>';
+			// 	add_html = '<li style="list-style:none;" id="'+task_id+'"> <span id="'+task_id+'">'+task_name+'</span></li>';
+			// 	add_html += '<ul style="display:block" parent_id ="'+ task_id +'">'
+			// 	_html+=add_html;
+			// }
+
+			_html+='</ul>';
+		  }
+		  
+		  _html+='</div><br /><br /></div></td>';
+		  if (number%5 == 4) {
+		  	_html+= '</tr>'
+		  }
+		  number++;
+		}
+		objDiv.innerHTML+=_html;
+		
+		//Above finish the info of project
+		
+		//Now add the task info into project
+		show_task_info(json);
+	} 
+	
+	function show_task_info(all_task_info) {
+		
+		for(var person in all_task_info){
+			var myperson=all_task_info[person];
+			for(var q in myperson){
+				var task=myperson[q];
+				for(var o=0; o < task.length;o++){
+					var task_name = task[o]['name'];
+					var task_id = task[o]['id'];
+					var parent_id = task[o]['parent_id'];
+					var proj_id = task[o]['proj_id'];
+
+					if (!parent_id) {
+						var font_size = "h3";
+						var font_color = "green";
+					} else {
+						var font_size = "h4";
+						var font_color = "blue";
+					}
+					
+					if (proj_id == '{$proj_id_selected}') {
+						var class_type = "taskcuspan"
+					} else {
+						var class_type = "taskspan"
+					}
+					
+					add_html = '<li style="list-style:none" id="'+task_id+'">\
+									<' + font_size + '>' + '<span style="color:' + font_color + '" class="'+ class_type +'" id="'+task_id+'">'+task_name+'</span></' + font_size + '>\
+								</li>';
+					add_html += '<ul style="display:none" parent_id ="'+ task_id +'">'
+
+					if (!parent_id) {
+						$('ul[person_name='+person+']'+'[proj_id='+proj_id+']').append(add_html);
+						
+					} else {
+						if ($('ul[parent_id='+parent_id+']').parent().parent().attr('class') == 'taskul') {
+							add_html = add_html.replace("<h4", "<h5");
+							add_html = add_html.replace("color:blue", "color:black");
+							add_html = add_html.replace("taskcuspan", "taskspan_last");
+							add_html = add_html.replace("taskspan", "taskspan_last");
+						}
+						if ($('ul[parent_id='+parent_id+']').length != 0) {
+							$('ul[parent_id='+parent_id+']').append(add_html);
+						} else {
+							$('ul[person_name='+person+']'+'[proj_id='+proj_id+']').append(add_html);
+						}
+						
+					}
+				}
+			}
+		}
+	}
+
+	function delete_mouse_move() {
+
+		$("[name='span'], .taskspan, .taskcuspan").each(function() {
+			$(this).mouseover(function(){
+				if (this.style.background != 'rgb(221, 221, 221)') {
+					$(this).css("background","yellow");
+				}
+			})
+			$(this).mouseleave(function(){
+				if (this.style.background != 'rgb(221, 221, 221)') {
+					$(this).css("background","");
+				}
+			})
+		})
+		
+
+	}
+	
+	function detect_Chick_Span_Task() {
+		$('.taskspan, .taskcuspan').each(function() {
+			//console.log($(this));
+			var id = $(this).attr('id');
+			
+			$(this).click(function() {
+				$ul_ele = $('ul[parent_id='+id+']');
+				if ($ul_ele.is(':hidden')) {
+					$ul_ele.show();
+					$(this).css("background","#DDDDDD");
+				} else {
+					$ul_ele.hide();
+					$(this).css("background","");
+				}
+			})
+				
+		})
+	}
+	
+	gettaskinfo_show();
+	
+</script>

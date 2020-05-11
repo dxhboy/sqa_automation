@@ -1,0 +1,632 @@
+##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### 
+# AutoApp    v15.1009
+# Harness:   root@tclserver8
+# Date:      03/09/2020 10:36:44 PM
+# Script:    /public/casa-493/test/mmenew.test
+# Eth0 IP:   0.0.0.0
+# Loopback:  
+# Image:     
+# Descript:  
+# Config:    /public/casa-493/test/Config/ldq_ixia_mme_245_ixiahss_testlink.tcf
+# Log File:  /public/casa-493/test/Log/mmenew_25934-00.txt
+##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### 
+
+Info(Include): Installed package casaSAEGW v1.0
+numc=1 NUM_MME=2
+numc=2 NUM_MME=2
+Info(Include): Installed package casaMME v1.0
+TRACE(MME::Main) : Calledby RunTest
+Info(Include): Installed package casaExcel v1.0
+Info(Include): Installed package casaLandslide v1.0
+
+STEP(22:36:44): START Step 1: 1.Get the Excel list;
+STEP(22:36:44): RESULT=PASS  Step 1: 1.Get the Excel list;
+
+STEP(22:36:44): START Step 2: 2.Get a list of use cases;
+STEP(22:36:44): RESULT=PASS  Step 2: 2.Get a list of use cases;
+Info(Include): Installed package casaCmd v9.0
+Info(Include): Installed package casaSeGW v1.0
+Info(Include): Installed package casaHenbGW v1.0
+Info(Include): Installed package casaIxia v1.0
+numc=1 NUM_MME=2
+numc=2 NUM_MME=2
+Info(Include): Installed package casaMME v1.0
+Info(Include): Installed package casaPlatform v1.0
+     TRACE(StartMmeTest)	 Calledby ::MME::Main 
+
+
+=================================== 22:36:45 ===================================
+=== ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no 172.0.14.245
+=== root@172.0.14.245's password: 
+=== Welcome to Ubuntu 14.04.6 LTS (GNU/Linux 3.19.0-25-generic x86_64)
+=== 
+===  * Documentation:  https://help.ubuntu.com/
+=== 
+===   System information as of Mon Mar  9 14:36:16 UTC 2020
+=== 
+===   System load:  3.08               Users logged in:        1
+===   Usage of /:   40.4% of 23.38GB   IP address for eth0:    172.0.14.245
+===   Memory usage: 51%                IP address for docker0: 172.17.42.1
+===   Swap usage:   0%                 IP address for dp_0_1:  172.1.14.245
+===   Processes:    257
+=== 
+===   Graph this data and manage this system at:
+===     https://landscape.canonical.com/
+=== 
+===   Get cloud support with Ubuntu Advantage Cloud Guest:
+===     http://www.ubuntu.com/business/services/cloud
+=== 
+=== 9 updates can be installed immediately.
+=== 1 of these updates is a security update.
+=== 
+=== New release '16.04.6 LTS' available.
+=== Run 'do-release-upgrade' to upgrade to it.
+=== 
+=== 
+=== WARNING: Security updates for your current Hardware Enablement Stack
+=== ended on 2016-08-04:
+===  * http://wiki.ubuntu.com/1404_HWE_EOL
+=== 
+=== The following packages are no longer supported:
+===  linux-image-extra-3.19.0-25-generic linux-image-3.19.0-25-generic
+=== 
+=== Please upgrade them to a supported HWE stack or remove them if you
+=== no longer need them.
+=== 
+=== 
+=== Last login: Mon Mar  9 14:36:17 2020 from 172.0.11.88
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# su casa
+=== 
+=== ===================================
+=== Welcome to CASA MEC x86 Platform
+=== ===================================
+=== CLI services started!
+=== CASA-MOBILE>
+=== CASA-MOBILE>en
+=== Password: 
+=== CASA-MOBILE#
+=== CASA-MOBILE#show task crash
+=== Number  Task             Crash-Time                Exit-Code     Exit-Reason     Core-file
+=== ==========================================================================================
+=== Total 0 crash records
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+STEP(22:36:48): START Step 3: SSH to MME as casa and log into enable mode;
+
+=================================== 22:36:48 ===================================
+=== ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no  172.0.14.245
+=== root@172.0.14.245's password: 
+=== Welcome to Ubuntu 14.04.6 LTS (GNU/Linux 3.19.0-25-generic x86_64)
+=== 
+===  * Documentation:  https://help.ubuntu.com/
+=== 
+===   System information as of Mon Mar  9 14:36:45 UTC 2020
+=== 
+===   System load:  3.18               Users logged in:        1
+===   Usage of /:   40.4% of 23.38GB   IP address for eth0:    172.0.14.245
+===   Memory usage: 51%                IP address for docker0: 172.17.42.1
+===   Swap usage:   0%                 IP address for dp_0_1:  172.1.14.245
+===   Processes:    252
+=== 
+===   Graph this data and manage this system at:
+===     https://landscape.canonical.com/
+=== 
+===   Get cloud support with Ubuntu Advantage Cloud Guest:
+===     http://www.ubuntu.com/business/services/cloud
+=== 
+=== 9 updates can be installed immediately.
+=== 1 of these updates is a security update.
+=== 
+=== New release '16.04.6 LTS' available.
+=== Run 'do-release-upgrade' to upgrade to it.
+=== 
+=== 
+=== WARNING: Security updates for your current Hardware Enablement Stack
+=== ended on 2016-08-04:
+===  * http://wiki.ubuntu.com/1404_HWE_EOL
+=== 
+=== The following packages are no longer supported:
+===  linux-image-extra-3.19.0-25-generic linux-image-3.19.0-25-generic
+=== 
+=== Please upgrade them to a supported HWE stack or remove them if you
+=== no longer need them.
+=== 
+=== 
+=== Last login: Mon Mar  9 14:36:46 2020 from 172.0.11.88
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+================================================================================
+
+!!Success(MME::LOGIN_MME_SERVER): Ssh  172.0.14.245 Success fd=exp7
+
+=================================== 22:36:54 ===================================
+=== su casa
+=== 
+=== ===================================
+=== Welcome to CASA MEC x86 Platform
+=== ===================================
+=== CLI services started!
+=== CASA-MOBILE>
+=== CASA-MOBILE>en
+=== Password: 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+!!Success(MME::LOGIN_MME_SERVER): enter CASA-MOBILE Success!!!
+
+=================================== 22:36:54 ===================================
+=== ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no 172.0.14.49
+=== root@172.0.14.49's password: 
+=== Welcome to Ubuntu 14.04.6 LTS (GNU/Linux 3.19.0-25-generic x86_64)
+=== 
+===  * Documentation:  https://help.ubuntu.com/
+=== 
+===   System information as of Mon Mar  9 22:28:46 CST 2020
+=== 
+===   System load:  3.17               Users logged in:        1
+===   Usage of /:   34.9% of 23.38GB   IP address for eth0:    172.0.14.49
+===   Memory usage: 51%                IP address for docker0: 172.17.42.1
+===   Swap usage:   0%                 IP address for dp_0_1:  172.1.14.49
+===   Processes:    257                IP address for lo10:    10.10.10.49
+=== 
+===   Graph this data and manage this system at:
+===     https://landscape.canonical.com/
+=== 
+===   Get cloud support with Ubuntu Advantage Cloud Guest:
+===     http://www.ubuntu.com/business/services/cloud
+=== 
+=== 10 updates can be installed immediately.
+=== 1 of these updates is a security update.
+=== 
+=== New release '16.04.6 LTS' available.
+=== Run 'do-release-upgrade' to upgrade to it.
+=== 
+=== 
+=== WARNING: Security updates for your current Hardware Enablement Stack
+=== ended on 2016-08-04:
+===  * http://wiki.ubuntu.com/1404_HWE_EOL
+=== 
+=== The following packages are no longer supported:
+===  linux-image-3.19.0-25-generic linux-image-extra-3.19.0-25-generic
+=== 
+=== Please upgrade them to a supported HWE stack or remove them if you
+=== no longer need them.
+=== 
+=== 
+=== Last login: Mon Mar  9 22:28:56 2020 from 172.0.11.88
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+================================================================================
+
+!!Success(MME::LOGIN_MME_SERVER): Ssh 172.0.14.49 Success fd=exp8
+
+!! Error(SendAndExpect): Sent 'su casa\r\n'.  Timed Out waiting for '.*>.*[\r\n]*[^\s]{2,}[^\r\n]*[^@][>#:][ ]*$'
+
+=================================== 22:37:08 ===================================
+=== su casa
+=== 
+=== ===================================
+=== Welcome to CASA MEC x86 Platform
+=== ===================================
+=== CLI services started!
+=== 
+================================================================================
+
+
+====================================================
+=== [22:37:08] SendAndExpect Debug:
+====================================================
+> Expect Result ........ Timed Out
+> Target IP ............ 172.0.14.49:22 (ssh)
+> spawn_id ............. exp8
+> Timeout .............. 10 second(s)
+> Time Expired ......... 10 second(s)
+> Send String .......... su casa\r\n
+> RegExp Switches ...... --
+> Expect Prompt ........ .*[\r\n]*[^\s]{2,}[^\r\n]*[^@][>#:][ ]*$ (Default - Casa Prompt)
+> Ignore Level ......... Major
+> Pass String .......... >[:PROMPT:]
+> Fail String .......... N/A
+> EXPECT_TIMEDOUT ...... True
+> EXPECT_OUT(buffer) ... su casa\r\n\r\n===================================\r\nWelcome to CASA MEC x86 Platform\r\n===================================\r\n\rCLI services started!\r\n
+
+
+Info(::MME::LOGIN_MME_SERVER): Sleeping 30 second(s)...
+
+!! Error(SendAndExpect): Sent 'exit\r\n'.  Timed Out waiting for '.*#.*[\r\n]*[^\s]{2,}[^\r\n]*[^@][>#:][ ]*$'
+
+=================================== 22:37:48 ===================================
+=== CASA-MOBILE>
+=== CASA-MOBILE>exit
+=== root@CASA-MOBILE:~# 
+================================================================================
+
+
+====================================================
+=== [22:37:48] SendAndExpect Debug:
+====================================================
+> Expect Result ........ Timed Out
+> Target IP ............ 172.0.14.49:22 (ssh)
+> spawn_id ............. exp8
+> Timeout .............. 10 second(s)
+> Time Expired ......... 10 second(s)
+> Send String .......... exit\r\n
+> RegExp Switches ...... --
+> Expect Prompt ........ .*[\r\n]*[^\s]{2,}[^\r\n]*[^@][>#:][ ]*$ (Default - Casa Prompt)
+> Ignore Level ......... Major
+> Pass String .......... #[:PROMPT:]
+> Fail String .......... N/A
+> EXPECT_TIMEDOUT ...... True
+> EXPECT_OUT(buffer) ... CASA-MOBILE>\r\nCASA-MOBILE>exit\r\nroot@CASA-MOBILE:~# 
+
+
+
+!! Error(SendAndExpect): Sent 'su casa\r\n'.  Timed Out waiting for '.*>.*[\r\n]*[^\s]{2,}[^\r\n]*[^@][>#:][ ]*$'
+
+=================================== 22:37:58 ===================================
+=== su casa
+=== 
+=== ===================================
+=== Welcome to CASA MEC x86 Platform
+=== ===================================
+=== CLI services started!
+=== 
+================================================================================
+
+
+====================================================
+=== [22:37:58] SendAndExpect Debug:
+====================================================
+> Expect Result ........ Timed Out
+> Target IP ............ 172.0.14.49:22 (ssh)
+> spawn_id ............. exp8
+> Timeout .............. 10 second(s)
+> Time Expired ......... 10 second(s)
+> Send String .......... su casa\r\n
+> RegExp Switches ...... --
+> Expect Prompt ........ .*[\r\n]*[^\s]{2,}[^\r\n]*[^@][>#:][ ]*$ (Default - Casa Prompt)
+> Ignore Level ......... Major
+> Pass String .......... >[:PROMPT:]
+> Fail String .......... N/A
+> EXPECT_TIMEDOUT ...... True
+> EXPECT_OUT(buffer) ... su casa\r\n\r\n===================================\r\nWelcome to CASA MEC x86 Platform\r\n===================================\r\n\rCLI services started!\r\n
+
+
+!! Error(MME::LOGIN_MME_SERVER): su casa error 
+!!Error(MME::Main): LOGIN_MME_SERVER fail !!! 
+STEP(22:37:58): RESULT=FAIL  Step 3: SSH to MME as casa and log into enable mode;
+Failed script name: /public/casa-493/test/mmenew.test
+Error(MME::Main):  
+Recovery conf!!
+recovery_conf!!
+Stop tools!!
+Info(DEALEXCEL::Mirror_Clear): There are the following spawn_id of NFV that should clear mirror config (SPAWN_ID_SAEGW_C)
+Info(DEALEXCEL::Mirror_Clear): There are the following spawn_id of NFV that should clear mirror config (SPAWN_ID_SAEGW_U)
+Complete all steps!!
+Info(EndofMmeTest): test==/public/casa-493/test/mmenew.test
+
+TRACE(ShowHistory) : Calledby EndofMmeTest
+
+
+                                                      
+------------------------------------------------------------------------------------------------------------
+              Time               spawn_id           Descr                         Command                  
+------------------------------------------------------------------------------------------------------------
+ 1            22:36:45           exp7               172.0.14.245:22:23            casa                     
+ 2            22:36:48           exp7               172.0.14.245:22:23            su casa                  
+ 3            22:36:48           exp7               172.0.14.245:22:23            en\ncasa                 
+ 4            22:36:48           exp7               172.0.14.245:22:23            show task crash          
+ 5            22:36:48           exp7                172.0.14.245:22:23           casa                     
+ 6            22:36:53           exp7                172.0.14.245:22:23           su casa                  
+ 7            22:36:54           exp7                172.0.14.245:22:23           en\ncasa                 
+ 8            22:36:54           exp8               172.0.14.49:22:23             casa                     
+ 9            22:36:58           exp8               172.0.14.49:22:23             su casa                  
+ 10           22:37:38           exp8               172.0.14.49:22:23             exit                     
+ 11           22:37:48           exp8               172.0.14.49:22:23             su casa                  
+------------------------------------------------------------------------------------------------------------
+
+
+
+=================================== 22:37:58 ===================================
+=== ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no 172.0.14.245
+=== root@172.0.14.245's password: 
+=== Welcome to Ubuntu 14.04.6 LTS (GNU/Linux 3.19.0-25-generic x86_64)
+=== 
+===  * Documentation:  https://help.ubuntu.com/
+=== 
+===   System information as of Mon Mar  9 14:36:48 UTC 2020
+=== 
+===   System load:  3.18               Users logged in:        1
+===   Usage of /:   40.4% of 23.38GB   IP address for eth0:    172.0.14.245
+===   Memory usage: 51%                IP address for docker0: 172.17.42.1
+===   Swap usage:   0%                 IP address for dp_0_1:  172.1.14.245
+===   Processes:    252
+=== 
+===   Graph this data and manage this system at:
+===     https://landscape.canonical.com/
+=== 
+===   Get cloud support with Ubuntu Advantage Cloud Guest:
+===     http://www.ubuntu.com/business/services/cloud
+=== 
+=== 9 updates can be installed immediately.
+=== 1 of these updates is a security update.
+=== 
+=== New release '16.04.6 LTS' available.
+=== Run 'do-release-upgrade' to upgrade to it.
+=== 
+=== 
+=== WARNING: Security updates for your current Hardware Enablement Stack
+=== ended on 2016-08-04:
+===  * http://wiki.ubuntu.com/1404_HWE_EOL
+=== 
+=== The following packages are no longer supported:
+===  linux-image-extra-3.19.0-25-generic linux-image-3.19.0-25-generic
+=== 
+=== Please upgrade them to a supported HWE stack or remove them if you
+=== no longer need them.
+=== 
+=== 
+=== Last login: Mon Mar  9 14:36:50 2020 from 172.0.11.88
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# su casa
+=== 
+=== ===================================
+=== Welcome to CASA MEC x86 Platform
+=== ===================================
+=== CLI services started!
+=== CASA-MOBILE>
+=== CASA-MOBILE>en
+=== Password: 
+=== CASA-MOBILE#
+=== CASA-MOBILE#show task crash
+=== Number  Task             Crash-Time                Exit-Code     Exit-Reason     Core-file
+=== ==========================================================================================
+=== Total 0 crash records
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+#####  Result:    FAILED
+#####  Script:    mmenew.test/1387_1389_1391_1393_1395_1397
+#####  Last Step: 3: SSH to MME as casa and log into enable mode;
+#####  Date:      03/09/2020 10:36:44 PM
+#####  Log:       /public/casa-493/test/Log/mmenew_25934-00.txt
+#####  Warnings:  0
+#####  Errors:    5
+#####  SubTest Duration: 01:18
+
+##########################################
+All test cases have been executed
+##########################################
+
+                                             mmenew
+-------------------------------------------------------------------------------------------------
+    Test                           Duration  Verdict  Errs  Warns  Type             Bugs  Fixed 
+-------------------------------------------------------------------------------------------------
+ 1  1387_1389_1391_1393_1395_1397  01:18     Fail     5            Expect No Error              
+-------------------------------------------------------------------------------------------------
+
+############################################
+#####  Passed:    0
+#####  Aborted:   0
+#####  Canceled:  0
+#####  Failed:    1
+#####  ----------------
+#####  Total:     1
+#####  Duration:  01:18
+#####
+#####  Script:    /public/casa-493/test/mmenew.test
+#####  Date:      03/09/2020 10:38:02 PM
+#####  Log:       /public/casa-493/test/Log/mmenew_25934-00.txt
+#####  Verdict:   FAILED
+############################################
+
+Info(RunTest): Closing all Telnet and Ssh sessions (1)
+
+=================================== 22:38:02 ===================================
+=== ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no 172.0.11.5
+=== root@172.0.11.5's password: 
+=== Welcome to Ubuntu 14.04.3 LTS (GNU/Linux 3.19.0-25-generic x86_64)
+=== 
+===  * Documentation:  https://help.ubuntu.com/
+=== 
+=== 601 packages can be updated.
+=== 431 updates are security updates.
+=== 
+=== New release '16.04.6 LTS' available.
+=== Run 'do-release-upgrade' to upgrade to it.
+=== 
+=== Last login: Mon Mar  9 22:36:43 2020 from 172-0-11-88.lightspeed.rcsntx.sbcglobal.net
+=== root@LTEPC52:~# page-off
+=== page-off: command not found
+=== root@LTEPC52:~# 
+=== root@LTEPC52:~# 
+=== root@LTEPC52:~# 
+=== root@LTEPC52:~# 
+=== root@LTEPC52:~# 
+=== root@LTEPC52:~# 
+=== root@LTEPC52:~# 
+=== root@LTEPC52:~# ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no 172.0.14.245
+=== root@172.0.14.245's password: 
+=== Welcome to Ubuntu 14.04.6 LTS (GNU/Linux 3.19.0-25-generic x86_64)
+=== 
+===  * Documentation:  https://help.ubuntu.com/
+=== 
+===   System information as of Mon Mar  9 14:37:58 UTC 2020
+=== 
+===   System load:  3.08               Users logged in:        1
+===   Usage of /:   40.4% of 23.38GB   IP address for eth0:    172.0.14.245
+===   Memory usage: 51%                IP address for docker0: 172.17.42.1
+===   Swap usage:   0%                 IP address for dp_0_1:  172.1.14.245
+===   Processes:    258
+=== 
+===   Graph this data and manage this system at:
+===     https://landscape.canonical.com/
+=== 
+===   Get cloud support with Ubuntu Advantage Cloud Guest:
+===     http://www.ubuntu.com/business/services/cloud
+=== 
+=== 9 updates can be installed immediately.
+=== 1 of these updates is a security update.
+=== 
+=== New release '16.04.6 LTS' available.
+=== Run 'do-release-upgrade' to upgrade to it.
+=== 
+=== 
+=== WARNING: Security updates for your current Hardware Enablement Stack
+=== ended on 2016-08-04:
+===  * http://wiki.ubuntu.com/1404_HWE_EOL
+=== 
+=== The following packages are no longer supported:
+===  linux-image-extra-3.19.0-25-generic linux-image-3.19.0-25-generic
+=== 
+=== Please upgrade them to a supported HWE stack or remove them if you
+=== no longer need them.
+=== 
+=== 
+=== Last login: Mon Mar  9 14:38:00 2020 from 172.0.11.88
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# su casa
+=== 
+=== ===================================
+=== Welcome to CASA MEC x86 Platform
+=== ===================================
+=== CLI services started!
+=== CASA-MOBILE>
+=== CASA-MOBILE>en
+=== Password: 
+=== CASA-MOBILE#
+=== CASA-MOBILE#show version
+=== QA Release: 4.9.3-346
+=== Build Time: Wed Mar  4 21:50:51 EST 2020
+=== 
+================================================================================
+
+
+=================================== 22:38:09 ===================================
+=== cd /email
+=== root@LTEPC52:/email# 
+=== root@LTEPC52:/email# 
+================================================================================
+
+
+=================================== 22:38:09 ===================================
+=== scp root@[172.0.11.88]:/public/casa-493/test/Log/mmenew_<ot@[172.0.11.88]:/public/casa-493/test/Log/mmenew_2                         
+=== 5934-00.txt /email/mmenew<asa-493/test/Log/mmenew_25934-00.txt /email/mmenew_                         
+=== 25934-00.txt
+=== root@172.0.11.88's password: 
+================================================================================
+
+
+=================================== 22:38:09 ===================================
+=== 
+=== mmenew_25934-00.txt                             0%    0     0.0KB/s   --:-- ETAmmenew_25934-00.txt                           100% 9146     8.9KB/s   00:00    
+=== root@LTEPC52:/email# 
+================================================================================
+
+Info(Mail): Sleeping 2 second(s)...
+
+=================================== 22:38:11 ===================================
+=== tar Jcvf mmenew_25934-00.tar.bz2 mmenew_25934-00.txt
+=== mmenew_25934-00.txt
+=== root@LTEPC52:/email# 
+=== root@LTEPC52:/email# 
+================================================================================
+
+
+=================================== 22:38:11 ===================================
+=== rm casa.txt
+=== root@LTEPC52:/email# 
+=== root@LTEPC52:/email# 
+================================================================================
+
+
+=================================== 22:38:11 ===================================
+=== sed  -i 's/Impossible characters, let the whole content <i 's/Impossible characters, let the whole content a                         
+=== s a domain/ /'  /email/mm<, let the whole content as a domain/ /'  /email/mme                         
+=== new_25934-00.txt
+=== root@LTEPC52:/email# 
+=== root@LTEPC52:/email# 
+================================================================================
+
+
+=================================== 22:38:11 ===================================
+=== awk 'BEGIN {RS = "Impossible characters, let the whole c<EGIN {RS = "Impossible characters, let the whole co                         
+=== ntent as a domain"; FS = <racters, let the whole content as a domain"; FS = "                         
+=== mmenew\n"}/./{print $NF}'<tent as a domain"; FS = "mmenew\n"}/./{print $NF}'                          
+=== /email/mmenew_25934-00.tx<menew\n"}/./{print $NF}' /email/mmenew_25934-00.txt                         
+===   >
+================================================================================
+
+
+=================================== 22:38:11 ===================================
+===  casa.txt
+=== root@LTEPC52:/email# 
+=== root@LTEPC52:/email# mail -v -s "Version:4.9.3-346 Failed: mmenew.test  MEC:1<v -s "Version:4.9.3-346 Failed: mmenew.test  MEC:17                         
+=== 2.0.14.245" -a mmenew_259<iled: mmenew.test  MEC:172.0.14.245" -a mmenew_2593                         
+=== 4-00.tar.bz2 gzltesqa@cas<.0.14.245" -a mmenew_25934-00.tar.bz2 gzltesqa@casa                         
+=== china.com.cn < casa.txt
+=== Resolving host smtp.qiye.163.com . . . done.
+=== Connecting to 220.194.24.10:smtp . . . connected.
+=== 220 ****************************************
+=== >>> EHLO LTEPC52
+=== 
+================================================================================
+
+
+=================================== 22:38:12 ===================================
+=== 
+=== 
+=== 250-proxy-sm-thq-1.hmbj.internal
+=== 250-PIPELINING
+=== 250-8BITMIME
+=== 250-AUTH=LOGIN PLAIN
+=== 250-AUTH PLAIN LOGIN
+=== 250 XXXXXXXA
+=== >>> AUTH LOGIN
+=== 334 VXNlcm5hbWU6
+=== >>> bHVkYXFpbkBjYXNhY2hpbmEuY29tLmNu
+=== 334 UGFzc3dvcmQ6
+=== >>> ZGFxaW43MTQ1MTc=
+=== 235 2.0.0 OK
+=== >>> MAIL FROM:<ludaqin@casachina.com.cn>
+=== 250 Mail OK
+=== >>> RCPT TO:<gzltesqa@casachina.com.cn>
+=== 250 Mail OK
+=== >>> DATA
+=== 354 End data with <CR><LF>.<CR><LF>
+=== >>> .
+=== 250 Mail OK queued as smtp2,iOCowAD3l+vTVGZetxXEAA--.4316S2 1583764691
+=== >>> QUIT
+=== 221 Bye
+=== root@LTEPC52:/email# 
+=== root@LTEPC52:/email# 
+=== root@LTEPC52:/email# 
+=== root@LTEPC52:/email# 
+================================================================================
+

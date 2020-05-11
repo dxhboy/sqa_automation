@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>产品展示</title>
+
+<link rel="stylesheet" href="css/task.css" />
+<link rel="stylesheet" type="text/css" href="./base.css" />
+<link rel="stylesheet" href="css/image-hover.css" type="text/css">
+<style type="text/css">  
+body{ margin:0; height:100% }  
+html{ height:100% }  
+#left{ width:50%; height:100%; float:left; _margin-right:-3px;}  
+#right{ height:100%;}
+ 
+</style>  
+<script src="./JS_lib.js"></script>
+<script src="./jquery-3.4.1.js"></script>
+</head>
+
+<script type="text/javascript">
+	
+	window.onload=function()
+	{
+		var proj_id_selected = '{$proj_id_selected}'; 
+		
+		if (proj_id_selected != false) {
+			load_project_info(proj_id_selected)
+			load_Task_list(proj_id_selected);
+			localStorage.setItem('proj_id_selected', proj_id_selected);
+
+			detect_click_task();
+		}
+		detect_click_task();
+		detect_Chick_showOrHide_Span();
+	} 
+	
+	function reset_project_li_selected() {
+		var aObj=window.parent.document.getElementById("upper").contentWindow.document.getElementsByName('project')[0].children;
+		for(var i=0;i<aObj.length;i++)
+		{
+			aObj[i].setAttribute('selected','');
+		}
+	}
+
+	function get_project_info(project_id){
+		//console.log('####################');
+		Run_Php_File(http_type="post", post_info=project_id, php_file="read_project_info.php", locStorVal="project_info_obj")
+		//console.log('####################');
+	}
+	
+	function load_project_info(project_id) {
+		//console.log(project_id);
+		get_project_info(project_id);
+		var project_info_arrays = JSON.parse(localStorage.getItem('project_info_obj'))[0];
+		//console.log(project_info_arrays);
+		
+		var proj_info_obj = document.getElementsByName('project_info')[0];
+		proj_info_obj.style.display = "";
+		td_list = proj_info_obj.getElementsByTagName('TD');
+		
+		//reset all info
+		for (var index in td_list) {
+			if(td_list[index] instanceof HTMLElement){
+				name = td_list[index].getAttribute('name');
+		
+				if (name == 'notes') {
+					//console.log(td_list[index].childNodes);
+					
+					td_list[index].childNodes[1].innerHTML = "";
+				} else {
+					if (name != 'null') {
+						td_list[index].innerHTML = "";
+					}
+					
+				}
+			}
+		}
+		
+		for (var index in td_list) {
+			if(td_list[index] instanceof HTMLElement){
+				//console.log(td_list[index]);
+				//console.log(td_list[index].name);
+				name = td_list[index].getAttribute('name');
+				if (name != 'null') {
+					//console.log(name);
+					if (name == 'notes') {
+						//console.log(project_info_arrays[name]);
+						td_list[index].childNodes[1].innerHTML = project_info_arrays[name];
+					} else if (name == 'picpath') {
+					
+						console.log(project_info_arrays[name]);
+						if(project_info_arrays[name]!=null){
+							var temp=project_info_arrays[name].split(",");
+							var picdata=''; 
+							
+							for(j = 0,len=temp.length; j < len; j++) {
+								picdata=picdata+"<img  src='"+temp[j]+"'>";
+							}
+							console.log(picdata);
+							document.getElementById("picpath").innerHTML=picdata;
+						}
+					} else if (name == 'filepath') {
+					
+						if(project_info_arrays[name]!=null){
+							var temp=project_info_arrays[name].split(",");
+							var filedata=''; 
+							
+							for(j = 0,len=temp.length; j < len; j++) {
+								var tempname=temp[j].split("file/");
+								filedata=filedata+"<a href='"+temp[j]+"'>"+tempname[1]+"</a>&emsp;&emsp;&emsp;";
+							}
+							
+							document.getElementById("filepath").innerHTML=filedata;
+						}
+					} else {
+						td_list[index].innerHTML = project_info_arrays[name];
+					}
+				}
+			}
+		}
+
+		if (project_info_arrays["longtime"] == "yes") {
+			$("#project_est")[0].innerHTML = "长期";
+			$("#project_start")[0].innerHTML = "长期";
+			$("#project_end")[0].innerHTML = "长期";
+			$("#project_status")[0].innerHTML = "start";
+		}
+	}
+	
+	function load_Task_list(project_id) {
+		//console.log(project_id);
+		get_task(project_id);
+		var task_arrays = JSON.parse(localStorage.getItem('taskobj'));
+		//console.log(task_arrays);
+		//############delete old task list
+		var root_ulobj = document.getElementsByName('task_list')[0];
+		root_ulobj.innerHTML = "";
+		
+		//############# load and show all task 
+		showTask(task_arrays);
+		
+		// close the permitsion of guest
+		if ('{$permit}' == 'guest') {
+			all_select_ele = root_ulobj.getElementsByTagName('select');
+			for (var k=0; k<all_select_ele.length; k++) {
+				all_select_ele[k].setAttribute('disabled','disabled');
+			}
+		}		
+		
+		//show project progress rate according task pc
+		task_list_ele = $('[name="task_list"]')[0];
+		li_list = casa_getElementsByTag(task_list_ele,"LI");
+		//console.log(li_list);
+		count = li_list.length;
+		if (count != 0) {
+			sum = 0;
+			for (var index=0; index<li_list.length; index++) {
+				li = li_list[index];
+				sum += parseInt(li.getAttribute("pc"));
+			}
+			//console.log(sum);
+			var proj_pc = Math.round(sum/count);
+		} else {
+			var proj_pc = 0;
+		}
+		document.getElementsByName('proj_pc')[0].innerText = proj_pc + "%";
+	}
+
+	function to_modify_task_html() {
+		var proj_id_selected = localStorage.getItem('proj_id_selected');
+		
+		var url = "project_management/smarty_modify_task.php" + "?proj_id_selected=" + proj_id_selected;
+		Replace_Work_Field(url);
+	}
+	
+	function to_modify_project_html() {
+		var proj_id_selected = localStorage.getItem('proj_id_selected');
+
+		var url = "smarty_modify_project.php" + "?proj_id_selected=" + proj_id_selected;
+
+		window.parent.window.location.href=url;
+	}
+	
+	function delete_project() {
+		proj_id = localStorage.getItem('project_id_selected')
+		proj_name = localStorage.getItem('project_name_selected');
+		if (confirm("确定删除项目\""+proj_name+"\"吗?")) {
+			Run_Php_File(http_type="post", post_info=proj_id, php_file="delete_project.php", locStorVal="");
+			window.parent.location.reload();
+		}
+	}
+	
+</script>
+
+<body>
+	<div>
+		<h1>项目信息  
+			{if $permit !== "guest"}
+			<input type="button" value="编辑项目" onclick="to_modify_project_html()"/>
+			<input style="background-color:#993300;" type="button" value="删除项目" onclick="delete_project()"/>
+			{/if}
+		</h1>
+		<table style="display:none" id='' name="project_info" cellpadding='0' cellspacing='0'>
+			<tr>
+				<td><b>项目名称</b></td>
+				<td name="name"></td>
+				<td width="100px"><b>项目状态</b></td>
+				<td id="project_status" width="100px" name="status"></td>
+				<td><b>项目创建日期</b></td>
+				<td name="create_time"></td>
+				<td><b>项目预期结束日期</b></td>
+				<td id="project_est" name="est_com_time"></td>
+			</tr>
+			<tr>
+				<td><b>项目信息</b></td>
+				<td name="notes">
+					<textarea resize="" resize readonly style="background-color:lightgray"name="task_info_notes" cols="50" rows="1"></textarea>	
+					
+				</td>
+				<td><b>项目总进度</b></td>
+				<td name="proj_pc"></td>
+				<td><b>项目开始日期</b></td>
+				<td id="project_start" name="start_time"></td>
+				<td><b>项目实际结束日期</b></td>
+				<td id="project_end" name="act_com_time"></td>
+			</tr>
+			<tr>
+				<td><b>附件</b></td>
+				<td id='filepath' name="filepath"></td>
+			</tr>
+			
+			<tr>
+				<td ><b>附件图</b></td>
+				<td class="img" id='picpath' name="picpath"></td>
+			</tr>
+		</table>
+	</div>
+	
+	<hr/>
+	<hr/>
+	
+	<div id="left" class="show_con">
+		
+		<h1>任务列表  
+			{if $permit !== "guest"}
+			<input type="submit" value="编辑任务" onclick="to_modify_task_html()"/>
+			{/if}
+		</h1>
+		
+		<ul name="task_list"></ul>
+
+	</div>
+	
+	<div id="right" class="show_con">
+		<h1>任务详情</h1>
+		<table id='table_right' name="task_info" cellpadding='0' cellspacing='0'>
+			
+			<tr>
+				<td><b>任务名称</b></td>
+				<td name="name"></td>
+			</tr>
+			<tr>
+				<td><b>任务信息</b></td>
+				<td name="notes">
+					<textarea resize readonly style="background-color:lightgray"name="task_info_notes" cols="50" rows="1"></textarea>	
+					
+				</td>
+			</tr>
+			<tr>
+				<td><b>任务所属小组</b></td>
+				<td name="group"></td>
+			</tr>
+			<tr>
+				<td><b>任务所属人员</b></td>
+				<td name="staff"></td>
+			</tr>
+			<tr>
+				<td><b>任务创建日期</b></td>
+				<td name="create_time"></td>
+			</tr>
+			<tr>
+				<td><b>任务开始日期</b></td>
+				<td name="start_time"></td>
+			</tr>
+			<tr>
+				<td><b>任务预期结束日期</b></td>
+				<td name="est_com_time"></td>
+			</tr>
+			<tr>
+				<td><b>任务实际结束日期</b></td>
+				<td name="act_com_time"></td>
+			</tr>
+			<tr>
+				<td><b>附件</b></td>
+				<td id='taskfilepath' name="taskfilepath"></td>
+			</tr>
+	
+		
+			<tr>
+				<td ><b>附件图</b></td>
+				<td class="img" id='taskpicpath' name="taskpicpath"></td>
+			</tr>
+		</table>
+	</div>
+
+</body>
+</html>
+ 

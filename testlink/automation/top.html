@@ -1,0 +1,330 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>CASA LTE-SQA 自动化测试平台</title>
+
+</head>
+
+<body bgcolor="#E6E6FA">
+<script type="text/javascript" src="js/sentcase.js"></script>
+<div>
+	<div style="width:70%;float:left;"><h3 align="center">CASA LTE-SQA 自动化测试平台</h3></div>
+	<div style="width:30%;float:left;font-size:2px">
+		模式一:运行过程所有用例显示"执行中"<br>
+		模式二:运行中的用例显示"执行中",其他等待中的用例显示"等待中"（执行过程不能刷新关闭网页）<br>
+		模式三:用于调试模式一；模式四：用于调试模式二(仅限自动化人员使用)<br>
+		(温馨提醒:如果出现问题，请按f12，点击console，查看问题(红色字体)，截取图片给自动化人员)
+	</div>
+</div>
+<form action="">	
+	<table width="100%" border="0">
+		<tr align="center">
+			
+			<td colspan="2" width="4%"><input type="button" class="btn" value="初始化" onclick='clearrecords();' /> </td>
+			<!-- <td  align="right" width="4%">测试人:</td> -->
+			
+			<!-- <td width="3%"> -->
+				<!-- <script type="text/javascript"> -->
+					
+					<!-- function loadCallback(){ -->
+						
+						<!-- var oS1=document.getElementsByName('tester'); -->
+						
+						<!-- var objs = JSON.parse(localStorage.getItem('obj')); -->
+						
+						<!-- var obj2=objs.tester; -->
+						
+						<!-- var obj=obj2[0]; -->
+						<!-- for(var p in obj){//遍历json对象的每个key/value对,p为key -->
+							
+						   
+							<!-- oS1[0].innerHTML+='<option value="'+p+'">'+obj[p]+'</option>'; -->
+						   
+						   
+						<!-- } -->
+					<!-- } -->
+					
+					<!-- function addLoadEvent(func){  -->
+						<!-- var oldonload=window.onload;  -->
+						<!-- if(typeof window.onload!='function'){  -->
+							<!-- window.onload=func;  -->
+							
+						<!-- } else{  -->
+							<!-- window.onload=function(){  -->
+								<!-- oldonload();  -->
+								<!-- func();  -->
+								
+							<!-- }  -->
+						<!-- }  -->
+						
+					<!-- }  -->
+					<!-- addLoadEvent(loadCallback); -->
+					
+				<!-- </script> -->
+				<!-- <select name="tester" id="tester"> -->
+					<!-- <option value="">--请选择--</option> -->
+				<!-- </select> -->
+			<!-- </td> -->
+			<td  align="right" width="5%">测试版本:</td>
+			<td width="5%">
+				<script type="text/javascript">
+					
+					function loadCallback(){
+						
+						var oS1=document.getElementsByName('edition');
+						<!-- var pro=['492','493','494','495']; -->
+						<!-- for(var i=0;i<pro.length;i++){ -->
+							<!-- oS1[0].innerHTML+='<option value="'+pro[i]+'">'+pro[i]+'</option>'; -->
+						<!-- } -->
+						var objs = JSON.parse(localStorage.getItem('obj'));
+						var obj2=objs.edition;
+						
+						var obj=obj2[0];
+						for(var p in obj){//遍历json对象的每个key/value对,p为key
+							
+						   
+							oS1[0].innerHTML+='<option value="'+obj[p]+'">'+obj[p]+'</option>';
+						   
+						   
+						}
+					}
+					
+					function addLoadEvent(func){ 
+						var oldonload=window.onload; 
+						if(typeof window.onload!='function'){ 
+							window.onload=func; 
+						} else{ 
+							window.onload=function(){ 
+								oldonload(); 
+								func(); 
+							} 
+						} 
+					} 
+					addLoadEvent(loadCallback);
+				</script>
+				<select name="edition" id="edition">
+					<option value="">--请选择--</option>
+				</select>
+			</td>
+			<td  align="right" width="4%">版本号:</td>
+			<td width="5%">
+				<script type="text/javascript">
+					
+					function loadCallback(){
+						
+						var oS1=document.getElementsByName('smalledition');
+						
+						var httpRequest = new XMLHttpRequest();//第一步：创建需要的对象	
+						httpRequest.open('post', 'smalledition.php', true); //第二步：打开连接/***发送json格式文件必须设置请求头 ；如下 - */
+						var contact = new Object();
+						
+						if (localStorage.getItem('testplanID')) {
+			
+							contact.testplanID = localStorage.getItem('testplanID');
+							
+						} else {
+							
+							contact.testplanID = "Initialization";
+							
+						}
+						// 设置请求头 注：post方式必须设置请求头（在建立连接后设置请求头）
+						httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+						var jsondata = JSON.stringify(contact);
+						
+						httpRequest.send(jsondata);
+						/**
+						 * 获取数据后的处理程序
+						 */
+						httpRequest.onreadystatechange = function () {//请求后的回调接口，可将请求成功后要执行的程序写在其中
+							if (httpRequest.readyState == 4 && httpRequest.status == 200) {//验证请求是否发送成功
+								var json = httpRequest.responseText;//获取到服务端返回的数据
+								var objs = JSON.parse(json);
+								
+								for (var p in objs){//遍历json对象的每个key/value对,p为key
+									
+									oS1[0].innerHTML+='<option value="'+p+'">'+objs[p]+'</option>';
+								}
+								
+							}
+						};
+						
+					}
+					function updateversion(){
+						var objSel = document.getElementById("smalledition");
+ 
+						if(null == objSel){
+							alert('id为' + selectId +'的下拉菜单不存在，请返回检查！');
+							<!-- return ''; -->
+						}
+					 
+						var selectVal = objSel.value;    //获取下拉菜单的当前选定值
+						
+						var ops = objSel.options;
+					 
+						if(null==ops || ops.length==0){
+							alert('length！');
+						}
+					 
+						for(var i=0; i<ops.length; i++){
+							if(selectVal == ops[i].value){
+								//返回当前选定值对应的显示值
+								var opsvalue=ops[i].text;
+								<!-- console.log(opsvalue); -->
+								if (opsvalue=="--请选择--") {
+									
+									localStorage.setItem('smalleditionobj', "Initialization");
+								} else {
+									
+									localStorage.setItem('smalleditionobj', opsvalue);
+								}
+								
+								var projectid=localStorage.getItem('projectid');
+								parent.getcaselist(projectid);
+							}
+						}
+						
+					}
+					function addLoadEvent(func){ 
+						var oldonload=window.onload; 
+						if(typeof window.onload!='function'){ 
+							window.onload=func; 
+						} else{ 
+							window.onload=function(){ 
+								oldonload(); 
+								func(); 
+							} 
+						} 
+					} 
+					addLoadEvent(loadCallback);
+				</script>
+				<select name="smalledition" id="smalledition" onclick="updateversion()">
+					<option value="Initialization">--请选择--</option>
+				</select>
+			</td>
+			<td align="right" width="5%">循环次数:</td>
+			<td width="5%"><input type="text" id="looptimes" align="left" maxlength="15" size="15"></td>
+			
+			<td align="right" width="5%">执行环境:</td>
+			<td width="5%">
+				<script type="text/javascript">
+					
+					function onloadCallback(){
+						
+						
+						var oS1=document.getElementsByName('environment');
+						
+						var objs = JSON.parse(localStorage.getItem('obj'));
+						var obj1=objs.environmental;
+						
+						var obj=obj1[0];
+						for(var p in obj){//遍历json对象的每个key/value对,p为key
+							
+						   if (p!="state") {
+								oS1[0].innerHTML+='<option value="'+p+'">'+obj[p]+'</option>';
+						   }
+						   
+						}
+						
+					}
+					
+					
+					function addLoadEvent(func){ 
+						
+						var oldonload=window.onload; 
+						if(typeof window.onload!='function'){ 
+							window.onload=func; 
+							
+						} else{ 
+							window.onload=function(){ 
+								oldonload(); 
+								func(); 
+								
+							} 
+						} 
+						
+					} 
+					 
+					addLoadEvent(onloadCallback);
+				</script>
+				<select name="environment" id="environment" >
+					<option value="">--请选择--</option>
+				</select>
+			</td>
+			<td align="right" width="4%">指定顺序:</td>
+			<td width="2%"> 
+				<script type="text/javascript">
+					function onloadCall(){
+					  var oS=document.getElementsByName('order');
+						var pwro=['是'];
+						for(var i=0;i<pwro.length;i++){
+							oS[0].innerHTML+='<option value="yes">'+pwro[i]+'</option>';
+						}
+					}
+					
+					function addLoadEvent(func){ 
+						var oldonload=window.onload; 
+						if(typeof window.onload!='function'){ 
+							window.onload=func; 
+						} else{ 
+							window.onload=function(){ 
+								oldonload(); 
+								func(); 
+							} 
+						} 
+					} 
+					addLoadEvent(onloadCall);
+				</script>
+				<select name="order" id="order">
+					<option value="off">否</option>
+				</select>
+			</td>
+			<td align="right" width="5%">发送邮件:</td>
+			<td width="2%"> 
+				<script type="text/javascript">
+					function onloadCall(){
+					  var oS=document.getElementsByName('sentmail');
+						var pwro=['否'];
+						var engno = ['off'];
+						for(var i=0;i<pwro.length;i++){
+							oS[0].innerHTML+='<option value="'+engno[i]+'">'+pwro[i]+'</option>';
+						}
+					}
+					
+					function addLoadEvent(func){ 
+						var oldonload=window.onload; 
+						if(typeof window.onload!='function'){ 
+							window.onload=func; 
+						} else{ 
+							window.onload=function(){ 
+								oldonload(); 
+								func(); 
+							} 
+						} 
+					} 
+					addLoadEvent(onloadCall);
+				</script>
+				<select name="sentmail" id="sentmail">
+					<option value="on">是</option>
+				</select>
+			</td>
+			<td align="right" width="5%">测试备注:</td>
+			<td width="5%"><input type="text" id="remarks" align="left" maxlength="15" size="15"></td>
+			<td width="3%">
+				<select name="mode" id="mode">
+				  <option value="mode1" selected="">模式一</option>
+				  <option value="mode2">模式二</option>
+				  <option value="mode3">模式三</option>
+				  <option value="mode4">模式四</option>
+				</select>
+			</td>
+			<td title="运行勾选的测试用例脚本" colspan="2" width="3%"><input type="submit"  id="submit" value="发送" onclick="Choose_Mode_And_Run();" ></td>
+			<td colspan="2" width="3%"><input type="button" style="display: none" id="Pause"  value="暂停" onclick="Pausecase();" ></td>
+			<td title="停止当前测试用例脚本,运行下一个测试用例脚本" colspan="2" width="3%"><input type="button" style="display: none"  id="stop"  value="停止" onclick="casa_StopCase(this);" ></td>
+			<td title="终止所有测试用例脚本(如果2分钟内没有停止成功，请到11.88上kill进程后，浏览器清除缓存，刷新界面)" colspan="2" width="3%"><input type="button" style="display: none" id="stopall"  value="终止" onclick="casa_StopCase(this);" ></td>
+			
+		</tr>
+	</table>
+</form>
+</body>
+</html>

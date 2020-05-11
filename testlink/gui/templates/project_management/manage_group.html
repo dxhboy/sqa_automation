@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>小组管理</title>
+    <script type="text/javascript" src="./js/mg.js"></script>
+    <script type="text/javascript" src="./js/jquery.min.js"></script> 
+    <link rel="stylesheet" href="./css/base.css" />
+    <link rel="stylesheet" href="./css/pgbase.css" />
+  </head>
+  
+  <script>
+  	  window.onload = function() {
+  		  group_dis_display();
+  	  }
+  	</script>
+  
+  <body>
+    <iframe
+      align="center"
+      width="100%"
+      height="80"
+      src="smarty_header.php"
+      frameborder="no"
+      border="0"
+      marginwidth="0"
+      marginheight="0"
+      scrolling="no"
+    ></iframe>
+	<div>
+	  <h3 style="color:SlateGray">
+	    显示所有小组&nbsp;&nbsp;&nbsp;
+	    <button id="group_dis_display" onclick="group_dis_display()">
+	      展开/刷新
+	    </button>
+	    <button
+	      id="group_dis_hide"
+	      onclick="document.getElementById('group_dis').style.display='none'"
+	    >
+	      折叠
+	    </button>
+	  </h3>
+	  <div id="group_dis" hidden>
+	    <p id="dis_all_group">小组列表:</p>
+	    <br /><br />
+	  </div>
+	  <hr />
+	</div>
+	{if $permit !== "guest"}
+    <div>
+      <h3 style="color:LightSeaGreen">
+        添加小组&nbsp;&nbsp;&nbsp;
+        <button
+          id="group_add_display"
+          onclick="document.getElementById('group_add').style.display='block'"
+        >
+          展开/刷新
+        </button>
+        <button
+          id="group_add_hide"
+          onclick="document.getElementById('group_add').style.display='none'"
+        >
+          折叠
+        </button>
+      </h3>
+      <div id="group_add" hidden>
+        小组名称: <br />
+        <input
+          type="text"
+          name="group_name"
+          id="group_name"
+          value=""
+          required="required"
+          style="width:300px;height:20px;"
+        />
+        <br /><br />
+        <button id="add_commit" onclick="add_commit()">提交</button>
+      </div>
+      <hr />
+    </div>
+    <div>
+      <h3 style="color:Brown">
+        删除小组&nbsp;&nbsp;&nbsp;
+        <button id="group_del_display" onclick="group_del_display()">
+          展开/刷新
+        </button>
+        <button
+          id="group_del_hide"
+          onclick="document.getElementById('group_del').style.display='none'"
+        >
+          折叠
+        </button>
+      </h3>
+      <div id="group_del" hidden>
+        <p id="get_all_group">
+          请选中要删除的小组&nbsp&nbsp&nbsp(notice:可多选)&nbsp:
+        </p>
+        <br />
+        <button id="del_commit" onclick="del_commit()">提交</button>
+      </div>
+      <hr />
+    </div>
+	{/if}
+ 
+  </body>
+</html>

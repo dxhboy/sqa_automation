@@ -1,0 +1,2889 @@
+##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### 
+# AutoApp    v15.1009
+# Harness:   root@tclserver8
+# Date:      03/30/2020 12:41:26 AM
+# Script:    /public/casa-495/test/Tests/hxd/SAEGW.test
+# Eth0 IP:   0.0.0.0
+# Loopback:  
+# Image:     
+# Descript:  
+# Config:    /public/casa-495/test/Config/saegw_dxj.tcf
+# Log File:  /public/casa-495/test/Log/SAEGW_8875-01.txt
+##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### 
+
+Info(Include): Installed package casaExcel v1.0
+Info(Include): Installed package casaSAEGW v1.0
+TRACE(SAEGW::Main) : Calledby RunTest
+Info(Include): Installed package casaExcel v1.0
+Info(Include): Installed package casaLandslide v1.0
+
+STEP(00:41:26): START Step 1: 1.Get the Excel list;
+STEP(00:41:26): RESULT=PASS  Step 1: 1.Get the Excel list;
+
+STEP(00:41:26): START Step 2: 2.Get a list of use cases;
+STEP(00:41:26): RESULT=PASS  Step 2: 2.Get a list of use cases;
+Info(Include): Installed package casaCmd v9.0
+Info(Include): Installed package casaSAEGW v1.0
+Info(Include): Installed package casaPGW v1.0
+Info(Include): Installed package casaIxia v1.0
+Info(Include): Installed package casaPlatform v1.0
+   TRACE(StartSaegwTest)	 Calledby ::SAEGW::Main 
+
+
+=================================== 00:41:27 ===================================
+=== ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no 172.0.10.51
+=== root@172.0.10.51's password: 
+=== Last login: Sun Mar 29 16:15:34 2020 from 172-0-11-88.lightspeed.rcsntx.sbcglobal.net
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# su casa
+=== 
+=== ===================================
+=== Welcome to CASA MEC x86 Platform
+=== ===================================
+=== CLI services started!
+=== CASA-MOBILE>
+=== CASA-MOBILE>en
+=== Password: 
+=== CASA-MOBILE#
+=== CASA-MOBILE#show task crash
+=== Number  Task             Crash-Time                Exit-Code     Exit-Reason     Core-file
+=== ==========================================================================================
+=== Total 0 crash records
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 00:41:30 ===================================
+=== ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no 172.0.10.57
+=== root@172.0.10.57's password: 
+=== Last login: Sun Mar 29 16:39:11 2020 from 172-0-11-192.lightspeed.rcsntx.sbcglobal.net
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# su casa
+=== 
+=== ===================================
+=== Welcome to CASA MEC x86 Platform
+=== ===================================
+=== CLI services started!
+=== CASA-MOBILE>
+=== CASA-MOBILE>en
+=== Password: 
+=== CASA-MOBILE#
+=== CASA-MOBILE#show task crash
+=== Number  Task             Crash-Time                Exit-Code     Exit-Reason     Core-file
+=== ==========================================================================================
+=== Total 0 crash records
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+STEP(00:41:31): START Step 3: SSH to SAEGW linux
+TRACE(Ssh_Retry) Calledby ::DEALEXCEL::Ssh_Server
+
+=================================== 00:41:32 ===================================
+=== ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no 172.0.10.51
+=== root@172.0.10.51's password: 
+=== Last login: Sun Mar 29 16:41:35 2020 from 172-0-11-88.lightspeed.rcsntx.sbcglobal.net
+=== root@CASA-MOBILE:~# page-off
+=== page-off: command not found
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+================================================================================
+
+!!Success(DEALEXCEL::Ssh_Server): Ssh 172.0.10.51 Success fd: ::DEALEXCEL::Spawn_Id(SPAWN_ID_SAEGW_C_Linux_1)=exp7
+TRACE(Ssh_Retry) Calledby ::DEALEXCEL::Ssh_Server
+
+=================================== 00:41:35 ===================================
+=== ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no 172.0.10.57
+=== root@172.0.10.57's password: 
+=== Last login: Sun Mar 29 16:41:37 2020 from 172-0-11-88.lightspeed.rcsntx.sbcglobal.net
+=== root@CASA-MOBILE:~# page-off
+=== page-off: command not found
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+================================================================================
+
+!!Success(DEALEXCEL::Ssh_Server): Ssh 172.0.10.57 Success fd: ::DEALEXCEL::Spawn_Id(SPAWN_ID_SAEGW_U_Linux_1)=exp8
+STEP(00:41:36): RESULT=PASS  Step 3: SSH to SAEGW linux
+
+STEP(00:41:36): START Step 4: 3.SSH to SAEGW-C and SAEGW-U as casa and log into enable mode;
+
+=================================== 00:41:37 ===================================
+=== ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no  172.0.10.51
+=== root@172.0.10.51's password: 
+=== Last login: Sun Mar 29 16:41:40 2020 from 172-0-11-88.lightspeed.rcsntx.sbcglobal.net
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+================================================================================
+
+!!Success(SAEGW::LOGIN_SAEGW_SERVER): Ssh  172.0.10.51 Success fd=exp9
+
+=================================== 00:41:40 ===================================
+=== su casa
+=== 
+=== ===================================
+=== Welcome to CASA MEC x86 Platform
+=== ===================================
+=== CLI services started!
+=== CASA-MOBILE>
+=== CASA-MOBILE>en
+=== Password: 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+!!Success(SAEGW::LOGIN_SAEGW_SERVER): enter CASA-MOBILE Success!!!
+
+=================================== 00:41:41 ===================================
+=== ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no  172.0.10.57
+=== root@172.0.10.57's password: 
+=== Last login: Sun Mar 29 16:41:42 2020 from 172-0-11-88.lightspeed.rcsntx.sbcglobal.net
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+================================================================================
+
+!!Success(SAEGW::LOGIN_SAEGW_SERVER): Ssh  172.0.10.57 Success fd=exp10
+
+=================================== 00:41:45 ===================================
+=== su casa
+=== 
+=== ===================================
+=== Welcome to CASA MEC x86 Platform
+=== ===================================
+=== CLI services started!
+=== CASA-MOBILE>
+=== CASA-MOBILE>en
+=== Password: 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+!!Success(SAEGW::LOGIN_SAEGW_SERVER): enter CASA-MOBILE Success!!!
+STEP(00:41:45): RESULT=PASS  Step 4: 3.SSH to SAEGW-C and SAEGW-U as casa and log into enable mode;
+
+STEP(00:41:45): START Step 5: 4.get excel case info
+1
+################start read test link database info################
+python3 ./Lib/casaPython/Read_Test_Plan_DB.py 31585 '31584' /public/dxj/tcpdump
+################finish read test link database info################
+STEP(00:41:52): RESULT=PASS  Step 5: 4.get excel case info
+
+STEP(00:41:52): START Step 6: 5.get excel case info
+Execute Step:10422 
+!! Info(Adapt_Environment): Global variable ADAPT_ENVIR_FLAG not exists or == 0, pass this proc
+step_10422
+
+=================================== 00:41:53 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(CasaGetPrompt): Current CLI mode for exp9 is enable
+
+=================================== 00:41:53 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 00:41:56 ===================================
+=== 
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 00:41:57 ===================================
+=== config
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+
+=================================== 00:41:59 ===================================
+=== 
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+SendAndExpect  diameter-endpoint ls_rf  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 00:41:59 ===================================
+=== diameter-endpoint ls_rf
+=== CASA-MOBILE(config-diameter-ep-ls_rf)#
+=== CASA-MOBILE(config-diameter-ep-ls_rf)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  origin host pgw01.rf.epc.gz realm asac.com gige 0/1  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 00:42:00 ===================================
+=== origin host pgw01.rf.epc.gz realm asac.com gige 0/1
+=== config diameter endpoint failed, rc= -1
+===     failed reason = failed to config diameter endpoint, origin is existent, need to delete all peers and all routes first
+=== CASA-MOBILE(config-diameter-ep-ls_rf)#
+=== CASA-MOBILE(config-diameter-ep-ls_rf)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  peer host ofcs.landslide.com realm landslide.com ipv4 172.1.214.32 tcp  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 00:42:01 ===================================
+=== peer host ofcs.landslide.com realm landslide.com ipv4 172.1.214.32 tcp
+=== config diameter endpoint failed, rc= -1
+===     failed reason = failed to add diameter peer, the same peer ofcs.landslide.com already exists and is used in route_entry
+=== CASA-MOBILE(config-diameter-ep-ls_rf)#
+=== CASA-MOBILE(config-diameter-ep-ls_rf)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  route-entry realm landslide.com app rf peer host ofcs.landslide.com weight 50  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 00:42:02 ===================================
+=== route-entry realm landslide.com app rf peer host ofcs.landslide.com weight 50
+=== CASA-MOBILE(config-diameter-ep-ls_rf)#
+=== CASA-MOBILE(config-diameter-ep-ls_rf)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  exit  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 00:42:03 ===================================
+=== exit
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  rf-service  rf_ls  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 00:42:04 ===================================
+=== rf-service  rf_ls
+=== CASA-MOBILE(config-rf-service-rf_ls)#
+=== CASA-MOBILE(config-rf-service-rf_ls)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  diameter-endpoint ls_rf  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 00:42:05 ===================================
+=== diameter-endpoint ls_rf
+=== CASA-MOBILE(config-rf-service-rf_ls)#
+=== CASA-MOBILE(config-rf-service-rf_ls)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  destination realm landslide.com  host ofcs.landslide.com  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 00:42:06 ===================================
+=== destination realm landslide.com  host ofcs.landslide.com
+=== CASA-MOBILE(config-rf-service-rf_ls)#
+=== CASA-MOBILE(config-rf-service-rf_ls)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  exit  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 00:42:07 ===================================
+=== exit
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  lte-service pgw-c  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 00:42:08 ===================================
+=== lte-service pgw-c
+=== CASA-MOBILE(config-pgw-c)#
+=== CASA-MOBILE(config-pgw-c)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  charging-character 0x1234  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 00:42:09 ===================================
+=== charging-character 0x1234
+=== CASA-MOBILE(config-pgw-charging-character)#
+=== CASA-MOBILE(config-pgw-charging-character)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  charging-condition-limit 3  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 00:42:10 ===================================
+=== charging-condition-limit 3
+=== CASA-MOBILE(config-pgw-charging-character)#
+=== CASA-MOBILE(config-pgw-charging-character)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  no  volume-limit session  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 00:42:11 ===================================
+=== no  volume-limit session
+=== CASA-MOBILE(config-pgw-charging-character)#
+=== CASA-MOBILE(config-pgw-charging-character)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  volume-limit service 100000  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 00:42:12 ===================================
+=== volume-limit service 100000
+=== CASA-MOBILE(config-pgw-charging-character)#
+=== CASA-MOBILE(config-pgw-charging-character)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  cc-rating-group 100  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 00:42:13 ===================================
+=== cc-rating-group 100
+=== CASA-MOBILE(config-pgw-charging-character)#
+=== CASA-MOBILE(config-pgw-charging-character)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  no cc-service-id  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 00:42:14 ===================================
+=== no cc-service-id
+=== CASA-MOBILE(config-pgw-charging-character)#
+=== CASA-MOBILE(config-pgw-charging-character)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  charging-method offline  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 00:42:15 ===================================
+=== charging-method offline
+=== CASA-MOBILE(config-pgw-charging-character)#
+=== CASA-MOBILE(config-pgw-charging-character)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  exit  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 00:42:16 ===================================
+=== exit
+=== CASA-MOBILE(config-pgw-c)#
+=== CASA-MOBILE(config-pgw-c)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  cc-profile pgw_cc home 0x1234  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 00:42:17 ===================================
+=== cc-profile pgw_cc home 0x1234
+=== CASA-MOBILE(config-pgw-c)#
+=== CASA-MOBILE(config-pgw-c)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  cc-profile pgw_cc roaming 0x1234  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 00:42:18 ===================================
+=== cc-profile pgw_cc roaming 0x1234
+=== CASA-MOBILE(config-pgw-c)#
+=== CASA-MOBILE(config-pgw-c)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  cc-profile pgw_cc visiting 0x1234  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 00:42:19 ===================================
+=== cc-profile pgw_cc visiting 0x1234
+=== CASA-MOBILE(config-pgw-c)#
+=== CASA-MOBILE(config-pgw-c)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  cc-profile cc_1 home 0x1234  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 00:42:20 ===================================
+=== cc-profile cc_1 home 0x1234
+=== CASA-MOBILE(config-pgw-c)#
+=== CASA-MOBILE(config-pgw-c)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  cc-profile cc_1 roaming 0x1234  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 00:42:21 ===================================
+=== cc-profile cc_1 roaming 0x1234
+=== CASA-MOBILE(config-pgw-c)#
+=== CASA-MOBILE(config-pgw-c)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  cc-profile cc_1 visiting 0x1234  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 00:42:22 ===================================
+=== cc-profile cc_1 visiting 0x1234
+=== CASA-MOBILE(config-pgw-c)#
+=== CASA-MOBILE(config-pgw-c)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  cdr-trigger-profile pgw-trigger ecgi-change  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 00:42:23 ===================================
+=== cdr-trigger-profile pgw-trigger ecgi-change
+=== CASA-MOBILE(config-pgw-c)#
+=== CASA-MOBILE(config-pgw-c)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  cdr-trigger-profile pgw-trigger service-stop  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 00:42:24 ===================================
+=== cdr-trigger-profile pgw-trigger service-stop
+=== CASA-MOBILE(config-pgw-c)#
+=== CASA-MOBILE(config-pgw-c)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  no apn apn1  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 00:42:25 ===================================
+=== no apn apn1
+=== CASA-MOBILE(config-pgw-c)#
+=== CASA-MOBILE(config-pgw-c)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  apn apn1  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 00:42:26 ===================================
+=== apn apn1
+=== CASA-MOBILE(config-pgw-apn-apn1)#
+=== CASA-MOBILE(config-pgw-apn-apn1)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  ip pool name ue-pool-4  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 00:42:27 ===================================
+=== ip pool name ue-pool-4
+=== CASA-MOBILE(config-pgw-apn-apn1)#
+=== CASA-MOBILE(config-pgw-apn-apn1)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  diameter-app rf-service rf_ls  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 00:42:28 ===================================
+=== diameter-app rf-service rf_ls
+=== CASA-MOBILE(config-pgw-apn-apn1)#
+=== CASA-MOBILE(config-pgw-apn-apn1)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  cc-profile pgw_cc  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 00:42:29 ===================================
+=== cc-profile pgw_cc
+=== CASA-MOBILE(config-pgw-apn-apn1)#
+=== CASA-MOBILE(config-pgw-apn-apn1)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  cdr-trigger-profile pgw-trigger  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 00:42:30 ===================================
+=== cdr-trigger-profile pgw-trigger
+=== CASA-MOBILE(config-pgw-apn-apn1)#
+=== CASA-MOBILE(config-pgw-apn-apn1)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  exit  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 00:42:31 ===================================
+=== exit
+=== CASA-MOBILE(config-pgw-c)#
+=== CASA-MOBILE(config-pgw-c)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  cdr-cgf-name cdr01  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 00:42:32 ===================================
+=== cdr-cgf-name cdr01
+=== CASA-MOBILE(config-pgw-c)#
+=== CASA-MOBILE(config-pgw-c)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  exit  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 00:42:33 ===================================
+=== exit
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect    -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 00:42:34 ===================================
+=== 
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+step_10447
+
+=================================== 00:42:36 ===================================
+=== 
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+Info(CasaGetPrompt): Current CLI mode for exp9 is config)#
+CASA-MOBILE(config
+
+=================================== 00:42:36 ===================================
+=== end
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 00:42:36 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(CasaGetPrompt): Current CLI mode for exp9 is enable
+
+=================================== 00:42:36 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 00:42:38 ===================================
+=== 
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 00:42:39 ===================================
+=== config
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+
+=================================== 00:42:41 ===================================
+=== 
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+
+=================================== 00:42:41 ===================================
+=== exit
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Success Step:10422
+Execute Step:10423 
+Landslide step: Landslide
+TRACE(Landslide) : Calledby ::DEALEXCEL::Handle_Landslide
+################ start landslide(10.133.5.1) python script (run) ################
+python3 ./Lib/casaLandslide/RunLandslide.py --test_server_ip 10.133.5.1 --uname dxj --passwd casa1234 --library_id 17710 --test_sess_name '11.5.9' --action 'run' --body 'None'
+python script log:
+Connect landslide 10.133.5.1 succ
+Current session status:(None, None)
+Start session, wait for 5 seconds and check
+Current sesion status: (210, '3_Waiting')
+run session 11.5.9 succ, now status is 3_Waiting
+################ finish landslide(10.133.5.1) python script (run) ################
+Success Step:10423
+Execute Step:10424 
+Info(::DEALEXCEL::ExecuteStep): Sleeping 30 second(s)...
+Success Step:10424
+Execute Step:10425 
+mzftxt_before:show%k_ha%k_info
+mzftxt: have not '!vertical_bar!'
+!! Info(Adapt_Environment): Global variable ADAPT_ENVIR_FLAG not exists or == 0, pass this proc
+
+<> Warning(casaCmd::showHaInfo): variable spawn_id isn't exits.
+TRACE(DEALEXCEL::Get_Checkpoint_Check) : Calledby ::DEALEXCEL::Loop_Execute_Check_CLI
+##############enter nodes foreach############
+!! execute ::casaCmd::Analyze -cmd show ha info -- -toRunCmd -tofd exp9  -state Active!!!
+Information(casaCmd::Analyze): command 'show ha info' map to api 'showHaInfo' in file 'casaCmdToApi'
+Info(::casaCmd::Run): ... run command % show ha info % on  172.0.10.51:22 ...
+
+=================================== 00:43:31 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+=== CASA-MOBILE#show ha info
+=== VNF node name: Default:0d361284-7356-11e7-af6c-525400605d81
+=== Group level HA:
+===          group-ha-ctrl           : disabled
+===          assigned service        : 
+===          heartbeats sent         : 0
+===          heartbeats received     : 0
+=== Node level HA config :
+===          node-to-node heartbeat  : enabled
+===          preferred role          : Active
+===          peer heartbeat timeout  : 3
+===          self interface          : * port 65530
+===          peer interface          : * port 65530
+===          redundancy reboot       : YES
+===          standalone reboot       : NO
+===          task down max per minute: 10
+===          redundancy mode         : layer2
+=== Node level HA status :
+===          state                   : Active
+===          last reboot timestamp   : 2020-03-27 01:01:50
+===          startup-config loaded   : YES
+===          overall monitor status  : VnfHaMonitorStateUnknown
+===          overall task HA status  : VnfHaStateActive
+===          peer standby-status     : Not Ready
+===          heartbeats sent         : 0
+===          heartbeats received     : 0
+=== Individual task HA status: 
+===                                                         been active before, down times in last minute
+===               rsrcmgr/0:      VnfHaStateActive,                Yes,               0
+===                  lix3/0:      VnfHaStateActive,                Yes,               0
+===               poolmgr/0:      VnfHaStateActive,                Yes,               0
+===             tce_agent/0:      VnfHaStateActive,                Yes,               0
+===               vnfctrl/0:      VnfHaStateActive,                Yes,               0
+===               nrfclnt/0:      VnfHaStateActive,                Yes,               0
+===               connmgr/0:      VnfHaStateActive,                Yes,               0
+===                 trmgr/0:      VnfHaStateActive,                Yes,               0
+===               gtpctrl/0:      VnfHaStateActive,                Yes,               0
+===                ffemgr/0:      VnfHaStateActive,                Yes,               0
+===                   ffe/0:      VnfHaStateActive,                Yes,               0
+===               connmgr/1:      VnfHaStateActive,                Yes,               0
+===           dnsproxymgr/0:      VnfHaStateActive,                Yes,               0
+===              pfcpctrl/0:      VnfHaStateActive,                Yes,               0
+===                aaamgr/0:      VnfHaStateActive,                Yes,               0
+===                 trmgr/1:      VnfHaStateActive,                Yes,               0
+===                cdrmgr/0:      VnfHaStateActive,                Yes,               0
+===               ltectrl/0:      VnfHaStateActive,                Yes,               0
+===              reporter/0:      VnfHaStateActive,                Yes,               0
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(casaCmd::Analyze): xmlfile is [/public/dxj/tcpdump/casa_show_ha_info.xml]
+
+         casaCmd_Analyze <show ha info> on  172.0.10.51:22
+--------------------------------------------------------------------
+             command.id           state            RESULT          
+--------------------------------------------------------------------
+ 1           1                    Active           P               
+--------------------------------------------------------------------
+############   CLI:show ha info Forward Verification Completed       ######
+##############enter no_nodes foreach############
+##############end no_nodes foreach############
+Success(DEALEXCEL::Get_Checkpoint_Check): The Expect cli id=0 Number of checkpoints is 1 ,actual Number of checkpoints is 1!!!
+Info(::DEALEXCEL::Loop_Execute_Check_CLI): Sleeping 2 second(s)...
+Success Step:10425
+Execute Step:10426 
+mzftxt_before:show%k_pgw-c%k_stats%k_pfcp%k_peer
+mzftxt: have not '!vertical_bar!'
+!! Info(Adapt_Environment): Global variable ADAPT_ENVIR_FLAG not exists or == 0, pass this proc
+
+<> Warning(casaCmd::showPgwcStatsPfcpPeer): variable spawn_id isn't exits.
+TRACE(DEALEXCEL::Get_Checkpoint_Check) : Calledby ::DEALEXCEL::Loop_Execute_Check_CLI
+##############enter nodes foreach############
+!! execute ::casaCmd::Analyze -cmd show pgw-c stats pfcp peer -- -toRunCmd -tofd exp9  -first.gw_id 0 -second.name state -second.value connected!!!
+Information(casaCmd::Analyze): command 'show pgw-c stats pfcp peer' map to api 'showPgwcStatsPfcpPeer' in file 'casaCmdToApi'
+Info(::casaCmd::Run): ... run command % show pgw-c stats pfcp peer % on  172.0.10.51:22 ...
+
+=================================== 00:43:34 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+=== CASA-MOBILE#show pgw-c stats pfcp peer
+=== [0]  Peer Node Type : PFCP_PGW_UP       State : Connected
+===      Local Ip : 123.31.11.11            Peer Ip : 123.32.11.11
+===      instance id : 0d361284-7356-11e7-af6c-525400605d81
+===      Heartbeat Req Sendout : 22868      Heartbeat Rsp Receive : 22768      
+===      Heartbeat Req Receive : 0          Heartbeat Rsp Sendout : 0          
+===      Retry HB Req Sendout : 0           Path Failure Count : 20            
+===      Local         Timestamp : UTC Fri Mar 27 01:02:46 2020
+===      Peer Previous Timestamp : UTC Fri Mar 27 10:08:24 2020
+===      Peer Current  Timestamp : UTC Fri Mar 27 13:19:00 2020
+===      Receive msg:
+===      HEARTBEAT_RSP                       : 22768
+===      ASSO_SETUP_REQ                      : 21
+===      ASSO_UPDATE_REQ                     : 48
+===      NODE_REPORT_REQ                     : 23
+===      Failed remouteU(172.1.214.3)        : 2
+===      Failed remouteU(172.1.214.12)       : 2
+===      Failed remouteU(172.1.168.22)       : 3
+===      Failed remouteU(172.1.168.2)        : 2
+===      Failed remouteU(172.1.168.12)       : 3
+===      Failed remouteU(172.1.166.2)        : 2
+===      Failed remouteU(172:1:10::81)       : 2
+===      Failed remouteU(172.1.166.100)      : 2
+===      Failed remouteU(172.1.214.2)        : 5
+===      Sendout msg:
+===      HEARTBEAT_REQ                       : 22868
+===      ASSO_SETUP_RSP                      : 21
+===      ASSO_UPDATE_RSP                     : 48
+===      NODE_REPORT_RSP                     : 23
+=== 
+===      Ip Pool Infor:
+===      [0]  Ippool name     : ue-pool-4
+===           Name in rsrcmgr : ue-pool-4@123.32.11.11
+===           Vrf    Name     : 
+===           IP/prefix       : 51.40.0.0/16
+===      [1]  Ippool name     : ue-pool-4
+===           Name in rsrcmgr : ue-pool-4@123.32.11.11
+===           Vrf    Name     : 
+===           IP/prefix       : 17:160:150::/60
+===      [2]  Ippool name     : ue-pool-4
+===           Name in rsrcmgr : ue-pool-4@123.32.11.11
+===           Vrf    Name     : 
+===           IP/prefix       : 51.50.0.0/24
+===      [3]  Ippool name     : ue-pool-4
+===           Name in rsrcmgr : ue-pool-4@123.32.11.11
+===           Vrf    Name     : 
+===           IP/prefix       : 18:160:150::/60
+===      [4]  Ippool name     : ue-pool-4
+===           Name in rsrcmgr : ue-pool-4@123.32.11.11
+===           Vrf    Name     : 
+===           IP/prefix       : 10.40.0.0/28
+===      [5]  Ippool name     : ue-pool-4
+===           Name in rsrcmgr : ue-pool-4@123.32.11.11
+===           Vrf    Name     : 
+===           IP/prefix       : 20.40.0.0/28
+===      [6]  Ippool name     : ue-pool-4
+===           Name in rsrcmgr : ue-pool-4@123.32.11.11
+===           Vrf    Name     : 
+===           IP/prefix       : 60:100:90:80::/64
+===      [7]  Ippool name     : ue-pool-3
+===           Name in rsrcmgr : ue-pool-3@123.32.11.11
+===           Vrf    Name     : 
+===           IP/prefix       : 110:100:90:80::/60
+===      [8]  Ippool name     : ue-pool-3
+===           Name in rsrcmgr : ue-pool-3@123.32.11.11
+===           Vrf    Name     : 
+===           IP/prefix       : 120:100:90::/50
+===      [9]  Ippool name     : ue-pool-2
+===           Name in rsrcmgr : ue-pool-2@123.32.11.11
+===           Vrf    Name     : 
+===           IP/prefix       : 10.30.0.0/28
+=== 
+===      Gtpu Ip Infor:
+===      [0]  V4 addr         : 172.1.10.57
+===           V6 addr         : 172:1:10::57
+===           Teid range      : 0x0
+=== 
+=== [1]  Peer Node Type : PFCP_PGW_UP       State : Disconnected
+===      Local Ip : 123.31.11.11            Peer Ip : 123.31.11.11
+===      Heartbeat Req Sendout : 0          Heartbeat Rsp Receive : 0          
+===      Heartbeat Req Receive : 0          Heartbeat Rsp Sendout : 0          
+===      Retry HB Req Sendout : 0           Path Failure Count : 0             
+===      Local         Timestamp : UTC Fri Mar 27 01:02:46 2020
+===      Peer Previous Timestamp : UTC (null)
+===      Peer Current  Timestamp : UTC (null)
+===      Receive msg:
+===      Sendout msg:
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(casaCmd::Analyze): xmlfile is [/public/dxj/tcpdump/casa_show_pgw_c_stats_pfcp_peer.xml]
+
+                           casaCmd_Analyze <show pgw-c stats pfcp peer> on  172.0.10.51:22
+----------------------------------------------------------------------------------------------------------------------
+             command.id           first.gw_id           second.name           second.value           RESULT          
+----------------------------------------------------------------------------------------------------------------------
+ 1           1                    0                     state                 connected              P               
+----------------------------------------------------------------------------------------------------------------------
+############   CLI:show pgw-c stats pfcp peer Forward Verification Completed       ######
+##############enter no_nodes foreach############
+##############end no_nodes foreach############
+Success(DEALEXCEL::Get_Checkpoint_Check): The Expect cli id=1 Number of checkpoints is 1 ,actual Number of checkpoints is 1!!!
+Info(::DEALEXCEL::Loop_Execute_Check_CLI): Sleeping 2 second(s)...
+Success Step:10426
+Execute Step:10427 
+mzftxt_before:show%k_sgw-c%k_stats%k_pfcp%k_peer
+mzftxt: have not '!vertical_bar!'
+!! Info(Adapt_Environment): Global variable ADAPT_ENVIR_FLAG not exists or == 0, pass this proc
+
+<> Warning(casaCmd::showSgwcStatsPfcpPeer): variable spawn_id isn't exits.
+TRACE(DEALEXCEL::Get_Checkpoint_Check) : Calledby ::DEALEXCEL::Loop_Execute_Check_CLI
+##############enter nodes foreach############
+!! execute ::casaCmd::Analyze -cmd show sgw-c stats pfcp peer -- -toRunCmd -tofd exp9  -peer.type PFCP_SGW_UP -peer.State Connected!!!
+Information(casaCmd::Analyze): command 'show sgw-c stats pfcp peer' map to api 'showSgwcStatsPfcpPeer' in file 'casaCmdToApi'
+Info(::casaCmd::Run): ... run command % show sgw-c stats pfcp peer % on  172.0.10.51:22 ...
+
+=================================== 00:43:37 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+=== CASA-MOBILE#show sgw-c stats pfcp peer
+=== [0]  Peer Node Type : PFCP_SGW_UP       State : Disconnected
+===      Local Ip : 123.3.33.33             Peer Ip : 123.3.33.33
+===      Heartbeat Req Sendout : 0          Heartbeat Rsp Receive : 0          
+===      Heartbeat Req Receive : 0          Heartbeat Rsp Sendout : 0          
+===      Retry HB Req Sendout : 0           Path Failure Count : 0             
+===      Local         Timestamp : UTC Fri Mar 27 01:02:46 2020
+===      Peer Previous Timestamp : UTC (null)
+===      Peer Current  Timestamp : UTC (null)
+===      Receive msg:
+===      Sendout msg:
+=== 
+=== [1]  Peer Node Type : PFCP_SGW_UP       State : Connected
+===      Local Ip : 123.3.33.33             Peer Ip : 123.6.66.66
+===      Heartbeat Req Sendout : 22868      Heartbeat Rsp Receive : 22768      
+===      Heartbeat Req Receive : 0          Heartbeat Rsp Sendout : 0          
+===      Retry HB Req Sendout : 0           Path Failure Count : 20            
+===      Local         Timestamp : UTC Fri Mar 27 01:02:46 2020
+===      Peer Previous Timestamp : UTC Fri Mar 27 10:08:25 2020
+===      Peer Current  Timestamp : UTC Fri Mar 27 13:19:00 2020
+===      Receive msg:
+===      HEARTBEAT_RSP                       : 22768
+===      ASSO_SETUP_REQ                      : 21
+===      NODE_REPORT_REQ                     : 68
+===      Failed remouteU(172.1.214.12)       : 8
+===      Failed remouteU(172.1.167.100)      : 9
+===      Failed remouteU(172.1.166.100)      : 16
+===      Failed remouteU(172.1.166.1)        : 12
+===      Failed remouteU(172.1.10.107)       : 18
+===      Failed remouteU(172.1.214.2)        : 5
+===      Sendout msg:
+===      HEARTBEAT_REQ                       : 22868
+===      ASSO_SETUP_RSP                      : 21
+===      NODE_REPORT_RSP                     : 68
+=== 
+===      Gtpu Ip Infor:
+===      [0]  V4 addr         : 123.4.44.44
+===           V6 addr         : -
+===           Teid range      : 0x0
+===      [1]  V4 addr         : 123.5.11.11
+===           V6 addr         : -
+===           Teid range      : 0x0
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(casaCmd::Analyze): xmlfile is [/public/dxj/tcpdump/casa_show_sgw_c_stats_pfcp_peer.xml]
+
+               casaCmd_Analyze <show sgw-c stats pfcp peer> on  172.0.10.51:22
+----------------------------------------------------------------------------------------------
+             command.id           peer.type             peer.State           RESULT          
+----------------------------------------------------------------------------------------------
+ 1           1                    PFCP_SGW_UP           Connected            P               
+----------------------------------------------------------------------------------------------
+############   CLI:show sgw-c stats pfcp peer Forward Verification Completed       ######
+##############enter no_nodes foreach############
+##############end no_nodes foreach############
+Success(DEALEXCEL::Get_Checkpoint_Check): The Expect cli id=2 Number of checkpoints is 1 ,actual Number of checkpoints is 1!!!
+Info(::DEALEXCEL::Loop_Execute_Check_CLI): Sleeping 2 second(s)...
+Success Step:10427
+Execute Step:10428 
+mzftxt_before:show%k_diameter-endpoint
+mzftxt: have not '!vertical_bar!'
+!! Info(Adapt_Environment): Global variable ADAPT_ENVIR_FLAG not exists or == 0, pass this proc
+
+<> Warning(casaCmd::showDiameterEndpoint): variable spawn_id isn't exits.
+TRACE(DEALEXCEL::Get_Checkpoint_Check) : Calledby ::DEALEXCEL::Loop_Execute_Check_CLI
+##############enter nodes foreach############
+!! execute ::casaCmd::Analyze -cmd show diameter-endpoint -- -toRunCmd -tofd exp9  -dia_endpoint.name ls_rf -route.id 0 -route.state I_OPEN!!!
+Information(casaCmd::Analyze): command 'show diameter-endpoint' map to api 'showDiameterEndpoint' in file 'casaCmdToApi'
+Info(::casaCmd::Run): ... run command % show diameter-endpoint % on  172.0.10.51:22 ...
+
+=================================== 00:43:39 ===================================
+=== 
+=== CASA-MOBILE#show diameter-endpoint
+=== 
+=== ---- Diameter-Endpoint# 1 [name: s6b_sg] ----------
+===     Diameter_Protocol_Profile:  none
+===     Count:  [in_txn_count: 0] [out_txn_count: 0] [mme_subs_count: 0]
+===     Timer:  [watch dog timer: 30s] [peer reconnect timer: 30s]
+===     Origin: [host_name: aaa.casa.com] [realm_name: casa.com][ip_addr: 172.1.10.51/32][ipv6_addr: 172:1:10::51/0]
+=== 
+===     ***** Number Peers in the Endpoint: 1 *****
+===        Peer Host                    Realm                             IP-address                      Prefix  Port    Protocol
+===        1    aaa.seagull.com         seagull.com                       20.18.9.22                      32      3868    TCP       
+=== 
+===     ***** Number Routes in the Endpoint: 1 *****
+=== 
+===     ++++ Route# 1 [is_default: false] ++++
+===        [app_realm: seagull.com] [app_type: 16777272]  [next_peer: none]
+===        Primary Peers [route_state: down]
+===            Primary-peer Host                     Source-port     State
+===            0            aaa.seagull.com          48504           STATE_CLOSE
+===  
+===        no secondary peers
+=== 
+=== ---- Diameter-Endpoint# 2 [name: s6b] ----------
+===     Diameter_Protocol_Profile:  none
+===     Count:  [in_txn_count: 0] [out_txn_count: 0] [mme_subs_count: 0]
+===     Timer:  [watch dog timer: 30s] [peer reconnect timer: 30s]
+===     Origin: [host_name: pgw01.rf.epc.gz] [realm_name: asac.com][ip_addr: 172.1.10.51/32][ipv6_addr: 172:1:10::51/0]
+=== 
+===     ***** Number Peers in the Endpoint: 2 *****
+===        Peer Host                    Realm                             IP-address                      Prefix  Port    Protocol
+===        1    ls.s6b                  ls.com                            172.1.166.102                   32      3868    TCP       
+===        2    ls.s6b1                 ls.com                            172.1.166.103                   32      3868    TCP       
+=== 
+===     ***** Number Routes in the Endpoint: 1 *****
+=== 
+===     ++++ Route# 1 [is_default: false] ++++
+===        [app_realm: ls.com] [app_type: 16777272]  [next_peer: none]
+===        Primary Peers [route_state: down]
+===            Primary-peer Host                     Source-port     State
+===            0            ls.s6b1                  59233           STATE_CLOSE
+===  
+===        Secondary Peers [route_state: down]
+===            Secondary-peer Host                     Source-port     State
+===            0              ls.s6b                   33082           STATE_CLOSE
+===  
+=== 
+=== ---- Diameter-Endpoint# 3 [name: saegw-ep] ----------
+===     Diameter_Protocol_Profile:  none
+===     Count:  [in_txn_count: 0] [out_txn_count: 0] [mme_subs_count: 0]
+===     Timer:  [watch dog timer: 30s] [peer reconnect timer: 30s]
+===     Origin: [host_name: saegw.casa.com] [realm_name: landslide.com][ip_addr: 172.1.10.51/32][ipv6_addr: 172:1:10::51/0]
+=== 
+===     ***** Number Peers in the Endpoint: 1 *****
+===        Peer Host                    Realm                             IP-address                      Prefix  Port    Protocol
+===        1    pcrf.landslide.com      landslide.com                     172.1.214.47                    32      3868    TCP       
+=== 
+===     ***** Number Routes in the Endpoint: 1 *****
+=== 
+===     ++++ Route# 1 [is_default: false] ++++
+===        [app_realm: landslide.com] [app_type: 16777238]  [next_peer: none]
+===        Primary Peers [route_state: down]
+===            Primary-peer Host                     Source-port     State
+===            0            pcrf.landslide.com       44164           STATE_CLOSE
+===  
+===        no secondary peers
+=== 
+=== ---- Diameter-Endpoint# 4 [name: gx_sg] ----------
+===     Diameter_Protocol_Profile:  none
+===     Count:  [in_txn_count: 0] [out_txn_count: 0] [mme_subs_count: 0]
+===     Timer:  [watch dog timer: 30s] [peer reconnect timer: 10s]
+===     Origin: [host_name: gx.casa.com] [realm_name: casa.com][ip_addr: 172.1.10.51/32][ipv6_addr: 172:1:10::51/0]
+=== 
+===     ***** Number Peers in the Endpoint: 1 *****
+===        Peer Host                    Realm                             IP-address                      Prefix  Port    Protocol
+===        1    pcrf.seagull.com        seagull.com                       20.18.9.21                      32      3868    TCP       
+=== 
+===     ***** Number Routes in the Endpoint: 1 *****
+=== 
+===     ++++ Route# 1 [is_default: false] ++++
+===        [app_realm: seagull.com] [app_type: 16777238]  [next_peer: pcrf.seagull.c:om]
+===        Primary Peers [route_state: up]
+===            Primary-peer Host                     Source-port     State
+===            0            pcrf.seagull.com         37887           I_OPEN    
+===  
+===        no secondary peers
+=== 
+=== ---- Diameter-Endpoint# 5 [name: rf_sg] ----------
+===     Diameter_Protocol_Profile:  none
+===     Count:  [in_txn_count: 0] [out_txn_count: 0] [mme_subs_count: 0]
+===     Timer:  [watch dog timer: 30s] [peer reconnect timer: 10s]
+===     Origin: [host_name: rf.casa.com] [realm_name: casa.com][ip_addr: 172.1.10.51/32][ipv6_addr: 172:1:10::51/0]
+=== 
+===     ***** Number Peers in the Endpoint: 1 *****
+===        Peer Host                    Realm                             IP-address                      Prefix  Port    Protocol
+===        1    ofcs.seagull.com        seagull.com                       172.1.11.13                     32      3868    TCP       
+=== 
+===     ***** Number Routes in the Endpoint: 1 *****
+=== 
+===     ++++ Route# 1 [is_default: false] ++++
+===        [app_realm: seagull.com] [app_type: 3]  [next_peer: ofcs.seagull.com]
+===        Primary Peers [route_state: down]
+===            Primary-peer Host                     Source-port     State
+===  
+===        Secondary Peers [route_state: up]
+===            Secondary-peer Host                     Source-port     State
+===            0              ofcs.seagull.com         59329           I_OPEN    
+===  
+=== 
+=== ---- Diameter-Endpoint# 6 [name: ls_rf] ----------
+===     Diameter_Protocol_Profile:  none
+===     Count:  [in_txn_count: 0] [out_txn_count: 0] [mme_subs_count: 0]
+===     Timer:  [watch dog timer: 30s] [peer reconnect timer: 30s]
+===     Origin: [host_name: pgw01.rf.epc.gz] [realm_name: asac.com][ip_addr: 172.1.10.51/32][ipv6_addr: 172:1:10::51/0]
+=== 
+===     ***** Number Peers in the Endpoint: 1 *****
+===        Peer Host                    Realm                             IP-address                      Prefix  Port    Protocol
+===        1    ofcs.landslide.com      landslide.com                     172.1.214.32                    32      3868    TCP       
+=== 
+===     ***** Number Routes in the Endpoint: 1 *****
+=== 
+===     ++++ Route# 1 [is_default: false] ++++
+===        [app_realm: landslide.com] [app_type: 3]  [next_peer: ofcs.landslide.com]       Primary Peers [route_state: up]
+===            Primary-peer Host                     Source-port     State
+===            0            ofcs.landslide.com       45969           I_OPEN    
+===  
+===        no secondary peers
+=== 
+=== ---- Diameter-Endpoint# 7 [name: ixia-gx] ----------
+===     Diameter_Protocol_Profile:  none
+===     Count:  [in_txn_count: 0] [out_txn_count: 0] [mme_subs_count: 0]
+===     Timer:  [watch dog timer: 30s] [peer reconnect timer: 30s]
+===     Origin: [host_name: pgw01.gx.epc.gz] [realm_name: asac.com][ip_addr: 172.1.10.51/32][ipv6_addr: 172:1:10::51/0]
+=== 
+===     ***** Number Peers in the Endpoint: 1 *****
+===        Peer Host                    Realm                             IP-address                      Prefix  Port    Protocol
+===        1    pcrf.ixia               asac.com                          172.1.20.222                    32      3868    TCP       
+=== 
+===     ***** Number Routes in the Endpoint: 1 *****
+=== 
+===     ++++ Route# 1 [is_default: false] ++++
+===        [app_realm: asac.com] [app_type: 16777238]  [next_peer: none]
+===        Primary Peers [route_state: down]
+===            Primary-peer Host                     Source-port     State
+===            0            pcrf.ixia                38800           STATE_CLOSE
+===  
+===        no secondary peers
+=== 
+=== ---- Diameter-Endpoint# 8 [name: gx] ----------
+===     Diameter_Protocol_Profile:  none
+===     Count:  [in_txn_count: 0] [out_txn_count: 0] [mme_subs_count: 0]
+===     Timer:  [watch dog timer: 30s] [peer reconnect timer: 30s]
+===        Peer Host                    Realm                             IP-address                      Prefix  Port    Protocol
+=== 
+=== ---- Diameter-Endpoint# 9 [name: ixia-rf] ----------
+===     Diameter_Protocol_Profile:  none
+===     Count:  [in_txn_count: 0] [out_txn_count: 0] [mme_subs_count: 0]
+===     Timer:  [watch dog timer: 30s] [peer reconnect timer: 30s]
+===     Origin: [host_name: pgw01.rf.epc.gz] [realm_name: asac.com][ip_addr: 172.1.10.51/32][ipv6_addr: 172:1:10::51/0]
+=== 
+===     ***** Number Peers in the Endpoint: 1 *****
+===        Peer Host                    Realm                             IP-address                      Prefix  Port    Protocol
+===        1    ofcs.ixia               asac.com                          172.1.166.101                   32      3868    TCP       
+=== 
+===     ***** Number Routes in the Endpoint: 1 *****
+=== 
+===     ++++ Route# 1 [is_default: true] ++++
+===        [app_realm: ] [app_type: 0]  [next_peer: none]
+===        Primary Peers [route_state: down]
+===            Primary-peer Host                     Source-port     State
+===            0            ofcs.ixia                39976           STATE_CLOSE
+===  
+===        no secondary peers
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(casaCmd::Analyze): xmlfile is [/public/dxj/tcpdump/casa_show_diameter_endpoint.xml]
+
+                              casaCmd_Analyze <show diameter-endpoint> on  172.0.10.51:22
+------------------------------------------------------------------------------------------------------------------------
+             command.id           dia_endpoint.name           route.id           route.state           RESULT          
+------------------------------------------------------------------------------------------------------------------------
+ 1           1                    ls_rf                       0                  I_OPEN                P               
+------------------------------------------------------------------------------------------------------------------------
+############   CLI:show diameter-endpoint Forward Verification Completed       ######
+##############enter no_nodes foreach############
+##############end no_nodes foreach############
+Success(DEALEXCEL::Get_Checkpoint_Check): The Expect cli id=3 Number of checkpoints is 1 ,actual Number of checkpoints is 1!!!
+Info(::DEALEXCEL::Loop_Execute_Check_CLI): Sleeping 2 second(s)...
+Success Step:10428
+Execute Step:10429 
+mzftxt_before:show%k_ha%k_info
+mzftxt: have not '!vertical_bar!'
+!! Info(Adapt_Environment): Global variable ADAPT_ENVIR_FLAG not exists or == 0, pass this proc
+
+<> Warning(casaCmd::showHaInfo): variable spawn_id isn't exits.
+no key in xml file!!!!
+TRACE(DEALEXCEL::Get_Checkpoint_Check) : Calledby ::DEALEXCEL::Loop_Execute_Check_CLI
+
+=================================== 00:43:41 ===================================
+=== show ha info
+=== VNF node name: Default:0d361284-7356-11e7-af6c-525400605d81
+=== Group level HA:
+===          group-ha-ctrl           : disabled
+===          assigned service        : 
+===          heartbeats sent         : 0
+===          heartbeats received     : 0
+=== Node level HA config :
+===          node-to-node heartbeat  : enabled
+===          preferred role          : Active
+===          peer heartbeat timeout  : 3
+===          self interface          : * port 65530
+===          peer interface          : * port 65530
+===          redundancy reboot       : YES
+===          standalone reboot       : NO
+===          task down max per minute: 10
+===          redundancy mode         : layer2
+=== Node level HA status :
+===          state                   : Active
+===          last reboot timestamp   : 2020-03-27 13:18:37
+===          startup-config loaded   : YES
+===          overall monitor status  : VnfHaMonitorStateUnknown
+===          overall task HA status  : VnfHaStateActive
+===          peer standby-status     : Not Ready
+===          heartbeats sent         : 0
+===          heartbeats received     : 0
+=== Individual task HA status: 
+===                                                         been active before, down times in last minute
+===               rsrcmgr/0:      VnfHaStateActive,                Yes,               0
+===                  lix3/0:      VnfHaStateActive,                Yes,               0
+===               poolmgr/0:      VnfHaStateActive,                Yes,               0
+===             tce_agent/0:      VnfHaStateActive,                Yes,               0
+===               vnfctrl/0:      VnfHaStateActive,                Yes,               0
+===               nrfclnt/0:      VnfHaStateActive,                Yes,               0
+===                 trmgr/0:      VnfHaStateActive,                Yes,               0
+===               connmgr/1:      VnfHaStateActive,                Yes,               0
+===               gtpctrl/0:      VnfHaStateActive,                Yes,               0
+===                ffemgr/0:      VnfHaStateActive,                Yes,               0
+===                   ffe/0:      VnfHaStateActive,                Yes,               0
+===               connmgr/0:      VnfHaStateActive,                Yes,               0
+===           dnsproxymgr/0:      VnfHaStateActive,                Yes,               0
+===              pfcpctrl/0:      VnfHaStateActive,                Yes,               0
+===                aaamgr/0:      VnfHaStateActive,                Yes,               0
+===                 trmgr/1:      VnfHaStateActive,                Yes,               0
+===                cdrmgr/0:      VnfHaStateActive,                Yes,               0
+===               ltectrl/0:      VnfHaStateActive,                Yes,               0
+===              reporter/0:      VnfHaStateActive,                Yes,               0
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+##############enter nodes foreach############
+############   CLI:show ha info Forward Verification Completed       ######
+##############enter no_nodes foreach############
+##############end no_nodes foreach############
+Success(DEALEXCEL::Get_Checkpoint_Check): The Expect cli id=4 Number of checkpoints is 0 ,actual Number of checkpoints is 0!!!
+Info(::DEALEXCEL::Loop_Execute_Check_CLI): Sleeping 2 second(s)...
+Success Step:10429
+Execute Step:10430 
+mzftxt_before:show%k_upf%k_stats%k_pfcp%k_peer
+mzftxt: have not '!vertical_bar!'
+!! Info(Adapt_Environment): Global variable ADAPT_ENVIR_FLAG not exists or == 0, pass this proc
+
+<> Warning(casaCmd::showUpfStatsPfcpPeer): variable spawn_id isn't exits.
+TRACE(DEALEXCEL::Get_Checkpoint_Check) : Calledby ::DEALEXCEL::Loop_Execute_Check_CLI
+##############enter nodes foreach############
+!! execute ::casaCmd::Analyze -cmd show upf stats pfcp peer -- -toRunCmd -tofd exp10  -peer.type PFCP_PGW_CP -peer.State Connected!!!
+Information(casaCmd::Analyze): command 'show upf stats pfcp peer' map to api 'showUpfStatsPfcpPeer' in file 'casaCmdToApi'
+Info(::casaCmd::Run): ... run command % show upf stats pfcp peer % on  172.0.10.57:22 ...
+
+=================================== 00:43:44 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+=== CASA-MOBILE#show upf stats pfcp peer
+=== [0]  Peer Node Type : PFCP_PGW_CP       State : Connected
+===      Local Ip : 123.32.11.11            Peer Ip : 67.31.1.1
+===      Heartbeat Req Sendout : 0          Heartbeat Rsp Receive : 0          
+===      Heartbeat Req Receive : 0          Heartbeat Rsp Sendout : 0          
+===      Retry HB Req Sendout : 0           Path Failure Count : 0             
+===      Local         Timestamp : UTC Fri Mar 27 13:19:00 2020
+===      Peer Previous Timestamp : UTC Fri Mar 27 13:19:10 2020
+===      Peer Current  Timestamp : UTC Fri Mar 27 13:19:10 2020
+===      Receive msg:
+===      ASSO_SETUP_RSP                      : 1
+===      NODE_REPORT_RSP                     : 6
+===      Sendout msg:
+===      ASSO_SETUP_REQ                      : 1
+===      NODE_REPORT_REQ                     : 22
+===      Failed remouteU(172.1.214.3)        : 2
+===      Failed remouteU(172.1.214.12)       : 2
+===      Failed remouteU(172.1.214.2)        : 4
+===      Failed remouteU(172.1.168.22)       : 3
+===      Failed remouteU(172.1.168.2)        : 2
+===      Failed remouteU(172.1.168.12)       : 3
+===      Failed remouteU(172.1.166.2)        : 2
+===      Failed remouteU(172:1:10::81)       : 2
+===      Failed remouteU(172.1.166.100)      : 2
+=== 
+===      Ip Pool Infor:
+===      [0]  Ippool name     : ue-pool-673
+===           Name in rsrcmgr : 
+===           Vrf    Name     : 
+===           IP/prefix       : 140:110:100:90::/50
+===      [1]  Ippool name     : ue-pool-67
+===           Name in rsrcmgr : 
+===           Vrf    Name     : 
+===           IP/prefix       : 120:110:100:90::/60
+===      [2]  Ippool name     : ue-pool-67
+===           Name in rsrcmgr : 
+===           Vrf    Name     : 
+===           IP/prefix       : 120:110:600:90::/60
+===      [3]  Ippool name     : ue-pool-67
+===           Name in rsrcmgr : 
+===           Vrf    Name     : 
+===           IP/prefix       : 120:110:700:90::/60
+===      [4]  Ippool name     : ue-pool-67
+===           Name in rsrcmgr : 
+===           Vrf    Name     : 
+===           IP/prefix       : 120:110:800:90::/60
+===      [5]  Ippool name     : ue-pool-67
+===           Name in rsrcmgr : 
+===           Vrf    Name     : 
+===           IP/prefix       : 10.5.0.0/24
+===      [6]  Ippool name     : ue-pool-67
+===           Name in rsrcmgr : 
+===           Vrf    Name     : 
+===           IP/prefix       : 10.1.0.0/24
+===      [7]  Ippool name     : ue-pool-671
+===           Name in rsrcmgr : 
+===           Vrf    Name     : 
+===           IP/prefix       : 10.3.0.0/24
+===      [8]  Ippool name     : ue-pool-671
+===           Name in rsrcmgr : 
+===           Vrf    Name     : 
+===           IP/prefix       : 10.2.0.0/24
+===      [9]  Ippool name     : ue-pool-671
+===           Name in rsrcmgr : 
+===           Vrf    Name     : 
+===           IP/prefix       : 130:110:100:90::/60
+=== 
+===      Gtpu Ip Infor:
+===      [0]  V4 addr         : 172.1.10.57
+===           V6 addr         : 172:1:10::57
+===           Teid range      : 0x0
+=== 
+=== [1]  Peer Node Type : PFCP_PGW_CP       State : Connected
+===      Local Ip : 123.32.11.11            Peer Ip : 123.32.11.11
+===      Heartbeat Req Sendout : 0          Heartbeat Rsp Receive : 0          
+===      Heartbeat Req Receive : 6483       Heartbeat Rsp Sendout : 6483       
+===      Retry HB Req Sendout : 0           Path Failure Count : 0             
+===      Local         Timestamp : UTC Fri Mar 27 13:19:00 2020
+===      Peer Previous Timestamp : UTC (null)
+===      Peer Current  Timestamp : UTC Fri Mar 27 13:19:10 2020
+===      Receive msg:
+===      HEARTBEAT_REQ                       : 6483
+===      Sendout msg:
+===      HEARTBEAT_RSP                       : 6483
+===      NODE_REPORT_REQ                     : 22
+===      Failed remouteU(172.1.214.3)        : 2
+===      Failed remouteU(172.1.214.12)       : 2
+===      Failed remouteU(172.1.214.2)        : 4
+===      Failed remouteU(172.1.168.22)       : 3
+===      Failed remouteU(172.1.168.2)        : 2
+===      Failed remouteU(172.1.168.12)       : 3
+===      Failed remouteU(172.1.166.2)        : 2
+===      Failed remouteU(172:1:10::81)       : 2
+===      Failed remouteU(172.1.166.100)      : 2
+=== 
+===      Ip Pool Infor:
+===      [0]  Ippool name     : ue-pool-673
+===           Name in rsrcmgr : 
+===           Vrf    Name     : 
+===           IP/prefix       : 140:110:100:90::/50
+=== 
+===      Gtpu Ip Infor:
+===      [0]  V4 addr         : 172.1.10.57
+===           V6 addr         : 172:1:10::57
+===           Teid range      : 0x0
+=== 
+=== [2]  Peer Node Type : PFCP_PGW_CP       State : Connected
+===      Local Ip : 123.32.11.11            Peer Ip : 123.31.11.11
+===      Heartbeat Req Sendout : 0          Heartbeat Rsp Receive : 0          
+===      Heartbeat Req Receive : 18503      Heartbeat Rsp Sendout : 18503      
+===      Retry HB Req Sendout : 0           Path Failure Count : 0             
+===      Local         Timestamp : UTC Fri Mar 27 13:19:00 2020
+===      Peer Previous Timestamp : UTC Fri Mar 27 01:02:46 2020
+===      Peer Current  Timestamp : UTC Fri Mar 27 01:02:46 2020
+===      Receive msg:
+===      HEARTBEAT_REQ                       : 18503
+===      ASSO_SETUP_RSP                      : 1
+===      ASSO_UPDATE_RSP                     : 48
+===      NODE_REPORT_RSP                     : 22
+===      Sendout msg:
+===      HEARTBEAT_RSP                       : 18503
+===      ASSO_SETUP_REQ                      : 1
+===      ASSO_UPDATE_REQ                     : 48
+===      NODE_REPORT_REQ                     : 22
+===      Failed remouteU(172.1.214.3)        : 2
+===      Failed remouteU(172.1.214.12)       : 2
+===      Failed remouteU(172.1.214.2)        : 4
+===      Failed remouteU(172.1.168.22)       : 3
+===      Failed remouteU(172.1.168.2)        : 2
+===      Failed remouteU(172.1.168.12)       : 3
+===      Failed remouteU(172.1.166.2)        : 2
+===      Failed remouteU(172:1:10::81)       : 2
+===      Failed remouteU(172.1.166.100)      : 2
+=== 
+===      Ip Pool Infor:
+===      [0]  Ippool name     : ue-pool-4
+===           Name in rsrcmgr : 
+===           Vrf    Name     : 
+===           IP/prefix       : 51.40.0.0/16
+===      [1]  Ippool name     : ue-pool-4
+===           Name in rsrcmgr : 
+===           Vrf    Name     : 
+===           IP/prefix       : 17:160:150::/60
+===      [2]  Ippool name     : ue-pool-4
+===           Name in rsrcmgr : 
+===           Vrf    Name     : 
+===           IP/prefix       : 51.50.0.0/24
+===      [3]  Ippool name     : ue-pool-4
+===           Name in rsrcmgr : 
+===           Vrf    Name     : 
+===           IP/prefix       : 18:160:150::/60
+===      [4]  Ippool name     : ue-pool-4
+===           Name in rsrcmgr : 
+===           Vrf    Name     : 
+===           IP/prefix       : 10.40.0.0/28
+===      [5]  Ippool name     : ue-pool-4
+===           Name in rsrcmgr : 
+===           Vrf    Name     : 
+===           IP/prefix       : 20.40.0.0/28
+===      [6]  Ippool name     : ue-pool-4
+===           Name in rsrcmgr : 
+===           Vrf    Name     : 
+===           IP/prefix       : 60:100:90:80::/64
+===      [7]  Ippool name     : ue-pool-3
+===           Name in rsrcmgr : 
+===           Vrf    Name     : 
+===           IP/prefix       : 110:100:90:80::/60
+===      [8]  Ippool name     : ue-pool-3
+===           Name in rsrcmgr : 
+===           Vrf    Name     : 
+===           IP/prefix       : 120:100:90::/50
+===      [9]  Ippool name     : ue-pool-2
+===           Name in rsrcmgr : 
+===           Vrf    Name     : 
+===           IP/prefix       : 10.30.0.0/28
+=== 
+===      Gtpu Ip Infor:
+===      [0]  V4 addr         : 172.1.10.57
+===           V6 addr         : 172:1:10::57
+===           Teid range      : 0x0
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(casaCmd::Analyze): xmlfile is [/public/dxj/tcpdump/casa_show_upf_stats_pfcp_peer.xml]
+
+                casaCmd_Analyze <show upf stats pfcp peer> on  172.0.10.57:22
+----------------------------------------------------------------------------------------------
+             command.id           peer.type             peer.State           RESULT          
+----------------------------------------------------------------------------------------------
+ 1           1                    PFCP_PGW_CP           Connected            P               
+----------------------------------------------------------------------------------------------
+############   CLI:show upf stats pfcp peer Forward Verification Completed       ######
+##############enter no_nodes foreach############
+##############end no_nodes foreach############
+Success(DEALEXCEL::Get_Checkpoint_Check): The Expect cli id=5 Number of checkpoints is 1 ,actual Number of checkpoints is 1!!!
+Info(::DEALEXCEL::Loop_Execute_Check_CLI): Sleeping 2 second(s)...
+Success Step:10430
+Execute Step:10431 
+mzftxt_before:show%k_sgw-u%k_stats%k_pfcp%k_peer
+mzftxt: have not '!vertical_bar!'
+!! Info(Adapt_Environment): Global variable ADAPT_ENVIR_FLAG not exists or == 0, pass this proc
+
+<> Warning(casaCmd::showSgwuStatsPfcpPeer): variable spawn_id isn't exits.
+TRACE(DEALEXCEL::Get_Checkpoint_Check) : Calledby ::DEALEXCEL::Loop_Execute_Check_CLI
+##############enter nodes foreach############
+!! execute ::casaCmd::Analyze -cmd show sgw-u stats pfcp peer -- -toRunCmd -tofd exp10  -peer.type PFCP_SGW_CP -peer.State Connected!!!
+Information(casaCmd::Analyze): command 'show sgw-u stats pfcp peer' map to api 'showSgwuStatsPfcpPeer' in file 'casaCmdToApi'
+Info(::casaCmd::Run): ... run command % show sgw-u stats pfcp peer % on  172.0.10.57:22 ...
+
+=================================== 00:43:47 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+=== CASA-MOBILE#show sgw-u stats pfcp peer
+=== [0]  Peer Node Type : PFCP_SGW_CP       State : Connected
+===      Local Ip : 123.6.66.66             Peer Ip : 67.3.11.11
+===      Heartbeat Req Sendout : 0          Heartbeat Rsp Receive : 0          
+===      Heartbeat Req Receive : 0          Heartbeat Rsp Sendout : 0          
+===      Retry HB Req Sendout : 0           Path Failure Count : 0             
+===      Local         Timestamp : UTC Fri Mar 27 13:19:00 2020
+===      Peer Previous Timestamp : UTC Fri Mar 27 13:19:20 2020
+===      Peer Current  Timestamp : UTC Fri Mar 27 13:19:20 2020
+===      Receive msg:
+===      ASSO_SETUP_RSP                      : 1
+===      NODE_REPORT_RSP                     : 12
+===      Sendout msg:
+===      ASSO_SETUP_REQ                      : 2
+===      NODE_REPORT_REQ                     : 47
+===      Failed remouteU(172.1.214.2)        : 2
+===      Failed remouteU(172.1.214.12)       : 8
+===      Failed remouteU(172.1.167.100)      : 9
+===      Failed remouteU(172.1.166.100)      : 16
+===      Failed remouteU(172.1.166.1)        : 12
+=== 
+===      Gtpu Ip Infor:
+===      [0]  V4 addr         : 123.4.44.44
+===           V6 addr         : -
+===           Teid range      : 0x0
+===      [1]  V4 addr         : 123.5.11.11
+===           V6 addr         : -
+===           Teid range      : 0x0
+=== 
+=== [1]  Peer Node Type : PFCP_SGW_CP       State : Connected
+===      Local Ip : 123.6.66.66             Peer Ip : 123.3.33.33
+===      Heartbeat Req Sendout : 0          Heartbeat Rsp Receive : 0          
+===      Heartbeat Req Receive : 18503      Heartbeat Rsp Sendout : 18503      
+===      Retry HB Req Sendout : 0           Path Failure Count : 0             
+===      Local         Timestamp : UTC Fri Mar 27 13:19:00 2020
+===      Peer Previous Timestamp : UTC Fri Mar 27 01:02:46 2020
+===      Peer Current  Timestamp : UTC Fri Mar 27 01:02:46 2020
+===      Receive msg:
+===      HEARTBEAT_REQ                       : 18503
+===      ASSO_SETUP_RSP                      : 1
+===      NODE_REPORT_RSP                     : 47
+===      Sendout msg:
+===      HEARTBEAT_RSP                       : 18503
+===      ASSO_SETUP_REQ                      : 1
+===      NODE_REPORT_REQ                     : 47
+===      Failed remouteU(172.1.214.2)        : 2
+===      Failed remouteU(172.1.214.12)       : 8
+===      Failed remouteU(172.1.167.100)      : 9
+===      Failed remouteU(172.1.166.100)      : 16
+===      Failed remouteU(172.1.166.1)        : 12
+=== 
+===      Gtpu Ip Infor:
+===      [0]  V4 addr         : 123.4.44.44
+===           V6 addr         : -
+===           Teid range      : 0x0
+===      [1]  V4 addr         : 123.5.11.11
+===           V6 addr         : -
+===           Teid range      : 0x0
+=== 
+=== [2]  Peer Node Type : PFCP_SGW_CP       State : Connected
+===      Local Ip : 123.6.66.66             Peer Ip : 123.6.66.66
+===      Heartbeat Req Sendout : 0          Heartbeat Rsp Receive : 0          
+===      Heartbeat Req Receive : 360        Heartbeat Rsp Sendout : 360        
+===      Retry HB Req Sendout : 0           Path Failure Count : 0             
+===      Local         Timestamp : UTC Fri Mar 27 13:19:00 2020
+===      Peer Previous Timestamp : UTC (null)
+===      Peer Current  Timestamp : UTC Fri Mar 27 13:19:20 2020
+===      Receive msg:
+===      HEARTBEAT_REQ                       : 360
+===      Sendout msg:
+===      HEARTBEAT_RSP                       : 360
+===      NODE_REPORT_REQ                     : 47
+===      Failed remouteU(172.1.214.2)        : 2
+===      Failed remouteU(172.1.214.12)       : 8
+===      Failed remouteU(172.1.167.100)      : 9
+===      Failed remouteU(172.1.166.100)      : 16
+===      Failed remouteU(172.1.166.1)        : 12
+=== 
+===      Gtpu Ip Infor:
+===      [0]  V4 addr         : 123.4.44.44
+===           V6 addr         : -
+===           Teid range      : 0x0
+===      [1]  V4 addr         : 123.5.11.11
+===           V6 addr         : -
+===           Teid range      : 0x0
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(casaCmd::Analyze): xmlfile is [/public/dxj/tcpdump/casa_show_sgw_u_stats_pfcp_peer.xml]
+
+               casaCmd_Analyze <show sgw-u stats pfcp peer> on  172.0.10.57:22
+----------------------------------------------------------------------------------------------
+             command.id           peer.type             peer.State           RESULT          
+----------------------------------------------------------------------------------------------
+ 1           1                    PFCP_SGW_CP           Connected            P               
+----------------------------------------------------------------------------------------------
+############   CLI:show sgw-u stats pfcp peer Forward Verification Completed       ######
+##############enter no_nodes foreach############
+##############end no_nodes foreach############
+Success(DEALEXCEL::Get_Checkpoint_Check): The Expect cli id=6 Number of checkpoints is 1 ,actual Number of checkpoints is 1!!!
+Info(::DEALEXCEL::Loop_Execute_Check_CLI): Sleeping 2 second(s)...
+Success Step:10431
+Execute Step:10432 
+start_config_mirror
+Info(Include): Installed package casaIxia v1.0
+!! Info(Adapt_Environment): Global variable ADAPT_ENVIR_FLAG not exists or == 0, pass this proc
+step_10432
+
+=================================== 00:43:50 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#mirror stop
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+SendAndExpect  mirror destination file 11.5.9  -- -fd exp9  -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 00:43:50 ===================================
+=== mirror destination file 11.5.9
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(::DEALEXCEL::Start_Mirror): Sleeping 1 second(s)...
+SendAndExpect  mirror start timeout never  -- -fd exp9  -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 00:43:51 ===================================
+=== mirror start timeout never
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(::DEALEXCEL::Start_Mirror): Sleeping 1 second(s)...
+SendAndExpect  mirror sgw protocol s4s11  -- -fd exp9  -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 00:43:52 ===================================
+=== mirror sgw protocol s4s11
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(::DEALEXCEL::Start_Mirror): Sleeping 1 second(s)...
+SendAndExpect  mirror sgw protocol pfcp  -- -fd exp9  -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 00:43:53 ===================================
+=== mirror sgw protocol pfcp
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(::DEALEXCEL::Start_Mirror): Sleeping 1 second(s)...
+SendAndExpect  mirror pgw protocol gtpc  -- -fd exp9  -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 00:43:54 ===================================
+=== mirror pgw protocol gtpc
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(::DEALEXCEL::Start_Mirror): Sleeping 1 second(s)...
+SendAndExpect  mirror pgw protocol pfcp  -- -fd exp9  -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 00:43:55 ===================================
+=== mirror pgw protocol pfcp
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(::DEALEXCEL::Start_Mirror): Sleeping 1 second(s)...
+SendAndExpect  mirror aaa protocol diameter tcp  -- -fd exp9  -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 00:43:56 ===================================
+=== mirror aaa protocol diameter tcp
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(::DEALEXCEL::Start_Mirror): Sleeping 1 second(s)...
+Success Step:10432
+Execute Step:10433 
+!! Info(Adapt_Environment): Global variable ADAPT_ENVIR_FLAG not exists or == 0, pass this proc
+SendAndExpect  clear task crash all  -- -fd exp10 -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 00:43:57 ===================================
+=== clear task crash all
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteCommand): Sleeping 1 second(s)...
+SendAndExpect  clear upf stats all  -- -fd exp10 -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 00:43:58 ===================================
+=== clear upf stats all
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteCommand): Sleeping 1 second(s)...
+SendAndExpect  clear sgw-u stats all  -- -fd exp10 -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 00:43:59 ===================================
+=== clear sgw-u stats all
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteCommand): Sleeping 1 second(s)...
+SendAndExpect  clear sgw-u stats pfcp msg  -- -fd exp10 -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 00:44:00 ===================================
+=== clear sgw-u stats pfcp msg
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteCommand): Sleeping 1 second(s)...
+SendAndExpect  clear upf stats pfcp msg  -- -fd exp10 -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 00:44:01 ===================================
+=== clear upf stats pfcp msg
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteCommand): Sleeping 1 second(s)...
+SendAndExpect    -- -fd exp10 -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 00:44:02 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteCommand): Sleeping 1 second(s)...
+Success Step:10433
+Execute Step:10434 
+!! Info(Adapt_Environment): Global variable ADAPT_ENVIR_FLAG not exists or == 0, pass this proc
+SendAndExpect  clear sgw-c stats all  -- -fd exp9 -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 00:44:03 ===================================
+=== clear sgw-c stats all
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteCommand): Sleeping 1 second(s)...
+SendAndExpect  clear pgw-c stats all  -- -fd exp9 -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 00:44:04 ===================================
+=== clear pgw-c stats all
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteCommand): Sleeping 1 second(s)...
+SendAndExpect  clear pgw-c stats pfcp msg  -- -fd exp9 -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 00:44:05 ===================================
+=== clear pgw-c stats pfcp msg
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteCommand): Sleeping 1 second(s)...
+SendAndExpect  clear sgw-c stats pfcp msg  -- -fd exp9 -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 00:44:06 ===================================
+=== clear sgw-c stats pfcp msg
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteCommand): Sleeping 1 second(s)...
+SendAndExpect    -- -fd exp9 -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 00:44:07 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteCommand): Sleeping 1 second(s)...
+SendAndExpect    -- -fd exp9 -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 00:44:08 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteCommand): Sleeping 1 second(s)...
+Success Step:10434
+Execute Step:10435 
+Landslide step: Landslide
+TRACE(Landslide) : Calledby ::DEALEXCEL::Handle_Landslide
+################ start landslide(10.133.5.1) python script (continue) ################
+python3 ./Lib/casaLandslide/RunLandslide.py --test_server_ip 10.133.5.1 --uname dxj --passwd casa1234 --library_id 17710 --test_sess_name '11.5.9' --action 'continue' --body 'None'
+python script log:
+Connect landslide 10.133.5.1 succ
+Current session status:(210, '3_Waiting')
+Continue session, wait for 5 seconds and check
+Current sesion status: (210, '6_Waiting')
+continue session 11.5.9 succ, now status is 6_Waiting
+################ finish landslide(10.133.5.1) python script (continue) ################
+Success Step:10435
+Execute Step:10436 
+mzftxt_before:show%k_pgw-c%k_session%k_all
+mzftxt: have not '!vertical_bar!'
+!! Info(Adapt_Environment): Global variable ADAPT_ENVIR_FLAG not exists or == 0, pass this proc
+
+<> Warning(casaCmd::showPgwcSessionAll): variable spawn_id isn't exits.
+TRACE(DEALEXCEL::Get_Checkpoint_Check) : Calledby ::DEALEXCEL::Loop_Execute_Check_CLI
+##############enter nodes foreach############
+!! execute ::casaCmd::Analyze -cmd show pgw-c session all -- -toRunCmd -tofd exp9  -total.ues 1!!!
+Information(casaCmd::Analyze): command 'show pgw-c session all' map to api 'showPgwcSessionAll' in file 'casaCmdToApi'
+Info(::casaCmd::Run): ... run command % show pgw-c session all % on  172.0.10.51:22 ...
+
+=================================== 00:44:16 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+=== CASA-MOBILE#show pgw-c session all
+=== NODE  CM  IMSI/MEI*        APN             LBI  IPADDR                      BEARERS  TEID          SEID                  PEER-IP                           STATE   
+=== 0     0   460010000000002  apn1             5   20.40.0.3                   1        L:0x7d0044d0  L:0x7d00000000000094  SGW-C:123.2.11.11                 2/0/0                                                                                     R:0x7d0044c0  R:0xfc00000000000083  UPF  :123.32.11.11              
+=== Total UEs : 1, Sessions: 1, Bearers: 1 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(casaCmd::Analyze): xmlfile is [/public/dxj/tcpdump/casa_show_pgw_c_session_all.xml]
+
+      casaCmd_Analyze <show pgw-c session all> on  172.0.10.51:22
+-----------------------------------------------------------------------
+             command.id           total.ues           RESULT          
+-----------------------------------------------------------------------
+ 1           1                    1                   P               
+-----------------------------------------------------------------------
+!! execute ::casaCmd::Analyze -cmd show pgw-c session all -- -toRunCmd -tofd exp9  -total.sessions 1!!!
+Information(casaCmd::Analyze): command 'show pgw-c session all' map to api 'showPgwcSessionAll' in file 'casaCmdToApi'
+Info(casaCmd::Analyze): xmlfile is [/public/dxj/tcpdump/casa_show_pgw_c_session_all.xml]
+
+        casaCmd_Analyze <show pgw-c session all> on  172.0.10.51:22
+----------------------------------------------------------------------------
+             command.id           total.sessions           RESULT          
+----------------------------------------------------------------------------
+ 1           1                    1                        P               
+----------------------------------------------------------------------------
+!! execute ::casaCmd::Analyze -cmd show pgw-c session all -- -toRunCmd -tofd exp9  -total.bearers 1!!!
+Information(casaCmd::Analyze): command 'show pgw-c session all' map to api 'showPgwcSessionAll' in file 'casaCmdToApi'
+Info(casaCmd::Analyze): xmlfile is [/public/dxj/tcpdump/casa_show_pgw_c_session_all.xml]
+
+        casaCmd_Analyze <show pgw-c session all> on  172.0.10.51:22
+---------------------------------------------------------------------------
+             command.id           total.bearers           RESULT          
+---------------------------------------------------------------------------
+ 1           1                    1                       P               
+---------------------------------------------------------------------------
+############   CLI:show pgw-c session all Forward Verification Completed       ######
+##############enter no_nodes foreach############
+##############end no_nodes foreach############
+Success(DEALEXCEL::Get_Checkpoint_Check): The Expect cli id=7 Number of checkpoints is 3 ,actual Number of checkpoints is 3!!!
+Info(::DEALEXCEL::Loop_Execute_Check_CLI): Sleeping 2 second(s)...
+Success Step:10436
+Execute Step:10437 
+mzftxt_before:show%k_upf%k_session%k_all%k_counter
+mzftxt: have not '!vertical_bar!'
+!! Info(Adapt_Environment): Global variable ADAPT_ENVIR_FLAG not exists or == 0, pass this proc
+
+<> Warning(casaCmd::showUpfSessionAllCounter): variable spawn_id isn't exits.
+TRACE(DEALEXCEL::Get_Checkpoint_Check) : Calledby ::DEALEXCEL::Loop_Execute_Check_CLI
+##############enter nodes foreach############
+!! execute ::casaCmd::Analyze -cmd show upf session all counter -- -toRunCmd -tofd exp10 -session.listid 0 -session.ulpkts >=1!!!
+Information(casaCmd::Analyze): command 'show upf session all counter' map to api 'showUpfSessionAllCounter' in file 'casaCmdToApi'
+Info(::casaCmd::Run): ... run command % show upf session all counter % on  172.0.10.57:22 ...
+
+=================================== 00:44:19 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+=== CASA-MOBILE#show upf session all counter
+=== Node  TM  SEID                PKTS: PASS          DROP          BUFFER       BYTES: PASS          DROP           BUFFER
+=== 0     1   0xfc00000000000083    UL: 5             0             0               UL: 460           0              0              
+===                                 DL: 5             0             0               DL: 460           0              0              
+=== Total sessions: 1
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+5 
+Info(casaCmd::Analyze): xmlfile is [/public/dxj/tcpdump/casa_show_upf_session_all_counter.xml]
+
+                  casaCmd_Analyze <show upf session all counter> on  172.0.10.57:22
+-----------------------------------------------------------------------------------------------------
+             command.id           session.listid           session.ulpkts           RESULT          
+-----------------------------------------------------------------------------------------------------
+ 1           1                    0                        >=1                      P               
+-----------------------------------------------------------------------------------------------------
+!! execute ::casaCmd::Analyze -cmd show upf session all counter -- -toRunCmd -tofd exp10 -session.listid 0 -session.ulbytes >=1!!!
+Information(casaCmd::Analyze): command 'show upf session all counter' map to api 'showUpfSessionAllCounter' in file 'casaCmdToApi'
+Info(casaCmd::Analyze): xmlfile is [/public/dxj/tcpdump/casa_show_upf_session_all_counter.xml]
+!!Error(casaCmd::Analyze): Unable to match xpath : //command[@id='1' and session[@ulbytes>='1' and @listid='0']].
+
+                  casaCmd_Analyze <show upf session all counter> on  172.0.10.57:22
+------------------------------------------------------------------------------------------------------
+             command.id           session.listid           session.ulbytes           RESULT          
+------------------------------------------------------------------------------------------------------
+ 1           1                    0                        >=1(Fail)                 Fail            
+------------------------------------------------------------------------------------------------------
+warning(DEALEXCEL::Get_Checkpoint_Check): execute ::casaCmd::Analyze -cmd show upf session all counter -- -toRunCmd -tofd exp10 -session.listid 0 -session.ulbytes >=1 fail 1 time!!!!
+Info(::DEALEXCEL::Get_Checkpoint_Check): Sleeping 2 second(s)...
+!! execute ::casaCmd::Analyze -cmd show upf session all counter -- -toRunCmd -tofd exp10 -session.listid 0 -session.ulbytes >=1!!!
+Information(casaCmd::Analyze): command 'show upf session all counter' map to api 'showUpfSessionAllCounter' in file 'casaCmdToApi'
+Info(::casaCmd::Run): ... run command % show upf session all counter % on  172.0.10.57:22 ...
+
+=================================== 00:44:22 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+=== CASA-MOBILE#show upf session all counter
+=== Node  TM  SEID                PKTS: PASS          DROP          BUFFER       BYTES: PASS          DROP           BUFFER
+=== 0     1   0xfc00000000000083    UL: 5             0             0               UL: 460           0              0              
+===                                 DL: 5             0             0               DL: 460           0              0              
+=== Total sessions: 1
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+5 
+Info(casaCmd::Analyze): xmlfile is [/public/dxj/tcpdump/casa_show_upf_session_all_counter.xml]
+!!Error(casaCmd::Analyze): Unable to match xpath : //command[@id='1' and session[@ulbytes>='1' and @listid='0']].
+
+                  casaCmd_Analyze <show upf session all counter> on  172.0.10.57:22
+------------------------------------------------------------------------------------------------------
+             command.id           session.listid           session.ulbytes           RESULT          
+------------------------------------------------------------------------------------------------------
+ 1           1                    0                        >=1(Fail)                 Fail            
+------------------------------------------------------------------------------------------------------
+warning(DEALEXCEL::Get_Checkpoint_Check): execute ::casaCmd::Analyze -cmd show upf session all counter -- -toRunCmd -tofd exp10 -session.listid 0 -session.ulbytes >=1 fail 2 time!!!!
+Info(::DEALEXCEL::Get_Checkpoint_Check): Sleeping 2 second(s)...
+!! execute ::casaCmd::Analyze -cmd show upf session all counter -- -toRunCmd -tofd exp10 -session.listid 0 -session.ulbytes >=1!!!
+Information(casaCmd::Analyze): command 'show upf session all counter' map to api 'showUpfSessionAllCounter' in file 'casaCmdToApi'
+Info(::casaCmd::Run): ... run command % show upf session all counter % on  172.0.10.57:22 ...
+
+=================================== 00:44:25 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+=== CASA-MOBILE#show upf session all counter
+=== Node  TM  SEID                PKTS: PASS          DROP          BUFFER       BYTES: PASS          DROP           BUFFER
+=== 0     1   0xfc00000000000085    UL: 0             0             0               UL: 0             0              0              
+===                                 DL: 0             0             0               DL: 0             0              0              
+=== Total sessions: 1
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+0 
+Info(casaCmd::Analyze): xmlfile is [/public/dxj/tcpdump/casa_show_upf_session_all_counter.xml]
+!!Error(casaCmd::Analyze): Unable to match xpath : //command[@id='1' and session[@ulbytes>='1' and @listid='0']].
+
+                  casaCmd_Analyze <show upf session all counter> on  172.0.10.57:22
+------------------------------------------------------------------------------------------------------
+             command.id           session.listid           session.ulbytes           RESULT          
+------------------------------------------------------------------------------------------------------
+ 1           1                    0                        >=1(Fail)                 Fail            
+------------------------------------------------------------------------------------------------------
+warning(DEALEXCEL::Get_Checkpoint_Check): execute ::casaCmd::Analyze -cmd show upf session all counter -- -toRunCmd -tofd exp10 -session.listid 0 -session.ulbytes >=1 fail 3 time!!!!
+Info(::DEALEXCEL::Get_Checkpoint_Check): Sleeping 2 second(s)...
+!! execute ::casaCmd::Analyze -cmd show upf session all counter -- -toRunCmd -tofd exp10 -session.listid 0 -session.ulbytes >=1!!!
+Information(casaCmd::Analyze): command 'show upf session all counter' map to api 'showUpfSessionAllCounter' in file 'casaCmdToApi'
+Info(::casaCmd::Run): ... run command % show upf session all counter % on  172.0.10.57:22 ...
+
+=================================== 00:44:28 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+=== CASA-MOBILE#show upf session all counter
+=== Node  TM  SEID                PKTS: PASS          DROP          BUFFER       BYTES: PASS          DROP           BUFFER
+=== 0     1   0xfc00000000000085    UL: 3             0             0               UL: 276           0              0              
+===                                 DL: 3             0             0               DL: 276           0              0              
+=== Total sessions: 1
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+3 
+Info(casaCmd::Analyze): xmlfile is [/public/dxj/tcpdump/casa_show_upf_session_all_counter.xml]
+
+                  casaCmd_Analyze <show upf session all counter> on  172.0.10.57:22
+------------------------------------------------------------------------------------------------------
+             command.id           session.listid           session.ulbytes           RESULT          
+------------------------------------------------------------------------------------------------------
+ 1           1                    0                        >=1                       P               
+------------------------------------------------------------------------------------------------------
+!! execute ::casaCmd::Analyze -cmd show upf session all counter -- -toRunCmd -tofd exp10 -session.listid 0 -session.dlpkts >=1!!!
+Information(casaCmd::Analyze): command 'show upf session all counter' map to api 'showUpfSessionAllCounter' in file 'casaCmdToApi'
+Info(casaCmd::Analyze): xmlfile is [/public/dxj/tcpdump/casa_show_upf_session_all_counter.xml]
+
+                  casaCmd_Analyze <show upf session all counter> on  172.0.10.57:22
+-----------------------------------------------------------------------------------------------------
+             command.id           session.listid           session.dlpkts           RESULT          
+-----------------------------------------------------------------------------------------------------
+ 1           1                    0                        >=1                      P               
+-----------------------------------------------------------------------------------------------------
+!! execute ::casaCmd::Analyze -cmd show upf session all counter -- -toRunCmd -tofd exp10 -session.listid 0 -session.dlbytes >=1!!!
+Information(casaCmd::Analyze): command 'show upf session all counter' map to api 'showUpfSessionAllCounter' in file 'casaCmdToApi'
+Info(casaCmd::Analyze): xmlfile is [/public/dxj/tcpdump/casa_show_upf_session_all_counter.xml]
+
+                  casaCmd_Analyze <show upf session all counter> on  172.0.10.57:22
+------------------------------------------------------------------------------------------------------
+             command.id           session.listid           session.dlbytes           RESULT          
+------------------------------------------------------------------------------------------------------
+ 1           1                    0                        >=1                       P               
+------------------------------------------------------------------------------------------------------
+!! execute ::casaCmd::Analyze -cmd show upf session all counter -- -toRunCmd -tofd exp10  -total.sessions 1!!!
+Information(casaCmd::Analyze): command 'show upf session all counter' map to api 'showUpfSessionAllCounter' in file 'casaCmdToApi'
+Info(casaCmd::Analyze): xmlfile is [/public/dxj/tcpdump/casa_show_upf_session_all_counter.xml]
+
+     casaCmd_Analyze <show upf session all counter> on  172.0.10.57:22
+----------------------------------------------------------------------------
+             command.id           total.sessions           RESULT          
+----------------------------------------------------------------------------
+ 1           1                    1                        P               
+----------------------------------------------------------------------------
+############   CLI:show upf session all counter Forward Verification Completed       ######
+##############enter no_nodes foreach############
+##############end no_nodes foreach############
+Success(DEALEXCEL::Get_Checkpoint_Check): The Expect cli id=8 Number of checkpoints is 5 ,actual Number of checkpoints is 5!!!
+Info(::DEALEXCEL::Loop_Execute_Check_CLI): Sleeping 2 second(s)...
+Success Step:10437
+Execute Step:10438 
+Info(::DEALEXCEL::ExecuteStep): Sleeping 10 second(s)...
+Success Step:10438
+Execute Step:10439 
+mzftxt_before:show%k_pgw-c%k_session%k_all
+mzftxt: have not '!vertical_bar!'
+!! Info(Adapt_Environment): Global variable ADAPT_ENVIR_FLAG not exists or == 0, pass this proc
+
+<> Warning(casaCmd::showPgwcSessionAll): variable spawn_id isn't exits.
+TRACE(DEALEXCEL::Get_Checkpoint_Check) : Calledby ::DEALEXCEL::Loop_Execute_Check_CLI
+##############enter nodes foreach############
+!! execute ::casaCmd::Analyze -cmd show pgw-c session all -- -toRunCmd -tofd exp9  -total.ues 1!!!
+Information(casaCmd::Analyze): command 'show pgw-c session all' map to api 'showPgwcSessionAll' in file 'casaCmdToApi'
+Info(::casaCmd::Run): ... run command % show pgw-c session all % on  172.0.10.51:22 ...
+
+=================================== 00:44:41 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+=== CASA-MOBILE#show pgw-c session all
+=== NODE  CM  IMSI/MEI*        APN             LBI  IPADDR                      BEARERS  TEID          SEID                  PEER-IP                           STATE   
+=== 0     0   460010000000002  apn1             5   20.40.0.3                   1        L:0x7d004500  L:0x7d00000000000096  SGW-C:123.2.11.11                 2/0/0                                                                                     R:0x7d0044f0  R:0xfc00000000000085  UPF  :123.32.11.11              
+=== Total UEs : 1, Sessions: 1, Bearers: 1 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(casaCmd::Analyze): xmlfile is [/public/dxj/tcpdump/casa_show_pgw_c_session_all.xml]
+
+      casaCmd_Analyze <show pgw-c session all> on  172.0.10.51:22
+-----------------------------------------------------------------------
+             command.id           total.ues           RESULT          
+-----------------------------------------------------------------------
+ 1           1                    1                   P               
+-----------------------------------------------------------------------
+!! execute ::casaCmd::Analyze -cmd show pgw-c session all -- -toRunCmd -tofd exp9  -total.sessions 1!!!
+Information(casaCmd::Analyze): command 'show pgw-c session all' map to api 'showPgwcSessionAll' in file 'casaCmdToApi'
+Info(casaCmd::Analyze): xmlfile is [/public/dxj/tcpdump/casa_show_pgw_c_session_all.xml]
+
+        casaCmd_Analyze <show pgw-c session all> on  172.0.10.51:22
+----------------------------------------------------------------------------
+             command.id           total.sessions           RESULT          
+----------------------------------------------------------------------------
+ 1           1                    1                        P               
+----------------------------------------------------------------------------
+!! execute ::casaCmd::Analyze -cmd show pgw-c session all -- -toRunCmd -tofd exp9  -total.bearers 1!!!
+Information(casaCmd::Analyze): command 'show pgw-c session all' map to api 'showPgwcSessionAll' in file 'casaCmdToApi'
+Info(casaCmd::Analyze): xmlfile is [/public/dxj/tcpdump/casa_show_pgw_c_session_all.xml]
+
+        casaCmd_Analyze <show pgw-c session all> on  172.0.10.51:22
+---------------------------------------------------------------------------
+             command.id           total.bearers           RESULT          
+---------------------------------------------------------------------------
+ 1           1                    1                       P               
+---------------------------------------------------------------------------
+############   CLI:show pgw-c session all Forward Verification Completed       ######
+##############enter no_nodes foreach############
+##############end no_nodes foreach############
+Success(DEALEXCEL::Get_Checkpoint_Check): The Expect cli id=9 Number of checkpoints is 3 ,actual Number of checkpoints is 3!!!
+Info(::DEALEXCEL::Loop_Execute_Check_CLI): Sleeping 2 second(s)...
+Success Step:10439
+Execute Step:10440 
+mzftxt_before:show%k_upf%k_session%k_all%k_counter
+mzftxt: have not '!vertical_bar!'
+!! Info(Adapt_Environment): Global variable ADAPT_ENVIR_FLAG not exists or == 0, pass this proc
+
+<> Warning(casaCmd::showUpfSessionAllCounter): variable spawn_id isn't exits.
+TRACE(DEALEXCEL::Get_Checkpoint_Check) : Calledby ::DEALEXCEL::Loop_Execute_Check_CLI
+##############enter nodes foreach############
+!! execute ::casaCmd::Analyze -cmd show upf session all counter -- -toRunCmd -tofd exp10 -session.listid 0 -session.ulpkts >=1!!!
+Information(casaCmd::Analyze): command 'show upf session all counter' map to api 'showUpfSessionAllCounter' in file 'casaCmdToApi'
+Info(::casaCmd::Run): ... run command % show upf session all counter % on  172.0.10.57:22 ...
+
+=================================== 00:44:44 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+=== CASA-MOBILE#show upf session all counter
+=== Node  TM  SEID                PKTS: PASS          DROP          BUFFER       BYTES: PASS          DROP           BUFFER
+=== 0     1   0xfc00000000000085    UL: 5             0             0               UL: 460           0              0              
+===                                 DL: 5             0             0               DL: 460           0              0              
+=== Total sessions: 1
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+5 
+Info(casaCmd::Analyze): xmlfile is [/public/dxj/tcpdump/casa_show_upf_session_all_counter.xml]
+
+                  casaCmd_Analyze <show upf session all counter> on  172.0.10.57:22
+-----------------------------------------------------------------------------------------------------
+             command.id           session.listid           session.ulpkts           RESULT          
+-----------------------------------------------------------------------------------------------------
+ 1           1                    0                        >=1                      P               
+-----------------------------------------------------------------------------------------------------
+!! execute ::casaCmd::Analyze -cmd show upf session all counter -- -toRunCmd -tofd exp10 -session.listid 0 -session.ulbytes >=1!!!
+Information(casaCmd::Analyze): command 'show upf session all counter' map to api 'showUpfSessionAllCounter' in file 'casaCmdToApi'
+Info(casaCmd::Analyze): xmlfile is [/public/dxj/tcpdump/casa_show_upf_session_all_counter.xml]
+!!Error(casaCmd::Analyze): Unable to match xpath : //command[@id='1' and session[@ulbytes>='1' and @listid='0']].
+
+                  casaCmd_Analyze <show upf session all counter> on  172.0.10.57:22
+------------------------------------------------------------------------------------------------------
+             command.id           session.listid           session.ulbytes           RESULT          
+------------------------------------------------------------------------------------------------------
+ 1           1                    0                        >=1(Fail)                 Fail            
+------------------------------------------------------------------------------------------------------
+warning(DEALEXCEL::Get_Checkpoint_Check): execute ::casaCmd::Analyze -cmd show upf session all counter -- -toRunCmd -tofd exp10 -session.listid 0 -session.ulbytes >=1 fail 1 time!!!!
+Info(::DEALEXCEL::Get_Checkpoint_Check): Sleeping 2 second(s)...
+!! execute ::casaCmd::Analyze -cmd show upf session all counter -- -toRunCmd -tofd exp10 -session.listid 0 -session.ulbytes >=1!!!
+Information(casaCmd::Analyze): command 'show upf session all counter' map to api 'showUpfSessionAllCounter' in file 'casaCmdToApi'
+Info(::casaCmd::Run): ... run command % show upf session all counter % on  172.0.10.57:22 ...
+
+=================================== 00:44:47 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+=== CASA-MOBILE#show upf session all counter
+=== Node  TM  SEID                PKTS: PASS          DROP          BUFFER       BYTES: PASS          DROP           BUFFER
+=== 0     1   0xfc00000000000085    UL: 5             0             0               UL: 460           0              0              
+===                                 DL: 5             0             0               DL: 460           0              0              
+=== Total sessions: 1
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+5 
+Info(casaCmd::Analyze): xmlfile is [/public/dxj/tcpdump/casa_show_upf_session_all_counter.xml]
+!!Error(casaCmd::Analyze): Unable to match xpath : //command[@id='1' and session[@ulbytes>='1' and @listid='0']].
+
+                  casaCmd_Analyze <show upf session all counter> on  172.0.10.57:22
+------------------------------------------------------------------------------------------------------
+             command.id           session.listid           session.ulbytes           RESULT          
+------------------------------------------------------------------------------------------------------
+ 1           1                    0                        >=1(Fail)                 Fail            
+------------------------------------------------------------------------------------------------------
+warning(DEALEXCEL::Get_Checkpoint_Check): execute ::casaCmd::Analyze -cmd show upf session all counter -- -toRunCmd -tofd exp10 -session.listid 0 -session.ulbytes >=1 fail 2 time!!!!
+Info(::DEALEXCEL::Get_Checkpoint_Check): Sleeping 2 second(s)...
+!! execute ::casaCmd::Analyze -cmd show upf session all counter -- -toRunCmd -tofd exp10 -session.listid 0 -session.ulbytes >=1!!!
+Information(casaCmd::Analyze): command 'show upf session all counter' map to api 'showUpfSessionAllCounter' in file 'casaCmdToApi'
+Info(::casaCmd::Run): ... run command % show upf session all counter % on  172.0.10.57:22 ...
+
+=================================== 00:44:50 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+=== CASA-MOBILE#show upf session all counter
+=== Node  TM  SEID                PKTS: PASS          DROP          BUFFER       BYTES: PASS          DROP           BUFFER
+=== 0     1   0xfc00000000000085    UL: 5             0             0               UL: 460           0              0              
+===                                 DL: 5             0             0               DL: 460           0              0              
+=== Total sessions: 1
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+5 
+Info(casaCmd::Analyze): xmlfile is [/public/dxj/tcpdump/casa_show_upf_session_all_counter.xml]
+!!Error(casaCmd::Analyze): Unable to match xpath : //command[@id='1' and session[@ulbytes>='1' and @listid='0']].
+
+                  casaCmd_Analyze <show upf session all counter> on  172.0.10.57:22
+------------------------------------------------------------------------------------------------------
+             command.id           session.listid           session.ulbytes           RESULT          
+------------------------------------------------------------------------------------------------------
+ 1           1                    0                        >=1(Fail)                 Fail            
+------------------------------------------------------------------------------------------------------
+warning(DEALEXCEL::Get_Checkpoint_Check): execute ::casaCmd::Analyze -cmd show upf session all counter -- -toRunCmd -tofd exp10 -session.listid 0 -session.ulbytes >=1 fail 3 time!!!!
+Info(::DEALEXCEL::Get_Checkpoint_Check): Sleeping 2 second(s)...
+!! execute ::casaCmd::Analyze -cmd show upf session all counter -- -toRunCmd -tofd exp10 -session.listid 0 -session.ulbytes >=1!!!
+Information(casaCmd::Analyze): command 'show upf session all counter' map to api 'showUpfSessionAllCounter' in file 'casaCmdToApi'
+Info(::casaCmd::Run): ... run command % show upf session all counter % on  172.0.10.57:22 ...
+
+=================================== 00:44:53 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+=== CASA-MOBILE#show upf session all counter
+=== Node  TM  SEID                PKTS: PASS          DROP          BUFFER       BYTES: PASS          DROP           BUFFER
+=== 0     1   0xfc00000000000085    UL: 5             0             0               UL: 460           0              0              
+===                                 DL: 5             0             0               DL: 460           0              0              
+=== Total sessions: 1
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+5 
+Info(casaCmd::Analyze): xmlfile is [/public/dxj/tcpdump/casa_show_upf_session_all_counter.xml]
+!!Error(casaCmd::Analyze): Unable to match xpath : //command[@id='1' and session[@ulbytes>='1' and @listid='0']].
+
+                  casaCmd_Analyze <show upf session all counter> on  172.0.10.57:22
+------------------------------------------------------------------------------------------------------
+             command.id           session.listid           session.ulbytes           RESULT          
+------------------------------------------------------------------------------------------------------
+ 1           1                    0                        >=1(Fail)                 Fail            
+------------------------------------------------------------------------------------------------------
+warning(DEALEXCEL::Get_Checkpoint_Check): execute ::casaCmd::Analyze -cmd show upf session all counter -- -toRunCmd -tofd exp10 -session.listid 0 -session.ulbytes >=1 fail 4 time!!!!
+Info(::DEALEXCEL::Get_Checkpoint_Check): Sleeping 2 second(s)...
+!! execute ::casaCmd::Analyze -cmd show upf session all counter -- -toRunCmd -tofd exp10 -session.listid 0 -session.ulbytes >=1!!!
+Information(casaCmd::Analyze): command 'show upf session all counter' map to api 'showUpfSessionAllCounter' in file 'casaCmdToApi'
+Info(::casaCmd::Run): ... run command % show upf session all counter % on  172.0.10.57:22 ...
+
+=================================== 00:44:56 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+=== CASA-MOBILE#show upf session all counter
+=== Node  TM  SEID                PKTS: PASS          DROP          BUFFER       BYTES: PASS          DROP           BUFFER
+=== 0     1   0xfc00000000000085    UL: 5             0             0               UL: 460           0              0              
+===                                 DL: 5             0             0               DL: 460           0              0              
+=== Total sessions: 1
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+5 
+Info(casaCmd::Analyze): xmlfile is [/public/dxj/tcpdump/casa_show_upf_session_all_counter.xml]
+!!Error(casaCmd::Analyze): Unable to match xpath : //command[@id='1' and session[@ulbytes>='1' and @listid='0']].
+
+                  casaCmd_Analyze <show upf session all counter> on  172.0.10.57:22
+------------------------------------------------------------------------------------------------------
+             command.id           session.listid           session.ulbytes           RESULT          
+------------------------------------------------------------------------------------------------------
+ 1           1                    0                        >=1(Fail)                 Fail            
+------------------------------------------------------------------------------------------------------
+warning(DEALEXCEL::Get_Checkpoint_Check): execute ::casaCmd::Analyze -cmd show upf session all counter -- -toRunCmd -tofd exp10 -session.listid 0 -session.ulbytes >=1 fail 5 time!!!!
+Info(::DEALEXCEL::Get_Checkpoint_Check): Sleeping 2 second(s)...
+!! execute ::casaCmd::Analyze -cmd show upf session all counter -- -toRunCmd -tofd exp10 -session.listid 0 -session.ulbytes >=1!!!
+Information(casaCmd::Analyze): command 'show upf session all counter' map to api 'showUpfSessionAllCounter' in file 'casaCmdToApi'
+Info(::casaCmd::Run): ... run command % show upf session all counter % on  172.0.10.57:22 ...
+
+=================================== 00:44:59 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+=== CASA-MOBILE#show upf session all counter
+=== Node  TM  SEID                PKTS: PASS          DROP          BUFFER       BYTES: PASS          DROP           BUFFER
+=== 0     1   0xfc00000000000085    UL: 5             0             0               UL: 460           0              0              
+===                                 DL: 5             0             0               DL: 460           0              0              
+=== Total sessions: 1
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+5 
+Info(casaCmd::Analyze): xmlfile is [/public/dxj/tcpdump/casa_show_upf_session_all_counter.xml]
+!!Error(casaCmd::Analyze): Unable to match xpath : //command[@id='1' and session[@ulbytes>='1' and @listid='0']].
+
+                  casaCmd_Analyze <show upf session all counter> on  172.0.10.57:22
+------------------------------------------------------------------------------------------------------
+             command.id           session.listid           session.ulbytes           RESULT          
+------------------------------------------------------------------------------------------------------
+ 1           1                    0                        >=1(Fail)                 Fail            
+------------------------------------------------------------------------------------------------------
+warning(DEALEXCEL::Get_Checkpoint_Check): execute ::casaCmd::Analyze -cmd show upf session all counter -- -toRunCmd -tofd exp10 -session.listid 0 -session.ulbytes >=1 fail 6 time!!!!
+Info(::DEALEXCEL::Get_Checkpoint_Check): Sleeping 2 second(s)...
+Error(DEALEXCEL::Get_Checkpoint_Check): execute ::casaCmd::Analyze -cmd show upf session all counter -- -toRunCmd -tofd exp10 -session.listid 0 -session.ulbytes >=1 fail!!!!
+=== === === === === Tips === === === === === === ===
+=== 请检查 test plan里用例的第10个CLI命令show upf session all counter 对应SPAWN_ID_SAEGW_U1&10&show%k_upf%k_session%k_all%k_counter文件，以及和相应的制表函数
+=== Check the 10 CLI command of the use case in test plan for the show upf session all counter corresponding to the SPAWN_ID_SAEGW_U1&10&show%k_upf%k_session%k_all%k_counter file and the corresponding tab function
+=== === === === === === === === === === === === ===
+=== === === === === Tips === === === === === === ===
+=== 请检查 test plan 里用例 case_31584 的 第 10 个 CLI 命令 show upf session all counter
+=== Please check Number.10 CLI command show upf session all counter of the test case case_31584 in test plan
+===Error(DEALEXCEL::ExecuteStep): Loop_Execute_Check_CLI failed!!
+=== === === === === === === === === === === === ===
+Error(SAEGW::Main): ::DEALEXCEL::ExecuteStep -casenum 31584  failed!!
+STEP(00:45:01): RESULT=FAIL  Step 6: 5.get excel case info
+Failed script name: /public/casa-495/test/Tests/hxd/SAEGW.test
+Recovery conf!!
+recovery_conf!!
+!! Info(Adapt_Environment): Global variable ADAPT_ENVIR_FLAG not exists or == 0, pass this proc
+step_10447
+
+=================================== 00:45:02 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(CasaGetPrompt): Current CLI mode for exp9 is enable
+
+=================================== 00:45:02 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 00:45:04 ===================================
+=== 
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 00:45:05 ===================================
+=== config
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+
+=================================== 00:45:07 ===================================
+=== 
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+SendAndExpect  lte-service pgw-c  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 00:45:07 ===================================
+=== lte-service pgw-c
+=== CASA-MOBILE(config-pgw-c)#
+=== CASA-MOBILE(config-pgw-c)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  no apn apn1  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 00:45:08 ===================================
+=== no apn apn1
+=== cannot remove apn when session exist.
+=== CASA-MOBILE(config-pgw-c)#
+=== CASA-MOBILE(config-pgw-c)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  apn apn1  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 00:45:09 ===================================
+=== apn apn1
+=== CASA-MOBILE(config-pgw-apn-apn1)#
+=== CASA-MOBILE(config-pgw-apn-apn1)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  ip pool name ue-pool-4  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 00:45:10 ===================================
+=== ip pool name ue-pool-4
+=== CASA-MOBILE(config-pgw-apn-apn1)#
+=== CASA-MOBILE(config-pgw-apn-apn1)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  exit  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 00:45:11 ===================================
+=== exit
+=== CASA-MOBILE(config-pgw-c)#
+=== CASA-MOBILE(config-pgw-c)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  no  cdr-trigger-profile pgw-trigger ecgi-change  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 00:45:12 ===================================
+=== no  cdr-trigger-profile pgw-trigger ecgi-change
+=== CASA-MOBILE(config-pgw-c)#
+=== CASA-MOBILE(config-pgw-c)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  no cdr-cgf-name cdr01  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 00:45:13 ===================================
+=== no cdr-cgf-name cdr01
+=== CASA-MOBILE(config-pgw-c)#
+=== CASA-MOBILE(config-pgw-c)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect    -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 00:45:14 ===================================
+=== 
+=== CASA-MOBILE(config-pgw-c)#
+=== CASA-MOBILE(config-pgw-c)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect    -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 00:45:15 ===================================
+=== 
+=== CASA-MOBILE(config-pgw-c)#
+=== CASA-MOBILE(config-pgw-c)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+
+=================================== 00:45:17 ===================================
+=== 
+=== CASA-MOBILE(config-pgw-c)#
+=== CASA-MOBILE(config-pgw-c)#
+================================================================================
+
+Info(CasaGetPrompt): Current CLI mode for exp9 is config-pgw-c)#
+CASA-MOBILE(config-pgw-c
+
+=================================== 00:45:17 ===================================
+=== end
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+
+=================================== 00:45:17 ===================================
+=== 
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+Info(CasaGetPrompt): Current CLI mode for exp9 is config)#
+CASA-MOBILE(config
+
+=================================== 00:45:17 ===================================
+=== 
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+
+=================================== 00:45:19 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 00:45:20 ===================================
+=== config
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+
+=================================== 00:45:22 ===================================
+=== 
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+
+=================================== 00:45:22 ===================================
+=== exit
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Stop tools!!
+TRACE(Landslide) : Calledby ::SAEGW::Main
+################ start landslide(10.133.5.1) python script (stop) ################
+python3 ./Lib/casaLandslide/RunLandslide.py --test_server_ip 10.133.5.1 --uname dxj --passwd casa1234 --library_id 17710 --test_sess_name '11.5.9' --action 'stop' --body '{}'
+python script log:
+Connect landslide 10.133.5.1 succ
+Current session status:(210, '6_Waiting')
+Stop session, wait for 5 seconds and check
+Current sesion status: (210, 'COMPLETE')
+stop session 11.5.9 succ, now status is COMPLETE
+################ finish landslide(10.133.5.1) python script (stop) ################
+Info(DEALEXCEL::Mirror_Clear): There are the following spawn_id of NFV that should clear mirror config (SPAWN_ID_SAEGW_C)
+
+=================================== 00:45:45 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#mirror stop
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+TRACE(LteCliSend) : Calledby Mirror
+{
+					no mirror destination
+					no mirror pgw protocol pfcp
+					no mirror pgw protocol gtpc
+					no mirror sgw protocol s4s11 
+					no mirror sgw protocol pfcp
+					no mirror aaa protocol diameter
+				} -- -fd exp9
+
+=================================== 00:45:45 ===================================
+=== no mirror destination
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 00:45:45 ===================================
+=== no mirror pgw protocol pfcp
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 00:45:45 ===================================
+=== no mirror pgw protocol gtpc
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 00:45:45 ===================================
+=== no mirror sgw protocol s4s11 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 00:45:45 ===================================
+=== no mirror sgw protocol pfcp
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 00:45:45 ===================================
+=== no mirror aaa protocol diameter
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(DEALEXCEL::Mirror_Clear): There are the following spawn_id of NFV that should clear mirror config (SPAWN_ID_SAEGW_U)
+
+=================================== 00:45:46 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#mirror stop
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+TRACE(LteCliSend) : Calledby Mirror
+{
+					no mirror destination
+					no mirror pgw protocol user
+					no mirror pgw protocol gtpu 
+					no mirror sgw protocol s1u 
+				} -- -fd exp10
+
+=================================== 00:45:46 ===================================
+=== no mirror destination
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 00:45:46 ===================================
+=== no mirror pgw protocol user
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 00:45:46 ===================================
+=== no mirror pgw protocol gtpu 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 00:45:46 ===================================
+=== no mirror sgw protocol s1u 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Complete all steps!!
+Info(EndofSaegwTest): test==/public/casa-495/test/Tests/hxd/SAEGW.test
+
+TRACE(ShowHistory) : Calledby EndofSaegwTest
+
+
+                                                                 
+----------------------------------------------------------------------------------------------------------------------------------
+       Time       spawn_id   Descr                Command                                                                        
+----------------------------------------------------------------------------------------------------------------------------------
+ 1     00:41:27   exp7       172.0.10.51:22:23    casa                                                                           
+ 2     00:41:28   exp7       172.0.10.51:22:23    su casa                                                                        
+ 3     00:41:29   exp7       172.0.10.51:22:23    en\ncasa                                                                       
+ 4     00:41:29   exp7       172.0.10.51:22:23    show task crash                                                                
+ 5     00:41:30   exp7       172.0.10.57:22:23    casa                                                                           
+ 6     00:41:31   exp7       172.0.10.57:22:23    su casa                                                                        
+ 7     00:41:31   exp7       172.0.10.57:22:23    en\ncasa                                                                       
+ 8     00:41:31   exp7       172.0.10.57:22:23    show task crash                                                                
+ 9     00:41:32   exp7       172.0.10.51:22:23    casa                                                                           
+ 10    00:41:32   exp7       172.0.10.51:22:23    page-off                                                                       
+ 11    00:41:35   exp8       172.0.10.57:22:23    casa                                                                           
+ 12    00:41:35   exp8       172.0.10.57:22:23    page-off                                                                       
+ 13    00:41:37   exp9        172.0.10.51:22:23   casa                                                                           
+ 14    00:41:40   exp9        172.0.10.51:22:23   su casa                                                                        
+ 15    00:41:40   exp9        172.0.10.51:22:23   en\ncasa                                                                       
+ 16    00:41:41   exp10       172.0.10.57:22:23   casa                                                                           
+ 17    00:41:44   exp10       172.0.10.57:22:23   su casa                                                                        
+ 18    00:41:45   exp10       172.0.10.57:22:23   en\ncasa                                                                       
+ 19    00:41:53   exp9        172.0.10.51:22:23   CTRL-Z                                                                         
+ 20    00:41:57   exp9        172.0.10.51:22:23   config                                                                         
+ 21    00:41:59   exp9        172.0.10.51:22:23   diameter-endpoint ls_rf                                                        
+ 22    00:42:00   exp9        172.0.10.51:22:23   origin host pgw01.rf.epc.gz realm asac.com gige 0/1                            
+ 23    00:42:01   exp9        172.0.10.51:22:23   peer host ofcs.landslide.com realm landslide.com ipv4 172.1.214.32 tcp         
+ 24    00:42:02   exp9        172.0.10.51:22:23   route-entry realm landslide.com app rf peer host ofcs.landslide.com weight 50  
+ 25    00:42:03   exp9        172.0.10.51:22:23   exit                                                                           
+ 26    00:42:04   exp9        172.0.10.51:22:23   rf-service  rf_ls                                                              
+ 27    00:42:05   exp9        172.0.10.51:22:23   diameter-endpoint ls_rf                                                        
+ 28    00:42:06   exp9        172.0.10.51:22:23   destination realm landslide.com  host ofcs.landslide.com                       
+ 29    00:42:07   exp9        172.0.10.51:22:23   exit                                                                           
+ 30    00:42:08   exp9        172.0.10.51:22:23   lte-service pgw-c                                                              
+ 31    00:42:09   exp9        172.0.10.51:22:23   charging-character 0x1234                                                      
+ 32    00:42:10   exp9        172.0.10.51:22:23   charging-condition-limit 3                                                     
+ 33    00:42:11   exp9        172.0.10.51:22:23   no  volume-limit session                                                       
+ 34    00:42:12   exp9        172.0.10.51:22:23   volume-limit service 100000                                                    
+ 35    00:42:13   exp9        172.0.10.51:22:23   cc-rating-group 100                                                            
+ 36    00:42:14   exp9        172.0.10.51:22:23   no cc-service-id                                                               
+ 37    00:42:15   exp9        172.0.10.51:22:23   charging-method offline                                                        
+ 38    00:42:16   exp9        172.0.10.51:22:23   exit                                                                           
+ 39    00:42:17   exp9        172.0.10.51:22:23   cc-profile pgw_cc home 0x1234                                                  
+ 40    00:42:18   exp9        172.0.10.51:22:23   cc-profile pgw_cc roaming 0x1234                                               
+ 41    00:42:19   exp9        172.0.10.51:22:23   cc-profile pgw_cc visiting 0x1234                                              
+ 42    00:42:20   exp9        172.0.10.51:22:23   cc-profile cc_1 home 0x1234                                                    
+ 43    00:42:21   exp9        172.0.10.51:22:23   cc-profile cc_1 roaming 0x1234                                                 
+ 44    00:42:22   exp9        172.0.10.51:22:23   cc-profile cc_1 visiting 0x1234                                                
+ 45    00:42:23   exp9        172.0.10.51:22:23   cdr-trigger-profile pgw-trigger ecgi-change                                    
+ 46    00:42:24   exp9        172.0.10.51:22:23   cdr-trigger-profile pgw-trigger service-stop                                   
+ 47    00:42:25   exp9        172.0.10.51:22:23   no apn apn1                                                                    
+ 48    00:42:26   exp9        172.0.10.51:22:23   apn apn1                                                                       
+ 49    00:42:27   exp9        172.0.10.51:22:23   ip pool name ue-pool-4                                                         
+ 50    00:42:28   exp9        172.0.10.51:22:23   diameter-app rf-service rf_ls                                                  
+ 51    00:42:29   exp9        172.0.10.51:22:23   cc-profile pgw_cc                                                              
+ 52    00:42:30   exp9        172.0.10.51:22:23   cdr-trigger-profile pgw-trigger                                                
+ 53    00:42:31   exp9        172.0.10.51:22:23   exit                                                                           
+ 54    00:42:32   exp9        172.0.10.51:22:23   cdr-cgf-name cdr01                                                             
+ 55    00:42:33   exp9        172.0.10.51:22:23   exit                                                                           
+ 56    00:42:36   exp9        172.0.10.51:22:23   end                                                                            
+ 57    00:42:36   exp9        172.0.10.51:22:23   CTRL-Z                                                                         
+ 58    00:42:39   exp9        172.0.10.51:22:23   config                                                                         
+ 59    00:42:41   exp9        172.0.10.51:22:23   exit                                                                           
+ 60    00:43:31   exp9        172.0.10.51:22:23   \nshow ha info                                                                 
+ 61    00:43:34   exp9        172.0.10.51:22:23   \nshow pgw-c stats pfcp peer                                                   
+ 62    00:43:37   exp9        172.0.10.51:22:23   \nshow sgw-c stats pfcp peer                                                   
+ 63    00:43:39   exp9        172.0.10.51:22:23   \nshow diameter-endpoint                                                       
+ 64    00:43:41   exp10       172.0.10.57:22:23   show ha info                                                                   
+ 65    00:43:44   exp10       172.0.10.57:22:23   \nshow upf stats pfcp peer                                                     
+ 66    00:43:47   exp10       172.0.10.57:22:23   \nshow sgw-u stats pfcp peer                                                   
+ 67    00:43:50   exp9        172.0.10.51:22:23   mirror stop                                                                    
+ 68    00:43:50   exp9        172.0.10.51:22:23   mirror destination file 11.5.9                                                 
+ 69    00:43:51   exp9        172.0.10.51:22:23   mirror start timeout never                                                     
+ 70    00:43:52   exp9        172.0.10.51:22:23   mirror sgw protocol s4s11                                                      
+ 71    00:43:53   exp9        172.0.10.51:22:23   mirror sgw protocol pfcp                                                       
+ 72    00:43:54   exp9        172.0.10.51:22:23   mirror pgw protocol gtpc                                                       
+ 73    00:43:55   exp9        172.0.10.51:22:23   mirror pgw protocol pfcp                                                       
+ 74    00:43:56   exp9        172.0.10.51:22:23   mirror aaa protocol diameter tcp                                               
+ 75    00:43:57   exp10       172.0.10.57:22:23   clear task crash all                                                           
+ 76    00:43:58   exp10       172.0.10.57:22:23   clear upf stats all                                                            
+ 77    00:43:59   exp10       172.0.10.57:22:23   clear sgw-u stats all                                                          
+ 78    00:44:00   exp10       172.0.10.57:22:23   clear sgw-u stats pfcp msg                                                     
+ 79    00:44:01   exp10       172.0.10.57:22:23   clear upf stats pfcp msg                                                       
+ 80    00:44:03   exp9        172.0.10.51:22:23   clear sgw-c stats all                                                          
+ 81    00:44:04   exp9        172.0.10.51:22:23   clear pgw-c stats all                                                          
+ 82    00:44:05   exp9        172.0.10.51:22:23   clear pgw-c stats pfcp msg                                                     
+ 83    00:44:06   exp9        172.0.10.51:22:23   clear sgw-c stats pfcp msg                                                     
+ 84    00:44:16   exp9        172.0.10.51:22:23   \nshow pgw-c session all                                                       
+ 85    00:44:19   exp10       172.0.10.57:22:23   \nshow upf session all counter                                                 
+ 86    00:44:22   exp10       172.0.10.57:22:23   \nshow upf session all counter                                                 
+ 87    00:44:25   exp10       172.0.10.57:22:23   \nshow upf session all counter                                                 
+ 88    00:44:28   exp10       172.0.10.57:22:23   \nshow upf session all counter                                                 
+ 89    00:44:41   exp9        172.0.10.51:22:23   \nshow pgw-c session all                                                       
+ 90    00:44:44   exp10       172.0.10.57:22:23   \nshow upf session all counter                                                 
+ 91    00:44:47   exp10       172.0.10.57:22:23   \nshow upf session all counter                                                 
+ 92    00:44:50   exp10       172.0.10.57:22:23   \nshow upf session all counter                                                 
+ 93    00:44:53   exp10       172.0.10.57:22:23   \nshow upf session all counter                                                 
+ 94    00:44:56   exp10       172.0.10.57:22:23   \nshow upf session all counter                                                 
+ 95    00:44:59   exp10       172.0.10.57:22:23   \nshow upf session all counter                                                 
+ 96    00:45:02   exp9        172.0.10.51:22:23   CTRL-Z                                                                         
+ 97    00:45:05   exp9        172.0.10.51:22:23   config                                                                         
+ 98    00:45:07   exp9        172.0.10.51:22:23   lte-service pgw-c                                                              
+ 99    00:45:08   exp9        172.0.10.51:22:23   no apn apn1                                                                    
+ 100   00:45:09   exp9        172.0.10.51:22:23   apn apn1                                                                       
+ 101   00:45:10   exp9        172.0.10.51:22:23   ip pool name ue-pool-4                                                         
+ 102   00:45:11   exp9        172.0.10.51:22:23   exit                                                                           
+ 103   00:45:12   exp9        172.0.10.51:22:23   no  cdr-trigger-profile pgw-trigger ecgi-change                                
+ 104   00:45:13   exp9        172.0.10.51:22:23   no cdr-cgf-name cdr01                                                          
+ 105   00:45:17   exp9        172.0.10.51:22:23   end                                                                            
+ 106   00:45:17   exp9        172.0.10.51:22:23   CTRL-Z                                                                         
+ 107   00:45:20   exp9        172.0.10.51:22:23   config                                                                         
+ 108   00:45:22   exp9        172.0.10.51:22:23   exit                                                                           
+ 109   00:45:45   exp9        172.0.10.51:22:23   mirror stop                                                                    
+ 110   00:45:45   exp9        172.0.10.51:22:23   no mirror destination                                                          
+ 111   00:45:45   exp9        172.0.10.51:22:23   no mirror pgw protocol pfcp                                                    
+ 112   00:45:45   exp9        172.0.10.51:22:23   no mirror pgw protocol gtpc                                                    
+ 113   00:45:45   exp9        172.0.10.51:22:23   no mirror sgw protocol s4s11                                                   
+ 114   00:45:45   exp9        172.0.10.51:22:23   no mirror sgw protocol pfcp                                                    
+ 115   00:45:45   exp9        172.0.10.51:22:23   no mirror aaa protocol diameter                                                
+ 116   00:45:46   exp10       172.0.10.57:22:23   mirror stop                                                                    
+ 117   00:45:46   exp10       172.0.10.57:22:23   no mirror destination                                                          
+ 118   00:45:46   exp10       172.0.10.57:22:23   no mirror pgw protocol user                                                    
+ 119   00:45:46   exp10       172.0.10.57:22:23   no mirror pgw protocol gtpu                                                    
+ 120   00:45:46   exp10       172.0.10.57:22:23   no mirror sgw protocol s1u                                                     
+----------------------------------------------------------------------------------------------------------------------------------
+       Time       spawn_id   Descr                Command                                                                        
+----------------------------------------------------------------------------------------------------------------------------------
+
+
+
+=================================== 00:45:47 ===================================
+=== ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no 172.0.10.51
+=== root@172.0.10.51's password: 
+=== Last login: Sun Mar 29 16:41:44 2020 from 172-0-11-88.lightspeed.rcsntx.sbcglobal.net
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# su casa
+=== 
+=== ===================================
+=== Welcome to CASA MEC x86 Platform
+=== ===================================
+=== CLI services started!
+=== CASA-MOBILE>
+=== CASA-MOBILE>en
+=== Password: 
+=== CASA-MOBILE#
+=== CASA-MOBILE#show task crash
+=== Number  Task             Crash-Time                Exit-Code     Exit-Reason     Core-file
+=== ==========================================================================================
+=== Total 0 crash records
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 00:45:49 ===================================
+=== ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no 172.0.10.57
+=== root@172.0.10.57's password: 
+=== Last login: Sun Mar 29 16:41:49 2020 from 172-0-11-88.lightspeed.rcsntx.sbcglobal.net
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# su casa
+=== 
+=== ===================================
+=== Welcome to CASA MEC x86 Platform
+=== ===================================
+=== CLI services started!
+=== CASA-MOBILE>
+=== CASA-MOBILE>en
+=== Password: 
+=== CASA-MOBILE#
+=== CASA-MOBILE#show task crash
+=== Number  Task             Crash-Time                Exit-Code     Exit-Reason     Core-file
+=== ==========================================================================================
+=== Total 0 crash records
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+#####  Result:    FAILED
+#####  Script:    SAEGW.test/31584
+#####  Last Step: 6: 5.get excel case info
+#####  Date:      03/30/2020 12:41:26 AM
+#####  Log:       /public/casa-495/test/Log/SAEGW_8875-01.txt
+#####  Warnings:  11
+#####  Errors:    9
+#####  SubTest Duration: 04:25
+
+##########################################
+All test cases have been executed
+##########################################
+
+                                               SAEGW
+----------------------------------------------------------------------------------------------------
+       Test      Duration     Verdict     Errs     Warns     Type                Bugs     Fixed    
+----------------------------------------------------------------------------------------------------
+ 1     31584     04:25        Fail        9        11        Expect No Error                       
+----------------------------------------------------------------------------------------------------
+
+############################################
+#####  Passed:    0
+#####  Aborted:   0
+#####  Canceled:  0
+#####  Failed:    1
+#####  ----------------
+#####  Total:     1
+#####  Duration:  04:25
+#####
+#####  Script:    /public/casa-495/test/Tests/hxd/SAEGW.test
+#####  Date:      03/30/2020 12:45:51 AM
+#####  Log:       /public/casa-495/test/Log/SAEGW_8875-01.txt
+#####  Verdict:   FAILED
+############################################
+
+Mail -body SAEGW -subject Failed: SAEGW.test  -to gzltesqa@casachina.com.cn -attach /public/casa-495/test/Log/SAEGW_8875-01.txt
+
+=================================== 00:45:52 ===================================
+=== ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no 172.0.10.51
+=== root@172.0.10.51's password: 
+=== Last login: Sun Mar 29 16:45:55 2020 from 172-0-11-88.lightspeed.rcsntx.sbcglobal.net
+=== root@CASA-MOBILE:~# page-off
+=== page-off: command not found
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no 172.0.10.51
+=== root@172.0.10.51's password: 
+=== Last login: Sun Mar 29 16:46:00 2020 from 172-0-11-88.lightspeed.rcsntx.sbcglobal.net
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# su casa
+=== 
+=== ===================================
+=== Welcome to CASA MEC x86 Platform
+=== ===================================
+=== CLI services started!
+=== CASA-MOBILE>
+=== CASA-MOBILE>en
+=== Password: 
+=== CASA-MOBILE#
+=== CASA-MOBILE#show version
+=== QA Release: 5.0.0-205
+=== Build Time: Thu Mar 26 00:34:38 EDT 2020
+=== 
+================================================================================
+
+
+=================================== 00:45:59 ===================================
+=== cd /email
+=== root@CASA-MOBILE:/email# 
+=== root@CASA-MOBILE:/email# 
+================================================================================
+
+
+=================================== 00:45:59 ===================================
+=== scp root@[172.0.11.88]:/public/casa-495/test/Log/SAE<p root@[172.0.11.88]:/public/casa-495/test/Log/SAEG                         
+=== W_8875-01.txt /email/SAEG<ic/casa-495/test/Log/SAEGW_8875-01.txt /email/SAEGW                         
+=== _8875-01.txt
+=== root@172.0.11.88's password: 
+================================================================================
+
+
+=================================== 00:46:00 ===================================
+=== 
+=== SAEGW_8875-01.txt                               0%    0     0.0KB/s   --:-- ETASAEGW_8875-01.txt                             100%  147KB 146.8KB/s   00:00    
+=== root@CASA-MOBILE:/email# 
+================================================================================
+
+Info(Mail): Sleeping 2 second(s)...
+
+=================================== 00:46:02 ===================================
+=== tar Jcvf SAEGW_8875-01.tar.bz2 SAEGW_8875-01.txt
+=== SAEGW_8875-01.txt
+=== root@CASA-MOBILE:/email# 
+=== root@CASA-MOBILE:/email# 
+================================================================================
+
+
+=================================== 00:46:02 ===================================
+=== rm casa.txt
+=== root@CASA-MOBILE:/email# 
+=== root@CASA-MOBILE:/email# 
+================================================================================
+
+
+=================================== 00:46:02 ===================================
+=== sed  -i 's/Impossible characters, let the whole cont<d  -i 's/Impossible characters, let the whole conte                         
+=== nt as a domain/ /'  /emai<ters, let the whole content as a domain/ /'  /email                         
+=== /SAEGW_8875-01.txt
+=== root@CASA-MOBILE:/email# 
+=== root@CASA-MOBILE:/email# 
+================================================================================
+
+
+=================================== 00:46:02 ===================================
+=== awk 'BEGIN {RS = "Impossible characters, let the who<k 'BEGIN {RS = "Impossible characters, let the whol                         
+=== e content as a domain"; F< characters, let the whole content as a domain"; FS                         
+===  = "SAEGW\n"}/./{print $N< content as a domain"; FS = "SAEGW\n"}/./{print $NF                         
+=== }' /email/SAEGW_8875-01.t<= "SAEGW\n"}/./{print $NF}' /email/SAEGW_8875-01.tx                         
+=== t  >
+================================================================================
+
+
+=================================== 00:46:02 ===================================
+=== > casa.txt
+=== mail -v -s "Version:5.0.0-205 Failed: SAEGW.test  MEC:172.0.10.51" -a SAEGW_8875-01.tar.bz2 gzltesqa@casachina.com.cn < casa.txt
+=== 
+=== root@CASA-MOBILE:/email# 
+=== root@CASA-MOBILE:/email# mail -v -s "Version:5.0.0-205 Failed: SAEGW.test  ME<il -v -s "Version:5.0.0-205 Failed: SAEGW.test  MEC                         
+=== :172.0.10.51" -a SAEGW_88<5 Failed: SAEGW.test  MEC:172.0.10.51" -a SAEGW_887                         
+=== 5-01.tar.bz2 gzltesqa@cas<172.0.10.51" -a SAEGW_8875-01.tar.bz2 gzltesqa@casa                         
+=== china.com.cn < casa.txt
+=== Resolving host smtp.qiye.163.com . . . done.
+=== Connecting to 220.194.24.11:smtp . . . connected.
+=== 
+================================================================================
+
+
+=================================== 00:46:04 ===================================
+=== 
+=== 
+=== 220 proxy-sm-thq-2.hmbj.internal ESMTP ready
+=== >>> EHLO localhost.localdomain
+=== 250-proxy-sm-thq-2.hmbj.internal
+=== 250-PIPELINING
+=== 250-8BITMIME
+=== 250-AUTH=LOGIN PLAIN
+=== 250-AUTH PLAIN LOGIN
+=== 250 STARTTLS
+=== >>> AUTH LOGIN
+=== 334 VXNlcm5hbWU6
+=== >>> ZGVuZ3h1ZWp1YW5AY2FzYWNoaW5hLmNvbS5jbg==
+=== 334 UGFzc3dvcmQ6
+=== >>> MTcyLjEuMTAuNTc=
+=== 235 2.0.0 OK
+=== >>> MAIL FROM:<dengxuejuan@casachina.com.cn>
+=== 250 Mail OK
+=== >>> RCPT TO:<gzltesqa@casachina.com.cn>
+=== 250 Mail OK
+=== >>> DATA
+=== 354 End data with <CR><LF>.<CR><LF>
+=== >>> .
+=== 250 Mail OK queued as smtp5,huCowAA3XdbS0IBeGwG6AQ--.36763S2 1585500371
+=== >>> QUIT
+=== 221 Bye
+=== root@CASA-MOBILE:/email# 
+=== root@CASA-MOBILE:/email# 
+=== root@CASA-MOBILE:/email# 
+=== root@CASA-MOBILE:/email# 
+================================================================================
+

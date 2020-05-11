@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+<style>
+ul
+{
+	list-style-type:none;
+	padding:0px;
+	margin:0px;
+}
+ul li
+{
+	height:50px;
+	line-height:50px;
+	text-indent:30px;
+	outline:0;
+	font-size:18px;
+	font-weight:600;
+	border-top:0.5px solid #ddd;
+	background:-webkit-gradient(linear,left top,left bottom,color-stop(0,#FEFEFE),color-stop(1,#CCC));
+	cursor:pointer
+}
+ul li:hover {
+	BORDER-LEFT-COLOR: #227; 
+	BACKGROUND: #aad; 
+	BORDER-BOTTOM-COLOR: #227; 
+	COLOR: #000; 
+	BORDER-TOP-COLOR: #227; 
+	BORDER-RIGHT-COLOR: #227
+}
+
+.summary{
+	height:50px;
+	line-height:50px;
+	text-indent:30px;
+	outline:0;
+	font-size:18px;
+	font-weight:600;
+	border-top:0.5px solid #ddd;
+	background:-webkit-gradient(linear,left top,left bottom,color-stop(0,#FEFEFE),color-stop(1,#CDC));
+	cursor:pointer
+}
+</style>
+<script type="text/javascript">
+	
+	window.onload = function(){
+		var liNodes = document.getElementsByTagName("li");
+		for(var i = 0 ;i < liNodes.length; i++){
+			liNodes[i].onclick = function(e){
+				
+				var id=e.target.id;
+				localStorage.setItem('projectid', id);
+				<!-- 请求用例数据 -->
+				localStorage.setItem('testplanID', id);
+				
+				var iframetop = window.parent.document.getElementById('top');
+				iframetop.contentWindow.location.reload(true);
+				
+				parent.getcaselist(id);
+			}
+		}
+
+	}
+	
+</script>
+</head>
+
+<body bgcolor="#E6E6EA">
+	<p class="summary">计划列表</p>
+	<ul id="project">
+		<!-- <li id="bj">SAEGW</li> -->
+		<!-- <li id="bj">MME</li> -->
+	
+		<script type="text/javascript">
+			
+		
+			//用innerHTML动态创建li
+			addElementLi("project");
+			function addElementLi(obj) {
+				var ul = document.getElementById(obj);
+
+				var jsonobj = JSON.parse(localStorage.getItem('projectobj'));
+
+				for(var p in jsonobj){//遍历json对象的每个key/value对,p为key
+					//添加 li
+					var li = document.createElement("li");
+					//设置 li 属性，如 id
+					li.setAttribute("id", p);
+					li.innerHTML = jsonobj[p];
+					ul.appendChild(li);
+				  
+				}
+			}
+		</script>
+	
+	</ul>
+
+</body>
+</html>
+

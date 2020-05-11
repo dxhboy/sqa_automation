@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>添加项目</title>
+<link rel="stylesheet" type="text/css" href="./base.css" />
+</head>
+ 
+<script src="./JS_lib.js"></script>
+<script src="./jquery-3.4.1.js"></script>
+<script type="text/javascript">
+	//绑定粘贴事件
+	document.getElementById('messages').onpaste = function () { 
+		paste_imgs(event); 
+	
+	};
+	function get_all_project() {
+		Run_Php_File(http_type="post", post_info="", php_file="read_all_project.php", locStorVal="projectobj");
+	}
+	
+	function check_project_exist () {
+
+		//get input_name
+		var proj_name_obj = document.getElementById("project_name");
+		var input_name = proj_name_obj.value.trim();
+		
+		var judge_obj = document.getElementById("judge_name");
+		if (project_arrays.array_contains("name", input_name)) {
+			judge_obj.innerHTML = "  (项目名称已存在，请修改)"
+			block_submit();
+		} else {
+			judge_obj.innerHTML = "";
+			open_submit();
+		}
+	
+	}
+	
+	function block_submit() {
+		var submit_obj = document.getElementById("submit");
+		submit_obj.setAttribute('disabled','disabled');
+	}
+	
+	function open_submit() {
+		var submit_obj = document.getElementById("submit");
+		submit_obj.removeAttribute('disabled');
+	}
+	
+	get_all_project();
+	var project_arrays = JSON.parse(localStorage.getItem('projectobj'));
+	//console.log(project_arrays);
+	
+	function check_time() {
+		
+		var start_obj = document.getElementById("project_starttime");
+		var starttime = start_obj.value;
+		//console.log(starttime);
+		if (!starttime) {
+			return
+		}
+		var end_obj = document.getElementById("project_endtime");
+		var endtime = end_obj.value;
+		//console.log(endtime);
+		if (!endtime) {
+			return
+		}
+		
+		var judge_obj = document.getElementById("judge_time");
+		if (check_endtime_bigger_starttime(starttime, endtime)) {
+			judge_obj.innerHTML = "";
+			open_submit();
+		} else {
+			judge_obj.innerHTML = "  (预期结束时间不能早于预计启动时间)";
+			block_submit();
+		}
+		
+	}
+</script>
+
+<body>
+	<iframe align="center" width="100%" height="80" src="smarty_header.php"  frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+	<div style="position:fixed;top:100px/*这里是这个div到浏览器边框顶部距离*/;left:40px/*这个是div到浏览器左边框的距离*/;">
+		<h1>添加项目</h1>
+		
+		<form action="./add_project.php" method="post">
+			<div>	
+				<label style="display: block" for="project_name">项目名称:</label>
+				<input name="project_name" type="text" maxlength="100" required id="project_name" oninput="check_project_exist()"/>
+				<font id="judge_name" size="1" color="red"></font>
+			</div>
+			
+			<div>    
+				<label style="display: block" for="project_notes">项目说明:</label>
+				<textarea name="project_notes" cols="100" rows="10" id="project_notes"></textarea>         
+			</div>
+
+			<div>
+				<label style="display: block" for="longtime">是否长期进行？</label>
+				<select name="longtime" id="longtime" onchange="Longtime_Onchange(this)">
+				  <option value="no" selected="longtime">否</option>
+				  <option value="yes">是</option>
+				</select>
+			</div>
+
+			<div>    
+				<label style="display: block" for="project_status">项目状态:</label>
+				<select name="project_status" id="project_status">
+				  <option value="start" selected="project_state">未完成</option>
+				  <option value="finish">完成</option>
+				</select>
+			</div>
+
+			<div>	
+				<label style="display: block" for="project_starttime">项目预计启动时间:</label>
+				<input name="project_starttime" type="date" value="------" id="project_starttime" oninput="check_time()"/>
+			</div>
+			
+			<div>	
+				<label style="display: block" for="project_endtime">项目预计结束时间:</label>
+				<input name="project_endtime" type="date" value="------" id="project_endtime" oninput="check_time()"/>
+				<font id="judge_time" size="1" color="red"></font>
+			</div>
+			
+			<div >	
+				<p>添加图片操作：<br/>1、截图/图片打开后的复制；2、图片拖入下列框内上传；3、支持浏览上传图片；4、暂未做重复上传区分。</p>
+				<p><input name="picpath"  type="hidden" id="picpath" /></p>
+				<p><input name="filepath"  type="hidden" id="filepath" /></p>
+			
+				<div >
+					<a href="javascript:;" class="file">选择文件
+						<input type="file" name="upload-file" id="upload-file">
+					</a>
+					<span id="nametext"></span>
+				</div>
+				<div id="messages" contenteditable="true"></div>
+				<script type="text/javascript" src="js/upfile.js"></script>
+			</div>
+			<div class="submit-row">
+				<input id="submit" type="submit" value="确认"/>
+			</div>
+			
+			
+			
+		</form>
+		
+	</div>
+
+</body>
+ 
+</html>

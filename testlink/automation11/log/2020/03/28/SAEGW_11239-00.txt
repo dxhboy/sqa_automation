@@ -1,0 +1,2943 @@
+##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### 
+# AutoApp    v15.1009
+# Harness:   root@tclserver8
+# Date:      03/28/2020 09:18:49 PM
+# Script:    /public/casa-495/test/Tests/hxd/SAEGW.test
+# Eth0 IP:   0.0.0.0
+# Loopback:  
+# Image:     
+# Descript:  
+# Config:    /public/casa-495/test/Config/saegw_dxj.tcf
+# Log File:  /public/casa-495/test/Log/SAEGW_11239-00.txt
+##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### 
+
+Info(Include): Installed package casaExcel v1.0
+Info(Include): Installed package casaSAEGW v1.0
+TRACE(SAEGW::Main) : Calledby RunTest
+Info(Include): Installed package casaExcel v1.0
+Info(Include): Installed package casaLandslide v1.0
+
+STEP(21:18:49): START Step 1: 1.Get the Excel list;
+STEP(21:18:49): RESULT=PASS  Step 1: 1.Get the Excel list;
+
+STEP(21:18:49): START Step 2: 2.Get a list of use cases;
+STEP(21:18:49): RESULT=PASS  Step 2: 2.Get a list of use cases;
+Info(Include): Installed package casaCmd v9.0
+Info(Include): Installed package casaSAEGW v1.0
+Info(Include): Installed package casaPGW v1.0
+Info(Include): Installed package casaIxia v1.0
+Info(Include): Installed package casaPlatform v1.0
+   TRACE(StartSaegwTest)	 Calledby ::SAEGW::Main 
+
+
+=================================== 21:18:49 ===================================
+=== ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no 172.0.10.51
+=== root@172.0.10.51's password: 
+=== Last login: Sat Mar 28 12:56:27 2020 from 172-0-11-88.lightspeed.rcsntx.sbcglobal.net
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# su casa
+=== 
+=== ===================================
+=== Welcome to CASA MEC x86 Platform
+=== ===================================
+=== CLI services started!
+=== CASA-MOBILE>
+=== CASA-MOBILE>en
+=== Password: 
+=== CASA-MOBILE#
+=== CASA-MOBILE#show task crash
+=== Number  Task             Crash-Time                Exit-Code     Exit-Reason     Core-file
+=== ==========================================================================================
+=== Total 0 crash records
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 21:18:52 ===================================
+=== ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no 172.0.10.57
+=== root@172.0.10.57's password: 
+=== Last login: Sat Mar 28 13:18:04 2020 from 172-0-11-192.lightspeed.rcsntx.sbcglobal.net
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# su casa
+=== 
+=== ===================================
+=== Welcome to CASA MEC x86 Platform
+=== ===================================
+=== CLI services started!
+=== CASA-MOBILE>
+=== CASA-MOBILE>en
+=== Password: 
+=== CASA-MOBILE#
+=== CASA-MOBILE#show task crash
+=== Number  Task             Crash-Time                Exit-Code     Exit-Reason     Core-file
+=== ==========================================================================================
+=== Total 0 crash records
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+STEP(21:18:54): START Step 3: SSH to SAEGW linux
+TRACE(Ssh_Retry) Calledby ::DEALEXCEL::Ssh_Server
+
+=================================== 21:18:54 ===================================
+=== ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no 172.0.10.51
+=== root@172.0.10.51's password: 
+=== Last login: Sat Mar 28 13:18:56 2020 from 172-0-11-88.lightspeed.rcsntx.sbcglobal.net
+=== root@CASA-MOBILE:~# page-off
+=== page-off: command not found
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+================================================================================
+
+!!Success(DEALEXCEL::Ssh_Server): Ssh 172.0.10.51 Success fd: ::DEALEXCEL::Spawn_Id(SPAWN_ID_SAEGW_C_Linux_1)=exp7
+TRACE(Ssh_Retry) Calledby ::DEALEXCEL::Ssh_Server
+
+=================================== 21:18:57 ===================================
+=== ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no 172.0.10.57
+=== root@172.0.10.57's password: 
+=== Last login: Sat Mar 28 13:18:59 2020 from 172-0-11-88.lightspeed.rcsntx.sbcglobal.net
+=== root@CASA-MOBILE:~# page-off
+=== page-off: command not found
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+================================================================================
+
+!!Success(DEALEXCEL::Ssh_Server): Ssh 172.0.10.57 Success fd: ::DEALEXCEL::Spawn_Id(SPAWN_ID_SAEGW_U_Linux_1)=exp8
+STEP(21:18:59): RESULT=PASS  Step 3: SSH to SAEGW linux
+
+STEP(21:18:59): START Step 4: 3.SSH to SAEGW-C and SAEGW-U as casa and log into enable mode;
+
+=================================== 21:18:59 ===================================
+=== ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no  172.0.10.51
+=== root@172.0.10.51's password: 
+=== Last login: Sat Mar 28 13:19:01 2020 from 172-0-11-88.lightspeed.rcsntx.sbcglobal.net
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+================================================================================
+
+!!Success(SAEGW::LOGIN_SAEGW_SERVER): Ssh  172.0.10.51 Success fd=exp9
+
+=================================== 21:19:03 ===================================
+=== su casa
+=== 
+=== ===================================
+=== Welcome to CASA MEC x86 Platform
+=== ===================================
+=== CLI services started!
+=== CASA-MOBILE>
+=== CASA-MOBILE>en
+=== Password: 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+!!Success(SAEGW::LOGIN_SAEGW_SERVER): enter CASA-MOBILE Success!!!
+
+=================================== 21:19:03 ===================================
+=== ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no  172.0.10.57
+=== root@172.0.10.57's password: 
+=== Last login: Sat Mar 28 13:19:04 2020 from 172-0-11-88.lightspeed.rcsntx.sbcglobal.net
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+================================================================================
+
+!!Success(SAEGW::LOGIN_SAEGW_SERVER): Ssh  172.0.10.57 Success fd=exp10
+
+=================================== 21:19:07 ===================================
+=== su casa
+=== 
+=== ===================================
+=== Welcome to CASA MEC x86 Platform
+=== ===================================
+=== CLI services started!
+=== CASA-MOBILE>
+=== CASA-MOBILE>en
+=== Password: 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+!!Success(SAEGW::LOGIN_SAEGW_SERVER): enter CASA-MOBILE Success!!!
+STEP(21:19:07): RESULT=PASS  Step 4: 3.SSH to SAEGW-C and SAEGW-U as casa and log into enable mode;
+
+STEP(21:19:07): START Step 5: 4.get excel case info
+1
+################start read test link database info################
+python3 ./Lib/casaPython/Read_Test_Plan_DB.py 29007 '29006_29008_29010_29012_29014_29016_29018' /public/dxj/tcpdump
+################finish read test link database info################
+STEP(21:19:15): RESULT=PASS  Step 5: 4.get excel case info
+
+STEP(21:19:15): START Step 6: 5.get excel case info
+Execute Step:5199 
+!! Info(Adapt_Environment): Global variable ADAPT_ENVIR_FLAG not exists or == 0, pass this proc
+step_5199
+
+=================================== 21:19:16 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(CasaGetPrompt): Current CLI mode for exp9 is enable
+
+=================================== 21:19:16 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 21:19:18 ===================================
+=== 
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 21:19:19 ===================================
+=== config
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+
+=================================== 21:19:21 ===================================
+=== 
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+SendAndExpect  diameter-endpoint ixia-gx  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 21:19:21 ===================================
+=== diameter-endpoint ixia-gx
+=== CASA-MOBILE(config-diameter-ep-ixia-gx)#
+=== CASA-MOBILE(config-diameter-ep-ixia-gx)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  origin host pgw01.gx.epc.gz realm asac.com gige 0/1  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 21:19:22 ===================================
+=== origin host pgw01.gx.epc.gz realm asac.com gige 0/1
+=== config diameter endpoint failed, rc= -1
+===     failed reason = failed to config diameter endpoint, origin is existent, need to delete all peers and all routes first
+=== CASA-MOBILE(config-diameter-ep-ixia-gx)#
+=== CASA-MOBILE(config-diameter-ep-ixia-gx)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  peer host pcrf.ixia realm asac.com ipv4 172.1.20.222 tcp  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 21:19:23 ===================================
+=== peer host pcrf.ixia realm asac.com ipv4 172.1.20.222 tcp
+=== config diameter endpoint failed, rc= -1
+===     failed reason = failed to add diameter peer, the same peer pcrf.ixia already exists and is used in route_entry
+=== CASA-MOBILE(config-diameter-ep-ixia-gx)#
+=== CASA-MOBILE(config-diameter-ep-ixia-gx)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  route-entry realm asac.com app gx peer host pcrf.ixia weight 50  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 21:19:24 ===================================
+=== route-entry realm asac.com app gx peer host pcrf.ixia weight 50
+=== CASA-MOBILE(config-diameter-ep-ixia-gx)#
+=== CASA-MOBILE(config-diameter-ep-ixia-gx)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  exit  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 21:19:25 ===================================
+=== exit
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  gx-service  pgw-gx  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 21:19:26 ===================================
+=== gx-service  pgw-gx
+=== CASA-MOBILE(config-gx-service-pgw-gx)#
+=== CASA-MOBILE(config-gx-service-pgw-gx)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  diameter-endpoint ixia-gx  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 21:19:27 ===================================
+=== diameter-endpoint ixia-gx
+=== CASA-MOBILE(config-gx-service-pgw-gx)#
+=== CASA-MOBILE(config-gx-service-pgw-gx)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  destination realm asac.com  host pcrf.ixia  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 21:19:28 ===================================
+=== destination realm asac.com  host pcrf.ixia
+=== CASA-MOBILE(config-gx-service-pgw-gx)#
+=== CASA-MOBILE(config-gx-service-pgw-gx)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  exit  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 21:19:29 ===================================
+=== exit
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  no qos-action 1  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 21:19:30 ===================================
+=== no qos-action 1
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  forwarding-action 1  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 21:19:31 ===================================
+=== forwarding-action 1
+=== CASA-MOBILE(config-pcc-fwd-action)#
+=== CASA-MOBILE(config-pcc-fwd-action)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  pkt forward  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 21:19:32 ===================================
+=== pkt forward
+=== CASA-MOBILE(config-pcc-fwd-action)#
+=== CASA-MOBILE(config-pcc-fwd-action)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  exit  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 21:19:33 ===================================
+=== exit
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  qos-action 1  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 21:19:34 ===================================
+=== qos-action 1
+=== CASA-MOBILE(config-pcc-qos-action)#
+=== CASA-MOBILE(config-pcc-qos-action)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  qos uplink mbr 1000 gbr 1000  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 21:19:35 ===================================
+=== qos uplink mbr 1000 gbr 1000
+=== CASA-MOBILE(config-pcc-qos-action)#
+=== CASA-MOBILE(config-pcc-qos-action)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  qos downlink mbr 2000 gbr 2000  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 21:19:36 ===================================
+=== qos downlink mbr 2000 gbr 2000
+=== CASA-MOBILE(config-pcc-qos-action)#
+=== CASA-MOBILE(config-pcc-qos-action)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  qci 1 arp pl 1 pci 1 pvi 1  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 21:19:37 ===================================
+=== qci 1 arp pl 1 pci 1 pvi 1
+=== CASA-MOBILE(config-pcc-qos-action)#
+=== CASA-MOBILE(config-pcc-qos-action)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  exit  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 21:19:38 ===================================
+=== exit
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  reporting-action 1  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 21:19:39 ===================================
+=== reporting-action 1
+=== CASA-MOBILE(config-pcc-rpt-action)#
+=== CASA-MOBILE(config-pcc-rpt-action)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  exit  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 21:19:40 ===================================
+=== exit
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  sdf-filter 1  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 21:19:41 ===================================
+=== sdf-filter 1
+=== CASA-MOBILE(config-sdf-filter)#
+=== CASA-MOBILE(config-sdf-filter)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  direction bidirectional  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 21:19:42 ===================================
+=== direction bidirectional
+=== CASA-MOBILE(config-sdf-filter)#
+=== CASA-MOBILE(config-sdf-filter)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  protocol 132  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 21:19:43 ===================================
+=== protocol 132
+=== CASA-MOBILE(config-sdf-filter)#
+=== CASA-MOBILE(config-sdf-filter)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  exit  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 21:19:44 ===================================
+=== exit
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  pcc-rulebase Predefine-PCC-1  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 21:19:45 ===================================
+=== pcc-rulebase Predefine-PCC-1
+=== CASA-MOBILE(config-pcc-rulebase)#
+=== CASA-MOBILE(config-pcc-rulebase)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  pcc-rule 1 priority 1 sdf-filter 1 forwarding-action 1 qos-action 1 reporting-action 1  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 21:19:46 ===================================
+=== pcc-rule 1 priority 1 sdf-filter 1 forwarding-action 1 qos-action 1 reporting-action 1
+=== CASA-MOBILE(config-pcc-rulebase)#
+=== CASA-MOBILE(config-pcc-rulebase)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  exit  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 21:19:47 ===================================
+=== exit
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  lte-service pgw-c  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 21:19:48 ===================================
+=== lte-service pgw-c
+=== CASA-MOBILE(config-pgw-c)#
+=== CASA-MOBILE(config-pgw-c)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  apn-selection-rule 1  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 21:19:49 ===================================
+=== apn-selection-rule 1
+=== CASA-MOBILE(config-pgw-vapn-select-rule)#
+=== CASA-MOBILE(config-pgw-vapn-select-rule)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  sgw-ip 123.2.11.11  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 21:19:50 ===================================
+=== sgw-ip 123.2.11.11
+=== CASA-MOBILE(config-pgw-vapn-select-rule)#
+=== CASA-MOBILE(config-pgw-vapn-select-rule)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  exit  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 21:19:51 ===================================
+=== exit
+=== CASA-MOBILE(config-pgw-c)#
+=== CASA-MOBILE(config-pgw-c)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  no apn apn1  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 21:19:52 ===================================
+=== no apn apn1
+=== CASA-MOBILE(config-pgw-c)#
+=== CASA-MOBILE(config-pgw-c)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  no apn apn2  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 21:19:53 ===================================
+=== no apn apn2
+=== CASA-MOBILE(config-pgw-c)#
+=== CASA-MOBILE(config-pgw-c)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  apn apn1  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 21:19:54 ===================================
+=== apn apn1
+=== CASA-MOBILE(config-pgw-apn-apn1)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  ip pool name ue-pool-4  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 21:19:55 ===================================
+=== 
+=== CASA-MOBILE(config-pgw-apn-apn1)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  virtual-apn apn-selection-rule 1 priority 1 apn apn2  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 21:19:56 ===================================
+=== ip pool name ue-pool-4
+=== CASA-MOBILE(config-pgw-apn-apn1)#
+=== CASA-MOBILE(config-pgw-apn-apn1)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  exit  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 21:19:57 ===================================
+=== virtual-apn apn-selection-rule 1 priority 1 apn apn2
+=== CASA-MOBILE(config-pgw-apn-apn1)#
+=== CASA-MOBILE(config-pgw-apn-apn1)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  apn apn2  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 21:19:58 ===================================
+=== exit
+=== CASA-MOBILE(config-pgw-c)#
+=== CASA-MOBILE(config-pgw-c)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  ip pool name ue-pool-4  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 21:19:59 ===================================
+=== apn apn2
+=== CASA-MOBILE(config-pgw-apn-apn2)#
+=== CASA-MOBILE(config-pgw-apn-apn2)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  diameter-app gx-service pgw-gx  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 21:20:00 ===================================
+=== ip pool name ue-pool-4
+=== CASA-MOBILE(config-pgw-apn-apn2)#
+=== CASA-MOBILE(config-pgw-apn-apn2)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  exit  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 21:20:01 ===================================
+=== diameter-app gx-service pgw-gx
+=== CASA-MOBILE(config-pgw-apn-apn2)#
+=== CASA-MOBILE(config-pgw-apn-apn2)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  exit  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 21:20:02 ===================================
+=== exit
+=== CASA-MOBILE(config-pgw-c)#
+=== CASA-MOBILE(config-pgw-c)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect    -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 21:20:03 ===================================
+=== exit
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+step_5238
+
+=================================== 21:20:04 ===================================
+=== 
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+Info(CasaGetPrompt): Current CLI mode for exp9 is config)#
+CASA-MOBILE(config
+
+=================================== 21:20:04 ===================================
+=== end
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 21:20:04 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(CasaGetPrompt): Current CLI mode for exp9 is enable
+
+=================================== 21:20:04 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 21:20:06 ===================================
+=== 
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 21:20:07 ===================================
+=== config
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+
+=================================== 21:20:09 ===================================
+=== 
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+
+=================================== 21:20:09 ===================================
+=== exit
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Success Step:5199
+Execute Step:5200 
+runixiatest -test gxtest -rxf C:/ixiaAuto/test/SAEGW/2.4.1_2.5.1_7_2.9.5_2.11.5_3.1.6_8.2.42_gx.rxf
+Info(ixiaTestCreate): Sleeping 10 second(s)...
+Info(ixiaTestCreate): Sleeping 10 second(s)...
+Info(ixiaTestCreate): Sleeping 10 second(s)...
+Info(ixiaTestCreate): Sleeping 10 second(s)...
+rxf log is C:/Program Files (x86)/Ixia/IxLoad/8.50-EA-Update1/TclScripts/remoteScriptingService/2.5.1-log-3-00.log
+Info(ixiaTestCheckRun): Sleeping 10 second(s)...
+Info(ixiaTestCheckRun): Sleeping 10 second(s)...
+Info(ixiaTestCheckRun): Sleeping 10 second(s)...
+Info(ixiaTestCheckRun): Sleeping 10 second(s)...
+Info(ixiaTestCheckRun): Sleeping 10 second(s)...
+Info(ixiaTestCheckRun): Sleeping 10 second(s)...
+Info(ixiaTestCheckRun): Sleeping 10 second(s)...
+*Info 03/28 21:22:09.382 Test Controller: Test is Running.
+!!!Success(DEALEXCEL::ExecuteStep):start ixia Success!!
+Success Step:5200
+Execute Step:5201 
+Info(::DEALEXCEL::ExecuteStep): Sleeping 10 second(s)...
+Success Step:5201
+Execute Step:5202 
+mzftxt_before:show%k_ha%k_info
+mzftxt: have not '!vertical_bar!'
+!! Info(Adapt_Environment): Global variable ADAPT_ENVIR_FLAG not exists or == 0, pass this proc
+
+<> Warning(casaCmd::showHaInfo): variable spawn_id isn't exits.
+TRACE(DEALEXCEL::Get_Checkpoint_Check) : Calledby ::DEALEXCEL::Loop_Execute_Check_CLI
+##############enter nodes foreach############
+!! execute ::casaCmd::Analyze -cmd show ha info -- -toRunCmd -tofd exp9  -state Active!!!
+Information(casaCmd::Analyze): command 'show ha info' map to api 'showHaInfo' in file 'casaCmdToApi'
+Info(::casaCmd::Run): ... run command % show ha info % on  172.0.10.51:22 ...
+
+=================================== 21:22:22 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+=== CASA-MOBILE#show ha info
+=== VNF node name: Default:0d361284-7356-11e7-af6c-525400605d81
+=== Group level HA:
+===          group-ha-ctrl           : disabled
+===          assigned service        : 
+===          heartbeats sent         : 0
+===          heartbeats received     : 0
+=== Node level HA config :
+===          node-to-node heartbeat  : enabled
+===          preferred role          : Active
+===          peer heartbeat timeout  : 3
+===          self interface          : * port 65530
+===          peer interface          : * port 65530
+===          redundancy reboot       : YES
+===          standalone reboot       : NO
+===          task down max per minute: 10
+===          redundancy mode         : layer2
+=== Node level HA status :
+===          state                   : Active
+===          last reboot timestamp   : 2020-03-27 01:01:50
+===          startup-config loaded   : YES
+===          overall monitor status  : VnfHaMonitorStateUnknown
+===          overall task HA status  : VnfHaStateActive
+===          peer standby-status     : Not Ready
+===          heartbeats sent         : 0
+===          heartbeats received     : 0
+=== Individual task HA status: 
+===                                                         been active before, down times in last minute
+===               rsrcmgr/0:      VnfHaStateActive,                Yes,               0
+===                  lix3/0:      VnfHaStateActive,                Yes,               0
+===               poolmgr/0:      VnfHaStateActive,                Yes,               0
+===             tce_agent/0:      VnfHaStateActive,                Yes,               0
+===               vnfctrl/0:      VnfHaStateActive,                Yes,               0
+===               nrfclnt/0:      VnfHaStateActive,                Yes,               0
+===               connmgr/0:      VnfHaStateActive,                Yes,               0
+===                 trmgr/0:      VnfHaStateActive,                Yes,               0
+===               gtpctrl/0:      VnfHaStateActive,                Yes,               0
+===                ffemgr/0:      VnfHaStateActive,                Yes,               0
+===                   ffe/0:      VnfHaStateActive,                Yes,               0
+===               connmgr/1:      VnfHaStateActive,                Yes,               0
+===           dnsproxymgr/0:      VnfHaStateActive,                Yes,               0
+===              pfcpctrl/0:      VnfHaStateActive,                Yes,               0
+===                aaamgr/0:      VnfHaStateActive,                Yes,               0
+===                 trmgr/1:      VnfHaStateActive,                Yes,               0
+===                cdrmgr/0:      VnfHaStateActive,                Yes,               0
+===               ltectrl/0:      VnfHaStateActive,                Yes,               0
+===              reporter/0:      VnfHaStateActive,                Yes,               0
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(casaCmd::Analyze): xmlfile is [/public/dxj/tcpdump/casa_show_ha_info.xml]
+
+         casaCmd_Analyze <show ha info> on  172.0.10.51:22
+--------------------------------------------------------------------
+             command.id           state            RESULT          
+--------------------------------------------------------------------
+ 1           1                    Active           P               
+--------------------------------------------------------------------
+############   CLI:show ha info Forward Verification Completed       ######
+##############enter no_nodes foreach############
+##############end no_nodes foreach############
+Success(DEALEXCEL::Get_Checkpoint_Check): The Expect cli id=0 Number of checkpoints is 1 ,actual Number of checkpoints is 1!!!
+Info(::DEALEXCEL::Loop_Execute_Check_CLI): Sleeping 2 second(s)...
+Success Step:5202
+Execute Step:5203 
+mzftxt_before:show%k_pgw-c%k_stats%k_pfcp%k_peer
+mzftxt: have not '!vertical_bar!'
+!! Info(Adapt_Environment): Global variable ADAPT_ENVIR_FLAG not exists or == 0, pass this proc
+
+<> Warning(casaCmd::showPgwcStatsPfcpPeer): variable spawn_id isn't exits.
+TRACE(DEALEXCEL::Get_Checkpoint_Check) : Calledby ::DEALEXCEL::Loop_Execute_Check_CLI
+##############enter nodes foreach############
+!! execute ::casaCmd::Analyze -cmd show pgw-c stats pfcp peer -- -toRunCmd -tofd exp9  -first.gw_id 0 -second.name state -second.value connected!!!
+Information(casaCmd::Analyze): command 'show pgw-c stats pfcp peer' map to api 'showPgwcStatsPfcpPeer' in file 'casaCmdToApi'
+Info(::casaCmd::Run): ... run command % show pgw-c stats pfcp peer % on  172.0.10.51:22 ...
+
+=================================== 21:22:25 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+=== CASA-MOBILE#show pgw-c stats pfcp peer
+=== [0]  Peer Node Type : PFCP_PGW_UP       State : Connected
+===      Local Ip : 123.31.11.11            Peer Ip : 123.32.11.11
+===      instance id : 0d361284-7356-11e7-af6c-525400605d81
+===      Heartbeat Req Sendout : 13023      Heartbeat Rsp Receive : 12923      
+===      Heartbeat Req Receive : 0          Heartbeat Rsp Sendout : 0          
+===      Retry HB Req Sendout : 0           Path Failure Count : 20            
+===      Local         Timestamp : UTC Fri Mar 27 01:02:46 2020
+===      Peer Previous Timestamp : UTC Fri Mar 27 10:08:24 2020
+===      Peer Current  Timestamp : UTC Fri Mar 27 13:19:00 2020
+===      Receive msg:
+===      HEARTBEAT_RSP                       : 12923
+===      ASSO_SETUP_REQ                      : 21
+===      ASSO_UPDATE_REQ                     : 42
+===      NODE_REPORT_REQ                     : 15
+===      Failed remouteU(172.1.214.3)        : 1
+===      Failed remouteU(172.1.214.12)       : 2
+===      Failed remouteU(172.1.168.22)       : 1
+===      Failed remouteU(172.1.168.2)        : 1
+===      Failed remouteU(172.1.168.12)       : 1
+===      Failed remouteU(172.1.166.2)        : 2
+===      Failed remouteU(172:1:10::81)       : 2
+===      Failed remouteU(172.1.166.100)      : 2
+===      Failed remouteU(172.1.214.2)        : 3
+===      Sendout msg:
+===      HEARTBEAT_REQ                       : 13023
+===      ASSO_SETUP_RSP                      : 21
+===      ASSO_UPDATE_RSP                     : 42
+===      NODE_REPORT_RSP                     : 15
+=== 
+===      Ip Pool Infor:
+===      [0]  Ippool name     : ue-pool-4
+===           Name in rsrcmgr : ue-pool-4@123.32.11.11
+===           Vrf    Name     : 
+===           IP/prefix       : 51.40.0.0/16
+===      [1]  Ippool name     : ue-pool-4
+===           Name in rsrcmgr : ue-pool-4@123.32.11.11
+===           Vrf    Name     : 
+===           IP/prefix       : 17:160:150::/60
+===      [2]  Ippool name     : ue-pool-4
+===           Name in rsrcmgr : ue-pool-4@123.32.11.11
+===           Vrf    Name     : 
+===           IP/prefix       : 51.50.0.0/24
+===      [3]  Ippool name     : ue-pool-4
+===           Name in rsrcmgr : ue-pool-4@123.32.11.11
+===           Vrf    Name     : 
+===           IP/prefix       : 18:160:150::/60
+===      [4]  Ippool name     : ue-pool-4
+===           Name in rsrcmgr : ue-pool-4@123.32.11.11
+===           Vrf    Name     : 
+===           IP/prefix       : 10.40.0.0/28
+===      [5]  Ippool name     : ue-pool-4
+===           Name in rsrcmgr : ue-pool-4@123.32.11.11
+===           Vrf    Name     : 
+===           IP/prefix       : 20.40.0.0/28
+===      [6]  Ippool name     : ue-pool-4
+===           Name in rsrcmgr : ue-pool-4@123.32.11.11
+===           Vrf    Name     : 
+===           IP/prefix       : 60:100:90:80::/64
+===      [7]  Ippool name     : ue-pool-3
+===           Name in rsrcmgr : ue-pool-3@123.32.11.11
+===           Vrf    Name     : 
+===           IP/prefix       : 110:100:90:80::/60
+===      [8]  Ippool name     : ue-pool-3
+===           Name in rsrcmgr : ue-pool-3@123.32.11.11
+===           Vrf    Name     : 
+===           IP/prefix       : 120:100:90::/50
+===      [9]  Ippool name     : ue-pool-2
+===           Name in rsrcmgr : ue-pool-2@123.32.11.11
+===           Vrf    Name     : 
+===           IP/prefix       : 10.30.0.0/28
+=== 
+===      Gtpu Ip Infor:
+===      [0]  V4 addr         : 172.1.10.57
+===           V6 addr         : 172:1:10::57
+===           Teid range      : 0x0
+=== 
+=== [1]  Peer Node Type : PFCP_PGW_UP       State : Disconnected
+===      Local Ip : 123.31.11.11            Peer Ip : 123.31.11.11
+===      Heartbeat Req Sendout : 0          Heartbeat Rsp Receive : 0          
+===      Heartbeat Req Receive : 0          Heartbeat Rsp Sendout : 0          
+===      Retry HB Req Sendout : 0           Path Failure Count : 0             
+===      Local         Timestamp : UTC Fri Mar 27 01:02:46 2020
+===      Peer Previous Timestamp : UTC (null)
+===      Peer Current  Timestamp : UTC (null)
+===      Receive msg:
+===      Sendout msg:
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(casaCmd::Analyze): xmlfile is [/public/dxj/tcpdump/casa_show_pgw_c_stats_pfcp_peer.xml]
+
+                           casaCmd_Analyze <show pgw-c stats pfcp peer> on  172.0.10.51:22
+----------------------------------------------------------------------------------------------------------------------
+             command.id           first.gw_id           second.name           second.value           RESULT          
+----------------------------------------------------------------------------------------------------------------------
+ 1           1                    0                     state                 connected              P               
+----------------------------------------------------------------------------------------------------------------------
+############   CLI:show pgw-c stats pfcp peer Forward Verification Completed       ######
+##############enter no_nodes foreach############
+##############end no_nodes foreach############
+Success(DEALEXCEL::Get_Checkpoint_Check): The Expect cli id=1 Number of checkpoints is 1 ,actual Number of checkpoints is 1!!!
+Info(::DEALEXCEL::Loop_Execute_Check_CLI): Sleeping 2 second(s)...
+Success Step:5203
+Execute Step:5204 
+mzftxt_before:show%k_sgw-c%k_stats%k_pfcp%k_peer
+mzftxt: have not '!vertical_bar!'
+!! Info(Adapt_Environment): Global variable ADAPT_ENVIR_FLAG not exists or == 0, pass this proc
+
+<> Warning(casaCmd::showSgwcStatsPfcpPeer): variable spawn_id isn't exits.
+TRACE(DEALEXCEL::Get_Checkpoint_Check) : Calledby ::DEALEXCEL::Loop_Execute_Check_CLI
+##############enter nodes foreach############
+!! execute ::casaCmd::Analyze -cmd show sgw-c stats pfcp peer -- -toRunCmd -tofd exp9  -peer.type PFCP_SGW_UP -peer.State Connected!!!
+Information(casaCmd::Analyze): command 'show sgw-c stats pfcp peer' map to api 'showSgwcStatsPfcpPeer' in file 'casaCmdToApi'
+Info(::casaCmd::Run): ... run command % show sgw-c stats pfcp peer % on  172.0.10.51:22 ...
+
+=================================== 21:22:28 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+=== CASA-MOBILE#show sgw-c stats pfcp peer
+=== [0]  Peer Node Type : PFCP_SGW_UP       State : Disconnected
+===      Local Ip : 123.3.33.33             Peer Ip : 123.3.33.33
+===      Heartbeat Req Sendout : 0          Heartbeat Rsp Receive : 0          
+===      Heartbeat Req Receive : 0          Heartbeat Rsp Sendout : 0          
+===      Retry HB Req Sendout : 0           Path Failure Count : 0             
+===      Local         Timestamp : UTC Fri Mar 27 01:02:46 2020
+===      Peer Previous Timestamp : UTC (null)
+===      Peer Current  Timestamp : UTC (null)
+===      Receive msg:
+===      Sendout msg:
+=== 
+=== [1]  Peer Node Type : PFCP_SGW_UP       State : Connected
+===      Local Ip : 123.3.33.33             Peer Ip : 123.6.66.66
+===      Heartbeat Req Sendout : 13024      Heartbeat Rsp Receive : 12924      
+===      Heartbeat Req Receive : 0          Heartbeat Rsp Sendout : 0          
+===      Retry HB Req Sendout : 0           Path Failure Count : 20            
+===      Local         Timestamp : UTC Fri Mar 27 01:02:46 2020
+===      Peer Previous Timestamp : UTC Fri Mar 27 10:08:25 2020
+===      Peer Current  Timestamp : UTC Fri Mar 27 13:19:00 2020
+===      Receive msg:
+===      HEARTBEAT_RSP                       : 12924
+===      ASSO_SETUP_REQ                      : 21
+===      NODE_REPORT_REQ                     : 52
+===      Failed remouteU(172.1.214.12)       : 3
+===      Failed remouteU(172.1.167.100)      : 9
+===      Failed remouteU(172.1.166.100)      : 15
+===      Failed remouteU(172.1.166.1)        : 3
+===      Failed remouteU(172.1.10.107)       : 18
+===      Failed remouteU(172.1.214.2)        : 4
+===      Sendout msg:
+===      HEARTBEAT_REQ                       : 13024
+===      ASSO_SETUP_RSP                      : 21
+===      NODE_REPORT_RSP                     : 52
+=== 
+===      Gtpu Ip Infor:
+===      [0]  V4 addr         : 123.4.44.44
+===           V6 addr         : -
+===           Teid range      : 0x0
+===      [1]  V4 addr         : 123.5.11.11
+===           V6 addr         : -
+===           Teid range      : 0x0
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(casaCmd::Analyze): xmlfile is [/public/dxj/tcpdump/casa_show_sgw_c_stats_pfcp_peer.xml]
+
+               casaCmd_Analyze <show sgw-c stats pfcp peer> on  172.0.10.51:22
+----------------------------------------------------------------------------------------------
+             command.id           peer.type             peer.State           RESULT          
+----------------------------------------------------------------------------------------------
+ 1           1                    PFCP_SGW_UP           Connected            P               
+----------------------------------------------------------------------------------------------
+############   CLI:show sgw-c stats pfcp peer Forward Verification Completed       ######
+##############enter no_nodes foreach############
+##############end no_nodes foreach############
+Success(DEALEXCEL::Get_Checkpoint_Check): The Expect cli id=2 Number of checkpoints is 1 ,actual Number of checkpoints is 1!!!
+Info(::DEALEXCEL::Loop_Execute_Check_CLI): Sleeping 2 second(s)...
+Success Step:5204
+Execute Step:5205 
+mzftxt_before:show%k_diameter-endpoint
+mzftxt: have not '!vertical_bar!'
+!! Info(Adapt_Environment): Global variable ADAPT_ENVIR_FLAG not exists or == 0, pass this proc
+
+<> Warning(casaCmd::showDiameterEndpoint): variable spawn_id isn't exits.
+TRACE(DEALEXCEL::Get_Checkpoint_Check) : Calledby ::DEALEXCEL::Loop_Execute_Check_CLI
+##############enter nodes foreach############
+!! execute ::casaCmd::Analyze -cmd show diameter-endpoint -- -toRunCmd -tofd exp9  -dia_endpoint.name ixia-gx -route.id 0 -route.state I_OPEN!!!
+Information(casaCmd::Analyze): command 'show diameter-endpoint' map to api 'showDiameterEndpoint' in file 'casaCmdToApi'
+Info(::casaCmd::Run): ... run command % show diameter-endpoint % on  172.0.10.51:22 ...
+
+=================================== 21:22:30 ===================================
+=== 
+=== CASA-MOBILE#show diameter-endpoint
+=== 
+=== ---- Diameter-Endpoint# 1 [name: s6b_sg] ----------
+===     Diameter_Protocol_Profile:  none
+===     Count:  [in_txn_count: 0] [out_txn_count: 0] [mme_subs_count: 0]
+===     Timer:  [watch dog timer: 30s] [peer reconnect timer: 30s]
+===     Origin: [host_name: aaa.casa.com] [realm_name: casa.com][ip_addr: 172.1.10.51/32][ipv6_addr: 172:1:10::51/0]
+=== 
+===     ***** Number Peers in the Endpoint: 1 *****
+===        Peer Host                    Realm                             IP-address                      Prefix  Port    Protocol
+===        1    aaa.seagull.com         seagull.com                       20.18.9.22                      32      3868    TCP       
+=== 
+===     ***** Number Routes in the Endpoint: 1 *****
+=== 
+===     ++++ Route# 1 [is_default: false] ++++
+===        [app_realm: seagull.com] [app_type: 16777272]  [next_peer: none]
+===        Primary Peers [route_state: down]
+===            Primary-peer Host                     Source-port     State
+===            0            aaa.seagull.com          42257           STATE_CLOSE
+===  
+===        no secondary peers
+=== 
+=== ---- Diameter-Endpoint# 2 [name: s6b] ----------
+===     Diameter_Protocol_Profile:  none
+===     Count:  [in_txn_count: 0] [out_txn_count: 0] [mme_subs_count: 0]
+===     Timer:  [watch dog timer: 30s] [peer reconnect timer: 30s]
+===     Origin: [host_name: pgw01.rf.epc.gz] [realm_name: asac.com][ip_addr: 172.1.10.51/32][ipv6_addr: 172:1:10::51/0]
+=== 
+===     ***** Number Peers in the Endpoint: 2 *****
+===        Peer Host                    Realm                             IP-address                      Prefix  Port    Protocol
+===        1    ls.s6b                  ls.com                            172.1.166.102                   32      3868    TCP       
+===        2    ls.s6b1                 ls.com                            172.1.166.103                   32      3868    TCP       
+=== 
+===     ***** Number Routes in the Endpoint: 1 *****
+=== 
+===     ++++ Route# 1 [is_default: false] ++++
+===        [app_realm: ls.com] [app_type: 16777272]  [next_peer: none]
+===        Primary Peers [route_state: down]
+===            Primary-peer Host                     Source-port     State
+===            0            ls.s6b1                  45302           STATE_CLOSE
+===  
+===        Secondary Peers [route_state: down]
+===            Secondary-peer Host                     Source-port     State
+===            0              ls.s6b                   48742           STATE_CLOSE
+===  
+=== 
+=== ---- Diameter-Endpoint# 3 [name: saegw-ep] ----------
+===     Diameter_Protocol_Profile:  none
+===     Count:  [in_txn_count: 0] [out_txn_count: 0] [mme_subs_count: 0]
+===     Timer:  [watch dog timer: 30s] [peer reconnect timer: 30s]
+===     Origin: [host_name: saegw.casa.com] [realm_name: landslide.com][ip_addr: 172.1.10.51/32][ipv6_addr: 172:1:10::51/0]
+=== 
+===     ***** Number Peers in the Endpoint: 1 *****
+===        Peer Host                    Realm                             IP-address                      Prefix  Port    Protocol
+===        1    pcrf.landslide.com      landslide.com                     172.1.214.47                    32      3868    TCP       
+=== 
+===     ***** Number Routes in the Endpoint: 1 *****
+=== 
+===     ++++ Route# 1 [is_default: false] ++++
+===        [app_realm: landslide.com] [app_type: 16777238]  [next_peer: none]
+===        Primary Peers [route_state: down]
+===            Primary-peer Host                     Source-port     State
+===            0            pcrf.landslide.com       40702           STATE_CLOSE
+===  
+===        no secondary peers
+=== 
+=== ---- Diameter-Endpoint# 4 [name: gx_sg] ----------
+===     Diameter_Protocol_Profile:  none
+===     Count:  [in_txn_count: 0] [out_txn_count: 0] [mme_subs_count: 0]
+===     Timer:  [watch dog timer: 30s] [peer reconnect timer: 10s]
+===     Origin: [host_name: gx.casa.com] [realm_name: casa.com][ip_addr: 172.1.10.51/32][ipv6_addr: 172:1:10::51/0]
+=== 
+===     ***** Number Peers in the Endpoint: 1 *****
+===        Peer Host                    Realm                             IP-address                      Prefix  Port    Protocol
+===        1    pcrf.seagull.com        seagull.com                       20.18.9.21                      32      3868    TCP       
+=== 
+===     ***** Number Routes in the Endpoint: 1 *****
+=== 
+===     ++++ Route# 1 [is_default: false] ++++
+===        [app_realm: seagull.com] [app_type: 16777238]  [next_peer: pcrf.seagull.c:om]
+===        Primary Peers [route_state: up]
+===            Primary-peer Host                     Source-port     State
+===            0            pcrf.seagull.com         37887           I_OPEN    
+===  
+===        no secondary peers
+=== 
+=== ---- Diameter-Endpoint# 5 [name: rf_sg] ----------
+===     Diameter_Protocol_Profile:  none
+===     Count:  [in_txn_count: 0] [out_txn_count: 0] [mme_subs_count: 0]
+===     Timer:  [watch dog timer: 30s] [peer reconnect timer: 10s]
+===     Origin: [host_name: rf.casa.com] [realm_name: casa.com][ip_addr: 172.1.10.51/32][ipv6_addr: 172:1:10::51/0]
+=== 
+===     ***** Number Peers in the Endpoint: 1 *****
+===        Peer Host                    Realm                             IP-address                      Prefix  Port    Protocol
+===        1    ofcs.seagull.com        seagull.com                       172.1.11.13                     32      3868    TCP       
+=== 
+===     ***** Number Routes in the Endpoint: 1 *****
+=== 
+===     ++++ Route# 1 [is_default: false] ++++
+===        [app_realm: seagull.com] [app_type: 3]  [next_peer: ofcs.seagull.com]
+===        Primary Peers [route_state: down]
+===            Primary-peer Host                     Source-port     State
+===  
+===        Secondary Peers [route_state: up]
+===            Secondary-peer Host                     Source-port     State
+===            0              ofcs.seagull.com         59329           I_OPEN    
+===  
+=== 
+=== ---- Diameter-Endpoint# 6 [name: ls_rf] ----------
+===     Diameter_Protocol_Profile:  none
+===     Count:  [in_txn_count: 0] [out_txn_count: 0] [mme_subs_count: 0]
+===     Timer:  [watch dog timer: 30s] [peer reconnect timer: 30s]
+===     Origin: [host_name: pgw01.rf.epc.gz] [realm_name: asac.com][ip_addr: 172.1.10.51/32][ipv6_addr: 172:1:10::51/0]
+=== 
+===     ***** Number Peers in the Endpoint: 1 *****
+===        Peer Host                    Realm                             IP-address                      Prefix  Port    Protocol
+===        1    ofcs.landslide.com      landslide.com                     172.1.214.32                    32      3868    TCP       
+=== 
+===     ***** Number Routes in the Endpoint: 1 *****
+=== 
+===     ++++ Route# 1 [is_default: false] ++++
+===        [app_realm: landslide.com] [app_type: 3]  [next_peer: none]
+===        Primary Peers [route_state: down]
+===            Primary-peer Host                     Source-port     State
+===            0            ofcs.landslide.com       47110           WT_CONN_ACK
+===  
+===        no secondary peers
+=== 
+=== ---- Diameter-Endpoint# 7 [name: ixia-gx] ----------
+===     Diameter_Protocol_Profile:  none
+===     Count:  [in_txn_count: 0] [out_txn_count: 0] [mme_subs_count: 0]
+===     Timer:  [watch dog timer: 30s] [peer reconnect timer: 30s]
+===     Origin: [host_name: pgw01.gx.epc.gz] [realm_name: asac.com][ip_addr: 172.1.10.51/32][ipv6_addr: 172:1:10::51/0]
+=== 
+===     ***** Number Peers in the Endpoint: 1 *****
+===        Peer Host                    Realm                             IP-address                      Prefix  Port    Protocol
+===        1    pcrf.ixia               asac.com                          172.1.20.222                    32      3868    TCP       
+=== 
+===     ***** Number Routes in the Endpoint: 1 *****
+=== 
+===     ++++ Route# 1 [is_default: false] ++++
+===        [app_realm: asac.com] [app_type: 16777238]  [next_peer: none]
+===        Primary Peers [route_state: down]
+===            Primary-peer Host                     Source-port     State
+===            0            pcrf.ixia                34894           STATE_CLOSE
+===  
+===        no secondary peers
+=== 
+=== ---- Diameter-Endpoint# 8 [name: gx] ----------
+===     Diameter_Protocol_Profile:  none
+===     Count:  [in_txn_count: 0] [out_txn_count: 0] [mme_subs_count: 0]
+===     Timer:  [watch dog timer: 30s] [peer reconnect timer: 30s]
+===        Peer Host                    Realm                             IP-address                      Prefix  Port    Protocol
+=== 
+=== ---- Diameter-Endpoint# 9 [name: ixia-rf] ----------
+===     Diameter_Protocol_Profile:  none
+===     Count:  [in_txn_count: 0] [out_txn_count: 0] [mme_subs_count: 0]
+===     Timer:  [watch dog timer: 30s] [peer reconnect timer: 30s]
+===     Origin: [host_name: pgw01.rf.epc.gz] [realm_name: asac.com][ip_addr: 172.1.10.51/32][ipv6_addr: 172:1:10::51/0]
+=== 
+===     ***** Number Peers in the Endpoint: 1 *****
+===        Peer Host                    Realm                             IP-address                      Prefix  Port    Protocol
+===        1    ofcs.ixia               asac.com                          172.1.166.101                   32      3868    TCP       
+=== 
+===     ***** Number Routes in the Endpoint: 1 *****
+=== 
+===     ++++ Route# 1 [is_default: true] ++++
+===        [app_realm: ] [app_type: 0]  [next_peer: none]
+===        Primary Peers [route_state: down]
+===            Primary-peer Host                     Source-port     State
+===            0            ofcs.ixia                48156           WT_CONN_ACK
+===  
+===        no secondary peers
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(casaCmd::Analyze): xmlfile is [/public/dxj/tcpdump/casa_show_diameter_endpoint.xml]
+!!Error(casaCmd::Analyze): Unable to match xpath : //command[@id='1' and dia_endpoint[@name='ixia-gx' and route[@state='I_OPEN' and @id='0']]].
+
+                               casaCmd_Analyze <show diameter-endpoint> on  172.0.10.51:22
+-------------------------------------------------------------------------------------------------------------------------
+             command.id           dia_endpoint.name           route.id           route.state            RESULT          
+-------------------------------------------------------------------------------------------------------------------------
+ 1           1                    ixia-gx                     0                  I_OPEN(Fail)           Fail            
+-------------------------------------------------------------------------------------------------------------------------
+warning(DEALEXCEL::Get_Checkpoint_Check): execute ::casaCmd::Analyze -cmd show diameter-endpoint -- -toRunCmd -tofd exp9  -dia_endpoint.name ixia-gx -route.id 0 -route.state I_OPEN fail 1 time!!!!
+Info(::DEALEXCEL::Get_Checkpoint_Check): Sleeping 2 second(s)...
+!! execute ::casaCmd::Analyze -cmd show diameter-endpoint -- -toRunCmd -tofd exp9  -dia_endpoint.name ixia-gx -route.id 0 -route.state I_OPEN!!!
+Information(casaCmd::Analyze): command 'show diameter-endpoint' map to api 'showDiameterEndpoint' in file 'casaCmdToApi'
+Info(::casaCmd::Run): ... run command % show diameter-endpoint % on  172.0.10.51:22 ...
+
+=================================== 21:22:32 ===================================
+=== 
+=== CASA-MOBILE#show diameter-endpoint
+=== 
+=== ---- Diameter-Endpoint# 1 [name: s6b_sg] ----------
+===     Diameter_Protocol_Profile:  none
+===     Count:  [in_txn_count: 0] [out_txn_count: 0] [mme_subs_count: 0]
+===     Timer:  [watch dog timer: 30s] [peer reconnect timer: 30s]
+===     Origin: [host_name: aaa.casa.com] [realm_name: casa.com][ip_addr: 172.1.10.51/32][ipv6_addr: 172:1:10::51/0]
+=== 
+===     ***** Number Peers in the Endpoint: 1 *****
+===        Peer Host                    Realm                             IP-address                      Prefix  Port    Protocol
+===        1    aaa.seagull.com         seagull.com                       20.18.9.22                      32      3868    TCP       
+=== 
+===     ***** Number Routes in the Endpoint: 1 *****
+=== 
+===     ++++ Route# 1 [is_default: false] ++++
+===        [app_realm: seagull.com] [app_type: 16777272]  [next_peer: none]
+===        Primary Peers [route_state: down]
+===            Primary-peer Host                     Source-port     State
+===            0            aaa.seagull.com          42257           STATE_CLOSE
+===  
+===        no secondary peers
+=== 
+=== ---- Diameter-Endpoint# 2 [name: s6b] ----------
+===     Diameter_Protocol_Profile:  none
+===     Count:  [in_txn_count: 0] [out_txn_count: 0] [mme_subs_count: 0]
+===     Timer:  [watch dog timer: 30s] [peer reconnect timer: 30s]
+===     Origin: [host_name: pgw01.rf.epc.gz] [realm_name: asac.com][ip_addr: 172.1.10.51/32][ipv6_addr: 172:1:10::51/0]
+=== 
+===     ***** Number Peers in the Endpoint: 2 *****
+===        Peer Host                    Realm                             IP-address                      Prefix  Port    Protocol
+===        1    ls.s6b                  ls.com                            172.1.166.102                   32      3868    TCP       
+===        2    ls.s6b1                 ls.com                            172.1.166.103                   32      3868    TCP       
+=== 
+===     ***** Number Routes in the Endpoint: 1 *****
+=== 
+===     ++++ Route# 1 [is_default: false] ++++
+===        [app_realm: ls.com] [app_type: 16777272]  [next_peer: none]
+===        Primary Peers [route_state: down]
+===            Primary-peer Host                     Source-port     State
+===            0            ls.s6b1                  45302           STATE_CLOSE
+===  
+===        Secondary Peers [route_state: down]
+===            Secondary-peer Host                     Source-port     State
+===            0              ls.s6b                   48742           STATE_CLOSE
+===  
+=== 
+=== ---- Diameter-Endpoint# 3 [name: saegw-ep] ----------
+===     Diameter_Protocol_Profile:  none
+===     Count:  [in_txn_count: 0] [out_txn_count: 0] [mme_subs_count: 0]
+===     Timer:  [watch dog timer: 30s] [peer reconnect timer: 30s]
+===     Origin: [host_name: saegw.casa.com] [realm_name: landslide.com][ip_addr: 172.1.10.51/32][ipv6_addr: 172:1:10::51/0]
+=== 
+===     ***** Number Peers in the Endpoint: 1 *****
+===        Peer Host                    Realm                             IP-address                      Prefix  Port    Protocol
+===        1    pcrf.landslide.com      landslide.com                     172.1.214.47                    32      3868    TCP       
+=== 
+===     ***** Number Routes in the Endpoint: 1 *****
+=== 
+===     ++++ Route# 1 [is_default: false] ++++
+===        [app_realm: landslide.com] [app_type: 16777238]  [next_peer: none]
+===        Primary Peers [route_state: down]
+===            Primary-peer Host                     Source-port     State
+===            0            pcrf.landslide.com       40702           STATE_CLOSE
+===  
+===        no secondary peers
+=== 
+=== ---- Diameter-Endpoint# 4 [name: gx_sg] ----------
+===     Diameter_Protocol_Profile:  none
+===     Count:  [in_txn_count: 0] [out_txn_count: 0] [mme_subs_count: 0]
+===     Timer:  [watch dog timer: 30s] [peer reconnect timer: 10s]
+===     Origin: [host_name: gx.casa.com] [realm_name: casa.com][ip_addr: 172.1.10.51/32][ipv6_addr: 172:1:10::51/0]
+=== 
+===     ***** Number Peers in the Endpoint: 1 *****
+===        Peer Host                    Realm                             IP-address                      Prefix  Port    Protocol
+===        1    pcrf.seagull.com        seagull.com                       20.18.9.21                      32      3868    TCP       
+=== 
+===     ***** Number Routes in the Endpoint: 1 *****
+=== 
+===     ++++ Route# 1 [is_default: false] ++++
+===        [app_realm: seagull.com] [app_type: 16777238]  [next_peer: pcrf.seagull.c:om]
+===        Primary Peers [route_state: up]
+===            Primary-peer Host                     Source-port     State
+===            0            pcrf.seagull.com         37887           I_OPEN    
+===  
+===        no secondary peers
+=== 
+=== ---- Diameter-Endpoint# 5 [name: rf_sg] ----------
+===     Diameter_Protocol_Profile:  none
+===     Count:  [in_txn_count: 0] [out_txn_count: 0] [mme_subs_count: 0]
+===     Timer:  [watch dog timer: 30s] [peer reconnect timer: 10s]
+===     Origin: [host_name: rf.casa.com] [realm_name: casa.com][ip_addr: 172.1.10.51/32][ipv6_addr: 172:1:10::51/0]
+=== 
+===     ***** Number Peers in the Endpoint: 1 *****
+===        Peer Host                    Realm                             IP-address                      Prefix  Port    Protocol
+===        1    ofcs.seagull.com        seagull.com                       172.1.11.13                     32      3868    TCP       
+=== 
+===     ***** Number Routes in the Endpoint: 1 *****
+=== 
+===     ++++ Route# 1 [is_default: false] ++++
+===        [app_realm: seagull.com] [app_type: 3]  [next_peer: ofcs.seagull.com]
+===        Primary Peers [route_state: down]
+===            Primary-peer Host                     Source-port     State
+===  
+===        Secondary Peers [route_state: up]
+===            Secondary-peer Host                     Source-port     State
+===            0              ofcs.seagull.com         59329           I_OPEN    
+===  
+=== 
+=== ---- Diameter-Endpoint# 6 [name: ls_rf] ----------
+===     Diameter_Protocol_Profile:  none
+===     Count:  [in_txn_count: 0] [out_txn_count: 0] [mme_subs_count: 0]
+===     Timer:  [watch dog timer: 30s] [peer reconnect timer: 30s]
+===     Origin: [host_name: pgw01.rf.epc.gz] [realm_name: asac.com][ip_addr: 172.1.10.51/32][ipv6_addr: 172:1:10::51/0]
+=== 
+===     ***** Number Peers in the Endpoint: 1 *****
+===        Peer Host                    Realm                             IP-address                      Prefix  Port    Protocol
+===        1    ofcs.landslide.com      landslide.com                     172.1.214.32                    32      3868    TCP       
+=== 
+===     ***** Number Routes in the Endpoint: 1 *****
+=== 
+===     ++++ Route# 1 [is_default: false] ++++
+===        [app_realm: landslide.com] [app_type: 3]  [next_peer: none]
+===        Primary Peers [route_state: down]
+===            Primary-peer Host                     Source-port     State
+===            0            ofcs.landslide.com       47110           WT_CONN_ACK
+===  
+===        no secondary peers
+=== 
+=== ---- Diameter-Endpoint# 7 [name: ixia-gx] ----------
+===     Diameter_Protocol_Profile:  none
+===     Count:  [in_txn_count: 0] [out_txn_count: 0] [mme_subs_count: 0]
+===     Timer:  [watch dog timer: 30s] [peer reconnect timer: 30s]
+===     Origin: [host_name: pgw01.gx.epc.gz] [realm_name: asac.com][ip_addr: 172.1.10.51/32][ipv6_addr: 172:1:10::51/0]
+=== 
+===     ***** Number Peers in the Endpoint: 1 *****
+===        Peer Host                    Realm                             IP-address                      Prefix  Port    Protocol
+===        1    pcrf.ixia               asac.com                          172.1.20.222                    32      3868    TCP       
+=== 
+===     ***** Number Routes in the Endpoint: 1 *****
+=== 
+===     ++++ Route# 1 [is_default: false] ++++
+===        [app_realm: asac.com] [app_type: 16777238]  [next_peer: none]
+===        Primary Peers [route_state: down]
+===            Primary-peer Host                     Source-port     State
+===            0            pcrf.ixia                34894           STATE_CLOSE
+===  
+===        no secondary peers
+=== 
+=== ---- Diameter-Endpoint# 8 [name: gx] ----------
+===     Diameter_Protocol_Profile:  none
+===     Count:  [in_txn_count: 0] [out_txn_count: 0] [mme_subs_count: 0]
+===     Timer:  [watch dog timer: 30s] [peer reconnect timer: 30s]
+===        Peer Host                    Realm                             IP-address                      Prefix  Port    Protocol
+=== 
+=== ---- Diameter-Endpoint# 9 [name: ixia-rf] ----------
+===     Diameter_Protocol_Profile:  none
+===     Count:  [in_txn_count: 0] [out_txn_count: 0] [mme_subs_count: 0]
+===     Timer:  [watch dog timer: 30s] [peer reconnect timer: 30s]
+===     Origin: [host_name: pgw01.rf.epc.gz] [realm_name: asac.com][ip_addr: 172.1.10.51/32][ipv6_addr: 172:1:10::51/0]
+=== 
+===     ***** Number Peers in the Endpoint: 1 *****
+===        Peer Host                    Realm                             IP-address                      Prefix  Port    Protocol
+===        1    ofcs.ixia               asac.com                          172.1.166.101                   32      3868    TCP       
+=== 
+===     ***** Number Routes in the Endpoint: 1 *****
+=== 
+===     ++++ Route# 1 [is_default: true] ++++
+===        [app_realm: ] [app_type: 0]  [next_peer: none]
+===        Primary Peers [route_state: down]
+===            Primary-peer Host                     Source-port     State
+===            0            ofcs.ixia                48156           STATE_CLOSE
+===  
+===        no secondary peers
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(casaCmd::Analyze): xmlfile is [/public/dxj/tcpdump/casa_show_diameter_endpoint.xml]
+!!Error(casaCmd::Analyze): Unable to match xpath : //command[@id='1' and dia_endpoint[@name='ixia-gx' and route[@state='I_OPEN' and @id='0']]].
+
+                               casaCmd_Analyze <show diameter-endpoint> on  172.0.10.51:22
+-------------------------------------------------------------------------------------------------------------------------
+             command.id           dia_endpoint.name           route.id           route.state            RESULT          
+-------------------------------------------------------------------------------------------------------------------------
+ 1           1                    ixia-gx                     0                  I_OPEN(Fail)           Fail            
+-------------------------------------------------------------------------------------------------------------------------
+warning(DEALEXCEL::Get_Checkpoint_Check): execute ::casaCmd::Analyze -cmd show diameter-endpoint -- -toRunCmd -tofd exp9  -dia_endpoint.name ixia-gx -route.id 0 -route.state I_OPEN fail 2 time!!!!
+Info(::DEALEXCEL::Get_Checkpoint_Check): Sleeping 2 second(s)...
+!! execute ::casaCmd::Analyze -cmd show diameter-endpoint -- -toRunCmd -tofd exp9  -dia_endpoint.name ixia-gx -route.id 0 -route.state I_OPEN!!!
+Information(casaCmd::Analyze): command 'show diameter-endpoint' map to api 'showDiameterEndpoint' in file 'casaCmdToApi'
+Info(::casaCmd::Run): ... run command % show diameter-endpoint % on  172.0.10.51:22 ...
+
+=================================== 21:22:34 ===================================
+=== 
+=== CASA-MOBILE#show diameter-endpoint
+=== 
+=== ---- Diameter-Endpoint# 1 [name: s6b_sg] ----------
+===     Diameter_Protocol_Profile:  none
+===     Count:  [in_txn_count: 0] [out_txn_count: 0] [mme_subs_count: 0]
+===     Timer:  [watch dog timer: 30s] [peer reconnect timer: 30s]
+===     Origin: [host_name: aaa.casa.com] [realm_name: casa.com][ip_addr: 172.1.10.51/32][ipv6_addr: 172:1:10::51/0]
+=== 
+===     ***** Number Peers in the Endpoint: 1 *****
+===        Peer Host                    Realm                             IP-address                      Prefix  Port    Protocol
+===        1    aaa.seagull.com         seagull.com                       20.18.9.22                      32      3868    TCP       
+=== 
+===     ***** Number Routes in the Endpoint: 1 *****
+=== 
+===     ++++ Route# 1 [is_default: false] ++++
+===        [app_realm: seagull.com] [app_type: 16777272]  [next_peer: none]
+===        Primary Peers [route_state: down]
+===            Primary-peer Host                     Source-port     State
+===            0            aaa.seagull.com          42257           STATE_CLOSE
+===  
+===        no secondary peers
+=== 
+=== ---- Diameter-Endpoint# 2 [name: s6b] ----------
+===     Diameter_Protocol_Profile:  none
+===     Count:  [in_txn_count: 0] [out_txn_count: 0] [mme_subs_count: 0]
+===     Timer:  [watch dog timer: 30s] [peer reconnect timer: 30s]
+===     Origin: [host_name: pgw01.rf.epc.gz] [realm_name: asac.com][ip_addr: 172.1.10.51/32][ipv6_addr: 172:1:10::51/0]
+=== 
+===     ***** Number Peers in the Endpoint: 2 *****
+===        Peer Host                    Realm                             IP-address                      Prefix  Port    Protocol
+===        1    ls.s6b                  ls.com                            172.1.166.102                   32      3868    TCP       
+===        2    ls.s6b1                 ls.com                            172.1.166.103                   32      3868    TCP       
+=== 
+===     ***** Number Routes in the Endpoint: 1 *****
+=== 
+===     ++++ Route# 1 [is_default: false] ++++
+===        [app_realm: ls.com] [app_type: 16777272]  [next_peer: none]
+===        Primary Peers [route_state: down]
+===            Primary-peer Host                     Source-port     State
+===            0            ls.s6b1                  45302           STATE_CLOSE
+===  
+===        Secondary Peers [route_state: down]
+===            Secondary-peer Host                     Source-port     State
+===            0              ls.s6b                   48742           STATE_CLOSE
+===  
+=== 
+=== ---- Diameter-Endpoint# 3 [name: saegw-ep] ----------
+===     Diameter_Protocol_Profile:  none
+===     Count:  [in_txn_count: 0] [out_txn_count: 0] [mme_subs_count: 0]
+===     Timer:  [watch dog timer: 30s] [peer reconnect timer: 30s]
+===     Origin: [host_name: saegw.casa.com] [realm_name: landslide.com][ip_addr: 172.1.10.51/32][ipv6_addr: 172:1:10::51/0]
+=== 
+===     ***** Number Peers in the Endpoint: 1 *****
+===        Peer Host                    Realm                             IP-address                      Prefix  Port    Protocol
+===        1    pcrf.landslide.com      landslide.com                     172.1.214.47                    32      3868    TCP       
+=== 
+===     ***** Number Routes in the Endpoint: 1 *****
+=== 
+===     ++++ Route# 1 [is_default: false] ++++
+===        [app_realm: landslide.com] [app_type: 16777238]  [next_peer: none]
+===        Primary Peers [route_state: down]
+===            Primary-peer Host                     Source-port     State
+===            0            pcrf.landslide.com       40702           STATE_CLOSE
+===  
+===        no secondary peers
+=== 
+=== ---- Diameter-Endpoint# 4 [name: gx_sg] ----------
+===     Diameter_Protocol_Profile:  none
+===     Count:  [in_txn_count: 0] [out_txn_count: 0] [mme_subs_count: 0]
+===     Timer:  [watch dog timer: 30s] [peer reconnect timer: 10s]
+===     Origin: [host_name: gx.casa.com] [realm_name: casa.com][ip_addr: 172.1.10.51/32][ipv6_addr: 172:1:10::51/0]
+=== 
+===     ***** Number Peers in the Endpoint: 1 *****
+===        Peer Host                    Realm                             IP-address                      Prefix  Port    Protocol
+===        1    pcrf.seagull.com        seagull.com                       20.18.9.21                      32      3868    TCP       
+=== 
+===     ***** Number Routes in the Endpoint: 1 *****
+=== 
+===     ++++ Route# 1 [is_default: false] ++++
+===        [app_realm: seagull.com] [app_type: 16777238]  [next_peer: pcrf.seagull.c:om]
+===        Primary Peers [route_state: up]
+===            Primary-peer Host                     Source-port     State
+===            0            pcrf.seagull.com         37887           I_OPEN    
+===  
+===        no secondary peers
+=== 
+=== ---- Diameter-Endpoint# 5 [name: rf_sg] ----------
+===     Diameter_Protocol_Profile:  none
+===     Count:  [in_txn_count: 0] [out_txn_count: 0] [mme_subs_count: 0]
+===     Timer:  [watch dog timer: 30s] [peer reconnect timer: 10s]
+===     Origin: [host_name: rf.casa.com] [realm_name: casa.com][ip_addr: 172.1.10.51/32][ipv6_addr: 172:1:10::51/0]
+=== 
+===     ***** Number Peers in the Endpoint: 1 *****
+===        Peer Host                    Realm                             IP-address                      Prefix  Port    Protocol
+===        1    ofcs.seagull.com        seagull.com                       172.1.11.13                     32      3868    TCP       
+=== 
+===     ***** Number Routes in the Endpoint: 1 *****
+=== 
+===     ++++ Route# 1 [is_default: false] ++++
+===        [app_realm: seagull.com] [app_type: 3]  [next_peer: ofcs.seagull.com]
+===        Primary Peers [route_state: down]
+===            Primary-peer Host                     Source-port     State
+===  
+===        Secondary Peers [route_state: up]
+===            Secondary-peer Host                     Source-port     State
+===            0              ofcs.seagull.com         59329           I_OPEN    
+===  
+=== 
+=== ---- Diameter-Endpoint# 6 [name: ls_rf] ----------
+===     Diameter_Protocol_Profile:  none
+===     Count:  [in_txn_count: 0] [out_txn_count: 0] [mme_subs_count: 0]
+===     Timer:  [watch dog timer: 30s] [peer reconnect timer: 30s]
+===     Origin: [host_name: pgw01.rf.epc.gz] [realm_name: asac.com][ip_addr: 172.1.10.51/32][ipv6_addr: 172:1:10::51/0]
+=== 
+===     ***** Number Peers in the Endpoint: 1 *****
+===        Peer Host                    Realm                             IP-address                      Prefix  Port    Protocol
+===        1    ofcs.landslide.com      landslide.com                     172.1.214.32                    32      3868    TCP       
+=== 
+===     ***** Number Routes in the Endpoint: 1 *****
+=== 
+===     ++++ Route# 1 [is_default: false] ++++
+===        [app_realm: landslide.com] [app_type: 3]  [next_peer: none]
+===        Primary Peers [route_state: down]
+===            Primary-peer Host                     Source-port     State
+===            0            ofcs.landslide.com       47110           WT_CONN_ACK
+===  
+===        no secondary peers
+=== 
+=== ---- Diameter-Endpoint# 7 [name: ixia-gx] ----------
+===     Diameter_Protocol_Profile:  none
+===     Count:  [in_txn_count: 0] [out_txn_count: 0] [mme_subs_count: 0]
+===     Timer:  [watch dog timer: 30s] [peer reconnect timer: 30s]
+===     Origin: [host_name: pgw01.gx.epc.gz] [realm_name: asac.com][ip_addr: 172.1.10.51/32][ipv6_addr: 172:1:10::51/0]
+=== 
+===     ***** Number Peers in the Endpoint: 1 *****
+===        Peer Host                    Realm                             IP-address                      Prefix  Port    Protocol
+===        1    pcrf.ixia               asac.com                          172.1.20.222                    32      3868    TCP       
+=== 
+===     ***** Number Routes in the Endpoint: 1 *****
+=== 
+===     ++++ Route# 1 [is_default: false] ++++
+===        [app_realm: asac.com] [app_type: 16777238]  [next_peer: none]
+===        Primary Peers [route_state: down]
+===            Primary-peer Host                     Source-port     State
+===            0            pcrf.ixia                34894           STATE_CLOSE
+===  
+===        no secondary peers
+=== 
+=== ---- Diameter-Endpoint# 8 [name: gx] ----------
+===     Diameter_Protocol_Profile:  none
+===     Count:  [in_txn_count: 0] [out_txn_count: 0] [mme_subs_count: 0]
+===     Timer:  [watch dog timer: 30s] [peer reconnect timer: 30s]
+===        Peer Host                    Realm                             IP-address                      Prefix  Port    Protocol
+=== 
+=== ---- Diameter-Endpoint# 9 [name: ixia-rf] ----------
+===     Diameter_Protocol_Profile:  none
+===     Count:  [in_txn_count: 0] [out_txn_count: 0] [mme_subs_count: 0]
+===     Timer:  [watch dog timer: 30s] [peer reconnect timer: 30s]
+===     Origin: [host_name: pgw01.rf.epc.gz] [realm_name: asac.com][ip_addr: 172.1.10.51/32][ipv6_addr: 172:1:10::51/0]
+=== 
+===     ***** Number Peers in the Endpoint: 1 *****
+===        Peer Host                    Realm                             IP-address                      Prefix  Port    Protocol
+===        1    ofcs.ixia               asac.com                          172.1.166.101                   32      3868    TCP       
+=== 
+===     ***** Number Routes in the Endpoint: 1 *****
+=== 
+===     ++++ Route# 1 [is_default: true] ++++
+===        [app_realm: ] [app_type: 0]  [next_peer: none]
+===        Primary Peers [route_state: down]
+===            Primary-peer Host                     Source-port     State
+===            0            ofcs.ixia                48156           STATE_CLOSE
+===  
+===        no secondary peers
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(casaCmd::Analyze): xmlfile is [/public/dxj/tcpdump/casa_show_diameter_endpoint.xml]
+!!Error(casaCmd::Analyze): Unable to match xpath : //command[@id='1' and dia_endpoint[@name='ixia-gx' and route[@state='I_OPEN' and @id='0']]].
+
+                               casaCmd_Analyze <show diameter-endpoint> on  172.0.10.51:22
+-------------------------------------------------------------------------------------------------------------------------
+             command.id           dia_endpoint.name           route.id           route.state            RESULT          
+-------------------------------------------------------------------------------------------------------------------------
+ 1           1                    ixia-gx                     0                  I_OPEN(Fail)           Fail            
+-------------------------------------------------------------------------------------------------------------------------
+warning(DEALEXCEL::Get_Checkpoint_Check): execute ::casaCmd::Analyze -cmd show diameter-endpoint -- -toRunCmd -tofd exp9  -dia_endpoint.name ixia-gx -route.id 0 -route.state I_OPEN fail 3 time!!!!
+Info(::DEALEXCEL::Get_Checkpoint_Check): Sleeping 2 second(s)...
+!! execute ::casaCmd::Analyze -cmd show diameter-endpoint -- -toRunCmd -tofd exp9  -dia_endpoint.name ixia-gx -route.id 0 -route.state I_OPEN!!!
+Information(casaCmd::Analyze): command 'show diameter-endpoint' map to api 'showDiameterEndpoint' in file 'casaCmdToApi'
+Info(::casaCmd::Run): ... run command % show diameter-endpoint % on  172.0.10.51:22 ...
+
+=================================== 21:22:36 ===================================
+=== 
+=== CASA-MOBILE#show diameter-endpoint
+=== 
+=== ---- Diameter-Endpoint# 1 [name: s6b_sg] ----------
+===     Diameter_Protocol_Profile:  none
+===     Count:  [in_txn_count: 0] [out_txn_count: 0] [mme_subs_count: 0]
+===     Timer:  [watch dog timer: 30s] [peer reconnect timer: 30s]
+===     Origin: [host_name: aaa.casa.com] [realm_name: casa.com][ip_addr: 172.1.10.51/32][ipv6_addr: 172:1:10::51/0]
+=== 
+===     ***** Number Peers in the Endpoint: 1 *****
+===        Peer Host                    Realm                             IP-address                      Prefix  Port    Protocol
+===        1    aaa.seagull.com         seagull.com                       20.18.9.22                      32      3868    TCP       
+=== 
+===     ***** Number Routes in the Endpoint: 1 *****
+=== 
+===     ++++ Route# 1 [is_default: false] ++++
+===        [app_realm: seagull.com] [app_type: 16777272]  [next_peer: none]
+===        Primary Peers [route_state: down]
+===            Primary-peer Host                     Source-port     State
+===            0            aaa.seagull.com          42257           STATE_CLOSE
+===  
+===        no secondary peers
+=== 
+=== ---- Diameter-Endpoint# 2 [name: s6b] ----------
+===     Diameter_Protocol_Profile:  none
+===     Count:  [in_txn_count: 0] [out_txn_count: 0] [mme_subs_count: 0]
+===     Timer:  [watch dog timer: 30s] [peer reconnect timer: 30s]
+===     Origin: [host_name: pgw01.rf.epc.gz] [realm_name: asac.com][ip_addr: 172.1.10.51/32][ipv6_addr: 172:1:10::51/0]
+=== 
+===     ***** Number Peers in the Endpoint: 2 *****
+===        Peer Host                    Realm                             IP-address                      Prefix  Port    Protocol
+===        1    ls.s6b                  ls.com                            172.1.166.102                   32      3868    TCP       
+===        2    ls.s6b1                 ls.com                            172.1.166.103                   32      3868    TCP       
+=== 
+===     ***** Number Routes in the Endpoint: 1 *****
+=== 
+===     ++++ Route# 1 [is_default: false] ++++
+===        [app_realm: ls.com] [app_type: 16777272]  [next_peer: none]
+===        Primary Peers [route_state: down]
+===            Primary-peer Host                     Source-port     State
+===            0            ls.s6b1                  45302           STATE_CLOSE
+===  
+===        Secondary Peers [route_state: down]
+===            Secondary-peer Host                     Source-port     State
+===            0              ls.s6b                   48742           STATE_CLOSE
+===  
+=== 
+=== ---- Diameter-Endpoint# 3 [name: saegw-ep] ----------
+===     Diameter_Protocol_Profile:  none
+===     Count:  [in_txn_count: 0] [out_txn_count: 0] [mme_subs_count: 0]
+===     Timer:  [watch dog timer: 30s] [peer reconnect timer: 30s]
+===     Origin: [host_name: saegw.casa.com] [realm_name: landslide.com][ip_addr: 172.1.10.51/32][ipv6_addr: 172:1:10::51/0]
+=== 
+===     ***** Number Peers in the Endpoint: 1 *****
+===        Peer Host                    Realm                             IP-address                      Prefix  Port    Protocol
+===        1    pcrf.landslide.com      landslide.com                     172.1.214.47                    32      3868    TCP       
+=== 
+===     ***** Number Routes in the Endpoint: 1 *****
+=== 
+===     ++++ Route# 1 [is_default: false] ++++
+===        [app_realm: landslide.com] [app_type: 16777238]  [next_peer: none]
+===        Primary Peers [route_state: down]
+===            Primary-peer Host                     Source-port     State
+===            0            pcrf.landslide.com       40702           STATE_CLOSE
+===  
+===        no secondary peers
+=== 
+=== ---- Diameter-Endpoint# 4 [name: gx_sg] ----------
+===     Diameter_Protocol_Profile:  none
+===     Count:  [in_txn_count: 0] [out_txn_count: 0] [mme_subs_count: 0]
+===     Timer:  [watch dog timer: 30s] [peer reconnect timer: 10s]
+===     Origin: [host_name: gx.casa.com] [realm_name: casa.com][ip_addr: 172.1.10.51/32][ipv6_addr: 172:1:10::51/0]
+=== 
+===     ***** Number Peers in the Endpoint: 1 *****
+===        Peer Host                    Realm                             IP-address                      Prefix  Port    Protocol
+===        1    pcrf.seagull.com        seagull.com                       20.18.9.21                      32      3868    TCP       
+=== 
+===     ***** Number Routes in the Endpoint: 1 *****
+=== 
+===     ++++ Route# 1 [is_default: false] ++++
+===        [app_realm: seagull.com] [app_type: 16777238]  [next_peer: pcrf.seagull.c:om]
+===        Primary Peers [route_state: up]
+===            Primary-peer Host                     Source-port     State
+===            0            pcrf.seagull.com         37887           I_OPEN    
+===  
+===        no secondary peers
+=== 
+=== ---- Diameter-Endpoint# 5 [name: rf_sg] ----------
+===     Diameter_Protocol_Profile:  none
+===     Count:  [in_txn_count: 0] [out_txn_count: 0] [mme_subs_count: 0]
+===     Timer:  [watch dog timer: 30s] [peer reconnect timer: 10s]
+===     Origin: [host_name: rf.casa.com] [realm_name: casa.com][ip_addr: 172.1.10.51/32][ipv6_addr: 172:1:10::51/0]
+=== 
+===     ***** Number Peers in the Endpoint: 1 *****
+===        Peer Host                    Realm                             IP-address                      Prefix  Port    Protocol
+===        1    ofcs.seagull.com        seagull.com                       172.1.11.13                     32      3868    TCP       
+=== 
+===     ***** Number Routes in the Endpoint: 1 *****
+=== 
+===     ++++ Route# 1 [is_default: false] ++++
+===        [app_realm: seagull.com] [app_type: 3]  [next_peer: ofcs.seagull.com]
+===        Primary Peers [route_state: down]
+===            Primary-peer Host                     Source-port     State
+===  
+===        Secondary Peers [route_state: up]
+===            Secondary-peer Host                     Source-port     State
+===            0              ofcs.seagull.com         59329           I_OPEN    
+===  
+=== 
+=== ---- Diameter-Endpoint# 6 [name: ls_rf] ----------
+===     Diameter_Protocol_Profile:  none
+===     Count:  [in_txn_count: 0] [out_txn_count: 0] [mme_subs_count: 0]
+===     Timer:  [watch dog timer: 30s] [peer reconnect timer: 30s]
+===     Origin: [host_name: pgw01.rf.epc.gz] [realm_name: asac.com][ip_addr: 172.1.10.51/32][ipv6_addr: 172:1:10::51/0]
+=== 
+===     ***** Number Peers in the Endpoint: 1 *****
+===        Peer Host                    Realm                             IP-address                      Prefix  Port    Protocol
+===        1    ofcs.landslide.com      landslide.com                     172.1.214.32                    32      3868    TCP       
+=== 
+===     ***** Number Routes in the Endpoint: 1 *****
+=== 
+===     ++++ Route# 1 [is_default: false] ++++
+===        [app_realm: landslide.com] [app_type: 3]  [next_peer: none]
+===        Primary Peers [route_state: down]
+===            Primary-peer Host                     Source-port     State
+===            0            ofcs.landslide.com       47110           WT_CONN_ACK
+===  
+===        no secondary peers
+=== 
+=== ---- Diameter-Endpoint# 7 [name: ixia-gx] ----------
+===     Diameter_Protocol_Profile:  none
+===     Count:  [in_txn_count: 0] [out_txn_count: 0] [mme_subs_count: 0]
+===     Timer:  [watch dog timer: 30s] [peer reconnect timer: 30s]
+===     Origin: [host_name: pgw01.gx.epc.gz] [realm_name: asac.com][ip_addr: 172.1.10.51/32][ipv6_addr: 172:1:10::51/0]
+=== 
+===     ***** Number Peers in the Endpoint: 1 *****
+===        Peer Host                    Realm                             IP-address                      Prefix  Port    Protocol
+===        1    pcrf.ixia               asac.com                          172.1.20.222                    32      3868    TCP       
+=== 
+===     ***** Number Routes in the Endpoint: 1 *****
+=== 
+===     ++++ Route# 1 [is_default: false] ++++
+===        [app_realm: asac.com] [app_type: 16777238]  [next_peer: none]
+===        Primary Peers [route_state: down]
+===            Primary-peer Host                     Source-port     State
+===            0            pcrf.ixia                35792           WT_CONN_ACK
+===  
+===        no secondary peers
+=== 
+=== ---- Diameter-Endpoint# 8 [name: gx] ----------
+===     Diameter_Protocol_Profile:  none
+===     Count:  [in_txn_count: 0] [out_txn_count: 0] [mme_subs_count: 0]
+===     Timer:  [watch dog timer: 30s] [peer reconnect timer: 30s]
+===        Peer Host                    Realm                             IP-address                      Prefix  Port    Protocol
+=== 
+=== ---- Diameter-Endpoint# 9 [name: ixia-rf] ----------
+===     Diameter_Protocol_Profile:  none
+===     Count:  [in_txn_count: 0] [out_txn_count: 0] [mme_subs_count: 0]
+===     Timer:  [watch dog timer: 30s] [peer reconnect timer: 30s]
+===     Origin: [host_name: pgw01.rf.epc.gz] [realm_name: asac.com][ip_addr: 172.1.10.51/32][ipv6_addr: 172:1:10::51/0]
+=== 
+===     ***** Number Peers in the Endpoint: 1 *****
+===        Peer Host                    Realm                             IP-address                      Prefix  Port    Protocol
+===        1    ofcs.ixia               asac.com                          172.1.166.101                   32      3868    TCP       
+=== 
+===     ***** Number Routes in the Endpoint: 1 *****
+=== 
+===     ++++ Route# 1 [is_default: true] ++++
+===        [app_realm: ] [app_type: 0]  [next_peer: none]
+===        Primary Peers [route_state: down]
+===            Primary-peer Host                     Source-port     State
+===            0            ofcs.ixia                48156           STATE_CLOSE
+===  
+===        no secondary peers
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(casaCmd::Analyze): xmlfile is [/public/dxj/tcpdump/casa_show_diameter_endpoint.xml]
+!!Error(casaCmd::Analyze): Unable to match xpath : //command[@id='1' and dia_endpoint[@name='ixia-gx' and route[@state='I_OPEN' and @id='0']]].
+
+                               casaCmd_Analyze <show diameter-endpoint> on  172.0.10.51:22
+-------------------------------------------------------------------------------------------------------------------------
+             command.id           dia_endpoint.name           route.id           route.state            RESULT          
+-------------------------------------------------------------------------------------------------------------------------
+ 1           1                    ixia-gx                     0                  I_OPEN(Fail)           Fail            
+-------------------------------------------------------------------------------------------------------------------------
+warning(DEALEXCEL::Get_Checkpoint_Check): execute ::casaCmd::Analyze -cmd show diameter-endpoint -- -toRunCmd -tofd exp9  -dia_endpoint.name ixia-gx -route.id 0 -route.state I_OPEN fail 4 time!!!!
+Info(::DEALEXCEL::Get_Checkpoint_Check): Sleeping 2 second(s)...
+!! execute ::casaCmd::Analyze -cmd show diameter-endpoint -- -toRunCmd -tofd exp9  -dia_endpoint.name ixia-gx -route.id 0 -route.state I_OPEN!!!
+Information(casaCmd::Analyze): command 'show diameter-endpoint' map to api 'showDiameterEndpoint' in file 'casaCmdToApi'
+Info(::casaCmd::Run): ... run command % show diameter-endpoint % on  172.0.10.51:22 ...
+
+=================================== 21:22:38 ===================================
+=== 
+=== CASA-MOBILE#show diameter-endpoint
+=== 
+=== ---- Diameter-Endpoint# 1 [name: s6b_sg] ----------
+===     Diameter_Protocol_Profile:  none
+===     Count:  [in_txn_count: 0] [out_txn_count: 0] [mme_subs_count: 0]
+===     Timer:  [watch dog timer: 30s] [peer reconnect timer: 30s]
+===     Origin: [host_name: aaa.casa.com] [realm_name: casa.com][ip_addr: 172.1.10.51/32][ipv6_addr: 172:1:10::51/0]
+=== 
+===     ***** Number Peers in the Endpoint: 1 *****
+===        Peer Host                    Realm                             IP-address                      Prefix  Port    Protocol
+===        1    aaa.seagull.com         seagull.com                       20.18.9.22                      32      3868    TCP       
+=== 
+===     ***** Number Routes in the Endpoint: 1 *****
+=== 
+===     ++++ Route# 1 [is_default: false] ++++
+===        [app_realm: seagull.com] [app_type: 16777272]  [next_peer: none]
+===        Primary Peers [route_state: down]
+===            Primary-peer Host                     Source-port     State
+===            0            aaa.seagull.com          42257           STATE_CLOSE
+===  
+===        no secondary peers
+=== 
+=== ---- Diameter-Endpoint# 2 [name: s6b] ----------
+===     Diameter_Protocol_Profile:  none
+===     Count:  [in_txn_count: 0] [out_txn_count: 0] [mme_subs_count: 0]
+===     Timer:  [watch dog timer: 30s] [peer reconnect timer: 30s]
+===     Origin: [host_name: pgw01.rf.epc.gz] [realm_name: asac.com][ip_addr: 172.1.10.51/32][ipv6_addr: 172:1:10::51/0]
+=== 
+===     ***** Number Peers in the Endpoint: 2 *****
+===        Peer Host                    Realm                             IP-address                      Prefix  Port    Protocol
+===        1    ls.s6b                  ls.com                            172.1.166.102                   32      3868    TCP       
+===        2    ls.s6b1                 ls.com                            172.1.166.103                   32      3868    TCP       
+=== 
+===     ***** Number Routes in the Endpoint: 1 *****
+=== 
+===     ++++ Route# 1 [is_default: false] ++++
+===        [app_realm: ls.com] [app_type: 16777272]  [next_peer: none]
+===        Primary Peers [route_state: down]
+===            Primary-peer Host                     Source-port     State
+===            0            ls.s6b1                  45302           STATE_CLOSE
+===  
+===        Secondary Peers [route_state: down]
+===            Secondary-peer Host                     Source-port     State
+===            0              ls.s6b                   48742           STATE_CLOSE
+===  
+=== 
+=== ---- Diameter-Endpoint# 3 [name: saegw-ep] ----------
+===     Diameter_Protocol_Profile:  none
+===     Count:  [in_txn_count: 0] [out_txn_count: 0] [mme_subs_count: 0]
+===     Timer:  [watch dog timer: 30s] [peer reconnect timer: 30s]
+===     Origin: [host_name: saegw.casa.com] [realm_name: landslide.com][ip_addr: 172.1.10.51/32][ipv6_addr: 172:1:10::51/0]
+=== 
+===     ***** Number Peers in the Endpoint: 1 *****
+===        Peer Host                    Realm                             IP-address                      Prefix  Port    Protocol
+===        1    pcrf.landslide.com      landslide.com                     172.1.214.47                    32      3868    TCP       
+=== 
+===     ***** Number Routes in the Endpoint: 1 *****
+=== 
+===     ++++ Route# 1 [is_default: false] ++++
+===        [app_realm: landslide.com] [app_type: 16777238]  [next_peer: none]
+===        Primary Peers [route_state: down]
+===            Primary-peer Host                     Source-port     State
+===            0            pcrf.landslide.com       40702           STATE_CLOSE
+===  
+===        no secondary peers
+=== 
+=== ---- Diameter-Endpoint# 4 [name: gx_sg] ----------
+===     Diameter_Protocol_Profile:  none
+===     Count:  [in_txn_count: 0] [out_txn_count: 0] [mme_subs_count: 0]
+===     Timer:  [watch dog timer: 30s] [peer reconnect timer: 10s]
+===     Origin: [host_name: gx.casa.com] [realm_name: casa.com][ip_addr: 172.1.10.51/32][ipv6_addr: 172:1:10::51/0]
+=== 
+===     ***** Number Peers in the Endpoint: 1 *****
+===        Peer Host                    Realm                             IP-address                      Prefix  Port    Protocol
+===        1    pcrf.seagull.com        seagull.com                       20.18.9.21                      32      3868    TCP       
+=== 
+===     ***** Number Routes in the Endpoint: 1 *****
+=== 
+===     ++++ Route# 1 [is_default: false] ++++
+===        [app_realm: seagull.com] [app_type: 16777238]  [next_peer: pcrf.seagull.c:om]
+===        Primary Peers [route_state: up]
+===            Primary-peer Host                     Source-port     State
+===            0            pcrf.seagull.com         37887           I_OPEN    
+===  
+===        no secondary peers
+=== 
+=== ---- Diameter-Endpoint# 5 [name: rf_sg] ----------
+===     Diameter_Protocol_Profile:  none
+===     Count:  [in_txn_count: 0] [out_txn_count: 0] [mme_subs_count: 0]
+===     Timer:  [watch dog timer: 30s] [peer reconnect timer: 10s]
+===     Origin: [host_name: rf.casa.com] [realm_name: casa.com][ip_addr: 172.1.10.51/32][ipv6_addr: 172:1:10::51/0]
+=== 
+===     ***** Number Peers in the Endpoint: 1 *****
+===        Peer Host                    Realm                             IP-address                      Prefix  Port    Protocol
+===        1    ofcs.seagull.com        seagull.com                       172.1.11.13                     32      3868    TCP       
+=== 
+===     ***** Number Routes in the Endpoint: 1 *****
+=== 
+===     ++++ Route# 1 [is_default: false] ++++
+===        [app_realm: seagull.com] [app_type: 3]  [next_peer: ofcs.seagull.com]
+===        Primary Peers [route_state: down]
+===            Primary-peer Host                     Source-port     State
+===  
+===        Secondary Peers [route_state: up]
+===            Secondary-peer Host                     Source-port     State
+===            0              ofcs.seagull.com         59329           I_OPEN    
+===  
+=== 
+=== ---- Diameter-Endpoint# 6 [name: ls_rf] ----------
+===     Diameter_Protocol_Profile:  none
+===     Count:  [in_txn_count: 0] [out_txn_count: 0] [mme_subs_count: 0]
+===     Timer:  [watch dog timer: 30s] [peer reconnect timer: 30s]
+===     Origin: [host_name: pgw01.rf.epc.gz] [realm_name: asac.com][ip_addr: 172.1.10.51/32][ipv6_addr: 172:1:10::51/0]
+=== 
+===     ***** Number Peers in the Endpoint: 1 *****
+===        Peer Host                    Realm                             IP-address                      Prefix  Port    Protocol
+===        1    ofcs.landslide.com      landslide.com                     172.1.214.32                    32      3868    TCP       
+=== 
+===     ***** Number Routes in the Endpoint: 1 *****
+=== 
+===     ++++ Route# 1 [is_default: false] ++++
+===        [app_realm: landslide.com] [app_type: 3]  [next_peer: none]
+===        Primary Peers [route_state: down]
+===            Primary-peer Host                     Source-port     State
+===            0            ofcs.landslide.com       47110           WT_CONN_ACK
+===  
+===        no secondary peers
+=== 
+=== ---- Diameter-Endpoint# 7 [name: ixia-gx] ----------
+===     Diameter_Protocol_Profile:  none
+===     Count:  [in_txn_count: 0] [out_txn_count: 0] [mme_subs_count: 0]
+===     Timer:  [watch dog timer: 30s] [peer reconnect timer: 30s]
+===     Origin: [host_name: pgw01.gx.epc.gz] [realm_name: asac.com][ip_addr: 172.1.10.51/32][ipv6_addr: 172:1:10::51/0]
+=== 
+===     ***** Number Peers in the Endpoint: 1 *****
+===        Peer Host                    Realm                             IP-address                      Prefix  Port    Protocol
+===        1    pcrf.ixia               asac.com                          172.1.20.222                    32      3868    TCP       
+=== 
+===     ***** Number Routes in the Endpoint: 1 *****
+=== 
+===     ++++ Route# 1 [is_default: false] ++++
+===        [app_realm: asac.com] [app_type: 16777238]  [next_peer: none]
+===        Primary Peers [route_state: down]
+===            Primary-peer Host                     Source-port     State
+===            0            pcrf.ixia                35792           STATE_CLOSE
+===  
+===        no secondary peers
+=== 
+=== ---- Diameter-Endpoint# 8 [name: gx] ----------
+===     Diameter_Protocol_Profile:  none
+===     Count:  [in_txn_count: 0] [out_txn_count: 0] [mme_subs_count: 0]
+===     Timer:  [watch dog timer: 30s] [peer reconnect timer: 30s]
+===        Peer Host                    Realm                             IP-address                      Prefix  Port    Protocol
+=== 
+=== ---- Diameter-Endpoint# 9 [name: ixia-rf] ----------
+===     Diameter_Protocol_Profile:  none
+===     Count:  [in_txn_count: 0] [out_txn_count: 0] [mme_subs_count: 0]
+===     Timer:  [watch dog timer: 30s] [peer reconnect timer: 30s]
+===     Origin: [host_name: pgw01.rf.epc.gz] [realm_name: asac.com][ip_addr: 172.1.10.51/32][ipv6_addr: 172:1:10::51/0]
+=== 
+===     ***** Number Peers in the Endpoint: 1 *****
+===        Peer Host                    Realm                             IP-address                      Prefix  Port    Protocol
+===        1    ofcs.ixia               asac.com                          172.1.166.101                   32      3868    TCP       
+=== 
+===     ***** Number Routes in the Endpoint: 1 *****
+=== 
+===     ++++ Route# 1 [is_default: true] ++++
+===        [app_realm: ] [app_type: 0]  [next_peer: none]
+===        Primary Peers [route_state: down]
+===            Primary-peer Host                     Source-port     State
+===            0            ofcs.ixia                48156           STATE_CLOSE
+===  
+===        no secondary peers
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(casaCmd::Analyze): xmlfile is [/public/dxj/tcpdump/casa_show_diameter_endpoint.xml]
+!!Error(casaCmd::Analyze): Unable to match xpath : //command[@id='1' and dia_endpoint[@name='ixia-gx' and route[@state='I_OPEN' and @id='0']]].
+
+                               casaCmd_Analyze <show diameter-endpoint> on  172.0.10.51:22
+-------------------------------------------------------------------------------------------------------------------------
+             command.id           dia_endpoint.name           route.id           route.state            RESULT          
+-------------------------------------------------------------------------------------------------------------------------
+ 1           1                    ixia-gx                     0                  I_OPEN(Fail)           Fail            
+-------------------------------------------------------------------------------------------------------------------------
+warning(DEALEXCEL::Get_Checkpoint_Check): execute ::casaCmd::Analyze -cmd show diameter-endpoint -- -toRunCmd -tofd exp9  -dia_endpoint.name ixia-gx -route.id 0 -route.state I_OPEN fail 5 time!!!!
+Info(::DEALEXCEL::Get_Checkpoint_Check): Sleeping 2 second(s)...
+!! execute ::casaCmd::Analyze -cmd show diameter-endpoint -- -toRunCmd -tofd exp9  -dia_endpoint.name ixia-gx -route.id 0 -route.state I_OPEN!!!
+Information(casaCmd::Analyze): command 'show diameter-endpoint' map to api 'showDiameterEndpoint' in file 'casaCmdToApi'
+Info(::casaCmd::Run): ... run command % show diameter-endpoint % on  172.0.10.51:22 ...
+
+=================================== 21:22:40 ===================================
+=== 
+=== CASA-MOBILE#show diameter-endpoint
+=== 
+=== ---- Diameter-Endpoint# 1 [name: s6b_sg] ----------
+===     Diameter_Protocol_Profile:  none
+===     Count:  [in_txn_count: 0] [out_txn_count: 0] [mme_subs_count: 0]
+===     Timer:  [watch dog timer: 30s] [peer reconnect timer: 30s]
+===     Origin: [host_name: aaa.casa.com] [realm_name: casa.com][ip_addr: 172.1.10.51/32][ipv6_addr: 172:1:10::51/0]
+=== 
+===     ***** Number Peers in the Endpoint: 1 *****
+===        Peer Host                    Realm                             IP-address                      Prefix  Port    Protocol
+===        1    aaa.seagull.com         seagull.com                       20.18.9.22                      32      3868    TCP       
+=== 
+===     ***** Number Routes in the Endpoint: 1 *****
+=== 
+===     ++++ Route# 1 [is_default: false] ++++
+===        [app_realm: seagull.com] [app_type: 16777272]  [next_peer: none]
+===        Primary Peers [route_state: down]
+===            Primary-peer Host                     Source-port     State
+===            0            aaa.seagull.com          42257           STATE_CLOSE
+===  
+===        no secondary peers
+=== 
+=== ---- Diameter-Endpoint# 2 [name: s6b] ----------
+===     Diameter_Protocol_Profile:  none
+===     Count:  [in_txn_count: 0] [out_txn_count: 0] [mme_subs_count: 0]
+===     Timer:  [watch dog timer: 30s] [peer reconnect timer: 30s]
+===     Origin: [host_name: pgw01.rf.epc.gz] [realm_name: asac.com][ip_addr: 172.1.10.51/32][ipv6_addr: 172:1:10::51/0]
+=== 
+===     ***** Number Peers in the Endpoint: 2 *****
+===        Peer Host                    Realm                             IP-address                      Prefix  Port    Protocol
+===        1    ls.s6b                  ls.com                            172.1.166.102                   32      3868    TCP       
+===        2    ls.s6b1                 ls.com                            172.1.166.103                   32      3868    TCP       
+=== 
+===     ***** Number Routes in the Endpoint: 1 *****
+=== 
+===     ++++ Route# 1 [is_default: false] ++++
+===        [app_realm: ls.com] [app_type: 16777272]  [next_peer: none]
+===        Primary Peers [route_state: down]
+===            Primary-peer Host                     Source-port     State
+===            0            ls.s6b1                  46949           WT_CONN_ACK
+===  
+===        Secondary Peers [route_state: down]
+===            Secondary-peer Host                     Source-port     State
+===            0              ls.s6b                   40779           WT_CONN_ACK
+===  
+=== 
+=== ---- Diameter-Endpoint# 3 [name: saegw-ep] ----------
+===     Diameter_Protocol_Profile:  none
+===     Count:  [in_txn_count: 0] [out_txn_count: 0] [mme_subs_count: 0]
+===     Timer:  [watch dog timer: 30s] [peer reconnect timer: 30s]
+===     Origin: [host_name: saegw.casa.com] [realm_name: landslide.com][ip_addr: 172.1.10.51/32][ipv6_addr: 172:1:10::51/0]
+=== 
+===     ***** Number Peers in the Endpoint: 1 *****
+===        Peer Host                    Realm                             IP-address                      Prefix  Port    Protocol
+===        1    pcrf.landslide.com      landslide.com                     172.1.214.47                    32      3868    TCP       
+=== 
+===     ***** Number Routes in the Endpoint: 1 *****
+=== 
+===     ++++ Route# 1 [is_default: false] ++++
+===        [app_realm: landslide.com] [app_type: 16777238]  [next_peer: none]
+===        Primary Peers [route_state: down]
+===            Primary-peer Host                     Source-port     State
+===            0            pcrf.landslide.com       40702           STATE_CLOSE
+===  
+===        no secondary peers
+=== 
+=== ---- Diameter-Endpoint# 4 [name: gx_sg] ----------
+===     Diameter_Protocol_Profile:  none
+===     Count:  [in_txn_count: 0] [out_txn_count: 0] [mme_subs_count: 0]
+===     Timer:  [watch dog timer: 30s] [peer reconnect timer: 10s]
+===     Origin: [host_name: gx.casa.com] [realm_name: casa.com][ip_addr: 172.1.10.51/32][ipv6_addr: 172:1:10::51/0]
+=== 
+===     ***** Number Peers in the Endpoint: 1 *****
+===        Peer Host                    Realm                             IP-address                      Prefix  Port    Protocol
+===        1    pcrf.seagull.com        seagull.com                       20.18.9.21                      32      3868    TCP       
+=== 
+===     ***** Number Routes in the Endpoint: 1 *****
+=== 
+===     ++++ Route# 1 [is_default: false] ++++
+===        [app_realm: seagull.com] [app_type: 16777238]  [next_peer: pcrf.seagull.c:om]
+===        Primary Peers [route_state: up]
+===            Primary-peer Host                     Source-port     State
+===            0            pcrf.seagull.com         37887           I_OPEN    
+===  
+===        no secondary peers
+=== 
+=== ---- Diameter-Endpoint# 5 [name: rf_sg] ----------
+===     Diameter_Protocol_Profile:  none
+===     Count:  [in_txn_count: 0] [out_txn_count: 0] [mme_subs_count: 0]
+===     Timer:  [watch dog timer: 30s] [peer reconnect timer: 10s]
+===     Origin: [host_name: rf.casa.com] [realm_name: casa.com][ip_addr: 172.1.10.51/32][ipv6_addr: 172:1:10::51/0]
+=== 
+===     ***** Number Peers in the Endpoint: 1 *****
+===        Peer Host                    Realm                             IP-address                      Prefix  Port    Protocol
+===        1    ofcs.seagull.com        seagull.com                       172.1.11.13                     32      3868    TCP       
+=== 
+===     ***** Number Routes in the Endpoint: 1 *****
+=== 
+===     ++++ Route# 1 [is_default: false] ++++
+===        [app_realm: seagull.com] [app_type: 3]  [next_peer: ofcs.seagull.com]
+===        Primary Peers [route_state: down]
+===            Primary-peer Host                     Source-port     State
+===  
+===        Secondary Peers [route_state: up]
+===            Secondary-peer Host                     Source-port     State
+===            0              ofcs.seagull.com         59329           I_OPEN    
+===  
+=== 
+=== ---- Diameter-Endpoint# 6 [name: ls_rf] ----------
+===     Diameter_Protocol_Profile:  none
+===     Count:  [in_txn_count: 0] [out_txn_count: 0] [mme_subs_count: 0]
+===     Timer:  [watch dog timer: 30s] [peer reconnect timer: 30s]
+===     Origin: [host_name: pgw01.rf.epc.gz] [realm_name: asac.com][ip_addr: 172.1.10.51/32][ipv6_addr: 172:1:10::51/0]
+=== 
+===     ***** Number Peers in the Endpoint: 1 *****
+===        Peer Host                    Realm                             IP-address                      Prefix  Port    Protocol
+===        1    ofcs.landslide.com      landslide.com                     172.1.214.32                    32      3868    TCP       
+=== 
+===     ***** Number Routes in the Endpoint: 1 *****
+=== 
+===     ++++ Route# 1 [is_default: false] ++++
+===        [app_realm: landslide.com] [app_type: 3]  [next_peer: none]
+===        Primary Peers [route_state: down]
+===            Primary-peer Host                     Source-port     State
+===            0            ofcs.landslide.com       47110           STATE_CLOSE
+===  
+===        no secondary peers
+=== 
+=== ---- Diameter-Endpoint# 7 [name: ixia-gx] ----------
+===     Diameter_Protocol_Profile:  none
+===     Count:  [in_txn_count: 0] [out_txn_count: 0] [mme_subs_count: 0]
+===     Timer:  [watch dog timer: 30s] [peer reconnect timer: 30s]
+===     Origin: [host_name: pgw01.gx.epc.gz] [realm_name: asac.com][ip_addr: 172.1.10.51/32][ipv6_addr: 172:1:10::51/0]
+=== 
+===     ***** Number Peers in the Endpoint: 1 *****
+===        Peer Host                    Realm                             IP-address                      Prefix  Port    Protocol
+===        1    pcrf.ixia               asac.com                          172.1.20.222                    32      3868    TCP       
+=== 
+===     ***** Number Routes in the Endpoint: 1 *****
+=== 
+===     ++++ Route# 1 [is_default: false] ++++
+===        [app_realm: asac.com] [app_type: 16777238]  [next_peer: none]
+===        Primary Peers [route_state: down]
+===            Primary-peer Host                     Source-port     State
+===            0            pcrf.ixia                35792           STATE_CLOSE
+===  
+===        no secondary peers
+=== 
+=== ---- Diameter-Endpoint# 8 [name: gx] ----------
+===     Diameter_Protocol_Profile:  none
+===     Count:  [in_txn_count: 0] [out_txn_count: 0] [mme_subs_count: 0]
+===     Timer:  [watch dog timer: 30s] [peer reconnect timer: 30s]
+===        Peer Host                    Realm                             IP-address                      Prefix  Port    Protocol
+=== 
+=== ---- Diameter-Endpoint# 9 [name: ixia-rf] ----------
+===     Diameter_Protocol_Profile:  none
+===     Count:  [in_txn_count: 0] [out_txn_count: 0] [mme_subs_count: 0]
+===     Timer:  [watch dog timer: 30s] [peer reconnect timer: 30s]
+===     Origin: [host_name: pgw01.rf.epc.gz] [realm_name: asac.com][ip_addr: 172.1.10.51/32][ipv6_addr: 172:1:10::51/0]
+=== 
+===     ***** Number Peers in the Endpoint: 1 *****
+===        Peer Host                    Realm                             IP-address                      Prefix  Port    Protocol
+===        1    ofcs.ixia               asac.com                          172.1.166.101                   32      3868    TCP       
+=== 
+===     ***** Number Routes in the Endpoint: 1 *****
+=== 
+===     ++++ Route# 1 [is_default: true] ++++
+===        [app_realm: ] [app_type: 0]  [next_peer: none]
+===        Primary Peers [route_state: down]
+===            Primary-peer Host                     Source-port     State
+===            0            ofcs.ixia                48156           STATE_CLOSE
+===  
+===        no secondary peers
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(casaCmd::Analyze): xmlfile is [/public/dxj/tcpdump/casa_show_diameter_endpoint.xml]
+!!Error(casaCmd::Analyze): Unable to match xpath : //command[@id='1' and dia_endpoint[@name='ixia-gx' and route[@state='I_OPEN' and @id='0']]].
+
+                               casaCmd_Analyze <show diameter-endpoint> on  172.0.10.51:22
+-------------------------------------------------------------------------------------------------------------------------
+             command.id           dia_endpoint.name           route.id           route.state            RESULT          
+-------------------------------------------------------------------------------------------------------------------------
+ 1           1                    ixia-gx                     0                  I_OPEN(Fail)           Fail            
+-------------------------------------------------------------------------------------------------------------------------
+warning(DEALEXCEL::Get_Checkpoint_Check): execute ::casaCmd::Analyze -cmd show diameter-endpoint -- -toRunCmd -tofd exp9  -dia_endpoint.name ixia-gx -route.id 0 -route.state I_OPEN fail 6 time!!!!
+Info(::DEALEXCEL::Get_Checkpoint_Check): Sleeping 2 second(s)...
+Error(DEALEXCEL::Get_Checkpoint_Check): execute ::casaCmd::Analyze -cmd show diameter-endpoint -- -toRunCmd -tofd exp9  -dia_endpoint.name ixia-gx -route.id 0 -route.state I_OPEN fail!!!!
+=== === === === === Tips === === === === === === ===
+=== 请检查 test plan里用例的第3个CLI命令show diameter-endpoint 对应SPAWN_ID_SAEGW_C1&3&show%k_diameter-endpoint文件，以及和相应的制表函数
+=== Check the 3 CLI command of the use case in test plan for the show diameter-endpoint corresponding to the SPAWN_ID_SAEGW_C1&3&show%k_diameter-endpoint file and the corresponding tab function
+=== === === === === === === === === === === === ===
+=== === === === === Tips === === === === === === ===
+=== 请检查 test plan 里用例 case_29006_29008_29010_29012_29014_29016_29018 的 第 3 个 CLI 命令 show diameter-endpoint
+=== Please check Number.3 CLI command show diameter-endpoint of the test case case_29006_29008_29010_29012_29014_29016_29018 in test plan
+===Error(DEALEXCEL::ExecuteStep): Loop_Execute_Check_CLI failed!!
+=== === === === === === === === === === === === ===
+Error(SAEGW::Main): ::DEALEXCEL::ExecuteStep -casenum 29006_29008_29010_29012_29014_29016_29018  failed!!
+STEP(21:22:42): RESULT=FAIL  Step 6: 5.get excel case info
+Failed script name: /public/casa-495/test/Tests/hxd/SAEGW.test
+Recovery conf!!
+recovery_conf!!
+!! Info(Adapt_Environment): Global variable ADAPT_ENVIR_FLAG not exists or == 0, pass this proc
+step_5238
+
+=================================== 21:22:43 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(CasaGetPrompt): Current CLI mode for exp9 is enable
+
+=================================== 21:22:43 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 21:22:45 ===================================
+=== 
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 21:22:46 ===================================
+=== config
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+
+=================================== 21:22:48 ===================================
+=== 
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+SendAndExpect  lte-service pgw-c  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 21:22:48 ===================================
+=== lte-service pgw-c
+=== CASA-MOBILE(config-pgw-c)#
+=== CASA-MOBILE(config-pgw-c)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  no apn apn1  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 21:22:49 ===================================
+=== no apn apn1
+=== CASA-MOBILE(config-pgw-c)#
+=== CASA-MOBILE(config-pgw-c)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  no apn apn2  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 21:22:50 ===================================
+=== no apn apn2
+=== CASA-MOBILE(config-pgw-c)#
+=== CASA-MOBILE(config-pgw-c)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  apn apn1  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 21:22:51 ===================================
+=== apn apn1
+=== CASA-MOBILE(config-pgw-apn-apn1)#
+=== CASA-MOBILE(config-pgw-apn-apn1)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  ip pool name ue-pool-4  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 21:22:52 ===================================
+=== ip pool name ue-pool-4
+=== CASA-MOBILE(config-pgw-apn-apn1)#
+=== CASA-MOBILE(config-pgw-apn-apn1)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  exit  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 21:22:53 ===================================
+=== exit
+=== CASA-MOBILE(config-pgw-c)#
+=== CASA-MOBILE(config-pgw-c)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  apn apn2  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 21:22:54 ===================================
+=== apn apn2
+=== CASA-MOBILE(config-pgw-apn-apn2)#
+=== CASA-MOBILE(config-pgw-apn-apn2)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  ip pool name ue-pool-4  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 21:22:55 ===================================
+=== ip pool name ue-pool-4
+=== CASA-MOBILE(config-pgw-apn-apn2)#
+=== CASA-MOBILE(config-pgw-apn-apn2)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  exit  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 21:22:56 ===================================
+=== exit
+=== CASA-MOBILE(config-pgw-c)#
+=== CASA-MOBILE(config-pgw-c)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect  no apn-selection-rule 1  -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 21:22:57 ===================================
+=== no apn-selection-rule 1
+=== CASA-MOBILE(config-pgw-c)#
+=== CASA-MOBILE(config-pgw-c)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect    -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 21:22:58 ===================================
+=== 
+=== CASA-MOBILE(config-pgw-c)#
+=== CASA-MOBILE(config-pgw-c)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+step_5239
+
+=================================== 21:23:00 ===================================
+=== 
+=== CASA-MOBILE(config-pgw-c)#
+=== CASA-MOBILE(config-pgw-c)#
+================================================================================
+
+Info(CasaGetPrompt): Current CLI mode for exp9 is config-pgw-c)#
+CASA-MOBILE(config-pgw-c
+
+=================================== 21:23:00 ===================================
+=== end
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+
+=================================== 21:23:00 ===================================
+=== 
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+Info(CasaGetPrompt): Current CLI mode for exp9 is config)#
+CASA-MOBILE(config
+
+=================================== 21:23:00 ===================================
+=== 
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+
+=================================== 21:23:02 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 21:23:03 ===================================
+=== config
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+
+=================================== 21:23:05 ===================================
+=== 
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+
+=================================== 21:23:05 ===================================
+=== exit
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+!! Info(Adapt_Environment): Global variable ADAPT_ENVIR_FLAG not exists or == 0, pass this proc
+step_5239
+
+=================================== 21:23:06 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(CasaGetPrompt): Current CLI mode for exp9 is enable
+
+=================================== 21:23:06 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 21:23:08 ===================================
+=== 
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 21:23:09 ===================================
+=== config
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+
+=================================== 21:23:11 ===================================
+=== 
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+SendAndExpect    -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 21:23:11 ===================================
+=== 
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+SendAndExpect    -- -fd exp9  -callback cbInfo -print on -prompt casa -timeout 40 -allowEOF -ignoreErrErr Minor!!!
+
+=================================== 21:23:12 ===================================
+=== 
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+Info(::DEALEXCEL::ExecuteConf): Sleeping 1 second(s)...
+
+=================================== 21:23:14 ===================================
+=== 
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+Info(CasaGetPrompt): Current CLI mode for exp9 is config)#
+CASA-MOBILE(config
+
+=================================== 21:23:14 ===================================
+=== end
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 21:23:14 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(CasaGetPrompt): Current CLI mode for exp9 is enable
+
+=================================== 21:23:14 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 21:23:16 ===================================
+=== 
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 21:23:17 ===================================
+=== config
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+
+=================================== 21:23:19 ===================================
+=== 
+=== CASA-MOBILE(config)#
+=== CASA-MOBILE(config)#
+================================================================================
+
+
+=================================== 21:23:19 ===================================
+=== exit
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Stop tools!!
+Info(ixiaTestStop): Sleeping 20 second(s)...
+Info(ixiaTestStop): Sleeping 20 second(s)...
+ixiaReleaseConnect!!
+Info(DEALEXCEL::Mirror_Clear): There are the following spawn_id of NFV that should clear mirror config (SPAWN_ID_SAEGW_C)
+
+=================================== 21:24:00 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#mirror stop
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+TRACE(LteCliSend) : Calledby Mirror
+{
+					no mirror destination
+					no mirror pgw protocol pfcp
+					no mirror pgw protocol gtpc
+					no mirror sgw protocol s4s11 
+					no mirror sgw protocol pfcp
+					no mirror aaa protocol diameter
+				} -- -fd exp9
+
+=================================== 21:24:00 ===================================
+=== no mirror destination
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 21:24:00 ===================================
+=== no mirror pgw protocol pfcp
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 21:24:00 ===================================
+=== no mirror pgw protocol gtpc
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 21:24:00 ===================================
+=== no mirror sgw protocol s4s11 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 21:24:00 ===================================
+=== no mirror sgw protocol pfcp
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 21:24:01 ===================================
+=== no mirror aaa protocol diameter
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Info(DEALEXCEL::Mirror_Clear): There are the following spawn_id of NFV that should clear mirror config (SPAWN_ID_SAEGW_U)
+
+=================================== 21:24:02 ===================================
+=== 
+=== CASA-MOBILE#
+=== CASA-MOBILE#mirror stop
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+TRACE(LteCliSend) : Calledby Mirror
+{
+					no mirror destination
+					no mirror pgw protocol user
+					no mirror pgw protocol gtpu 
+					no mirror sgw protocol s1u 
+				} -- -fd exp10
+
+=================================== 21:24:02 ===================================
+=== no mirror destination
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 21:24:02 ===================================
+=== no mirror pgw protocol user
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 21:24:02 ===================================
+=== no mirror pgw protocol gtpu 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 21:24:02 ===================================
+=== no mirror sgw protocol s1u 
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+Complete all steps!!
+Info(EndofSaegwTest): test==/public/casa-495/test/Tests/hxd/SAEGW.test
+
+TRACE(ShowHistory) : Calledby EndofSaegwTest
+
+
+                                                                
+---------------------------------------------------------------------------------------------------------------------------------
+     Time     spawn_id Descr              Command                                                                               
+---------------------------------------------------------------------------------------------------------------------------------
+ 1   21:18:49 exp7     172.0.10.51:22:23  casa                                                                                  
+ 2   21:18:51 exp7     172.0.10.51:22:23  su casa                                                                               
+ 3   21:18:51 exp7     172.0.10.51:22:23  en\ncasa                                                                              
+ 4   21:18:51 exp7     172.0.10.51:22:23  show task crash                                                                       
+ 5   21:18:52 exp7     172.0.10.57:22:23  casa                                                                                  
+ 6   21:18:53 exp7     172.0.10.57:22:23  su casa                                                                               
+ 7   21:18:54 exp7     172.0.10.57:22:23  en\ncasa                                                                              
+ 8   21:18:54 exp7     172.0.10.57:22:23  show task crash                                                                       
+ 9   21:18:54 exp7     172.0.10.51:22:23  casa                                                                                  
+ 10  21:18:54 exp7     172.0.10.51:22:23  page-off                                                                              
+ 11  21:18:57 exp8     172.0.10.57:22:23  casa                                                                                  
+ 12  21:18:57 exp8     172.0.10.57:22:23  page-off                                                                              
+ 13  21:18:59 exp9      172.0.10.51:22:23 casa                                                                                  
+ 14  21:19:02 exp9      172.0.10.51:22:23 su casa                                                                               
+ 15  21:19:03 exp9      172.0.10.51:22:23 en\ncasa                                                                              
+ 16  21:19:03 exp10     172.0.10.57:22:23 casa                                                                                  
+ 17  21:19:07 exp10     172.0.10.57:22:23 su casa                                                                               
+ 18  21:19:07 exp10     172.0.10.57:22:23 en\ncasa                                                                              
+ 19  21:19:16 exp9      172.0.10.51:22:23 CTRL-Z                                                                                
+ 20  21:19:19 exp9      172.0.10.51:22:23 config                                                                                
+ 21  21:19:21 exp9      172.0.10.51:22:23 diameter-endpoint ixia-gx                                                             
+ 22  21:19:22 exp9      172.0.10.51:22:23 origin host pgw01.gx.epc.gz realm asac.com gige 0/1                                   
+ 23  21:19:23 exp9      172.0.10.51:22:23 peer host pcrf.ixia realm asac.com ipv4 172.1.20.222 tcp                              
+ 24  21:19:24 exp9      172.0.10.51:22:23 route-entry realm asac.com app gx peer host pcrf.ixia weight 50                       
+ 25  21:19:25 exp9      172.0.10.51:22:23 exit                                                                                  
+ 26  21:19:26 exp9      172.0.10.51:22:23 gx-service  pgw-gx                                                                    
+ 27  21:19:27 exp9      172.0.10.51:22:23 diameter-endpoint ixia-gx                                                             
+ 28  21:19:28 exp9      172.0.10.51:22:23 destination realm asac.com  host pcrf.ixia                                            
+ 29  21:19:29 exp9      172.0.10.51:22:23 exit                                                                                  
+ 30  21:19:30 exp9      172.0.10.51:22:23 no qos-action 1                                                                       
+ 31  21:19:31 exp9      172.0.10.51:22:23 forwarding-action 1                                                                   
+ 32  21:19:32 exp9      172.0.10.51:22:23 pkt forward                                                                           
+ 33  21:19:33 exp9      172.0.10.51:22:23 exit                                                                                  
+ 34  21:19:34 exp9      172.0.10.51:22:23 qos-action 1                                                                          
+ 35  21:19:35 exp9      172.0.10.51:22:23 qos uplink mbr 1000 gbr 1000                                                          
+ 36  21:19:36 exp9      172.0.10.51:22:23 qos downlink mbr 2000 gbr 2000                                                        
+ 37  21:19:37 exp9      172.0.10.51:22:23 qci 1 arp pl 1 pci 1 pvi 1                                                            
+ 38  21:19:38 exp9      172.0.10.51:22:23 exit                                                                                  
+ 39  21:19:39 exp9      172.0.10.51:22:23 reporting-action 1                                                                    
+ 40  21:19:40 exp9      172.0.10.51:22:23 exit                                                                                  
+ 41  21:19:41 exp9      172.0.10.51:22:23 sdf-filter 1                                                                          
+ 42  21:19:42 exp9      172.0.10.51:22:23 direction bidirectional                                                               
+ 43  21:19:43 exp9      172.0.10.51:22:23 protocol 132                                                                          
+ 44  21:19:44 exp9      172.0.10.51:22:23 exit                                                                                  
+ 45  21:19:45 exp9      172.0.10.51:22:23 pcc-rulebase Predefine-PCC-1                                                          
+ 46  21:19:46 exp9      172.0.10.51:22:23 pcc-rule 1 priority 1 sdf-filter 1 forwarding-action 1 qos-action 1 reporting-action 1
+ 47  21:19:47 exp9      172.0.10.51:22:23 exit                                                                                  
+ 48  21:19:48 exp9      172.0.10.51:22:23 lte-service pgw-c                                                                     
+ 49  21:19:49 exp9      172.0.10.51:22:23 apn-selection-rule 1                                                                  
+ 50  21:19:50 exp9      172.0.10.51:22:23 sgw-ip 123.2.11.11                                                                    
+ 51  21:19:51 exp9      172.0.10.51:22:23 exit                                                                                  
+ 52  21:19:52 exp9      172.0.10.51:22:23 no apn apn1                                                                           
+ 53  21:19:53 exp9      172.0.10.51:22:23 no apn apn2                                                                           
+ 54  21:19:54 exp9      172.0.10.51:22:23 apn apn1                                                                              
+ 55  21:19:55 exp9      172.0.10.51:22:23 ip pool name ue-pool-4                                                                
+ 56  21:19:56 exp9      172.0.10.51:22:23 virtual-apn apn-selection-rule 1 priority 1 apn apn2                                  
+ 57  21:19:57 exp9      172.0.10.51:22:23 exit                                                                                  
+ 58  21:19:58 exp9      172.0.10.51:22:23 apn apn2                                                                              
+ 59  21:19:59 exp9      172.0.10.51:22:23 ip pool name ue-pool-4                                                                
+ 60  21:20:00 exp9      172.0.10.51:22:23 diameter-app gx-service pgw-gx                                                        
+ 61  21:20:01 exp9      172.0.10.51:22:23 exit                                                                                  
+ 62  21:20:02 exp9      172.0.10.51:22:23 exit                                                                                  
+ 63  21:20:04 exp9      172.0.10.51:22:23 end                                                                                   
+ 64  21:20:04 exp9      172.0.10.51:22:23 CTRL-Z                                                                                
+ 65  21:20:07 exp9      172.0.10.51:22:23 config                                                                                
+ 66  21:20:09 exp9      172.0.10.51:22:23 exit                                                                                  
+ 67  21:22:22 exp9      172.0.10.51:22:23 \nshow ha info                                                                        
+ 68  21:22:25 exp9      172.0.10.51:22:23 \nshow pgw-c stats pfcp peer                                                          
+ 69  21:22:28 exp9      172.0.10.51:22:23 \nshow sgw-c stats pfcp peer                                                          
+ 70  21:22:30 exp9      172.0.10.51:22:23 \nshow diameter-endpoint                                                              
+ 71  21:22:32 exp9      172.0.10.51:22:23 \nshow diameter-endpoint                                                              
+ 72  21:22:34 exp9      172.0.10.51:22:23 \nshow diameter-endpoint                                                              
+ 73  21:22:36 exp9      172.0.10.51:22:23 \nshow diameter-endpoint                                                              
+ 74  21:22:38 exp9      172.0.10.51:22:23 \nshow diameter-endpoint                                                              
+ 75  21:22:40 exp9      172.0.10.51:22:23 \nshow diameter-endpoint                                                              
+ 76  21:22:43 exp9      172.0.10.51:22:23 CTRL-Z                                                                                
+ 77  21:22:46 exp9      172.0.10.51:22:23 config                                                                                
+ 78  21:22:48 exp9      172.0.10.51:22:23 lte-service pgw-c                                                                     
+ 79  21:22:49 exp9      172.0.10.51:22:23 no apn apn1                                                                           
+ 80  21:22:50 exp9      172.0.10.51:22:23 no apn apn2                                                                           
+ 81  21:22:51 exp9      172.0.10.51:22:23 apn apn1                                                                              
+ 82  21:22:52 exp9      172.0.10.51:22:23 ip pool name ue-pool-4                                                                
+ 83  21:22:53 exp9      172.0.10.51:22:23 exit                                                                                  
+ 84  21:22:54 exp9      172.0.10.51:22:23 apn apn2                                                                              
+ 85  21:22:55 exp9      172.0.10.51:22:23 ip pool name ue-pool-4                                                                
+ 86  21:22:56 exp9      172.0.10.51:22:23 exit                                                                                  
+ 87  21:22:57 exp9      172.0.10.51:22:23 no apn-selection-rule 1                                                               
+ 88  21:23:00 exp9      172.0.10.51:22:23 end                                                                                   
+ 89  21:23:00 exp9      172.0.10.51:22:23 CTRL-Z                                                                                
+ 90  21:23:03 exp9      172.0.10.51:22:23 config                                                                                
+ 91  21:23:05 exp9      172.0.10.51:22:23 exit                                                                                  
+ 92  21:23:06 exp9      172.0.10.51:22:23 CTRL-Z                                                                                
+ 93  21:23:09 exp9      172.0.10.51:22:23 config                                                                                
+ 94  21:23:14 exp9      172.0.10.51:22:23 end                                                                                   
+ 95  21:23:14 exp9      172.0.10.51:22:23 CTRL-Z                                                                                
+ 96  21:23:17 exp9      172.0.10.51:22:23 config                                                                                
+ 97  21:23:19 exp9      172.0.10.51:22:23 exit                                                                                  
+ 98  21:24:00 exp9      172.0.10.51:22:23 mirror stop                                                                           
+ 99  21:24:00 exp9      172.0.10.51:22:23 no mirror destination                                                                 
+ 100 21:24:00 exp9      172.0.10.51:22:23 no mirror pgw protocol pfcp                                                           
+ 101 21:24:00 exp9      172.0.10.51:22:23 no mirror pgw protocol gtpc                                                           
+ 102 21:24:00 exp9      172.0.10.51:22:23 no mirror sgw protocol s4s11                                                          
+ 103 21:24:00 exp9      172.0.10.51:22:23 no mirror sgw protocol pfcp                                                           
+ 104 21:24:00 exp9      172.0.10.51:22:23 no mirror aaa protocol diameter                                                       
+ 105 21:24:02 exp10     172.0.10.57:22:23 mirror stop                                                                           
+ 106 21:24:02 exp10     172.0.10.57:22:23 no mirror destination                                                                 
+ 107 21:24:02 exp10     172.0.10.57:22:23 no mirror pgw protocol user                                                           
+ 108 21:24:02 exp10     172.0.10.57:22:23 no mirror pgw protocol gtpu                                                           
+ 109 21:24:02 exp10     172.0.10.57:22:23 no mirror sgw protocol s1u                                                            
+---------------------------------------------------------------------------------------------------------------------------------
+     Time     spawn_id Descr              Command                                                                               
+---------------------------------------------------------------------------------------------------------------------------------
+
+
+
+=================================== 21:24:02 ===================================
+=== ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no 172.0.10.51
+=== root@172.0.10.51's password: 
+=== Last login: Sat Mar 28 13:19:06 2020 from 172-0-11-88.lightspeed.rcsntx.sbcglobal.net
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# su casa
+=== 
+=== ===================================
+=== Welcome to CASA MEC x86 Platform
+=== ===================================
+=== CLI services started!
+=== CASA-MOBILE>
+=== CASA-MOBILE>en
+=== Password: 
+=== CASA-MOBILE#
+=== CASA-MOBILE#show task crash
+=== Number  Task             Crash-Time                Exit-Code     Exit-Reason     Core-file
+=== ==========================================================================================
+=== Total 0 crash records
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+=================================== 21:24:05 ===================================
+=== ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no 172.0.10.57
+=== root@172.0.10.57's password: 
+=== Last login: Sat Mar 28 13:19:10 2020 from 172-0-11-88.lightspeed.rcsntx.sbcglobal.net
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# su casa
+=== 
+=== ===================================
+=== Welcome to CASA MEC x86 Platform
+=== ===================================
+=== CLI services started!
+=== CASA-MOBILE>
+=== CASA-MOBILE>en
+=== Password: 
+=== CASA-MOBILE#
+=== CASA-MOBILE#show task crash
+=== Number  Task             Crash-Time                Exit-Code     Exit-Reason     Core-file
+=== ==========================================================================================
+=== Total 0 crash records
+=== CASA-MOBILE#
+=== CASA-MOBILE#
+================================================================================
+
+
+#####  Result:    FAILED
+#####  Script:    SAEGW.test/29006_29008_29010_29012_29014_29016_29018
+#####  Last Step: 6: 5.get excel case info
+#####  Date:      03/28/2020 09:18:49 PM
+#####  Log:       /public/casa-495/test/Log/SAEGW_11239-00.txt
+#####  Warnings:  4
+#####  Errors:    6
+#####  SubTest Duration: 05:17
+
+##########################################
+All test cases have been executed
+##########################################
+
+                                               SAEGW
+----------------------------------------------------------------------------------------------------
+   Test                                      Duration Verdict Errs Warns Type            Bugs Fixed
+----------------------------------------------------------------------------------------------------
+ 1 29006_29008_29010_29012_29014_29016_29018 05:17    Fail    6    4     Expect No Error           
+----------------------------------------------------------------------------------------------------
+
+############################################
+#####  Passed:    0
+#####  Aborted:   0
+#####  Canceled:  0
+#####  Failed:    1
+#####  ----------------
+#####  Total:     1
+#####  Duration:  05:17
+#####
+#####  Script:    /public/casa-495/test/Tests/hxd/SAEGW.test
+#####  Date:      03/28/2020 09:24:06 PM
+#####  Log:       /public/casa-495/test/Log/SAEGW_11239-00.txt
+#####  Verdict:   FAILED
+############################################
+
+Mail -body SAEGW -subject Failed: SAEGW.test  -to gzltesqa@casachina.com.cn -attach /public/casa-495/test/Log/SAEGW_11239-00.txt
+
+=================================== 21:24:07 ===================================
+=== ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no 172.0.10.51
+=== root@172.0.10.51's password: 
+=== Last login: Sat Mar 28 13:24:09 2020 from 172-0-11-88.lightspeed.rcsntx.sbcglobal.net
+=== root@CASA-MOBILE:~# page-off
+=== page-off: command not found
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# ssh -l root -p 22 -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no 172.0.10.51
+=== root@172.0.10.51's password: 
+=== Last login: Sat Mar 28 13:24:14 2020 from 172-0-11-88.lightspeed.rcsntx.sbcglobal.net
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# 
+=== root@CASA-MOBILE:~# su casa
+=== 
+=== ===================================
+=== Welcome to CASA MEC x86 Platform
+=== ===================================
+=== CLI services started!
+=== CASA-MOBILE>
+=== CASA-MOBILE>en
+=== Password: 
+=== CASA-MOBILE#
+=== CASA-MOBILE#show version
+=== QA Release: 5.0.0-205
+=== Build Time: Thu Mar 26 00:34:38 EDT 2020
+=== 
+================================================================================
+
+
+=================================== 21:24:14 ===================================
+=== cd /email
+=== root@CASA-MOBILE:/email# 
+=== root@CASA-MOBILE:/email# 
+================================================================================
+
+
+=================================== 21:24:14 ===================================
+=== scp root@[172.0.11.88]:/public/casa-495/test/Log/SAE<p root@[172.0.11.88]:/public/casa-495/test/Log/SAEG                         
+=== W_11239-00.txt /email/SAE<ic/casa-495/test/Log/SAEGW_11239-00.txt /email/SAEG                         
+=== W_11239-00.txt
+=== root@172.0.11.88's password: 
+================================================================================
+
+
+=================================== 21:24:14 ===================================
+=== 
+=== SAEGW_11239-00.txt                              0%    0     0.0KB/s   --:-- ETASAEGW_11239-00.txt                            100%  146KB 146.0KB/s   00:00    
+=== root@CASA-MOBILE:/email# 
+================================================================================
+
+Info(Mail): Sleeping 2 second(s)...
+
+=================================== 21:24:16 ===================================
+=== tar Jcvf SAEGW_11239-00.tar.bz2 SAEGW_11239-00.txt
+=== SAEGW_11239-00.txt
+=== root@CASA-MOBILE:/email# 
+=== root@CASA-MOBILE:/email# 
+================================================================================
+
+
+=================================== 21:24:16 ===================================
+=== rm casa.txt
+=== root@CASA-MOBILE:/email# 
+=== root@CASA-MOBILE:/email# 
+================================================================================
+
+
+=================================== 21:24:16 ===================================
+=== sed  -i 's/Impossible characters, let the whole cont<d  -i 's/Impossible characters, let the whole conte                         
+=== nt as a domain/ /'  /emai<ters, let the whole content as a domain/ /'  /email                         
+=== /SAEGW_11239-00.txt
+=== root@CASA-MOBILE:/email# 
+=== root@CASA-MOBILE:/email# 
+================================================================================
+
+
+=================================== 21:24:16 ===================================
+=== awk 'BEGIN {RS = "Impossible characters, let the who<k 'BEGIN {RS = "Impossible characters, let the whol                         
+=== e content as a domain"; F< characters, let the whole content as a domain"; FS                         
+===  = "SAEGW\n"}/./{print $N< content as a domain"; FS = "SAEGW\n"}/./{print $NF                         
+=== }' /email/SAEGW_11239-00.<= "SAEGW\n"}/./{print $NF}' /email/SAEGW_11239-00.t                         
+=== xt  >> casa.txt
+=== root@CASA-MOBILE:/email# 
+=== root@CASA-MOBILE:/email# 
+================================================================================
+
+
+=================================== 21:24:16 ===================================
+=== mail -v -s "Version:5.0.0-205 Failed: SAEGW.test  ME<il -v -s "Version:5.0.0-205 Failed: SAEGW.test  MEC                         
+=== :172.0.10.51" -a SAEGW_11<5 Failed: SAEGW.test  MEC:172.0.10.51" -a SAEGW_112                         
+=== 39-00.tar.bz2 gzltesqa@ca<172.0.10.51" -a SAEGW_11239-00.tar.bz2 gzltesqa@cas                         
+=== achina.com.cn < casa.txt
+=== Resolving host smtp.qiye.163.com . . . done.
+=== Connecting to 220.194.24.10:smtp . . . connected.
+=== 
+================================================================================
+
+
+=================================== 21:24:17 ===================================
+=== 
+=== 
+=== 220 proxy-sm-thq-1.hmbj.internal ESMTP ready
+=== >>> EHLO localhost.localdomain
+=== 250-proxy-sm-thq-1.hmbj.internal
+=== 250-PIPELINING
+=== 250-8BITMIME
+=== 250-AUTH=LOGIN PLAIN
+=== 250-AUTH PLAIN LOGIN
+=== 250 STARTTLS
+=== >>> AUTH LOGIN
+=== 334 VXNlcm5hbWU6
+=== >>> ZGVuZ3h1ZWp1YW5AY2FzYWNoaW5hLmNvbS5jbg==
+=== 334 UGFzc3dvcmQ6
+=== >>> MTcyLjEuMTAuNTc=
+=== 235 2.0.0 OK
+=== >>> MAIL FROM:<dengxuejuan@casachina.com.cn>
+=== 250 Mail OK
+=== >>> RCPT TO:<gzltesqa@casachina.com.cn>
+=== 250 Mail OK
+=== >>> DATA
+=== 354 End data with <CR><LF>.<CR><LF>
+=== >>> .
+=== 250 Mail OK queued as smtp5,huCowACX7_QHUH9eL3SyAQ--.3901S2 1585401864
+=== >>> QUIT
+=== 221 Bye
+=== 
+================================================================================
+
